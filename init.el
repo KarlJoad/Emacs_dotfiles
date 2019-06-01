@@ -16,7 +16,7 @@
 (require 'use-package-ensure) ; Make sure packages are loaded
 (setq use-package-always-ensure t)
 (use-package auto-compile
-	     :config (auto-compile-on-load-mode))
+  :config (auto-compile-on-load-mode))
 (use-package neotree)
 (use-package magit)
 (use-package auctex
@@ -26,6 +26,7 @@
 
 ;;; Loading in themes, to prevent the use of (custom-set-variables)
 ;;; This will make sure things are loaded in at the correct time
+;;; Uncomment one of these lines, then change the load-theme line to the appropriate theme
 ;(use-package abyss-theme)
 ;(use-package cyberpunk-theme)
 ;(use-package doom-themes)
@@ -56,7 +57,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-agenda-files nil)
- '(package-selected-packages (quote (neotree magit auctex markdown-mode))))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
