@@ -30,11 +30,23 @@
 ;(use-package abyss-theme)
 ;(use-package cyberpunk-theme)
 ;(use-package doom-themes)
-;(use-package spacemacs-theme)
+;(use-package spacemacs-theme ; Load the spacemacs themes up
+;  :config
+;  (load-theme 'spacemacs-dark-theme t)) ; Load the dark theme up
 
 ;;;; Change Default custom-theme-load-path
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme 'tron t) ; Arguments: Themename No-confirm
+(defun apply-theme-if-daemon ()
+  "Apply the theme used above if emacs is evaluated with emacs --daemon, ensuring each subsequent frame is themed appropriately"
+  (interactive)
+  (load-theme 'tron t))
+
+(if (daemonp)
+    (add-hood 'after-make-frame-functions
+	      (lambda (frame)
+		(with-selected-frame frame (apply-theme-if-daemon))))
+  (apply-theme-if-daemon))
 
 ;;;; Turn on Line numbering
 (global-display-line-numbers-mode)
