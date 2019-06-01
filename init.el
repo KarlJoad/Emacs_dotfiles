@@ -17,6 +17,17 @@
 (setq use-package-always-ensure t)
 (use-package auto-compile
 	     :config (auto-compile-on-load-mode))
+(use-package neotree)
+(use-package magit)
+(use-package auctex)
+(use-package markdown-mode)
+
+;;; Loading in themes, to prevent the use of (custom-set-variables)
+;;; This will make sure things are loaded in at the correct time
+(use-package abyss-theme)
+(use-package cyberpunk-theme)
+(use-package doom-themes)
+(use-package spacemacs-theme)
 
 ;;;; Change Default custom-theme-load-path
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
