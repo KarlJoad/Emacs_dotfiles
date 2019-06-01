@@ -13,6 +13,7 @@
 (when (not (package-installed-p 'use-package))
   (package-refresh-contents)
   (package-install 'use-package))
+'(package-selected-packages (quote (neotree magit auctex markdown-mode))))
 (require 'use-package-ensure) ; Make sure packages are loaded
 (setq use-package-always-ensure t)
 (use-package auto-compile
@@ -46,7 +47,7 @@
    (quote
     ("efefb69e7781fcfe62f3d0b573701f56e45e29afbe9e378a422025fd767ea246" default)))
  '(org-agenda-files nil)
- '(package-selected-packages (quote (neotree magit auctex markdown-mode))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
