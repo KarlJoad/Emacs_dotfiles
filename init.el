@@ -19,7 +19,9 @@
 	     :config (auto-compile-on-load-mode))
 (use-package neotree)
 (use-package magit)
-(use-package auctex)
+(use-package auctex
+  :defer t
+  :ensure t)
 (use-package markdown-mode)
 
 ;;; Loading in themes, to prevent the use of (custom-set-variables)
