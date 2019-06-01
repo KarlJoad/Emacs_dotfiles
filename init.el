@@ -24,13 +24,14 @@
 
 ;;; Loading in themes, to prevent the use of (custom-set-variables)
 ;;; This will make sure things are loaded in at the correct time
-(use-package abyss-theme)
-(use-package cyberpunk-theme)
-(use-package doom-themes)
-(use-package spacemacs-theme)
+;(use-package abyss-theme)
+;(use-package cyberpunk-theme)
+;(use-package doom-themes)
+;(use-package spacemacs-theme)
 
 ;;;; Change Default custom-theme-load-path
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'tron t) ; Arguments: Themename No-confirm
 
 ;;;; Turn on Line numbering
 (global-display-line-numbers-mode)
@@ -52,10 +53,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (tron)))
- '(custom-safe-themes
-   (quote
-    ("efefb69e7781fcfe62f3d0b573701f56e45e29afbe9e378a422025fd767ea246" default)))
  '(org-agenda-files nil)
  '(package-selected-packages (quote (neotree magit auctex markdown-mode))))
 (custom-set-faces
