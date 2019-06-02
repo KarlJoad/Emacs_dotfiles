@@ -62,6 +62,8 @@
 ;(setq neo-theme (if (display-graphic-p) 'nerd 'ascii))
 (setq neo-theme (if (display-graphic-p) 'nerd 'ascii))
 
+;;;; AucTeX options
+
 ;;;; Set the Theme
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -69,7 +71,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-agenda-files nil)
- )
+ '(package-selected-packages
+   (quote
+    (use-package spacemacs-theme neotree markdown-mode magit auto-compile auctex all-the-icons))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
