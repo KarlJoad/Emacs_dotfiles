@@ -76,8 +76,14 @@
                                         ; aux-directory: Put auxiliary files in in ./TeX_Aux_Files directory relative to the master document
 					; output-directory: Also puts output file in ./TeX_Output directory relative to the master document
 					; From: https://tex.stackexchange.com/questions/157242/adding-an-option-to-the-pdflatex-call-from-auctex
-(setq TeX_parse-self t) ; Parse multifile documents automagically
+(setq TeX-parse-self t) ; Parse multifile documents automagically
+(setq TeX-show-compilation t) ; Always show compilation output
+(setq TeX-command-default "pdflatex") ; Default compile to PDF
 (setq LaTeX-biblatex-use-Biber t) ; Make biblatex use Biber automatically
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+(setq reftex-plug-into-AUCTeX t)
+
 
 ;;; preview-latex Options
 ;(load "preview-latex.el" nil t t) ; noerror-nil, nomessage-t, nosuffix-t
