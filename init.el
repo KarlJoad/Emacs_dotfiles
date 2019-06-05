@@ -22,6 +22,7 @@
 (use-package auctex
   :defer t
   :ensure t)
+(use-package reftex) ; Require reftex package for LaTeX support
 (use-package markdown-mode)
 
 ;;; Loading in themes, to prevent the use of (custom-set-variables)
@@ -63,6 +64,17 @@
 (setq neo-theme (if (display-graphic-p) 'nerd 'ascii))
 
 ;;;; AucTeX options
+(setq LaTeX-command-style '(("" "%(PDF)%(latex) -synctex=1 -interaction=nonstopmode -aux-directory=./TeX_Aux_Files -output-directory=./TeX_Output %S%(PDFout)")))
+					; synctex: Have Input and Output line up when viewed 
+					; interaction: Have processor ignore many errors, so this can be automated
+                                        ; aux-directory: Put auxiliary files in in ./TeX_Aux_Files directory relative to the master document
+					; output-directory: Also puts output file in ./TeX_Output directory relative to the master document
+					; From: https://tex.stackexchange.com/questions/157242/adding-an-option-to-the-pdflatex-call-from-auctex
+(setq TeX_parse-self t) ; Parse multifile documents automagically
+(setq LaTeX-biblatex-use-Biber t) ; Make biblatex use Biber automatically
+
+;;; preview-latex Options
+;(load "preview-latex.el" nil t t) ; noerror-nil, nomessage-t, nosuffix-t
 
 ;;;; Set the Theme
 (custom-set-variables
