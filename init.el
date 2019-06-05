@@ -49,6 +49,12 @@
 		(with-selected-frame frame (apply-theme-if-daemon))))
   (apply-theme-if-daemon))
 
+;;;; Remove scroll bar at side
+(scroll-bar-mode -1)
+
+;;;; Skip the "Welcome" Page
+;(setq inhibit-startup-message t)
+
 ;;;; Turn on Line numbering
 (global-display-line-numbers-mode)
 
