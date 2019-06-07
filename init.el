@@ -4,15 +4,24 @@
 ;;;; Make Emacs Start Full-Screen
 (add-hook 'emacs-startup-hook 'toggle-frame-maximized)
 
+;;;; Tell Emacs where to look for my other config files
+(setq user-emacs-directory (expand-file-name "~/.emacs.d/")) ; Directory where Emacs Files are located
+(setq user-emacs-config-directory (concat user-emacs-directory "config/"))
+(add-to-list 'load-path (concat user-emacs-directory "config/")) ; user-emacs-directory + "config/" to put the config directory in the load-path
+
+;;;; Set up my personal information and my personal settings
+(load "personal-info")
+(load "personal-settings")
+
 ;;;; Add Package Archives
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
 ;;;; Ensure packages are always new and always loaded
-(when (not (package-installed-p 'use-package))
-  (package-refresh-contents)
-  (package-install 'use-package))
+(when (not (package-installed-p 'use-package)) ; When use-package is not installed,
+  (package-refresh-contents)                   ; refresh package repositories,
+  (package-install 'use-package))              ; and install use-package
 (require 'use-package-ensure) ; Make sure packages are loaded
 (setq use-package-always-ensure t)
 (use-package auto-compile
@@ -50,15 +59,6 @@
 		(with-selected-frame frame (apply-theme-if-daemon))))
   (apply-theme-if-daemon))
 
-;;;; Remove scroll bar at side
-(scroll-bar-mode -1)
-
-;;;; Skip the "Welcome" Page
-;(setq inhibit-startup-message t)
-
-;;;; Turn on Line numbering
-(global-display-line-numbers-mode)
-
 ;;;; Org-mode Things (Agenda)
 (global-set-key (kbd "C-c a") 'org-agenda) ; "C-c a" opens the Agenda Buffer to choose where to go
 (global-set-key (kbd "C-c l") 'org-store-link) ; "C-c l" stores a hyperlink to the cursor's current position in the current org-mode document
@@ -69,6 +69,9 @@
 (global-set-key [f8] 'neotree-toggle) ; On F8 press, toggle the neotree project browser
 ;(setq neo-theme (if (display-graphic-p) 'nerd 'ascii))
 (setq neo-theme (if (display-graphic-p) 'nerd 'ascii))
+
+;;;; Load in Magit options
+(load "personal-magit.el")
 
 ;;;; AucTeX options
 (setq LaTeX-command-style '(("" "%(PDF)%(latex) -synctex=1 -interaction=nonstopmode -aux-directory=./TeX_Aux_Files -output-directory=./TeX_Output %S%(PDFout)")))
@@ -143,5 +146,5 @@
 ;		 ("Complete Build" "latexmk -e \"$pdflatex=q/pdflatex %%O %S %(mode) %%S/\" -e \"$biber=q/biber %%O --input-directory ./TeX_Aux_Files --output-directory ./TeX_Aux_Files %%B/\" -e \"$makeindex=q/makeindex %%O -o %%D %%S/\" -norc -gg -pdf %t" TeX-run-TeX nil (latex-mode) :help "Run Latexmk-pdfLaTeX")
 		 )))))
 
-;;;; Set up personal information
-(load "~/.emacs.d/config/personal-info.el")
+;;;; Change Directory to where I want to work
+(cd "c:/users/karl/documents/git")
