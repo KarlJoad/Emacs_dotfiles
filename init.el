@@ -9,7 +9,7 @@
 (setq user-emacs-config-directory (concat user-emacs-directory "config/"))
 (add-to-list 'load-path (concat user-emacs-directory "config/")) ; user-emacs-directory + "config/" to put the config directory in the load-path
 
-;;;; Make sure Emacs loads up newer config files, even if they aren't compiled yet
+;;;; Make sure Emacs loads up newer config files, even if they aren't compiled
 (setq load-prefer-newer t)
 
 ;;;; Set up my personal information and my personal settings
@@ -68,16 +68,30 @@
 ; (global-set-key (kbd "C-c c") 'org-capture) ; "C-c c" will let me select a template and file the new information
 
 ;;;; Load in Neotree options
-(load "neotree-config.el")
+(load "neotree-config")
 
 ;;;; Load in Magit options
-(load "magit-config.el")
+(load "magit-config")
 
 ;;;; AucTeX options
-(load "auctex-config.el")
+(load "auctex-config")
 
 ;;; preview-latex Options
 ;(load "preview-latex-config.el" nil t t) ; noerror-nil, nomessage-t, nosuffix-t
 
 ;;;; Lastly, Change Directory to where I want to work
 (cd "c:/users/karl/documents/git")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (use-package spacemacs-theme neotree markdown-mode magit auto-compile auctex-latexmk all-the-icons))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

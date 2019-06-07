@@ -67,4 +67,4 @@
 		 )))))
 
 ;;; auctex-latexmk Options
-(load "auctex-latexmk-config.el")
+(load "auctex-latexmk-config")
