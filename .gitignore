@@ -22,6 +22,12 @@ tramp
 # elpa packages
 /elpa/
 
+# Server
+/server
+
+# Magit Transient File
+/transient
+
 # reftex files
 *.rel
 
