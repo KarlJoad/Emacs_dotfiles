@@ -23,6 +23,7 @@
   :defer t
   :ensure t)
 (use-package reftex) ; Require reftex package for LaTeX support
+(use-package auctex-latexmk)
 (use-package markdown-mode)
 
 ;;; Loading in themes, to prevent the use of (custom-set-variables)
@@ -87,6 +88,12 @@
 ;;; preview-latex Options
 ;(load "preview-latex.el" nil t t) ; noerror-nil, nomessage-t, nosuffix-t
 
+;;; auctex-latexmk Options
+(require 'auctex-latexmk)
+(auctex-latexmk-setup)
+(setq auctex-latexmk-inherit-TeX-mode-pdf t) ; Have LaTeXMK pass the -pdf flag when TeX-mode-pdf is active
+(setq TeX-file-line-error nil) ; This is a workaround for MikTeX: https://sourceforge.net/p/miktex/bugs/2310/
+
 ;;; Set up the compilation options
 (function (lambda()
 	    '(TeX-command-list
@@ -132,7 +139,9 @@
 		 ("Spell" "(TeX-ispell-document \"\")" TeX-run-function nil t :help "Spell-check the document")
 		 ("Clean" "TeX-clean" TeX-run-function nil t :help "Delete generated intermediate files")
 		 ("Clean All" "(TeX-clean t)" TeX-run-function nil t :help "Delete generated intermediate and output files")
-		 ("Other" "" TeX-run-command t t :help "Run an arbitrary command"))))))
+		 ("Other" "" TeX-run-command t t :help "Run an arbitrary command")
+;		 ("Complete Build" "latexmk -e \"$pdflatex=q/pdflatex %%O %S %(mode) %%S/\" -e \"$biber=q/biber %%O --input-directory ./TeX_Aux_Files --output-directory ./TeX_Aux_Files %%B/\" -e \"$makeindex=q/makeindex %%O -o %%D %%S/\" -norc -gg -pdf %t" TeX-run-TeX nil (latex-mode) :help "Run Latexmk-pdfLaTeX")
+		 )))))
 
 ;;;; Set up personal information
 (load "~/.emacs.d/config/personal-info.el")
