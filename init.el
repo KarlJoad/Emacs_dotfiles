@@ -64,11 +64,8 @@
 (global-set-key (kbd "C-c l") 'org-store-link) ; "C-c l" stores a hyperlink to the cursor's current position in the current org-mode document
 ; (global-set-key (kbd "C-c c") 'org-capture) ; "C-c c" will let me select a template and file the new information
 
-;;;; Neotree organizer in left area
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle) ; On F8 press, toggle the neotree project browser
-;(setq neo-theme (if (display-graphic-p) 'nerd 'ascii))
-(setq neo-theme (if (display-graphic-p) 'nerd 'ascii))
+;;;; Load in Neotree options
+(load "personal-neotree.el")
 
 ;;;; Load in Magit options
 (load "personal-magit.el")
