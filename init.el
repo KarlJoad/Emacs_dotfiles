@@ -9,6 +9,9 @@
 (setq user-emacs-config-directory (concat user-emacs-directory "config/"))
 (add-to-list 'load-path (concat user-emacs-directory "config/")) ; user-emacs-directory + "config/" to put the config directory in the load-path
 
+;;;; Make sure Emacs loads up newer config files, even if they aren't compiled yet
+(setq load-prefer-newer t)
+
 ;;;; Set up my personal information and my personal settings
 (load "personal-info")
 (load "personal-settings")
@@ -65,16 +68,16 @@
 ; (global-set-key (kbd "C-c c") 'org-capture) ; "C-c c" will let me select a template and file the new information
 
 ;;;; Load in Neotree options
-(load "personal-neotree.el")
+(load "neotree-config.el")
 
 ;;;; Load in Magit options
-(load "personal-magit.el")
+(load "magit-config.el")
 
 ;;;; AucTeX options
-(load "personal-auctex.el")
+(load "auctex-config.el")
 
 ;;; preview-latex Options
-;(load "personal-preview-latex.el" nil t t) ; noerror-nil, nomessage-t, nosuffix-t
+;(load "preview-latex-config.el" nil t t) ; noerror-nil, nomessage-t, nosuffix-t
 
 ;;;; Lastly, Change Directory to where I want to work
 (cd "c:/users/karl/documents/git")
