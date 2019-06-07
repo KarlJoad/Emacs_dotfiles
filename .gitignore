@@ -28,6 +28,9 @@ tramp
 # AUCTeX auto folder
 /auto/
 
+# recentf file
+recentf
+
 # cask packages
 .cask/
 dist/
