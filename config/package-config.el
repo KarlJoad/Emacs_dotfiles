@@ -13,10 +13,30 @@
 
 ;;; Packages that I am using
 (use-package neotree)
+
 (use-package magit)
+
 (use-package auctex
   :defer t
   :ensure t)
+
 (use-package reftex) ; Require reftex package for LaTeX support
+
 (use-package auctex-latexmk)
+
 (use-package markdown-mode)
+
+(use-package yasnippet
+  :ensure t
+  :defer t
+  :config
+  (yas-reload-all)
+  (setq yas-snippet-dirs '("~/emacs.d/snippets"))
+  (setq tab-always-indent 'complete) ; Tabs indent
+  (setq yas-prompt-functions '(yas-completing-prompt
+			       yas-ido-prompt
+			       yas-dropdown-prompt))
+  (define-key yas-minor-mode-map (kbd "<escape>") 'yas-exit-snippet))
+
+(use-package yasnippet-snippets
+  :ensure t)
