@@ -4,5 +4,10 @@
 ;;; Open Magit Status for git handling
 (global-set-key (kbd "C-x g") 'magit-status) ; C-x g will bring up magit status (git status)
 
-;;; git pull with now use p to pull
-(local-set-key (kbd "p") 'magit-pull) ; Using p in the magit major mode will pull that repo
+;;; Bring up a small menu to choose to do magit things
+(global-set-key (kbd "C-x M-g") 'magit-dispatch)
+
+;;; Keybindings in Magit Major Mode
+;; git fetch = "f"
+;; git pull = "F"
+;; git push = "P"
