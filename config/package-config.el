@@ -12,31 +12,42 @@
   :config (auto-compile-on-load-mode)) ; Automatically compile packages on first load
 
 ;;; Packages that I am using
+;; An interactive filetree on the side
 (use-package neotree)
 
+;; Give myself a git wrapper
 (use-package magit)
 
+;; Use a package that provides many QoL things for editing LaTeX/TeX documents
 (use-package auctex
   :defer t
   :ensure t)
 
 (use-package reftex) ; Require reftex package for LaTeX support
 
+;; Use a package that integrates auctex and latexmk for longer/bigger compiles
 (use-package auctex-latexmk)
 
+;; Load a mode to edit markdown files with
 (use-package markdown-mode)
 
+;; Load a snippet manager
 (use-package yasnippet
   :ensure t
   :defer t
   :config
   (yas-reload-all)
-  (setq yas-snippet-dirs '("~/emacs.d/snippets"))
+;  (setq yas-snippet-dirs '("~/emacs.d/snippets")) ; Location to find snippets
   (setq tab-always-indent 'complete) ; Tabs indent
-  (setq yas-prompt-functions '(yas-completing-prompt
+  (setq yas-prompt-functions '(yas-completing-prompt ; List of prompts that yasnippet can go through
 			       yas-ido-prompt
 			       yas-dropdown-prompt))
-  (define-key yas-minor-mode-map (kbd "<escape>") 'yas-exit-snippet))
+  (define-key yas-minor-mode-map (kbd "<escape>") 'yas-exit-snippet)) ; If there was a menu for selecting snippets, provide an escape route
+(yas-global-mode 1) ; Make sure yasnippet is almost always present
+; Snippets are expanded by typing enough of it in, and them pressing "<tab>"
 
+;; Provides a good starting set of yasnippet snippets to use for most major modes
 (use-package yasnippet-snippets
-  :ensure t)
+  :after yasnippet
+  :ensure t
+  :config (yasnippet-snippets-initialize))
