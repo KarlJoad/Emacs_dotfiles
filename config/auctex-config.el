@@ -66,5 +66,11 @@
 ;		 ("Complete Build" "latexmk -e \"$pdflatex=q/pdflatex %%O %S %(mode) %%S/\" -e \"$biber=q/biber %%O --input-directory ./TeX_Aux_Files --output-directory ./TeX_Aux_Files %%B/\" -e \"$makeindex=q/makeindex %%O -o %%D %%S/\" -norc -gg -pdf %t" TeX-run-TeX nil (latex-mode) :help "Run Latexmk-pdfLaTeX")
 		 )))))
 
+;;; Add a way to open the output PDF in Emacs itself, like TeXStudio
+(setq TeX-output-view-style
+      (cons (list "^pdf$" "."
+		  "emacsclientw -n -e '(find-file-other-window \"%o\")'")
+	    TeX-output-view-style))
+
 ;;; auctex-latexmk Options
 (load "auctex-latexmk-config")
