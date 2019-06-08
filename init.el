@@ -9,6 +9,9 @@
 (setq user-emacs-config-directory (concat user-emacs-directory "config/"))
 (add-to-list 'load-path (concat user-emacs-directory "config/")) ; user-emacs-directory + "config/" to put the config directory in the load-path
 
+;;;; Start a server version of Emacs
+(server-start)
+
 ;;;; Make sure Emacs loads up newer config files, even if they aren't compiled
 (setq load-prefer-newer t)
 
