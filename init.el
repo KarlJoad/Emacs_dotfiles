@@ -46,6 +46,6 @@
 ; (load "preview-latex-config"  nil t t) ; noerror-nil, nomessage-t, nosuffix-t
 
 ;;;; Lastly, Change Directory to where I want to work
-(when (equals system-name "Karl-SurfaceBook") ; If Karl is on his Laptop
-  (cd "\"c:/users/karl/Documents/Git"))
-(cd "\"e:/Git/Repos\"") ; Else, Karl is on his desktop
+;; (when (equal system-name "Karl-SurfaceBook") ; If Karl is on his Laptop
+;;   (cd "\"c:/users/karl/Documents/Git\""))
+;; (cd "\"e:/Git/Repos\"") ; Else, Karl is on his desktop
