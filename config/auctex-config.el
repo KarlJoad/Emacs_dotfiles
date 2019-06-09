@@ -2,7 +2,7 @@
 (provide 'personal-auctex)
 
 ;;; Start by setting the LaTeX command style
-(setq LaTeX-command-style '(("" "%(PDF)%(latex) -synctex=1 -interaction=nonstopmode -aux-directory=./TeX_Aux_Files -output-directory=./TeX_Output %S%(PDFout)")))
+;(setq LaTeX-command-style '(("" "%(PDF)%(latex) -synctex=1 -interaction=nonstopmode -aux-directory=./TeX_Aux_Files -output-directory=./TeX_Output %S%(PDFout)")))
 					; synctex: Have Input and Output line up when viewed 
 					; interaction: Have processor ignore many errors, so this can be automated
                                         ; aux-directory: Put auxiliary files in in ./TeX_Aux_Files directory relative to the master document
@@ -11,66 +11,63 @@
 
 (setq TeX-parse-self t) ; Parse multifile documents automagically
 (setq TeX-show-compilation t) ; Always show compilation output
+(setq TeX-global-PDF-mode t) ; Make the default TeX mode PDF mode
 (setq TeX-command-default "pdflatex") ; Default compile to PDF
 (setq LaTeX-biblatex-use-Biber t) ; Make biblatex use Biber automatically
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-(setq reftex-plug-into-AUCTeX t)
+(setq reftex-plug-into-AUCTeX t) ; Make reftex plug into AUCTeX true
+(setq TeX-source-correlate-mode t) ; Correlate output files to input so we can easily navigate
+(setq TeX-source-correlate-method 'synctex)
+(setq TeX-source-correlate-start-server t)
+
+(with-eval-after-load "latex"
+  (when (equal system-type 'windows-nt)
+    (setq TeX-view-program-list '(("Adobe Reader"
+				   "\"c:/Program Files (x86)/Adobe/Acrobat Reader DC/Reader/AcroRd32.exe\" ./TeX_Output/%o")
+				  ("SumatraPDF" "\"c:/Program Files/SumatraPDF/SumatraPDF.exe\" ./TeX_Output/%s.pdf")
+				  ("Emacs Buffer" "\"c:/emacs-26.2-x86_64/bin/emacsclientw.exe -n\" ./TeX_Output/%o"))) ; %o is the output file
+    (setq TeX-view-program-selection '(((output-dvi style-pstricks) "dvips and start")
+				       (output-pdf "SumatraPDF")))
+    )
+  (when (equal system-type "gnu/linux")
+    (setq TeX-view-program-list '(("Zathura" "")
+				  ("Okular" "")))
+    (setq TeX-view-program-selection '(((output-dvi style pstricks) "dvips and start")
+				       (output-pdf "Zathura")))
+    )
+  (set-TeX-command-list) ; Sets up my TeX-command-list
+  )
 
 ;;; Set up the compilation options
-(function (lambda()
-	    '(TeX-command-list
-	      (quote
-	       (("TeX" "%(PDF)%(tex) %(file-line-error) %`%(extraopts) %S%(PDFout)%(mode)%' %t" TeX-run-TeX nil (plain-tex-mode texinfo-mode ams-tex-mode) :help "Run plain TeX")
-                 ("LaTeX" "%`%l%(mode)%' %T" TeX-run-TeX nil
-                 (latex-mode doctex-mode)
-		 :help "Run LaTeX")
-		 ("Makeinfo" "makeinfo %(extraopts) %t" TeX-run-compile nil
-		  (texinfo-mode)
-		  :help "Run Makeinfo with Info output")
-		 ("Makeinfo HTML" "makeinfo %(extraopts) --html %t" TeX-run-compile nil
-		  (texinfo-mode)
-		  :help "Run Makeinfo with HTML output")
-		 ("AmSTeX" "amstex %(PDFout) %`%(extraopts) %S%(mode)%' %t" TeX-run-TeX nil
-		  (ams-tex-mode)
-		  :help "Run AMSTeX")
-		 ("ConTeXt" "%(cntxcom) --once --texutil %(extraopts) %(execopts)%t" TeX-run-TeX nil
-		  (context-mode)
-		  :help "Run ConTeXt once")
-		 ("ConTeXt Full" "%(cntxcom) %(extraopts) %(execopts)%t" TeX-run-TeX nil
-		  (context-mode)
-		  :help "Run ConTeXt until completion")
-		 ("BibTeX" "bibtex %s" TeX-run-BibTeX nil t :help "Run BibTeX")
-		 ("Biber" "biber --input-directory ./TeX_Aux_Files --output-directory ./TeX_Aux_Files %s" TeX-run-Biber nil t :help "Run Biber with TeX_Aux_Files Directory")
-		 ("View" "%V" TeX-run-discard-or-function t t :help "Run Viewer")
-		 ("Print" "%p" TeX-run-command t t :help "Print the file")
-		 ("Queue" "%q" TeX-run-background nil t :help "View the printer queue" :visible TeX-queue-command)
-		 ("File" "%(o?)dvips %d -o %f " TeX-run-dvips t t :help "Generate PostScript file")
-		 ("Dvips" "%(o?)dvips %d -o %f " TeX-run-dvips nil t :help "Convert DVI file to PostScript")
-		 ("Dvipdfmx" "dvipdfmx %d" TeX-run-dvipdfmx nil t :help "Convert DVI file to PDF with dvipdfmx")
-		 ("Ps2pdf" "ps2pdf %f" TeX-run-ps2pdf nil t :help "Convert PostScript file to PDF")
-		 ("Glossaries" "makeglossaries %s" TeX-run-command nil t :help "Run makeglossaries to create glossary file")
-		 ("Index" "makeindex %s" TeX-run-index nil t :help "Run makeindex to create index file")
-		 ("upMendex" "upmendex %s" TeX-run-index t t :help "Run upmendex to create index file")
-		 ("Xindy" "texindy %s" TeX-run-command nil t :help "Run xindy to create index file")
-		 ("Check" "lacheck %s" TeX-run-compile nil
-		  (latex-mode)
-		  :help "Check LaTeX file for correctness")
-		 ("ChkTeX" "chktex -v6 %s" TeX-run-compile nil
-		  (latex-mode)
-		  :help "Check LaTeX file for common mistakes")
-		 ("Spell" "(TeX-ispell-document \"\")" TeX-run-function nil t :help "Spell-check the document")
-		 ("Clean" "TeX-clean" TeX-run-function nil t :help "Delete generated intermediate files")
-		 ("Clean All" "(TeX-clean t)" TeX-run-function nil t :help "Delete generated intermediate and output files")
-		 ("Other" "" TeX-run-command t t :help "Run an arbitrary command")
-;		 ("Complete Build" "latexmk -e \"$pdflatex=q/pdflatex %%O %S %(mode) %%S/\" -e \"$biber=q/biber %%O --input-directory ./TeX_Aux_Files --output-directory ./TeX_Aux_Files %%B/\" -e \"$makeindex=q/makeindex %%O -o %%D %%S/\" -norc -gg -pdf %t" TeX-run-TeX nil (latex-mode) :help "Run Latexmk-pdfLaTeX")
-		 )))))
+(defun set-TeX-command-list ()
+  "Sets up the TeX-command-list for me"
+  ; Command-list Format: Command Name, Command, How, Prompt, Modes, Help Info
+  ;; (add-to-list 'TeX-command-list
+  ;; 	       ("Latexmk" "latexmk %t" Tex-run-Tex nil (latex-mode) :help "Run Latexmk")) ; I don't have LaTeXmk installed on my systems, but may do later
+  (add-to-list 'TeX-command-list
+  	       '("LatexOutFolder" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -aux-directory=./TeX_Aux_Files -output-directory=./TeX_Output %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run LaTeX and put output in TeX_Output Directory"))
+  (add-to-list 'TeX-command-list
+  	       '("BiberAuxDirectory" "biber --input-directory ./TeX_Aux_Files --output-directory ./TeX_Aux_Files %s" TeX-run-Biber nil t :help "Run Biber with TeX_Aux_Files Directory"))
+  (add-to-list 'TeX-command-list
+	       '("IndexAuxDirectory" "makeindex %s" TeX-run-index nil t :help "Run makeindex to create index file in TeX_Aux_Files Directory"))
+  (add-to-list 'TeX-command-list
+	       '("GlossaryAuxDirectory" "makeglossaries %s" TeX-run-command nil t :help "Run makeglossaries to create glossary file in TeX_Aux_Files Directory"))
+  (add-to-list 'TeX-command-list
+	       '("Buffer View" "\"C:/emacs-26.2-x86_64/bin/emacsclientw.exe\" -n -e '(find-file-other-window ./TeX_Output/%o)"  TeX-run-discard-or-function t t :help "Open output PDF in Emacs Buffer"))
+  (when (equal system-type 'windows-nt)
+    (add-to-list 'TeX-command-list
+		 '("Adobe View" "\"C:/Program Files (x86)/Adobe/Acrobat Reader DC/Reader/AcroRd32.exe\" ./TeX_Output/%o" TeX-run-discard-or-function t t :help "Run Adobe Acrobat Reader DC to View PDF")) ;%o is the output file's name and extension
+    )
+  )
 
 ;;; Add a way to open the output PDF in Emacs itself, like TeXStudio
-(setq TeX-output-view-style
-      (cons (list "^pdf$" "."
-		  "emacsclientw -n -e '(find-file-other-window \"%o\")'")
-	    TeX-output-view-style))
+;(setq TeX-output-view-style
+ ;     (cons (list "^pdf$" "."
+;		  "emacsclientw -n -e '(find-file-other-window \"/TeX_Output/%o\")'")
+;	    TeX-output-view-style))
+;(add-to-list 'TeX-view-program-list
+;	     '(("Adobe Reader" ("\"C:/Program Files (x86)/Adobe/Acrobat Reader DC/Reader/AcroRd32.exe\" ./TeX_Output/%o"))
+;	       ("Emacs PDF Viewer" ("\"C:/emacs-26.2-x86_64/bin/emacsclientw.exe\" -n -e" " ./TeX_Output/%o"))
+;	       ))
 
 ;;; auctex-latexmk Options
-(load "auctex-latexmk-config")
+;(load "auctex-latexmk-config")
