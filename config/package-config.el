@@ -26,7 +26,7 @@
 (use-package reftex) ; Require reftex package for LaTeX support
 
 ;; Use a package that integrates auctex and latexmk for longer/bigger compiles
-(use-package auctex-latexmk)
+;(use-package auctex-latexmk)
 
 ;; Load a mode to edit markdown files with
 (use-package markdown-mode)
@@ -37,7 +37,7 @@
   :defer t
   :config
   (yas-reload-all)
-  (setq yas-snippet-dirs '("~/emacs.d/snippets")) ; Location to find MORE snippets
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets")) ; Location to find MORE snippets
   (setq tab-always-indent 'complete) ; Tabs indent
   (setq yas-prompt-functions '(yas-completing-prompt ; List of prompts that yasnippet can go through
 			       yas-ido-prompt
