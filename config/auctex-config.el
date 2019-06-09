@@ -27,15 +27,17 @@
 				  ("Emacs Buffer" "\"c:/emacs-26.2-x86_64/bin/emacsclientw.exe -n\" ./TeX_Output/%o"))) ; %o is the output file
     (setq TeX-view-program-selection '(((output-dvi style-pstricks) "dvips and start")
 				       (output-pdf "SumatraPDF")))
-    )
+    ) ; End of Windows Setup
   (when (equal system-type "gnu/linux")
-    (setq TeX-view-program-list '(("Zathura" "")
-				  ("Okular" "")))
+    (setq TeX-view-program-list '(("Zathura" "zathura ./TeX_Output/%o")
+				  ("Okular" "okular ./TeX_Output/%o")
+				  ("Emacs Buffer" "emacsclient -n -e ./TeX_Output/%o")))
     (setq TeX-view-program-selection '(((output-dvi style pstricks) "dvips and start")
 				       (output-pdf "Zathura")))
-    )
-  (set-TeX-command-list) ; Sets up my TeX-command-list
-  )
+    ) ; End of Linux Setup
+  (set-TeX-command-list) ; Calls the function that sets up my TeX-command-list
+  ) ; End of Evaluation
+  
 
 ;;; Set up the compilation options
 (defun set-TeX-command-list ()
@@ -50,14 +52,24 @@
   (add-to-list 'TeX-command-list
 	       '("IndexAuxDirectory" "makeindex %s" TeX-run-index nil t :help "Run makeindex to create index file in TeX_Aux_Files Directory"))
   (add-to-list 'TeX-command-list
-	       '("GlossaryAuxDirectory" "makeglossaries %s" TeX-run-command nil t :help "Run makeglossaries to create glossary file in TeX_Aux_Files Directory"))
-  (add-to-list 'TeX-command-list
-	       '("Buffer View" "\"C:/emacs-26.2-x86_64/bin/emacsclientw.exe\" -n -e '(find-file-other-window ./TeX_Output/%o)"  TeX-run-discard-or-function t t :help "Open output PDF in Emacs Buffer"))
+	       '("GlossaryAuxDirectory" "makeglossaries %s" TeX-run-command nil t :help "Run makeglossaries to create glossary file in TeX_Aux_Files Directory")); End of OS-agnostic commands
+  
   (when (equal system-type 'windows-nt)
     (add-to-list 'TeX-command-list
 		 '("Adobe View" "\"C:/Program Files (x86)/Adobe/Acrobat Reader DC/Reader/AcroRd32.exe\" ./TeX_Output/%o" TeX-run-discard-or-function t t :help "Run Adobe Acrobat Reader DC to View PDF")) ;%o is the output file's name and extension
-    )
-  )
+    (add-to-list 'TeX-command-list
+	       '("Buffer View" "\"C:/emacs-26.2-x86_64/bin/emacsclientw.exe\" -n -e '(find-file-other-window ./TeX_Output/%o)"  TeX-run-discard-or-function t t :help "Open output PDF in Emacs Buffer"))
+    ) ; End of Windows Commands Insertion
+  
+  (when (equal system-type "gnu/linux")
+    (add-to-list 'TeX-command-list
+		 '("Zathura View" "zathura ./TeX_Output/%o" TeX-run-discard-or-function t t :help "Run Zathura to view PDF"))
+    (add-to-list 'TeX-command-list
+		 '("Okular View" "okular ./TeX_Output/%o" TeX-run-discard-or-function t t :help "Run Okular to view PDF"))
+    (add-to-list 'TeX-command-list
+		 '("Buffer View" "emacsclient -n -c ./TeX_Output/%o" teX-run-discard-or-function t t :help "View PDF in an Emacs Buffer"))
+    ) ; End of Linux Commands Insertion
+  ) ; End of set-TeX-command-list function
 
 ;;; Add a way to open the output PDF in Emacs itself, like TeXStudio
 ;(setq TeX-output-view-style
