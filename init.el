@@ -43,7 +43,7 @@
 (load "auctex-config")
 
 ;;; preview-latex Options
-;(load "preview-latex-config.el" nil t t) ; noerror-nil, nomessage-t, nosuffix-t
+; (load "preview-latex-config"  nil t t) ; noerror-nil, nomessage-t, nosuffix-t
 
 ;;;; Lastly, Change Directory to where I want to work
 (cd "c:/users/karl/documents/git")
