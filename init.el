@@ -42,8 +42,12 @@
 ;;;; AucTeX options
 (load "auctex-config")
 
+;;;; RefTeX Options
+;;; RefTeX is part of Emacs, but it's getting its own config file
+;(load "reftex-config")
+
 ;;; preview-latex Options
-; (load "preview-latex-config"  nil t t) ; noerror-nil, nomessage-t, nosuffix-t
+(load "preview-latex-config") ; Possible arguments: noerror, nomessage, nosuffix
 
 ;;;; Lastly, Change Directory to where I want to work
 ;; (when (equal system-name "Karl-SurfaceBook") ; If Karl is on his Laptop
