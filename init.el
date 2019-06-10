@@ -44,7 +44,7 @@
 
 ;;;; RefTeX Options
 ;;; RefTeX is part of Emacs, but it's getting its own config file
-;(load "reftex-config")
+(load "reftex-config")
 
 ;;; preview-latex Options
 (load "preview-latex-config") ; Possible arguments: noerror, nomessage, nosuffix
