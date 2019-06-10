@@ -51,3 +51,6 @@
   :after yasnippet
   :ensure t
   :config (yasnippet-snippets-initialize))
+
+;; This package replaces the Doc-view mode for PDFs. We'll see if it works
+(use-package pdf-tools)
