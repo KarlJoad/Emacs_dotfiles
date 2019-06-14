@@ -54,3 +54,12 @@
 
 ;; This package replaces the Doc-view mode for PDFs. We'll see if it works
 (use-package pdf-tools)
+
+;; This package minimizes bullets that are used in Org-mode
+(use-package org-bullets
+  :init
+  (add-hook 'org-mode-hook 'org-bullets-mode))
+;; Syntax highlighting in source blocks
+(setq org-src-fontify-natively t)
+;; Make TAB act as if it were isussed in a vuffer of the language's major mode
+(setq org-src-tab-acts-natively t)
