@@ -28,7 +28,7 @@
     (setq TeX-view-program-selection '(((output-dvi style-pstricks) "dvips and start")
 				       (output-pdf "SumatraPDF")))
     ) ; End of Windows Setup
-  (when (equal system-type "gnu/linux")
+  (when (equal system-type 'gnu/linux)
     (setq TeX-view-program-list '(("Zathura" "zathura ./TeX_Output/%o")
 				  ("Okular" "okular ./TeX_Output/%o")
 				  ("Emacs Buffer" "emacsclient -n -e ./TeX_Output/%o")))
