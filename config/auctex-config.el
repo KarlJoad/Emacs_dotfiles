@@ -61,7 +61,7 @@
 	       '("Buffer View" "\"C:/emacs-26.2-x86_64/bin/emacsclientw.exe\" -n -e '(find-file-other-window ./TeX_Output/%o)"  TeX-run-discard-or-function t t :help "Open output PDF in Emacs Buffer"))
     ) ; End of Windows Commands Insertion
   
-  (when (equal system-type "gnu/linux")
+  (when (equal system-type 'gnu/linux)
     (add-to-list 'TeX-command-list
 		 '("Zathura View" "zathura ./TeX_Output/%o" TeX-run-discard-or-function t t :help "Run Zathura to view PDF"))
     (add-to-list 'TeX-command-list
