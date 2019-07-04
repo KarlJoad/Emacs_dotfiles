@@ -52,6 +52,11 @@
 ;;; preview-latex Options
 (load "preview-latex-config") ; Possible arguments: noerror, nomessage, nosuffix
 
+;;; Apply latex-mode to TikZ pictures
+(setq auto-mode-alist
+      (append '(("\\.tikz\\'" . latex-mode))
+	      auto-mode-alist))
+
 ;;;; Lastly, Change Directory to where I want to work
 ;; (when (equal system-name "Karl-SurfaceBook") ; If Karl is on his Laptop
 ;;   (cd "\"c:/users/karl/Documents/Git\""))
