@@ -27,4 +27,8 @@
 (setq recentf-max-saved-items 50) ; Maximum number of buffers to remember
 
 ;;; Restore opened files from last session
-;(desktop-save-mode 1) ; Commented out only while debugging my init files
+;;(desktop-save-mode 1) ;; Commented out only while debugging my init files
+
+;; Set my prefered font
+(add-to-list 'default-frame-alist
+	      '(font . "Courier New-11")) ;; In this case, 11pt Courier New
