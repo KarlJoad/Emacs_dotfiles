@@ -72,7 +72,7 @@
   (global-company-mode)
   :config
   (setq company-idle-delay 0)
-  (define-key company-active-map (kbd "ESC") 'company-abort)
+  (define-key company-active-map (kbd "<escape>") 'company-abort)
   (define-key company-active-map [tab] 'company-complete-common-or-cycle)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
