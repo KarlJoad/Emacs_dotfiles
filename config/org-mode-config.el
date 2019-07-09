@@ -7,27 +7,29 @@
 ; (global-set-key (kbd "C-c c") 'org-capture) ; "C-c c" will let me select a template and file the new information
 
 ;; Make org-babel work with source code blocks in Org docs
-(when (equal system-type 'windows-nt)
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((C . t)
-     (emacs-lisp . t)
-     (gnuplot . t)
-     (haskell . nil) ;; nil to not load haskell
-     (python . t)
-     (ruby . nil) ;; nil to not load ruby
-     (sql . t)
-     (sqlite . t))))
-
-(when (equal system-type 'gnu/linux)
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((C . t)
-     (emacs-lisp . t)
-     (gnuplot . t)
-     (haskell . nil) ;; nil to not load haskell
-     (python . t)
-     (ruby . nil) ;; nil to not load ruby
-     (sh . t)
-     (sql . t)
-     (sqlite . t))))
+;; But only after there is an org file loaded up, otherwise, do nothing
+(with-eval-after-load "org"
+  (when (equal system-type 'windows-nt)
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((C . t)
+       (emacs-lisp . t)
+       (gnuplot . t)
+       (haskell . nil) ;; nil to not load haskell
+       (python . t)
+       (ruby . nil) ;; nil to not load ruby
+       (sql . t)
+       (sqlite . t)))) ;; End of Windows Setup
+  (when (equal system-type 'gnu/linux)
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((C . t)
+       (emacs-lisp . t)
+       (gnuplot . t)
+       (haskell . nil) ;; nil to not load haskell
+       (python . t)
+       (ruby . nil) ;; nil to not load ruby
+       (sh . t)
+       (sql . t)
+       (sqlite . t)))) ;; End of Linux Setup
+  ) ;; End of Org-mode source code blocks setup
