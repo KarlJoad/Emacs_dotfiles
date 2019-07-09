@@ -42,9 +42,6 @@
 ;;;; Load in Magit options
 (load "magit-config")
 
-;;;; Load in Org-mode options
-(load "org-config")
-
 ;;;; AucTeX options
 (load "auctex-config")
 
