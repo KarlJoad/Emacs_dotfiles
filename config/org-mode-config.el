@@ -6,9 +6,13 @@
 (global-set-key (kbd "C-c l") 'org-store-link) ; "C-c l" stores a hyperlink to the cursor's current position in the current org-mode document
 ; (global-set-key (kbd "C-c c") 'org-capture) ; "C-c c" will let me select a template and file the new information
 
-;; Make org-babel work with source code blocks in Org docs
+;; Make org-babel do stuff with  source code blocks in Org-mode
 ;; But only after there is an org file loaded up, otherwise, do nothing
 (with-eval-after-load "org"
+  (setq org-src-fontify-natively t) ;; Use syntax highliting in source blocks while editing
+  (setq org-src-tab-acts-natively t) ;; Make TAB act as if it were issued natively in that language's major mode
+  (setq org-src-window-setup 'current-window) ;; When C-c ' a code block, use same window
+  (setq org-confirm-babel-evaluate nil) ;; Don't ask before evaluating code blocks
   (when (equal system-type 'windows-nt)
     (org-babel-do-load-languages
      'org-babel-load-languages
