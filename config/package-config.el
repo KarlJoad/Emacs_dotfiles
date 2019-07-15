@@ -84,3 +84,5 @@
 ;; Company-math
 (use-package company-math)
 
+;; Nix-mode for editing *.nix files (NixOS, Nix Packages, etc.)
+(use-package nix-mode)
