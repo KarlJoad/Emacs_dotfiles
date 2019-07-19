@@ -84,5 +84,11 @@
 ;; Company-math
 (use-package company-math)
 
-;; Nix-mode for editing *.nix files (NixOS, Nix Packages, etc.)
-(use-package nix-mode)
+;; Nix stuff for editing *.nix files (NixOS, Nix Packages, etc.)
+;; But only if the system is a GNU/Linux system, because Nix only supports those
+(when (equal system-type 'gnu/linux)
+  (use-package nix-mode) ;; Major mode for editing *.nix files
+  (use-package json-mode) ;; nix-mode needs json-mode for some reason
+  (use-package nixos-options) ;; Options for the Nixos .nix files
+  (use-package company-nixos-options) ;; Provide a company backend for nixos-options
+  )
