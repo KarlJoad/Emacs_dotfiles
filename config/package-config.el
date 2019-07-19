@@ -43,7 +43,7 @@
 			       yas-ido-prompt
 			       yas-dropdown-prompt))
   (define-key yas-minor-mode-map (kbd "<escape>") 'yas-exit-snippet)) ; If there was a menu for selecting snippets, provide an escape route
-(yas-global-mode 1) ; Make sure yasnippet is almost always present
+(setq yas-global-mode 1) ; Make sure yasnippet is almost always present
 ; Snippets are expanded by typing enough of it in, and them pressing "<tab>"
 
 ;; Provides a good starting set of yasnippet snippets to use for most major modes

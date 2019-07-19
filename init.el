@@ -23,7 +23,7 @@
 (load "personal-settings")
 
 ;;;; Add Package Archives
-(if (equal system-type 'gnu/linux)
+(when (equal system-type 'gnu/linux)
     (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")) ;; This is done because of Bug #34341. Should be fixed in Emacs 27
 ;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
 
