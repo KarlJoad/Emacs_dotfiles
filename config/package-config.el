@@ -14,6 +14,12 @@
 ;;; Packages that I am using
 ;; An interactive filetree on the side
 (use-package neotree)
+
+;; Spell-checking and syntax checking
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
+
 ;; Use a project controller
 (use-package projectile
   :ensure t
@@ -68,7 +74,7 @@
   (add-hook 'org-mode-hook 'org-bullets-mode))
 ;; Syntax highlighting in source blocks
 (setq org-src-fontify-natively t)
-;; Make TAB act as if it were isussed in a vuffer of the language's major mode
+;; Make TAB act as if it were issued in a buffer of the language's major mode
 (setq org-src-tab-acts-natively t)
 
 ;; Company gives us an engine for some auto-completion for things we provide a backend for
