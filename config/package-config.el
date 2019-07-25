@@ -14,6 +14,13 @@
 ;;; Packages that I am using
 ;; An interactive filetree on the side
 (use-package neotree)
+;; Use a project controller
+(use-package projectile
+  :ensure t
+  :config
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (projectile-mode +1))
 
 ;; Give myself a git wrapper
 (use-package magit)
