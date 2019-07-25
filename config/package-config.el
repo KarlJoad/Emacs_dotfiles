@@ -39,13 +39,15 @@
   :defer t
   :ensure t)
 
-(use-package reftex) ; Require reftex package for LaTeX support
+(use-package reftex ;; Require reftex package for LaTeX support
+  :defer t)
 
 ;; Use a package that integrates auctex and latexmk for longer/bigger compiles
 ;(use-package auctex-latexmk)
 
 ;; Load a mode to edit markdown files with
-(use-package markdown-mode)
+(use-package markdown-mode
+  :defer t)
 
 ;; Load a snippet manager
 (use-package yasnippet
@@ -103,8 +105,14 @@
 ;; Nix stuff for editing *.nix files (NixOS, Nix Packages, etc.)
 ;; But only if the system is a GNU/Linux system, because Nix only supports those
 (when (equal system-type 'gnu/linux)
-  (use-package nix-mode) ;; Major mode for editing *.nix files
-  (use-package json-mode) ;; nix-mode needs json-mode for some reason
-  (use-package nixos-options) ;; Options for the Nixos .nix files
-  (use-package company-nixos-options) ;; Provide a company backend for nixos-options
+  ;; Each of these is deferred because I won't necessarily edit Nix files on every
+  ;; GNU/Linux computer that I use
+  (use-package nix-mode ;; Major mode for editing *.nix files
+    :defer t)
+  (use-package json-mode ;; nix-mode needs json-mode for some reason
+    :defer t)
+  (use-package nixos-options ;; Options for the Nixos .nix files
+    :defer t)
+  (use-package company-nixos-options ;; Provide a company backend for nixos-options
+    :defer t)
   )
