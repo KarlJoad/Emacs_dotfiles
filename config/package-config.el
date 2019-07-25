@@ -13,7 +13,10 @@
 
 ;;; Packages that I am using
 ;; An interactive filetree on the side
-(use-package neotree)
+;; (use-package neotree)
+(use-package treemacs
+  :ensure t
+  :defer t)
 
 ;; Spell-checking and syntax checking
 (use-package flycheck
