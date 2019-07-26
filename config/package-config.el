@@ -109,16 +109,7 @@
 ;; Nix stuff for editing *.nix files (NixOS, Nix Packages, etc.)
 ;; But only if the system is a GNU/Linux system, because Nix only supports those
 (when (equal system-type 'gnu/linux)
-  ;; Each of these is deferred because I won't necessarily edit Nix files on every
-  ;; GNU/Linux computer that I use
-  (use-package nix-mode ;; Major mode for editing *.nix files
-    :defer t)
-  (use-package json-mode ;; nix-mode needs json-mode for some reason
-    :defer t)
-  (use-package nixos-options ;; Options for the Nixos .nix files
-    :defer t)
-  (use-package company-nixos-options ;; Provide a company backend for nixos-options
-    :defer t)
+  (require 'nix-config)
   )
 
 (provide 'package-config)
