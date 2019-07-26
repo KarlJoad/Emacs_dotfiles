@@ -55,6 +55,9 @@
   (require 'nix-config)
   )
 
+;;;; Multiple Cursors
+(require 'multiple-cursors-config)
+
 ;;;; flycheck for spell/syntax checking
 (require 'flycheck-config)
 
