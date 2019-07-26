@@ -1,5 +1,9 @@
-;;;; Karl's .emacs Init File
-;;; Last Edited: 20190521
+;;; init.el --- Karl's .emacs Init File
+;;; Commentary:
+;;
+;; Karl's Emacs init file, in all of it's weird glory
+;;
+;;; Code:
 
 ;;;; Make Emacs Start Full-Screen
 (add-hook 'emacs-startup-hook 'toggle-frame-maximized)
@@ -65,3 +69,5 @@
 ;; (when (equal system-name "Karl-SurfaceBook") ; If Karl is on his Laptop
 ;;   (cd "\"c:/users/karl/Documents/Git\""))
 ;; (cd "\"e:/Git/Repos\"") ; Else, Karl is on his desktop
+
+;;; init.el ends here

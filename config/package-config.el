@@ -1,5 +1,6 @@
-;;;; This file lists packages to use in Emacs, but does not configure them
-;;;; Package configuration is done in each of the package-config.el files
+;;; package-config-el --- Lists packages to load into Emacs
+;;; Commentary:
+;;; Code:
 (provide 'package-config)
 
 ;;; Ensure packages are always new and always loaded
@@ -116,3 +117,6 @@
   (use-package company-nixos-options ;; Provide a company backend for nixos-options
     :defer t)
   )
+
+(provide 'package-config)
+;;; package-config.el ends here
