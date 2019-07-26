@@ -1,8 +1,12 @@
-;;;; This file provides my personal tweaks to Emacs
-(provide 'personal-settings)
+;;; personal-settings.el --- Settings for making Emacs mine
+;;; Commentary:
+;;; Code:
 
-;;;; Remove scroll bar at side
+;; Remove scroll bar at side
 (scroll-bar-mode -1)
+
+;; Make Emacs Start Full-Screen
+(add-hook 'emacs-startup-hook 'toggle-frame-maximized)
 
 ;;;; Skip the "Welcome" Page
 ;;(setq inhibit-startup-message t)
@@ -33,3 +37,6 @@
 (if (equal system-type 'windows-nt)
     (add-to-list 'default-frame-alist
 		 '(font . "Courier New-11"))) ;; In this case, 11pt Courier New
+
+(provide 'personal-settings)
+;;; personal-settings.el ends here

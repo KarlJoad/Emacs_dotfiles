@@ -1,7 +1,12 @@
-;;;; These are my personal changes to the auctex-latex package
-(provide 'personal-auctex-latex)
+;;; auctex-latexmk-config.el --- Provides and makes my personal changes to the auctex-latex package
+;;; Commentary:
+;;; Code:
 
-(require 'auctex-latexmk)
-(auctex-latexmk-setup)
-(setq auctex-latexmk-inherit-TeX-mode-pdf t) ; Have LaTeXMK pass the -pdf flag when TeX-mode-pdf is active
-(setq TeX-file-line-error nil) ; This is a workaround for MikTeX: https://sourceforge.net/p/miktex/bugs/2310/
+(use-package auctex-latexmk)
+
+(setq auctex-latexmk-inherit-TeX-mode-pdf t) ;; Have LaTeXMK inherit the PDF flat from AucTeX
+(setq TeX-file-line-error nil) ;; This ensures full log files are written
+;; This is a workaround for MikTeX: https://sourceforge.net/p/miktex/bugs/2310/
+
+(provide 'auctex-latexmk-config)
+;;; auctex-latexmk-config.el ends here

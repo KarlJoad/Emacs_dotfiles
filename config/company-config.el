@@ -2,6 +2,10 @@
 ;;; Commentary:
 ;;
 ;; Provides and configures CompleteAny-mode
+;; company-mode is just the front end for the auto-completion.
+;; There MUST be a backend for company-mode to run off of.
+;; C/C++ requires Clang
+;; Elisp requires Emacs, etc.
 ;;
 ;;; Code:
 

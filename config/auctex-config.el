@@ -1,5 +1,12 @@
-;;;; This file provides my personal changes to how I want AucTeX to behave
-(provide 'auctex-config)
+;;; auctex-config.el --- This file provides and changes how I want AucTeX to behave
+;;; Commentary:
+;;
+;; Auctex provides many QoL things for editing TeX/LaTeX documents
+;;; Code:
+
+(use-package auctex
+  :defer t
+  :ensure t)
 
 ;;; Start by setting the LaTeX command style
 ;(setq LaTeX-command-style '(("" "%(PDF)%(latex) -synctex=1 -interaction=nonstopmode -aux-directory=./TeX_Aux_Files -output-directory=./TeX_Output %S%(PDFout)")))
@@ -41,7 +48,7 @@
 
 ;;; Set up the compilation options
 (defun set-TeX-command-list ()
-  "Sets up the TeX-command-list for me"
+  "Set up the TeX-command-list for me."
   ; Command-list Format: Command Name, Command, How, Prompt, Modes, Help Info
   ;; (add-to-list 'TeX-command-list
   ;; 	       ("Latexmk" "latexmk %t" Tex-run-Tex nil (latex-mode) :help "Run Latexmk")) ; I don't have LaTeXmk installed on my systems, but may do later
@@ -82,5 +89,13 @@
 ;	       ("Emacs PDF Viewer" ("\"C:/emacs-26.2-x86_64/bin/emacsclientw.exe\" -n -e" " ./TeX_Output/%o"))
 ;	       ))
 
-;;; auctex-latexmk Options
-;(load "auctex-latexmk-config")
+;;; auctex-latexmk
+;;(load "auctex-latexmk-config")
+
+;;; Apply latex-mode to TikZ pictures
+(setq auto-mode-alist
+      (append '(("\\.tikz\\'" . latex-mode))
+	      auto-mode-alist))
+
+(provide 'auctex-config)
+;;; auctex-config.el ends here
