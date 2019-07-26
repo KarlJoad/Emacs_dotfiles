@@ -24,6 +24,9 @@
   :ensure t
   :init (global-flycheck-mode))
 
+;; Provide tags through gtags
+(use-package gtags)
+
 ;; Use a project controller
 (use-package projectile
   :ensure t
