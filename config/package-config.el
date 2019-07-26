@@ -3,9 +3,8 @@
 ;;; Code:
 
 (require 'package)
-(add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/")
-	     '("marmalade" . "https://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
 
 ;;; Pin some packages to specific repositories
 (setq package-pinned-packages '((gtags . "marmalade")))
