@@ -1,73 +1,77 @@
 ;;; init.el --- Karl's .emacs Init File
+					;-*-Emacs-Lisp-*-
 ;;; Commentary:
 ;;
 ;; Karl's Emacs init file, in all of it's weird glory
 ;;
 ;;; Code:
 
-;;;; Make Emacs Start Full-Screen
-(add-hook 'emacs-startup-hook 'toggle-frame-maximized)
-
-;;;; Tell Emacs where to look for my other config files
-(setq user-emacs-directory (expand-file-name "~/.emacs.d/")) ; Directory where Emacs Files are located
-(setq user-emacs-config-directory (concat user-emacs-directory "config/"))
-(setq custom-file "~/.emacs.d/config/customize.el") ; File for things written by the "customize" stuff in emacs
-;;(load-file custom-file) ; Prevent the loading of the "customize" file
-(add-to-list 'load-path (concat user-emacs-directory "config/")) ;; user-emacs-directory + "config/" to put the config directory in the load-path
-
-
-;;;; Start a server version of Emacs
-(server-start)
-
-;;;; Make sure Emacs loads up newer config files, even if they aren't compiled
+;; Make sure Emacs loads up newer config files, even if they aren't compiled
 (setq load-prefer-newer t)
 
-;;;; Set up my personal information and my personal settings
-(load "personal-info")
-(load "personal-settings")
+;; Don't necessarily start packages at startup
+;;(setq package-enable-at-startup nil)
 
-;;;; Add Package Archives
-(when (equal system-type 'gnu/linux)
-    (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")) ;; This is done because of Bug #34341. Should be fixed in Emacs 27
-;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
+;; Tell Emacs where to look for my other config files
+(setq user-emacs-config-directory (concat user-emacs-directory "config/"))
+(setq custom-file (concat user-emacs-config-directory "customize.el")) ; File for things written by the "customize" stuff in emacs
+;;(load-file custom-file) ; Prevent the loading of the "customize" file
+(add-to-list 'load-path (expand-file-name "config/" user-emacs-directory)) ;; user-emacs-directory + "config/" to put the config directory in the load-path
 
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(package-initialize)
+;; Start a server version of Emacs
+(server-start)
+
+;; Set up my personal information and my personal settings
+(require 'personal-info)
+(require 'personal-settings)
 
 ;;;; Load in my package list
-(load "package-config")
+(require 'package-config)
 
 ;;;; Load in my current theme
-(load "theme-config")
-
-;;;; Load in Org-mode configuration
-(load "org-mode-config")
-
-;;;; Load in Neotree options
-(load "neotree-config")
+(require 'theme-config)
 
 ;;;; Load in Magit options
-(load "magit-config")
+(require 'magit-config)
 
-;;;; AucTeX options
-(load "auctex-config")
+;;;; Load in interactive file managers for Emacs
+;;(require 'neotree-config)
+(require 'treemacs-config)
 
-;;;; RefTeX Options
-;;; RefTeX is part of Emacs, but it's getting its own config file
-(load "reftex-config")
+;;;; Major mode configuration and loading
+(require 'org-mode-config) ;; org-mode configuration
+(require 'markdown-config) ;; markdown configuration
 
-;;; preview-latex Options
-(load "preview-latex-config") ; Possible arguments: noerror, nomessage, nosuffix
+;;;; TeX/LaTeX (AucTeX) options
+(require 'auctex-config)
+(require 'auctex-latexmk-config)
+(require 'reftex-config) ;; RefTeX is part of Emacs, but it's getting its own config file
+(require 'preview-latex-config)
+(require 'pdf-tools-config)
 
-;;; Apply latex-mode to TikZ pictures
-(setq auto-mode-alist
-      (append '(("\\.tikz\\'" . latex-mode))
-	      auto-mode-alist))
+;;;; Nix stuff.  For editing *.nix files (Nix and NixOS)
+;; But only if the system is a GNU/Linux system, because Nix only supports those
+(when (equal system-type 'gnu/linux)
+  (require 'nix-config)
+  )
 
-;;;; Lastly, Change Directory to where I want to work
-;; (when (equal system-name "Karl-SurfaceBook") ; If Karl is on his Laptop
-;;   (cd "\"c:/users/karl/Documents/Git\""))
-;; (cd "\"e:/Git/Repos\"") ; Else, Karl is on his desktop
+;;;; flycheck for spell/syntax checking
+(require 'flycheck-config)
+
+;;;; Company and its associated packages
+(require 'company-config)
+(require 'company-auctex-config)
+(require 'company-math-config)
+
+;;;; Snippets are provided by Yasnippet
+(require 'yasnippet-config)
+(require 'yasnippet-snippets-config)
+
+;;;; Project commands and management
+(require 'projectile-config)
+
+;;;; Tags and their configurations
+(require 'gtags-config)
+(require 'bpr-config)
 
 ;;; init.el ends here
