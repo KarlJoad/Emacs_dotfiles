@@ -15,5 +15,9 @@
   :defer t)
 
 ;; Allows me to use treemacs icons in dired buffers
+(use-package treemacs-icons-dired
+  :ensure t
+  :defer t)
+
 (provide 'treemacs-config)
 ;;; treemacs-config.el ends here
