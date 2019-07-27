@@ -7,7 +7,15 @@
 
 (use-package treemacs
   :ensure t
-  :defer t)
+  :defer t
+  :bind
+  (:map global-map
+	("M-0" . treemacs-select-window)
+	("C-x t 1" . treemacs-delete-other-windows)
+	("C-x t t" . treemacs)
+	("C-x t B" . treemacs-bookmark)
+	("C-x t C-t" . treemacs-find-file)
+	("C-x t M-t" . treemacs-find-tag)))
 
 ;; Treemacs-magit fills in the gaps that treemacs can't handle for git/magit
 (use-package treemacs-magit
