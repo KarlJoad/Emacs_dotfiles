@@ -9,5 +9,11 @@
   :ensure t
   :defer t)
 
+;; Treemacs-magit fills in the gaps that treemacs can't handle for git/magit
+(use-package treemacs-magit
+  :ensure t
+  :defer t)
+
+;; Allows me to use treemacs icons in dired buffers
 (provide 'treemacs-config)
 ;;; treemacs-config.el ends here
