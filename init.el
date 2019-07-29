@@ -74,7 +74,9 @@
 (require 'projectile-config)
 
 ;;;; Tags and their configurations
+(require 'ctags-config)
 (require 'gtags-config)
 (require 'bpr-config)
+(require 'ggtags-config)
 
 ;;; init.el ends here
