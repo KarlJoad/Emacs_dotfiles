@@ -22,9 +22,11 @@
 
 (defun create-tags (DIR-NAME)
   "Create a TAGS file from DIR-NAME."
-  (interactive "Directory: ")
+  (interactive "DDirectory: ")
   (shell-command
    (format "%s -f TAGS -e -R %s" path-to-ctags (directory-file-name DIR-NAME)))
+;;  (async-shell-command
+;;   (format "%s -f TAGS -e -R %s" path-to-ctags (directory-file-name DIR-NAME)))
   )
 
 (provide 'ctags-config)
