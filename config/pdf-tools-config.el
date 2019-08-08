@@ -2,7 +2,8 @@
 ;;; Commentary:
 ;;
 ;; pdf-tools is an improved way to view PDFs inside of Emacs.
-;; This is especially useful for when writing TeX/LaTeX. Source and output PDF can be side-by-side
+;; This is especially useful for when writing TeX/LaTeX.
+;; Source and output PDF can be side-by-side
 ;;
 ;;; Code:
 
