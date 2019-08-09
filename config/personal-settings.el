@@ -25,7 +25,33 @@
 (setq visible-bell nil) ;; Disable the visual bell
 (setq ring-bell-function 'ignore) ;; Don't make a ding when failing command
 
-;;; Can now open recently opened files
+;; Auto refresh buffers
+(setq global-auto-revert-mode 1)
+;; Also refresh dired, but quietly
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
+
+;; Show keystrokes in progress more quickly than default
+(setq echo-keystrokes 0.75)
+
+;; Enable syntax highlighting for older Emacsen that have it off
+(global-font-lock-mode t)
+
+;; Transparently open compressed files
+(auto-compression-mode t)
+
+;; Try to use UTF-8 for everything
+(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
+;; Sentences DO NOT need 2 spaced to end.
+(set-default 'sentence-end-double-space nil)
+
+;; Can now open recently opened files
+;; This is done with C-x f
 (require 'recentf)
 (recentf-mode 1) ;; Turn on recentf
 (setq recentf-max-saved-items 50) ;; Maximum number of buffers to remember
