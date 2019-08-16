@@ -5,8 +5,7 @@
 (use-package haskell-mode)
 
 ;; Sub-mode for Haskell-mode
-(use-package ghc
-  :require 'haskell-mode)
+(use-package ghc)
 
 ;; flycheck stuff for Haskell
 (use-package flycheck-haskell)
@@ -15,10 +14,10 @@
 (use-package haskell-snippets)
 
 ;; Interface to Stack Haskell development tool
-(use-package hasky-sack)
+(use-package hasky-stack)
 
 ;; Lookup Haskell documentation
 (use-package ghc-imported-from)
 
-(provide 'haskell-config.el)
+(provide 'haskell-config)
 ;;; haskell-config.el ends here

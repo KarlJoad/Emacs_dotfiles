@@ -55,6 +55,9 @@
   (require 'nix-config)
   )
 
+;;;; Haskell Configs
+(require 'haskell-config)
+
 ;;;; Multiple Cursors
 (require 'multiple-cursors-config)
 
