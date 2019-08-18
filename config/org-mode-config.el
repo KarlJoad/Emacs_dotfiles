@@ -45,7 +45,7 @@
   (when (equal system-type 'gnu/linux)
     (org-babel-do-load-languages
      'org-babel-load-languages
-     '((sh . t)) ;; Bash Shell mode for editing bash files in Linux
+     '((shell . t)) ;; Bash Shell mode for editing bash files in Linux
      )) ;; End of Linux Setup
   ) ;; End of Org-mode source code blocks setup
 
