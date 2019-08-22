@@ -14,8 +14,8 @@
 
 ;; Tell Emacs where to look for my other config files
 (setq user-emacs-config-directory (concat user-emacs-directory "config/"))
-(setq custom-file (concat user-emacs-config-directory "customize.el")) ; File for things written by the "customize" stuff in emacs
-;;(load-file custom-file) ; Prevent the loading of the "customize" file
+(setq custom-file (concat user-emacs-config-directory "customize.el")) ;; File for things written by the "customize" stuff in emacs
+;;(load-file custom-file) ;; Prevent the loading of the "customize" file
 (add-to-list 'load-path (expand-file-name "config/" user-emacs-directory)) ;; user-emacs-directory + "config/" to put the config directory in the load-path
 
 ;; Start a server version of Emacs

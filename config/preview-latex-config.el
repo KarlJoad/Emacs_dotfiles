@@ -6,11 +6,11 @@
 ;;
 ;;; Code:
 
-(setq preview-image-type "png") ; Default Preview is png
+(setq preview-image-type "png") ;; Default Preview is png
 
-(setq preview-auto-cache-preamble t) ; Cache the preamble before running the first time, helpful for large preambles
+(setq preview-auto-cache-preamble t) ;; Cache the preamble before running the first time, helpful for large preambles
 
-(setq preview-auto-reveal t) ; Automatically preview the results
+(setq preview-auto-reveal t) ;; Automatically preview the results
 
 (provide 'preview-latex-config)
 ;;; preview-latex-config.el ends here

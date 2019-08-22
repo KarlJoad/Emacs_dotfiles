@@ -16,13 +16,13 @@
 (package-initialize)
 
 ;;; Ensure packages are always new and always loaded
-(when (not (package-installed-p 'use-package)) ; When use-package is not installed,
-  (package-refresh-contents nil)               ; refresh package repositories, synchronously
-  (package-install 'use-package))              ; and install use-package
-(require 'use-package-ensure) ; Make sure use-package is loaded, and ready to compile stuff
-(setq use-package-always-ensure t) ; Make sure that we can always ensure packages are ready
-(use-package auto-compile ; If we just downloaded a package, then compile it too
-  :config (auto-compile-on-load-mode)) ; Automatically compile packages on first load
+(when (not (package-installed-p 'use-package)) ;; When use-package is not installed,
+  (package-refresh-contents nil)               ;; refresh package repositories, synchronously
+  (package-install 'use-package))              ;; and install use-package
+(require 'use-package-ensure) ;; Make sure use-package is loaded, and ready to compile stuff
+(setq use-package-always-ensure t) ;; Make sure that we can always ensure packages are ready
+(use-package auto-compile ;; If we just downloaded a package, then compile it too
+  :config (auto-compile-on-load-mode)) ;; Automatically compile packages on first load
 
 (provide 'package-config)
 ;;; package-config.el ends here

@@ -1,4 +1,4 @@
-;;; magit-config.el --- ; Provides and configures Magit
+;;; magit-config.el --- ;; Provides and configures Magit
 ;;; Commentary:
 ;;
 ;; Magit is a Git procelain that gives us a nice way to work with Git
@@ -8,7 +8,7 @@
 (use-package magit)
 
 ;; Open Magit Status for git handling
-(global-set-key (kbd "C-x g") 'magit-status) ; C-x g will bring up magit status (git status)
+(global-set-key (kbd "C-x g") 'magit-status) ;; C-x g will bring up magit status (git status)
 ;; Bring up a small menu to choose to do magit things
 (global-set-key (kbd "C-x M-g") 'magit-dispatch)
 

@@ -10,7 +10,7 @@
 
 ;; Changing the Initial Major mode of the *scratch* buffer
 ; Comment out the next line if I think that the *scratch* buffer should be in a different major mode
-(setq initial-major-mode 'lisp-interaction-mode) ; The default state for *scratch* work
+(setq initial-major-mode 'lisp-interaction-mode) ;; The default state for *scratch* work
 
 ;; The major modes that I primarily work with, in no particular order
 ;(setq initial-major-mode 'latex-mode)
