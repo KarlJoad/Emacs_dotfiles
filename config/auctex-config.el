@@ -61,7 +61,9 @@
   
   (when (equal system-type 'windows-nt)
     (add-to-list 'TeX-command-list
-  	       '("LatexOutFolder" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -aux-directory=./TeX_Aux_Files -output-directory=./TeX_Output %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run LaTeX and put output in TeX_Output Directory"))
+		 '("LatexOutFolder" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -aux-directory=./TeX_Aux_Files -output-directory=./TeX_Output %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run LaTeX and put output in TeX_Output Directory")) ;; Different command because on Windows I use MikTeX, not TeXLive
+    (add-to-list 'TeX-command-list
+		 '("LatexOutFolderShellEscape" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -shell-escape -aux-directory=./TeX_Aux_Files -output-directory=./TeX_Output %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run a shell-escaped version of LaTeX and put output in TeX_Output Directory")) ;; Provide a way for me to shell-escape if needed
     (add-to-list 'TeX-command-list
 		 '("Adobe View" "\"C:/Program Files (x86)/Adobe/Acrobat Reader DC/Reader/AcroRd32.exe\" ./TeX_Output/%o" TeX-run-discard-or-function t t :help "Run Adobe Acrobat Reader DC to View PDF")) ;%o is the output file's name and extension
     (add-to-list 'TeX-command-list
@@ -69,7 +71,9 @@
     ) ;; End of Windows Commands Insertion
   (when (equal system-type 'gnu/linux)
     (add-to-list 'TeX-command-list
-  	       '("LatexOutFolder" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -output-directory=./TeX_Output %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run LaTeX and put output in TeX_Output Directory"))
+		 '("LatexOutFolder" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -output-directory=./TeX_Output %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run LaTeX and put output in TeX_Output Directory"))
+    (add-to-list 'TeX-command-list
+		 '("LatexOutFolderShellEscape" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -shell-escape -output-directory=./TeX_Output %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run a shell-escaped version of LaTeX and put output in TeX_Output Directory"))
     (add-to-list 'TeX-command-list
 		 '("Zathura View" "zathura ./TeX_Output/%o" TeX-run-discard-or-function t t :help "Run Zathura to view PDF"))
     (add-to-list 'TeX-command-list
