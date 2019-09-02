@@ -58,8 +58,14 @@
 ;;;; Haskell Configs
 (require 'haskell-config)
 
+;;;; Java/Eclim Configs
+(require 'eclim-config)
+
 ;;;; Multiple Cursors
 (require 'multiple-cursors-config)
+
+;;;; Gradle Build System
+(require 'gradle-config)
 
 ;;;; flycheck for spell/syntax checking
 (require 'flycheck-config)
