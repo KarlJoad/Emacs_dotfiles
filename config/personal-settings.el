@@ -6,7 +6,12 @@
 (scroll-bar-mode -1)
 
 ;; Make Emacs Start Full-Screen
-(add-hook 'emacs-startup-hook 'toggle-frame-maximized)
+(when (equal system-type 'gnu/linux)
+  (add-hook 'emacs-startup-hook 'toggle-frame-fullscreen) ;; When on GNU/Linux, make Emacs fullscreen
+  )
+(when (equal system-type 'windows-nt)
+  (add-hook 'emacs-startup-hook 'toggle-frame-maximized) ;; When on Windows/DOS, make emacs maximized window
+  )
 
 ;;;; Skip the "Welcome" Page
 ;;(setq inhibit-startup-message t)
