@@ -47,7 +47,7 @@
 (require 'auctex-config)
 (require 'auctex-latexmk-config)
 (require 'reftex-config) ;; RefTeX is part of Emacs, but it's getting its own config file
-(require 'Bibtex-config) ;; BibTeX is part of Emacs, but it's getting its own config file
+(require 'BibTeX-config) ;; BibTeX is part of Emacs, but it's getting its own config file
 (require 'preview-latex-config)
 (require 'pdf-tools-config)
 
