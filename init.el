@@ -41,11 +41,13 @@
 ;;;; Major mode configuration and loading
 (require 'org-mode-config) ;; org-mode configuration
 (require 'markdown-config) ;; markdown configuration
+(require 'Emacs-Lisp-config) ;; Emacs-List major mode configuration
 
 ;;;; TeX/LaTeX (AucTeX) options
 (require 'auctex-config)
 (require 'auctex-latexmk-config)
 (require 'reftex-config) ;; RefTeX is part of Emacs, but it's getting its own config file
+(require 'Bibtex-config) ;; BibTeX is part of Emacs, but it's getting its own config file
 (require 'preview-latex-config)
 (require 'pdf-tools-config)
 

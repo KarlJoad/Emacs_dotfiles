@@ -21,7 +21,7 @@
 (setq TeX-global-PDF-mode t) ;; Make the default TeX mode PDF mode
 (setq TeX-command-default "pdflatex") ;; Default compile to PDF
 (setq LaTeX-biblatex-use-Biber t) ;; Make biblatex use Biber automatically
-(setq reftex-plug-into-AUCTeX t) ;; Make reftex plug into AUCTeX true
+(setq TeX-electric-sub-and-superscript t) ;; Inserts {} automaticly on _ and ^ (no need for custom command)
 (setq TeX-source-correlate-mode t) ;; Correlate output files to input so we can easily navigate
 (setq TeX-source-correlate-method 'synctex)
 (setq TeX-source-correlate-start-server t)
@@ -53,8 +53,6 @@
   ;; (add-to-list 'TeX-command-list
   ;; 	       ("Latexmk" "latexmk %t" Tex-run-Tex nil (latex-mode) :help "Run Latexmk")) ;; I don't have LaTeXmk installed on my systems, but may do later
   (add-to-list 'TeX-command-list
-  	       '("BiberAuxDirectory" "biber --input-directory ./TeX_Aux_Files --output-directory ./TeX_Aux_Files %s" TeX-run-Biber nil t :help "Run Biber with TeX_Aux_Files Directory"))
-  (add-to-list 'TeX-command-list
 	       '("IndexAuxDirectory" "makeindex %s" TeX-run-index nil t :help "Run makeindex to create index file in TeX_Aux_Files Directory"))
   (add-to-list 'TeX-command-list
 	       '("GlossaryAuxDirectory" "makeglossaries %s" TeX-run-command nil t :help "Run makeglossaries to create glossary file in TeX_Aux_Files Directory")); End of OS-agnostic commands
@@ -65,7 +63,9 @@
     (add-to-list 'TeX-command-list
 		 '("LatexOutFolderShellEscape" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -shell-escape -aux-directory=./TeX_Aux_Files -output-directory=./TeX_Output %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run a shell-escaped version of LaTeX and put output in TeX_Output Directory")) ;; Provide a way for me to shell-escape if needed
     (add-to-list 'TeX-command-list
-		 '("Adobe View" "\"C:/Program Files (x86)/Adobe/Acrobat Reader DC/Reader/AcroRd32.exe\" ./TeX_Output/%o" TeX-run-discard-or-function t t :help "Run Adobe Acrobat Reader DC to View PDF")) ;%o is the output file's name and extension
+  	       '("BiberAuxDirectory" "biber --input-directory ./TeX_Aux_Files --output-directory ./TeX_Aux_Files %s" TeX-run-Biber nil t :help "Run Biber with TeX_Aux_Files Directory")) ;; Run biber when the .aux file is in the ./TeX_Aux_Files directory
+    (add-to-list 'TeX-command-list
+		 '("Adobe View" "\"C:/Program Files (x86)/Adobe/Acrobat Reader DC/Reader/AcroRd32.exe\" ./TeX_Output/%o" TeX-run-discard-or-functionn t t :help "Run Adobe Acrobat Reader DC to View PDF")) ;%o is the output file's name and extension
     (add-to-list 'TeX-command-list
 	       '("Buffer View" "\"C:/emacs-26.2-x86_64/bin/emacsclientw.exe\" -n -e '(find-file-other-window ./TeX_Output/%o)"  TeX-run-discard-or-function t t :help "Open output PDF in Emacs Buffer"))
     ) ;; End of Windows Commands Insertion
@@ -74,6 +74,8 @@
 		 '("LatexOutFolder" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -output-directory=./TeX_Output %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run LaTeX and put output in TeX_Output Directory"))
     (add-to-list 'TeX-command-list
 		 '("LatexOutFolderShellEscape" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -shell-escape -output-directory=./TeX_Output %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run a shell-escaped version of LaTeX and put output in TeX_Output Directory"))
+    (add-to-list 'TeX-command-list
+  	       '("BiberAuxDirectory" "biber --output-directory ./TeX_Output %s" TeX-run-Biber nil t :help "Run Biber where the .aux file is in the TeX_Output Directory"))
     (add-to-list 'TeX-command-list
 		 '("Zathura View" "zathura ./TeX_Output/%o" TeX-run-discard-or-function t t :help "Run Zathura to view PDF"))
     (add-to-list 'TeX-command-list
