@@ -17,8 +17,6 @@
 ;;(setq inhibit-startup-message t)
 
 ;;;; Turn on Line numbering
-(when (version >= "26.0.50" emacs-version)
-  (linum-mode)) ;; We need a special case for when we use an older emacs
 (global-display-line-numbers-mode) ;; Show line numbers everywhere
 (setq column-number-mode 1) ;; Turn on column numbers in ALL major modes
 (global-hl-line-mode 1) ;; Have line with my cursor highlighted
