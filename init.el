@@ -42,6 +42,7 @@
 (require 'org-mode-config) ;; org-mode configuration
 (require 'markdown-config) ;; markdown configuration
 (require 'Emacs-Lisp-config) ;; Emacs-List major mode configuration
+(require 'java-mode-config) ;; Java major mode configuration
 
 ;;;; TeX/LaTeX (AucTeX) options
 (require 'auctex-config)
