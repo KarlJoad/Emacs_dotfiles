@@ -43,6 +43,8 @@
 (require 'markdown-config) ;; markdown configuration
 (require 'Emacs-Lisp-config) ;; Emacs-List major mode configuration
 (require 'java-mode-config) ;; Java major mode configuration
+(require 'lsp-mode-config)
+(require 'cc-mode-config)
 
 ;;;; TeX/LaTeX (AucTeX) options
 (require 'auctex-config)
@@ -71,6 +73,7 @@
 (require 'company-config)
 (require 'company-auctex-config)
 (require 'company-math-config)
+(require 'company-c-c++-config)
 
 ;;;; Snippets are provided by Yasnippet
 (require 'yasnippet-config)
