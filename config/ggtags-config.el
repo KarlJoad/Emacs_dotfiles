@@ -1,5 +1,7 @@
 ;;; ggtags-config.el --- Provides and configures ggtags
 ;;; Commentary:
+;; This REQUIRES that the global package be installed from your distribution maintainer
+;; This will likely install ctags as well, which is what we want.
 ;;; Code:
 
 (use-package ggtags
@@ -11,7 +13,8 @@
 	("C-x t u" . 'ggtags-update-tags)
 	("C-x t f" . 'ggtags-find-file)
 	("C-x t r" . 'ggtags-find-reference)
-	("C-c t h" . 'ggtags-view-tag-history)))
+	("C-x t h" . 'ggtags-view-tag-history)
+	("C-x t s" . 'ggtags-find-other-symbol)))
 
 (add-hook 'c-mode-common-hook
 	  (lambda ()
