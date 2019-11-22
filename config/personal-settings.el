@@ -2,8 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Remove scroll bar at side
-(scroll-bar-mode -1)
+;; Remove scroll bar at side, when running in a GUI instance
+(when (display-graphic-p)
+  (scroll-bar-mode -1))
 
 ;; Make Emacs Start Full-Screen
 (when (equal system-type 'gnu/linux)
