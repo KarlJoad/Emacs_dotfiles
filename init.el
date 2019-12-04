@@ -88,4 +88,7 @@
 ;;(require 'bpr-config)
 (require 'ggtags-config)
 
+;;;; Coloring things with rainbow-mode
+(require 'rainbow-mode-config)
+
 ;;; init.el ends here
