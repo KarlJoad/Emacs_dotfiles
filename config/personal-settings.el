@@ -2,9 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Remove scroll bar at side
-(scroll-bar-mode -1)
-
 ;; Make Emacs Start Full-Screen
 (when (equal system-type 'gnu/linux)
   (add-hook 'emacs-startup-hook 'toggle-frame-fullscreen) ;; When on GNU/Linux, make Emacs fullscreen
@@ -16,10 +13,14 @@
 ;;;; Skip the "Welcome" Page
 ;;(setq inhibit-startup-message t)
 
-;;;; Turn on Line numbering
-(global-display-line-numbers-mode) ;; Show line numbers everywhere
-(setq column-number-mode 1) ;; Turn on column numbers in ALL major modes
-(global-hl-line-mode 1) ;; Have line with my cursor highlighted
+;; Remove scroll bar at side, when running in a GUI instance
+(when (display-graphic-p)
+  (scroll-bar-mode -1)
+  ;;;; Turn on Line numbering
+  (global-display-line-numbers-mode) ;; Show line numbers everywhere
+  (setq column-number-mode 1) ;; Turn on column numbers in ALL major modes
+  (global-hl-line-mode 1)) ;; Have line with my cursor highlighted
+
 
 (show-paren-mode) ;; Emphasize MATCHING Parentheses
 (setq blink-matching-paren nil) ;; But don't let them blink
