@@ -15,7 +15,7 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 
 ;; When parsing very large documents, we might not want to reparse every file
-(setq reftec-enable-partial-scans t)
+(setq reftex-enable-partial-scans t)
 
 ;; Set a default citation style for RefTeX to use
 (setq reftex-cite-format 'biblatex)
