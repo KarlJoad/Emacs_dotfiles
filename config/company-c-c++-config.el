@@ -28,8 +28,8 @@
 
 (use-package cc-mode
   :init
-  (define-key c-mode-map  [(tab)] 'company-complete)
-  (define-key c++-mode-map  [(tab)] 'company-complete))
+  (define-key c-mode-map  (kbd "C-c SPC") 'company-complete)
+  (define-key c++-mode-map  (kbd "C-c SPC") 'company-complete))
 
 (provide 'company-c-c++-config)
 ;;; company-c-c++-config.el ends here
