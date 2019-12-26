@@ -49,6 +49,7 @@
 (require 'lsp-mode-config)
 (require 'cc-mode-config)
 (require 'web-mode-config)
+(require 'sml-mode-config)
 
 ;;;; TeX/LaTeX (AucTeX) options
 (require 'auctex-config)
