@@ -8,4 +8,5 @@
 
 (use-package rustic) ;; Development environment for Rust
 
+(provide 'rust-config)
 ;;; rust-config.el ends here
