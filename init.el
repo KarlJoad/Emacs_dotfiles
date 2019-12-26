@@ -34,6 +34,9 @@
 ;;;; Load in Magit options
 (require 'magit-config)
 
+;;;; Load in an Undo-Tree for reverting buffers
+(require 'undo-tree-config)
+
 ;;;; Load in interactive file managers for Emacs
 ;;(require 'neotree-config)
 (require 'treemacs-config)
