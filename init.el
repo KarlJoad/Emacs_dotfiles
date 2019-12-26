@@ -51,6 +51,7 @@
 (require 'web-mode-config)
 (require 'sml-mode-config)
 (require 'cobol-config) ;; This is probably a temporary config file.
+(require 'scala-config)
 
 ;;;; TeX/LaTeX (AucTeX) options
 (require 'auctex-config)
