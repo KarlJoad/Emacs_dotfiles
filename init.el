@@ -45,6 +45,7 @@
 (require 'java-mode-config) ;; Java major mode configuration
 (require 'lsp-mode-config)
 (require 'cc-mode-config)
+(require 'rust-config)
 
 ;;;; TeX/LaTeX (AucTeX) options
 (require 'auctex-config)
