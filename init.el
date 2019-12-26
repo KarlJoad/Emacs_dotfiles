@@ -50,6 +50,7 @@
 (require 'cc-mode-config)
 (require 'web-mode-config)
 (require 'sml-mode-config)
+(require 'cobol-config) ;; This is probably a temporary config file.
 
 ;;;; TeX/LaTeX (AucTeX) options
 (require 'auctex-config)
