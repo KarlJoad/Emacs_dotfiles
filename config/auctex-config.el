@@ -26,26 +26,6 @@
 (setq TeX-source-correlate-method 'synctex)
 (setq TeX-source-correlate-start-server t)
 
-(with-eval-after-load "latex"
-  (when (equal system-type 'windows-nt)
-    (setq TeX-view-program-list '(("Adobe Reader"
-				   "\"c:/Program Files (x86)/Adobe/Acrobat Reader DC/Reader/AcroRd32.exe\" ./TeX_Output/%o")
-				  ("SumatraPDF" "\"c:/Program Files/SumatraPDF/SumatraPDF.exe\" ./TeX_Output/%s.pdf")
-				  ("Emacs Buffer" "\"c:/emacs-26.2-x86_64/bin/emacsclientw.exe -n\" ./TeX_Output/%o"))) ;; %o is the output file
-    (setq TeX-view-program-selection '(((output-dvi style-pstricks) "dvips and start")
-				       (output-pdf "SumatraPDF")))
-    ) ;; End of Windows Setup
-  (when (equal system-type 'gnu/linux)
-    (setq TeX-view-program-list '(("Zathura" "zathura ./TeX_Output/%o")
-				  ("Okular" "okular ./TeX_Output/%o")
-				  ("Emacs Buffer" "emacsclient -n -e ./TeX_Output/%o")))
-    (setq TeX-view-program-selection '(((output-dvi style pstricks) "dvips and start")
-				       (output-pdf "Zathura")))
-    ) ;; End of Linux Setup
-  (set-TeX-command-list) ;; Calls the function that sets up my TeX-command-list
-  ) ;; End of Evaluation
-  
-
 ;;; Set up the compilation options
 (defun set-TeX-command-list ()
   "Set up the TeX-command-list for me."
@@ -84,6 +64,25 @@
 		 '("Buffer View" "emacsclient -n -c ./TeX_Output/%o" teX-run-discard-or-function t t :help "View PDF in an Emacs Buffer"))
     ) ;; End of Linux Commands Insertion
   ) ;; End of set-TeX-command-list function
+
+(with-eval-after-load "latex"
+  (when (equal system-type 'windows-nt)
+    (setq TeX-view-program-list '(("Adobe Reader"
+				   "\"c:/Program Files (x86)/Adobe/Acrobat Reader DC/Reader/AcroRd32.exe\" ./TeX_Output/%o")
+				  ("SumatraPDF" "\"c:/Program Files/SumatraPDF/SumatraPDF.exe\" ./TeX_Output/%s.pdf")
+				  ("Emacs Buffer" "\"c:/emacs-26.2-x86_64/bin/emacsclientw.exe -n\" ./TeX_Output/%o"))) ;; %o is the output file
+    (setq TeX-view-program-selection '(((output-dvi style-pstricks) "dvips and start")
+				       (output-pdf "SumatraPDF")))
+    ) ;; End of Windows Setup
+  (when (equal system-type 'gnu/linux)
+    (setq TeX-view-program-list '(("Zathura" "zathura ./TeX_Output/%o")
+				  ("Okular" "okular ./TeX_Output/%o")
+				  ("Emacs Buffer" "emacsclient -n -e ./TeX_Output/%o")))
+    (setq TeX-view-program-selection '(((output-dvi style pstricks) "dvips and start")
+				       (output-pdf "Zathura")))
+    ) ;; End of Linux Setup
+  (set-TeX-command-list) ;; Calls the function that sets up my TeX-command-list
+  ) ;; End of Evaluation
 
 ;;; Add a way to open the output PDF in Emacs itself, like TeXStudio
 ;;(setq TeX-output-view-style
