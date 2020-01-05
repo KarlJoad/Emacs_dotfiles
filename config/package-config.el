@@ -24,5 +24,7 @@
 (use-package auto-compile ;; If we just downloaded a package, then compile it too
   :config (auto-compile-on-load-mode)) ;; Automatically compile packages on first load
 
+(use-package gnu-elpa-keyring-update) ;; Ensures we always have the latest GPG signing keys for ELPA
+
 (provide 'package-config)
 ;;; package-config.el ends here
