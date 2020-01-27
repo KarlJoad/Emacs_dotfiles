@@ -5,10 +5,18 @@
 ;;; Uncomment one of these lines, then change the load-theme line to the appropriate theme
 ;;(use-package abyss-theme)
 ;;(use-package cyberpunk-theme)
-;;(use-package doom-themes)
-(use-package spacemacs-theme ;; Load the spacemacs themes up
+(use-package doom-themes
   :defer t
-  :init (load-theme 'spacemacs-dark t)) ;; Load the dark theme up
+  :init (load-theme 'doom-outrun-electric t)
+  :config
+  (setq doom-themes-enable-bold t)
+  (setq doom-themes-enable-italic t)
+  (setq doom-themes-treemacs-theme "doom-colors")
+  (doom-themes-treemacs-config)
+  (doom-themes-org-config))
+;; (use-package spacemacs-theme ;; Load the spacemacs themes up
+;;   :defer t
+;;   :init (load-theme 'spacemacs-dark t)) ;; Load the dark theme up
 
 ;;; Change Default custom-theme-load-path
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/"))
@@ -22,7 +30,7 @@
 (defun apply-theme-if-daemon ()
   "Apply the theme used above if Emacs is evaluated with `emacs --daemon`, ensuring each subsequent frame is themed appropriately."
   (interactive) ;; This can be calld with M-x apply-theme-if-daemon
-  (load-theme 'spacemacs-dark t)) ;; CHANGE ME WHEN YOU CHANGE THE EARLIER load-theme
+  (load-theme 'doom-outrun-electric t)) ;; CHANGE ME WHEN YOU CHANGE THE EARLIER load-theme
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions
