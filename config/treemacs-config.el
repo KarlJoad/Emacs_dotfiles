@@ -17,6 +17,8 @@
 	("C-x t C-t" . treemacs-find-file)
 	("C-x t M-t" . treemacs-find-tag)))
 
+(use-package all-the-icons)
+
 ;; Treemacs-magit fills in the gaps that treemacs can't handle for git/magit
 (use-package treemacs-magit
   :after treemacs magit
