@@ -11,7 +11,13 @@
 (defvar my-default-bibtex-dialect "biblatex"
   "By default, I like to use BibLaTeX, so I want to make sure I always use that.")
 
-(bibtex-set-dialect my-default-bibtex-dialect)
+(bibtex-mode)
+
+(add-hook 'bibtex-mode-hook
+		  (lambda ()
+			"Setup BibTeX-mode for me, but only when I open a *.bib file. Because not all globally exported variables work all the time."
+			(setq bibtex-dialect 'biblatex)
+			(setq bibtex-maintain-sorted-entries t)))
 
 (provide 'BibTeX-config)
 ;;; BibTeX-config.el ends here
