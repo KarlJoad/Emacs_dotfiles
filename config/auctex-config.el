@@ -17,6 +17,7 @@
 					;; From: https://tex.stackexchange.com/questions/157242/adding-an-option-to-the-pdflatex-call-from-auctex
 
 (setq TeX-parse-self t) ;; Parse multifile documents automagically
+(setq TeX-auto-save t) ;; Enables parsing upon saving the document
 (setq TeX-show-compilation t) ;; Always show compilation output
 (setq TeX-global-PDF-mode t) ;; Make the default TeX mode PDF mode
 (setq TeX-command-default "pdflatex") ;; Default compile to PDF
