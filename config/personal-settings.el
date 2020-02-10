@@ -26,7 +26,12 @@
 
 (show-paren-mode) ;; Emphasize MATCHING Parentheses
 (setq blink-matching-paren nil) ;; But don't let them blink
-(use-package rainbow-delimiters) ;; Color nested parentheses/brackets/braces successively
+(require 'rainbow-delimiters-config)
+
+;; Hide the long list of minor modes from the mode-line.
+(use-package minions
+  :config (minions-mode 1))
+>>>>>>> Stashed changes
 
 (setq auto-save-default t) ;; Allow the #auto-save# files. They are removed upon buffer save anyways
 (setq make-backup-files nil) ;; Disable backup~ files
