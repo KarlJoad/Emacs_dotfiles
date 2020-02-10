@@ -13,7 +13,7 @@
 	 ("C-c c" . 'org-capture) ;; "C-c c" will let me select a template and file the new information
 	 )
   :config
-  (setq org-src-fontify-natively t) ;; Use syntax highliting in source blocks while editing
+  (setq org-src-fontify-natively t) ;; Use major-mode specific syntax highliting in source blocks while editing
   (setq org-src-preserve-indentation t) ;; DO NOT put the 2 leader spaces in source code. Prevents issues with white-space sensitive languages
   (setq org-src-tab-acts-natively t) ;; Make TAB act as if it were issued natively in that language's major mode
   (setq org-src-window-setup 'current-window) ;; When C-c ' a code block, use same window as org file
