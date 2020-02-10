@@ -28,6 +28,8 @@
 (setq blink-matching-paren nil) ;; But don't let them blink
 (require 'rainbow-delimiters-config) ;; Require that we pull in the rainbow-delimiters config from here
 
+;; Hide the long list of minor modes from the mode-line.
+(require 'minions-config)
 
 ;; Automatic file creation/manipulation/backups
 ;; I choose to remove the backup~ files because I don't want to have to add every one of those files
