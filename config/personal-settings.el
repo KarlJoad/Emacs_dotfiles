@@ -23,10 +23,11 @@
   (setq column-number-mode 1) ;; Turn on column numbers in ALL major modes
   (global-hl-line-mode 1)) ;; Have line with my cursor highlighted
 
-
 (show-paren-mode) ;; Emphasize MATCHING Parentheses
 (setq blink-matching-paren nil) ;; But don't let them blink
 (use-package rainbow-delimiters) ;; Color nested parentheses/brackets/braces successively
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
 
 (setq auto-save-default t) ;; Allow the #auto-save# files. They are removed upon buffer save anyways
 (setq make-backup-files nil) ;; Disable backup~ files
@@ -45,6 +46,26 @@
 
 ;; Enable syntax highlighting for older Emacsen that have it off
 (global-font-lock-mode t)
+
+;; Shamelessly stolen from Adrien Brochard's configuration.org
+(defun karljoad/toggle-presentation ()
+  "Toggle presentation features, like font increase."
+  (interactive)
+  (let ((regular-fontsize 98)
+        (presentation-fontsize 200))
+    (if (equal (face-attribute 'default :height) regular-fontsize) ;; If the current face-attribute's height is the regular
+		;; Then switch to the presentation size
+        (set-face-attribute 'default nil :height presentation-fontsize)
+	  ;; Otherwise, switch back to the regular size
+      (set-face-attribute 'default nil :height regular-fontsize))))
+
+(setq confirm-kill-emacs 'y-or-n-p) ;; ALWAYS as for confirmation before exiting Emacs
+
+;; Anything that should happen before saving any buffers should be put here.
+(add-hook 'before-save-hook
+		  (lambda ()
+			"Commands to execute before saving any buffer."
+			(delete-trailing-whitespace)))
 
 ;; Transparently open compressed files
 (auto-compression-mode t)
