@@ -3,11 +3,10 @@
 ;;; Code:
 
 ;; Make Emacs Start Full-Screen
-(when (equal system-type 'gnu/linux)
-  (add-hook 'emacs-startup-hook 'toggle-frame-fullscreen) ;; When on GNU/Linux, make Emacs fullscreen
-  )
-(when (equal system-type 'windows-nt)
-  (add-hook 'emacs-startup-hook 'toggle-frame-maximized) ;; When on Windows/DOS, make emacs maximized window
+;; Except on Windows, where I think the window decorations are nice.
+(if (equal system-type 'windows-nt) ;; ONLY when on Windows/GUI DOS
+	(add-hook 'emacs-startup-hook 'toggle-frame-maximized) ;; Make Emacs a maximized window
+  (add-hook 'emacs-startup-hook 'toggle-frame-fullscreen) ;; Otherwise, on GNU/Linux/BSD/OSX, make Emacs fullscreen
   )
 
 ;;;; Skip the "Welcome" Page
