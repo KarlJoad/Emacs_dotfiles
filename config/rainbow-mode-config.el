@@ -10,5 +10,8 @@
   :ensure t
   :defer t)
 
+;; Enable Rainbow-mode for any buffer that runs the css-mode-hook
+(add-hook 'css-mode-hook #'rainbow-mode)
+
 (provide 'rainbow-mode-config)
 ;;; rainbow-mode-config ends here
