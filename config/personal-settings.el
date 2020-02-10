@@ -40,14 +40,18 @@
 (setq auto-save-default t) ;; Allow the #auto-save# files. They are removed upon buffer save anyways
 (setq make-backup-files nil) ;; Disable backup~ files
 
+;; Disable some minor disturbances that I find quite annoying.
 (setq visible-bell nil) ;; Disable the visual bell
 (setq ring-bell-function 'ignore) ;; Don't make a ding when failing command
 
-;; Auto refresh buffers
-(setq global-auto-revert-mode 1)
+;; NOTE: Emacs calls refreshing a buffer a revert.
+;; Unless you have modifications in memory that are not saved to the disk, then you will be fine.
+(setq global-auto-revert-mode t) ;; Auto refresh buffers
 ;; Also refresh dired, but quietly
-(setq global-auto-revert-non-file-buffers t)
-(setq auto-revert-verbose nil)
+(setq global-auto-revert-non-file-buffers t) ;; Allow buffers not attached to a file to refresh themselves
+;; Usually, a message is generated everytime a buffer is reverted and placed in the *Messages* buffer.
+(setq auto-revert-verbose nil) ;; But not right now.
+(auto-compression-mode t) ;; Transparently open compressed files
 
 ;; Show keystrokes in progress more quickly than default
 (setq echo-keystrokes 0.75)
@@ -60,9 +64,6 @@
 		  (lambda ()
 			"Commands to execute before saving any buffer."
 			(delete-trailing-whitespace)))
-
-;; Transparently open compressed files
-(auto-compression-mode t)
 
 ;; Try to use UTF-8 for everything
 (setq locale-coding-system 'utf-8)
