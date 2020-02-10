@@ -43,8 +43,9 @@
 			   (python . t) ;; Python blocks
 			   (R . t) ;; R blocks (Not sure when I'll use this, but I will some day)
 			   (ruby . nil) ;; nil to not load Ruby
-			   (rust . t) ;; Rust
-			   (sml . t) ;; SML
+			   ;; (rust . t) ;; Rust, provided by rust-mode, which I am not using.
+			   ;; (rustic . t) ;; Rust which is not currently provided by the rustic package
+			   ;; (sml . t) ;; SML, only supported if the ob-sml.el package is manually installed
 			   (sql . t) ;; SQL blocks
 			   (sqlite . t) ;; SQLite blocks
 			   ))
