@@ -27,6 +27,9 @@
 (setq blink-matching-paren nil) ;; But don't let them blink
 (require 'rainbow-delimiters-config) ;; Require that we pull in the rainbow-delimiters config from here
 
+;; Enable syntax highlighting for older Emacsen that have it off
+(global-font-lock-mode t)
+
 ;; Hide the long list of minor modes from the mode-line.
 (require 'minions-config)
 
@@ -49,8 +52,6 @@
 ;; Show keystrokes in progress more quickly than default
 (setq echo-keystrokes 0.75)
 
-;; Enable syntax highlighting for older Emacsen that have it off
-(global-font-lock-mode t)
 
 (setq confirm-kill-emacs 'y-or-n-p) ;; ALWAYS as for confirmation before exiting Emacs
 
