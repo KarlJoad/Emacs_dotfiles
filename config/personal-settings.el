@@ -58,6 +58,8 @@
 	  ;; Otherwise, switch back to the regular size
       (set-face-attribute 'default nil :height regular-fontsize))))
 
+(setq confirm-kill-emacs 'y-or-n-p) ;; ALWAYS as for confirmation before exiting Emacs
+
 ;; Transparently open compressed files
 (auto-compression-mode t)
 
