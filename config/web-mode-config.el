@@ -6,5 +6,9 @@
   :ensure t
   :defer t)
 
+(add-hook 'web-mode-hook
+		  (lambda ()
+			(rainbow-mode)))
+
 (provide 'web-mode-config)
 ;;; web-mode-config ends here
