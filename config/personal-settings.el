@@ -9,7 +9,7 @@
   (add-hook 'emacs-startup-hook 'toggle-frame-fullscreen) ;; Otherwise, on GNU/Linux/BSD/OSX, make Emacs fullscreen
   )
 
-;;;; Skip the "Welcome" Page
+;; Skip the "Welcome" Page
 ;;(setq inhibit-startup-message t)
 
 ;; Remove scroll bar at side, when running in a GUI instance
