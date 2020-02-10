@@ -60,6 +60,12 @@
 
 (setq confirm-kill-emacs 'y-or-n-p) ;; ALWAYS as for confirmation before exiting Emacs
 
+;; Anything that should happen before saving any buffers should be put here.
+(add-hook 'before-save-hook
+		  (lambda ()
+			"Commands to execute before saving any buffer."
+			(delete-trailing-whitespace)))
+
 ;; Transparently open compressed files
 (auto-compression-mode t)
 
