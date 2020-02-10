@@ -29,6 +29,10 @@
 (require 'rainbow-delimiters-config) ;; Require that we pull in the rainbow-delimiters config from here
 
 
+;; Automatic file creation/manipulation/backups
+;; I choose to remove the backup~ files because I don't want to have to add every one of those files
+;; to the .gitignore for projects.
+;; Besides, auto-saving happens frequently enough for it to not really matter.
 (setq auto-save-default t) ;; Allow the #auto-save# files. They are removed upon buffer save anyways
 (setq make-backup-files nil) ;; Disable backup~ files
 
