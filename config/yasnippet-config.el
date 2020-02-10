@@ -15,12 +15,12 @@
   :config
   (yas-reload-all)
   (defvar yas-snippet-dirs (list (concat user-emacs-directory "snippets") yasnippet-snippets-dir) "List of directories to find snippets for the yasnippet package")
-  ;; (setq yas-snippet-dirs (list (concat user-emacs-directory "snippets") yasnippet-snippets-dir)) ;; Location to find MORE snippets
   (setq tab-always-indent 'complete) ;; Tabs indent
   (setq yas-prompt-functions '(yas-completing-prompt ;; List of prompts that yasnippet can go through
 			       yas-ido-prompt
 			       yas-dropdown-prompt))
   (define-key yas-minor-mode-map (kbd "<escape>") 'yas-exit-snippet)) ;; If there was a menu for selecting snippets, provide an escape route
+
 (setq yas-global-mode 1) ;; Make sure yasnippet is almost always present
 
 (provide 'yasnippet-config)
