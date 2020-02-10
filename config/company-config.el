@@ -17,10 +17,12 @@
   (global-company-mode)
   :config
   (setq company-idle-delay 0)
-  (define-key company-active-map (kbd "<escape>") 'company-abort)
-  (define-key company-active-map [tab] 'company-complete-common-or-cycle)
-  (define-key company-active-map (kbd "C-n") 'company-select-next)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous))
+  (define-key company-active-map (kbd "<escape>") 'company-abort) ;; Give myself an escape route for suggestions.
+  (define-key company-active-map [tab] 'company-complete-common-or-cycle) ;; Use TAB to select the next suggestion, or to cycle to the next option.
+  ;; Which one is chosen depends on if the completion is unique.
+  (define-key company-active-map (kbd "C-n") 'company-select-next) ;; Use C-n to select the next suggestion
+  (define-key company-active-map (kbd "C-p") 'company-select-previous) ;; Use C-p to select previous suggestion
+  )
 
 ;; Company-AUCTeX provides the backend for Company
 ;;(use-package company-auctex)
