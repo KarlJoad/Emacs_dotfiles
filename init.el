@@ -22,12 +22,12 @@
 ;; Start a server version of Emacs
 (server-start)
 
+;;;; Load in my package list
+(require 'package-config)
+
 ;; Set up my personal information and my personal settings
 (require 'personal-info)
 (require 'personal-settings)
-
-;;;; Load in my package list
-(require 'package-config)
 
 ;;;; Load in my current theme
 (require 'theme-config)
