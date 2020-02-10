@@ -18,6 +18,9 @@
   (setq org-src-tab-acts-natively t) ;; Make TAB act as if it were issued natively in that language's major mode
   (setq org-src-window-setup 'current-window) ;; When C-c ' a code block, use same window as org file
   (setq org-confirm-babel-evaluate nil) ;; Don't ask before evaluating code blocks
+  (setq org-log-done-with-time t) ;; Ensures that when tasks marked done, they also take the time that happened
+  (setq org-enforce-todo-dependencies t) ;; Ensure subtasks in list are marked DONE before allowing parent to be DONE
+  (setq org-enforce-todo-checkbox-dependencies t) ;; Ensure checkboxes in list are marked DONE before allowing parent to be DONE
   )
 
 ;; Make org-babel do stuff with  source code blocks in Org-mode
