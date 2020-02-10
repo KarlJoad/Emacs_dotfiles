@@ -26,6 +26,7 @@
 
 (show-paren-mode) ;; Emphasize MATCHING Parentheses
 (setq blink-matching-paren nil) ;; But don't let them blink
+(use-package rainbow-delimiters) ;; Color nested parentheses/brackets/braces successively
 
 (setq auto-save-default t) ;; Allow the #auto-save# files. They are removed upon buffer save anyways
 (setq make-backup-files nil) ;; Disable backup~ files
