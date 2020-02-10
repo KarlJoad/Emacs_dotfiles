@@ -76,10 +76,10 @@
 (set-default 'sentence-end-double-space nil) ;; Having spaces end in 2 spaces is stupid.
 
 ;; Can now open recently opened files
-;; This is done with C-x f
+;; When Recentf mode is enabled, a "Open Recent" submenu is displayed in the "File" menu.
 (require 'recentf)
 (recentf-mode 1) ;; Turn on recentf
-(setq recentf-max-saved-items 50) ;; Maximum number of buffers to remember
+(setq recentf-max-saved-items 25) ;; Maximum number of buffers to remember
 
 ;;; Restore opened files from last session
 ;;(desktop-save-mode 1) ;; Commented out only while debugging my init files
