@@ -28,6 +28,8 @@
 (setq blink-matching-paren nil) ;; But don't let them blink
 (require 'rainbow-delimiters-config) ;; Require that we pull in the rainbow-delimiters config from here
 
+;; Hide the long list of minor modes from the mode-line.
+(require 'minions-config)
 
 (setq auto-save-default t) ;; Allow the #auto-save# files. They are removed upon buffer save anyways
 (setq make-backup-files nil) ;; Disable backup~ files
