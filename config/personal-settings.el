@@ -3,14 +3,13 @@
 ;;; Code:
 
 ;; Make Emacs Start Full-Screen
-(when (equal system-type 'gnu/linux)
-  (add-hook 'emacs-startup-hook 'toggle-frame-fullscreen) ;; When on GNU/Linux, make Emacs fullscreen
-  )
-(when (equal system-type 'windows-nt)
-  (add-hook 'emacs-startup-hook 'toggle-frame-maximized) ;; When on Windows/DOS, make emacs maximized window
+;; Except on Windows, where I think the window decorations are nice.
+(if (equal system-type 'windows-nt) ;; ONLY when on Windows/GUI DOS
+	(add-hook 'emacs-startup-hook 'toggle-frame-maximized) ;; Make Emacs a maximized window
+  (add-hook 'emacs-startup-hook 'toggle-frame-fullscreen) ;; Otherwise, on GNU/Linux/BSD/OSX, make Emacs fullscreen
   )
 
-;;;; Skip the "Welcome" Page
+;; Skip the "Welcome" Page
 ;;(setq inhibit-startup-message t)
 
 ;; Remove scroll bar at side, when running in a GUI instance
@@ -28,6 +27,9 @@
 (setq blink-matching-paren nil) ;; But don't let them blink
 (require 'rainbow-delimiters-config) ;; Require that we pull in the rainbow-delimiters config from here
 
+;; Enable syntax highlighting for older Emacsen that have it off
+(global-font-lock-mode t)
+
 ;; Hide the long list of minor modes from the mode-line.
 (require 'minions-config)
 
@@ -38,47 +40,46 @@
 (setq auto-save-default t) ;; Allow the #auto-save# files. They are removed upon buffer save anyways
 (setq make-backup-files nil) ;; Disable backup~ files
 
+;; Disable some minor disturbances that I find quite annoying.
 (setq visible-bell nil) ;; Disable the visual bell
 (setq ring-bell-function 'ignore) ;; Don't make a ding when failing command
 
-;; Auto refresh buffers
-(setq global-auto-revert-mode 1)
+;; NOTE: Emacs calls refreshing a buffer a revert.
+;; Unless you have modifications in memory that are not saved to the disk, then you will be fine.
+(setq global-auto-revert-mode t) ;; Auto refresh buffers
 ;; Also refresh dired, but quietly
-(setq global-auto-revert-non-file-buffers t)
-(setq auto-revert-verbose nil)
+(setq global-auto-revert-non-file-buffers t) ;; Allow buffers not attached to a file to refresh themselves
+;; Usually, a message is generated everytime a buffer is reverted and placed in the *Messages* buffer.
+(setq auto-revert-verbose nil) ;; But not right now.
+(auto-compression-mode t) ;; Transparently open compressed files
 
 ;; Show keystrokes in progress more quickly than default
 (setq echo-keystrokes 0.75)
 
-;; Enable syntax highlighting for older Emacsen that have it off
-(global-font-lock-mode t)
+;; ALWAYS as for confirmation before exiting Emacs
+(setq confirm-kill-emacs 'y-or-n-p)
 
-(setq confirm-kill-emacs 'y-or-n-p) ;; ALWAYS as for confirmation before exiting Emacs
-
-;; Anything that should happen before saving any buffers should be put here.
+;; ANYTHING that should happen before saving ANY buffers should be put here.
 (add-hook 'before-save-hook
 		  (lambda ()
 			"Commands to execute before saving any buffer."
 			(delete-trailing-whitespace)))
-
-;; Transparently open compressed files
-(auto-compression-mode t)
 
 ;; Try to use UTF-8 for everything
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
+(prefer-coding-system 'utf-8) ;; A catch-all for any locations a coding system might be where I have forgotten.
 
-;; Sentences DO NOT need 2 spaced to end.
-(set-default 'sentence-end-double-space nil)
+;; Sentences DO NOT need 2 spaces to end.
+(set-default 'sentence-end-double-space nil) ;; Having spaces end in 2 spaces is stupid.
 
 ;; Can now open recently opened files
-;; This is done with C-x f
+;; When Recentf mode is enabled, a "Open Recent" submenu is displayed in the "File" menu.
 (require 'recentf)
 (recentf-mode 1) ;; Turn on recentf
-(setq recentf-max-saved-items 50) ;; Maximum number of buffers to remember
+(setq recentf-max-saved-items 25) ;; Maximum number of buffers to remember
 
 ;;; Restore opened files from last session
 ;;(desktop-save-mode 1) ;; Commented out only while debugging my init files
