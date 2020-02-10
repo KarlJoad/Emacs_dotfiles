@@ -3,6 +3,11 @@
 ;;; Code:
 
 (use-package haskell-mode)
+(add-hook 'haskell-mode-hook
+		  (lambda ()
+			(haskell-doc-mode) ;; Displays the type signature for a function
+			(turn-on-haskell-indent) ;; Use smart indentation for Haskell buffers/files
+			))
 
 ;; Sub-mode for Haskell-mode
 (use-package ghc)
