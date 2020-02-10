@@ -22,6 +22,7 @@
   ;; Which one is chosen depends on if the completion is unique.
   (define-key company-active-map (kbd "C-n") 'company-select-next) ;; Use C-n to select the next suggestion
   (define-key company-active-map (kbd "C-p") 'company-select-previous) ;; Use C-p to select previous suggestion
+  (define-key company-active-map (kbd "C-d") 'company-show-doc-buffer) ;; Use C-d to show the documentation for the thing
   )
 
 ;; Company-AUCTeX provides the backend for Company
