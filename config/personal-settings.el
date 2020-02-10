@@ -56,10 +56,10 @@
 ;; Show keystrokes in progress more quickly than default
 (setq echo-keystrokes 0.75)
 
+;; ALWAYS as for confirmation before exiting Emacs
+(setq confirm-kill-emacs 'y-or-n-p)
 
-(setq confirm-kill-emacs 'y-or-n-p) ;; ALWAYS as for confirmation before exiting Emacs
-
-;; Anything that should happen before saving any buffers should be put here.
+;; ANYTHING that should happen before saving ANY buffers should be put here.
 (add-hook 'before-save-hook
 		  (lambda ()
 			"Commands to execute before saving any buffer."
@@ -70,10 +70,10 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
+(prefer-coding-system 'utf-8) ;; A catch-all for any locations a coding system might be where I have forgotten.
 
-;; Sentences DO NOT need 2 spaced to end.
-(set-default 'sentence-end-double-space nil)
+;; Sentences DO NOT need 2 spaces to end.
+(set-default 'sentence-end-double-space nil) ;; Having spaces end in 2 spaces is stupid.
 
 ;; Can now open recently opened files
 ;; This is done with C-x f
