@@ -1,5 +1,15 @@
 ;;; mu4e-config.el --- This file configured mu4e for my email
 ;;; Commentary:
+;;
+;; mu4e requires another program be installed that interfaces with IMAP
+;; to download the emails, since mu ONLY indexes and queries the downloaded
+;; emails.
+;;
+;; For OpenSUSE Tumbleweed, I use the repository's isync package.
+;;   This program contains mbsync as its main binary; project name is isync.
+;;   The configuration file for this program is ~/.mbsyncrc
+;; For other distributions, I may use OfflineIMAP.
+;;
 ;;; Code:
 
 ;; (require 'mu4e)
