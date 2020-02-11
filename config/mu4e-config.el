@@ -12,7 +12,10 @@
 ;;
 ;;; Code:
 
-;; (require 'mu4e)
+;; Add the path to the mu4e source code
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
+(require 'mu4e)
+
 
 ;; Shamelessly stolen from Howard R. Schwarz's configuration.org file.
 (defun karljoad/encrypt-responses ()
