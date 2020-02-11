@@ -32,6 +32,9 @@
 ;;;; Load in my current theme
 (require 'theme-config)
 
+;;;; Load in my email settings for mu4e
+(require 'mu4e-config)
+
 ;;;; Load in Magit options
 (require 'magit-config)
 
