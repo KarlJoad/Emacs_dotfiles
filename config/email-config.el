@@ -116,6 +116,9 @@
 ;; Use a sendmail program rather than sending directly from Emacs
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
 
+;; Make msmtp infer the correct account to send from by the From: email address
+(setq message-sendmail-extra-arguments '("--read-envelope-from"))
+
 ;; =============================================================================
 ;; My personal functions
 ;; =============================================================================
