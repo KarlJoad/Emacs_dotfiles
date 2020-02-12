@@ -34,6 +34,27 @@
 ;; This uses the same keybinding as org-mode, making it easy to remember.
 (define-key mu4e-view-mode-map (kbd "C-c C-o") 'mu4e~view-browse-url-from-binding)
 
+;; HTML email is rife in the world. It is used by Gmail, for instance.
+;; There are accessibility reasons why not to use it, but I still want to be able
+;;  to read emails sent through Gmail. So, we configure that here.
+(require 'mu4e-contrib)
+(setq mu4e-html2text-command 'mu4e-shr2text
+      shr-color-visible-luminance-min 60
+      shr-color-visible-distance-min 5
+      shr-use-fonts nil
+      shr-use-colors nil)
+(advice-add #'shr-colorize-region
+            :around (defun shr-no-colourise-region (&rest ignore)))
+
+;; However, there are some HTML emails that are just too hard for Emacs to display.
+;; So, open the HTML up in my browser.
+;; By default, this is bound to "a h" in the mu4e mode.
+(add-to-list 'mu4e-view-actions
+             '("HTML in Browser" . mu4e-action-view-in-browser)
+			 ;; Append the action, to list, rather than overwrite.
+			 ;; The add-to-list function actually appends to the FRONT of the list!
+             t)
+
 (setq mu4e-contexts
       `(,(make-mu4e-context
           :name "Personal"
