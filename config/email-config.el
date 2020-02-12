@@ -82,6 +82,13 @@
 ;; When composing a new email, always ask them, just to confirm.
 (setq mu4e-compose-context-policy 'always-ask)
 
+;; C-x m is bound by default with Emacs to the function compose-mail
+;; It choses the mail composition package from mail-user-agent.
+;; So, I set mail-user-agent to use the mu4e-user-agent.
+;; This means I don't have to change the function the key is bound to, and I
+;;  still get to use my preferred mail-composition package.
+(setq mail-user-agent 'mu4e-user-agent)
+
 
 ;; Shamelessly stolen from Howard R. Schwarz's configuration.org file.
 (defun karljoad/encrypt-responses ()
