@@ -68,7 +68,9 @@
                   (mu4e-sent-folder . "/Personal/sent")
                   (mu4e-drafts-folder . "/Personal/drafts")))))
 
-(setq mu4e-change-filenames-when-moving t) ;; Rename files when moving them between directories
+;; Rename files when moving them between directories
+(setq mu4e-change-filenames-when-moving t)
+
 
 ;; Shamelessly stolen from Howard R. Schwarz's configuration.org file.
 (defun karljoad/encrypt-responses ()
