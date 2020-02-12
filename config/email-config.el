@@ -119,6 +119,9 @@
 ;; Make msmtp infer the correct account to send from by the From: email address
 (setq message-sendmail-extra-arguments '("--read-envelope-from"))
 
+;; Don't add "-f username" to the msmtp command.
+(setq message-sendmail-f-is-evil 't)
+
 ;; =============================================================================
 ;; My personal functions
 ;; =============================================================================
