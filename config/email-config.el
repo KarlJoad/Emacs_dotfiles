@@ -103,6 +103,15 @@
 ;; This may also include the section headers that org-mode uses
 (add-hook 'message-mode-hook 'turn-on-orgstruct++)
 
+;; =============================================================================
+;; My personal functions
+;; =============================================================================
+;; Closes all open buffers and jumps to mu4e mailbox
+;; STILL A WORK IN PROGRESS!!
+(defun karljoad/open-mu4e-context (context)
+  "Closes all currently open buffers and opens CONTEXT in mu4e."
+  (interactive "sContext:")
+  (mu4e~headers-jump-to-maildir context))
 
 ;; Shamelessly stolen from Howard R. Schwarz's configuration.org file.
 (defun karljoad/encrypt-responses ()
