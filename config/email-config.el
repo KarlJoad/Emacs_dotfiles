@@ -105,6 +105,15 @@
 (add-hook 'message-mode-hook 'turn-on-orgstruct++)
 
 ;; =============================================================================
+;; Mail sending setup
+;; =============================================================================
+;; Since I use Gmail, I have to use SMTP to send my emails.
+;; This means I need to use a non-default mail sender, namely the program msmtp.
+
+;; Use the msmtp program in /usr/bin/msmtp
+(setq sendmail-program "msmtp")
+
+;; =============================================================================
 ;; My personal functions
 ;; =============================================================================
 ;; Closes all open buffers and jumps to mu4e mailbox
