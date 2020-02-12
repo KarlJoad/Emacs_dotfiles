@@ -113,6 +113,9 @@
 ;; Use the msmtp program in /usr/bin/msmtp
 (setq sendmail-program "msmtp")
 
+;; Use a sendmail program rather than sending directly from Emacs
+(setq message-send-mail-function 'message-send-mail-with-sendmail)
+
 ;; =============================================================================
 ;; My personal functions
 ;; =============================================================================
