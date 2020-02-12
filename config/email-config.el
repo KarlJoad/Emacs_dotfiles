@@ -77,6 +77,11 @@
 ;; Show the email address of the person I am emailing along with their name.
 (setq mu4e-view-show-addresses t)
 
+;; Since I use multiple email accounts, I want to make sure that I always send
+;;  my emails from the correct mail account/context.
+;; When composing a new email, always ask them, just to confirm.
+(setq mu4e-compose-context-policy 'always-ask)
+
 
 ;; Shamelessly stolen from Howard R. Schwarz's configuration.org file.
 (defun karljoad/encrypt-responses ()
