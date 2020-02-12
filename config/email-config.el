@@ -71,6 +71,9 @@
 ;; Rename files when moving them between directories
 (setq mu4e-change-filenames-when-moving t)
 
+;; Don't show the context of a thread in the Inbox, once it has been deleted
+(setq mu4e-headers-include-related nil)
+
 
 ;; Shamelessly stolen from Howard R. Schwarz's configuration.org file.
 (defun karljoad/encrypt-responses ()
