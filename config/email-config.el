@@ -74,6 +74,9 @@
 ;; Don't show the context of a thread in the Inbox, once it has been deleted
 (setq mu4e-headers-include-related nil)
 
+;; Show the email address of the person I am emailing along with their name.
+(setq mu4e-view-show-addresses t)
+
 
 ;; Shamelessly stolen from Howard R. Schwarz's configuration.org file.
 (defun karljoad/encrypt-responses ()
