@@ -31,6 +31,10 @@
 ;; Give myself a nice easy keybinding to open mu4e
 (global-set-key (kbd "C-c m") 'mu4e)
 
+;; mu4e starts REAL QUICK, so closing it isn't that bad.
+;; Besides, I have a nice easy keybinding to open it quickly anyways.
+(setq mu4e-confirm-quit nil)
+
 ;; If there are web links in an email, open them in my default browser
 ;; This uses the same keybinding as org-mode, making it easy to remember.
 (define-key mu4e-view-mode-map (kbd "C-c C-o") 'mu4e~view-browse-url-from-binding)
