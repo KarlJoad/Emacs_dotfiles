@@ -93,6 +93,16 @@
 ;; to be killed, rather than buried in the buffer-list.
 (setq message-kill-buffer-on-exit t)
 
+;; =============================================================================
+;; Allow mu4e to use some capabilities of org-mode
+;; =============================================================================
+;; Enable org-mode style tables in messages
+(add-hook 'message-mode-hook 'turn-on-orgtbl)
+
+;; Enable org-mode like list manipulation
+;; This may also include the section headers that org-mode uses
+(add-hook 'message-mode-hook 'turn-on-orgstruct++)
+
 
 ;; Shamelessly stolen from Howard R. Schwarz's configuration.org file.
 (defun karljoad/encrypt-responses ()
