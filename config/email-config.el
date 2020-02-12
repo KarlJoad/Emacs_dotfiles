@@ -27,6 +27,9 @@
 
 (setq mu4e-maildir "~/Mail")
 
+;; Give myself a nice easy keybinding to open mu4e
+(global-set-key (kbd "C-c m") 'mu4e)
+
 (setq mu4e-contexts
       `(,(make-mu4e-context
           :name "Personal"
