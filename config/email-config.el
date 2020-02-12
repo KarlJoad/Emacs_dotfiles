@@ -89,6 +89,10 @@
 ;;  still get to use my preferred mail-composition package.
 (setq mail-user-agent 'mu4e-user-agent)
 
+;; Once I finish the email AND HAVE SENT IT, I want the buffer containing the mail
+;; to be killed, rather than buried in the buffer-list.
+(setq message-kill-buffer-on-exit t)
+
 
 ;; Shamelessly stolen from Howard R. Schwarz's configuration.org file.
 (defun karljoad/encrypt-responses ()
