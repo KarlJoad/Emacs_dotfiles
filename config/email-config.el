@@ -25,6 +25,7 @@
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
 (require 'mu4e)
 
+;; The location of my mail for ALL of the accounts
 (setq mu4e-maildir "~/Mail")
 
 ;; Give myself a nice easy keybinding to open mu4e
@@ -57,7 +58,7 @@
 
 (setq mu4e-contexts
       `(,(make-mu4e-context
-          :name "Personal"
+          :name "personal"
           :match-func (lambda (msg)
                         (when msg
                           (string-prefix-p "/Personal" (mu4e-message-field msg :maildir))))
