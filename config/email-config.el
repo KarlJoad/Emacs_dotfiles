@@ -79,7 +79,7 @@
     (when (and msg (member 'encrypted (mu4e-message-field msg :flags)))
         (mml-secure-message-encrypt-pgpmime))))
 
-(add-hook 'mu4e-compose-mode-hook 'hrs/encrypt-responses)
+(add-hook 'mu4e-compose-mode-hook 'karljoad/encrypt-responses)
 
 (provide 'email-config)
 ;;; email-config.el ends here
