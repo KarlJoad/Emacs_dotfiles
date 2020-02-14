@@ -68,10 +68,10 @@
                           (string-prefix-p "/Personal" (mu4e-message-field msg :maildir))))
           :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
 				  ;; (user-mail-address . "karl@hallsby.com") ;; My personal email address is set in personal-info
-                  (mu4e-trash-folder . "/Personal/archive")
-                  (mu4e-refile-folder . "/Personal/archive")
-                  (mu4e-sent-folder . "/Personal/sent")
-                  (mu4e-drafts-folder . "/Personal/drafts")))))
+                  (mu4e-trash-folder . "/Personal/Trash")
+                  (mu4e-refile-folder . "/Personal/Refile")
+                  (mu4e-sent-folder . "/Personal/Sent")
+                  (mu4e-drafts-folder . "/Personal/Drafts")))
 
 ;; Rename files when moving them between directories
 (setq mu4e-change-filenames-when-moving t)
