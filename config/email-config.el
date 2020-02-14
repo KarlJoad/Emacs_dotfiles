@@ -118,6 +118,11 @@
 ;; Rename files when moving them between directories
 (setq mu4e-change-filenames-when-moving t)
 
+;; When sending mail, delete the message file.
+;; If using Gmail, messages are moved to the Sent folder by Google.
+;; So, we don't need to do anything on our end.
+(setq mu4e-sent-messages-behavior 'delete)
+
 ;; Don't show the context of a thread in the Inbox, once it has been deleted
 (setq mu4e-headers-include-related nil)
 
