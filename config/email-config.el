@@ -106,6 +106,12 @@
                   (mu4e-sent-folder . "/TriangleServerAdmin/Sent")
                   (mu4e-drafts-folder . "/TriangleServerAdmin/Drafts")))))
 
+(add-to-list 'mu4e-bookmarks
+       (make-mu4e-bookmark
+        :name "All Inboxes"
+        :query "maildir:/Personal/Inbox OR maildir:/IIT/Inbox OR maildir:/Lund/Inbox OR maildir:/TriangleServerAdmin/Inbox"
+        :key ?a))
+
 ;; Rename files when moving them between directories
 (setq mu4e-change-filenames-when-moving t)
 
