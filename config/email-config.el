@@ -72,6 +72,17 @@
                   (mu4e-refile-folder . "/Personal/Refile")
                   (mu4e-sent-folder . "/Personal/Sent")
                   (mu4e-drafts-folder . "/Personal/Drafts")))
+		,(make-mu4e-context
+		  :name "iit"
+		  :match-func (lambda (msg)
+                        (when msg
+                          (string-prefix-p "/Personal" (mu4e-message-field msg :maildir))))
+          :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
+				  (user-mail-address . "khallsby@hawk.iit.edu")
+                  (mu4e-trash-folder . "/IIT/Trash")
+                  (mu4e-refile-folder . "/IIT/Refile")
+                  (mu4e-sent-folder . "/IIT/Sent")
+                  (mu4e-drafts-folder . "/IIT/Drafts")))
 
 ;; Rename files when moving them between directories
 (setq mu4e-change-filenames-when-moving t)
