@@ -112,6 +112,9 @@
         :query "maildir:/Personal/Inbox OR maildir:/IIT/Inbox OR maildir:/Lund/Inbox OR maildir:/TriangleServerAdmin/Inbox"
         :key ?a))
 
+;; We want to get mail with the mbsync command.
+(setq mu4e-get-mail-command "mbsync -a")
+
 ;; Rename files when moving them between directories
 (setq mu4e-change-filenames-when-moving t)
 
