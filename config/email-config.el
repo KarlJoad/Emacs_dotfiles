@@ -67,7 +67,9 @@
                         (when msg
                           (string-prefix-p "/Personal" (mu4e-message-field msg :maildir))))
           :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
-				  ;; (user-mail-address . "karl@hallsby.com") ;; My personal email address is set in personal-info
+				  (user-mail-address . "karl@hallsby.com")
+				  ;; Although my personal email address is set in personal-info, I need to reset it
+				  ;; when I change contexts in mu4e
                   (mu4e-trash-folder . "/Personal/Trash")
                   (mu4e-refile-folder . "/Personal/Refile")
                   (mu4e-sent-folder . "/Personal/Sent")
