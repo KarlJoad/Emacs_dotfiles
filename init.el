@@ -20,7 +20,13 @@
 (add-to-list 'load-path (expand-file-name "config/" user-emacs-directory)) ;; user-emacs-directory + "config/" to put the config directory in the load-path
 
 ;; Start a server version of Emacs
-(server-start)
+;; First we ensure that the server.el(c) file is loaded with require
+(require 'server)
+;; Then we check if the function server-running-p is bound to a function
+;;  which means that it is available for us to use.
+(if (and (fboundp 'server-running-p)
+		 (not (server-running-p)))
+	(server-start))
 
 ;;;; Load in my package list
 (require 'package-config)
