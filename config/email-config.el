@@ -114,7 +114,7 @@
         :query "maildir:/Personal/Inbox OR maildir:/IIT/Inbox OR maildir:/Lund/Inbox OR maildir:/TriangleServerAdmin/Inbox"
         :key ?a))
 
-;; We want to get mail with the mbsync command.
+;; We want to get ALL mail with the mbsync command with the -a flag.
 (setq mu4e-get-mail-command "mbsync -a")
 
 ;; Rename files when moving them between directories
@@ -169,7 +169,7 @@
 (setq sendmail-program "msmtp")
 ;; Or, we can queue them, and then have an mu4e keybinding to send them when we
 ;; get the chance.
-(setq smtpmail-queue-mail t ;; Switched by my4e~main-toggle-mail-sending-mode function
+(setq smtpmail-queue-mail nil ;; Switched by my4e~main-toggle-mail-sending-mode function
 	  smtpmail-queue-dir "~/.msmtpqueue/") ;; What directory the queue is in
 
 ;; Overwrite the mu4e~main-toggle-mail-sending-mode keybinding with my own function
