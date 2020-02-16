@@ -172,6 +172,16 @@
 (setq smtpmail-queue-mail t ;; Switched by my4e~main-toggle-mail-sending-mode function
 	  smtpmail-queue-dir "~/.msmtpqueue/") ;; What directory the queue is in
 
+;; Overwrite the mu4e~main-toggle-mail-sending-mode keybinding with my own function
+(define-key 'mu4e-main-mode-map (kbd "m") 'karljoad/set-sendmail-program)
+(defun karljoad/set-sendmail-program ()
+  "Set the smtpmail variable sendmail-program based on the value of smtpmail-queue-mail's value."
+  (interactive)
+  (mu4e~main-toggle-mail-sending-mode)
+  (if smtpmail-queue-mail ;; Is true, meaning we queue it
+	  (setq sendmail-program "msmtp-enqueue.sh")
+	(setq sendmail-program "msmtp")))
+
 
 ;; Use a sendmail program rather than sending directly from Emacs
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
