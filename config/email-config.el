@@ -191,6 +191,15 @@
   (let (buf (set-buffer "*msmtp-runqueue Output*"))
 	(shell-command "msmtp-runqueue.sh &" buf)))
 
+;; Commented until I figure out how to make this work.
+;; I want to print an additional command-context line in the main mu4e buffer.
+;; (add-hook 'mu4e-main-mode
+;; 		  (let ((buf (get-buffer mu4e~main-buffer-name)))
+;; 			(with-current-buffer buf
+;; 			  (setq inhibit-read-only t)
+;; 			  (insert
+;; 			   (mu4e~main-action-str "\t[f]lush all queued mail and [S]end" 'karljoad/send-queued-mail))
+;; 			  (setq inhibit-read-only nil))))
 
 ;; Use a sendmail program rather than sending directly from Emacs
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
