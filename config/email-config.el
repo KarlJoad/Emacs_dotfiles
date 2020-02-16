@@ -163,8 +163,15 @@
 ;; Since I use Gmail, I have to use SMTP to send my emails.
 ;; This means I need to use a non-default mail sender, namely the program msmtp.
 
-;; Use the msmtp program in /usr/bin/msmtp
+;; This will send ALL mail IMMEDIATELY, and will fail if you do not have an
+;; Internet connection.
+;; We set this by default here, so we can always try to send something
 (setq sendmail-program "msmtp")
+;; Or, we can queue them, and then have an mu4e keybinding to send them when we
+;; get the chance.
+(setq smtpmail-queue-mail t ;; Switched by my4e~main-toggle-mail-sending-mode function
+	  smtpmail-queue-dir "~/.msmtpqueue/") ;; What directory the queue is in
+
 
 ;; Use a sendmail program rather than sending directly from Emacs
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
