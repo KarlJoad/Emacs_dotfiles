@@ -182,6 +182,15 @@
 	  (setq sendmail-program "msmtp-enqueue.sh")
 	(setq sendmail-program "msmtp")))
 
+(define-key 'mu4e-main-mode-map (kbd "S") 'karljoad/send-queued-mail)
+(define-key 'mu4e-main-mode-map (kbd "f") 'karljoad/send-queued-mail)
+(defun karljoad/send-queued-mail ()
+  "Sends all mail currently stored in ~/.msmtpqueue/. Put output in *msmtp-runqueue Output* buffer."
+  (interactive)
+  ;; Now run the msmtp-runqueue.sh command, and put the output in a temporary buffer.
+  (let (buf (set-buffer "*msmtp-runqueue Output*"))
+	(shell-command "msmtp-runqueue.sh &" buf)))
+
 
 ;; Use a sendmail program rather than sending directly from Emacs
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
