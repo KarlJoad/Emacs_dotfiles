@@ -2,18 +2,21 @@
 ;;; Commentary:
 ;;; Code:
 
+(if (display-graphic-p) ;; If using GUI, then use GUI theme
 ;;; Uncomment one of these lines, then change the load-theme line to the appropriate theme
-;;(use-package abyss-theme)
-;;(use-package cyberpunk-theme)
-(use-package doom-themes
-  :defer t
-  :init (load-theme 'doom-outrun-electric t)
-  :config
-  (setq doom-themes-enable-bold t)
-  (setq doom-themes-enable-italic t)
-  (setq doom-themes-treemacs-theme "doom-colors")
-  (doom-themes-treemacs-config)
-  (doom-themes-org-config))
+	;;(use-package abyss-theme)
+	;;(use-package cyberpunk-theme)
+	(use-package doom-themes
+	  :defer t
+	  :init (load-theme 'doom-outrun-electric t)
+	  :config
+	  (setq doom-themes-enable-bold t)
+	  (setq doom-themes-enable-italic t)
+	  (setq doom-themes-treemacs-theme "doom-colors")
+	  (doom-themes-treemacs-config)
+	  (doom-themes-org-config))
+  (use-package monokai-theme))
+
 ;; (use-package spacemacs-theme ;; Load the spacemacs themes up
 ;;   :defer t
 ;;   :init (load-theme 'spacemacs-dark t)) ;; Load the dark theme up
@@ -34,8 +37,8 @@
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions
-	      (lambda (frame)
-		(with-selected-frame frame (apply-theme-if-daemon))))
+			  (lambda (frame)
+				(with-selected-frame frame (apply-theme-if-daemon))))
   (apply-theme-if-daemon))
 
 (provide 'theme-config)
