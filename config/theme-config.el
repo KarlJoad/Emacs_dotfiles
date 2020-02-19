@@ -4,8 +4,11 @@
 
 (if (display-graphic-p) ;; If using GUI, then use GUI theme
 ;;; Uncomment one of these lines, then change the load-theme line to the appropriate theme
-	;;(use-package abyss-theme)
-	;;(use-package cyberpunk-theme)
+	;; (use-package abyss-theme)
+	;; (use-package cyberpunk-theme)
+	;; (use-package spacemacs-theme
+	;;   :defer t
+	;;   :init (load-theme 'spacemacs-dark t)) ;; Load the dark theme
 	(use-package doom-themes
 	  :defer t
 	  :init (load-theme 'doom-outrun-electric t)
@@ -16,10 +19,6 @@
 	  (doom-themes-treemacs-config)
 	  (doom-themes-org-config))
   (use-package monokai-theme))
-
-;; (use-package spacemacs-theme ;; Load the spacemacs themes up
-;;   :defer t
-;;   :init (load-theme 'spacemacs-dark t)) ;; Load the dark theme up
 
 ;;; Change Default custom-theme-load-path
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/"))
