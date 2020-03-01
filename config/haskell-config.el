@@ -16,7 +16,18 @@
   :ensure t
   :defer t)
 
+(use-package attrap
+  :ensure t
+  :defer t)
 
+(use-package dante
+  :ensure t
+  :defer t
+  :after haskell-mode
+  :commands 'dante-mode
+  :init
+  (add-hook 'haskell-mode-hook 'flycheck-mode)
+  (add-hook 'haskell-mode-hook 'dante-mode))
 
 ;; Interface to Stack Haskell development tool
 (use-package hasky-stack
