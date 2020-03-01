@@ -26,9 +26,11 @@
 		  (lambda ()
 			(local-set-key (kbd "C-c <tab>") #'rustic-format-buffer)))
 
-;; (require company-mode)
+(require 'company-mode)
 ;; Racer is used for code completion and source code navigation
-(use-package racer)
+;; It requires that company-mode be loaded into Emacs
+(use-package racer
+  :after company-mode)
 
 (setq racer-cmd "~/.cargo/bin/racer") ;; Binary path for rustup
 
