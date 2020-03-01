@@ -15,6 +15,8 @@
 ;; (use-package rust-mode)
 
 ;; Therefore, I will use the rustic package for Rust development instead
+;; This is a fork of rust-mode that is actively maintained.
+;; Right now, it is generally better than rust-mode for everything.
 (use-package rustic) ;; Development environment for Rust
 
 (setq rustic-lsp-server 'rust-analyzer)
