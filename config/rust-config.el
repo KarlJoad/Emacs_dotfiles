@@ -1,5 +1,12 @@
 ;;; rust-config.el --- Handles everything needed for Rust source code development
 ;;; Commentary:
+;;
+;; In order to make this work, you will need to install some Rust crates through
+;; cargo. These are: rustfmt and racer.
+;; rustfmt formats Rust code according to the Rust community style guidelines.
+;; racer allows for easier code navigation, but requires the entire Rust source
+;;  code to work. It can be gotten with: git clone git@github.com:rust-lang/rust.git
+;;
 ;;; Code:
 
 (require 'magit)
