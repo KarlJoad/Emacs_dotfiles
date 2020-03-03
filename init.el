@@ -44,6 +44,28 @@
 ;;;; Load in Magit options
 (require 'magit-config)
 
+;;;; Project commands and management
+(require 'projectile-config)
+
+;;;; flycheck for spell/syntax checking
+(require 'flycheck-config)
+
+;;;; Company and its associated packages
+(require 'company-config)
+(require 'company-auctex-config)
+(require 'company-math-config)
+(require 'company-c-c++-config)
+
+;;;; Snippets are provided by Yasnippet
+(require 'yasnippet-config)
+(require 'yasnippet-snippets-config)
+
+;;;; Tags and their configurations
+(require 'ctags-config)
+;;(require 'gtags-config)
+;;(require 'bpr-config)
+(require 'ggtags-config)
+
 ;;;; Load in an Undo-Tree for reverting buffers
 (require 'undo-tree-config)
 
@@ -89,28 +111,6 @@
 
 ;;;; Gradle Build System
 (require 'gradle-config)
-
-;;;; flycheck for spell/syntax checking
-(require 'flycheck-config)
-
-;;;; Company and its associated packages
-(require 'company-config)
-(require 'company-auctex-config)
-(require 'company-math-config)
-(require 'company-c-c++-config)
-
-;;;; Snippets are provided by Yasnippet
-(require 'yasnippet-config)
-(require 'yasnippet-snippets-config)
-
-;;;; Project commands and management
-(require 'projectile-config)
-
-;;;; Tags and their configurations
-(require 'ctags-config)
-;;(require 'gtags-config)
-;;(require 'bpr-config)
-(require 'ggtags-config)
 
 ;;;; Coloring things with rainbow-mode
 (require 'rainbow-mode-config)
