@@ -54,7 +54,6 @@
 (require 'company-config)
 (require 'company-auctex-config)
 (require 'company-math-config)
-(require 'company-c-c++-config)
 
 ;;;; Snippets are provided by Yasnippet
 (require 'yasnippet-config)
