@@ -105,6 +105,9 @@
 ;;;; Java/Eclim Configs
 (require 'eclim-config)
 
+;;;; Docker packages and configuration
+(require 'docker-config)
+
 ;;;; Multiple Cursors
 (require 'multiple-cursors-config)
 
