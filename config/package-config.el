@@ -7,7 +7,7 @@
 ;;(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
 
 ;;; Pin some packages to specific repositories
-(setq package-pinned-packages '((gtags . "marmalade")))
+(setq package-pinned-packages '((gtags . "melpa")))
 
 ;; (when (equal system-type 'gnu/linux)
 ;;     (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")) ;; This is done because of Bug #34341. Should be fixed in Emacs 27

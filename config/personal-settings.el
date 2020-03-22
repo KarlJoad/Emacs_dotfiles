@@ -64,9 +64,12 @@
 
 ;; ANYTHING that should happen before saving ANY buffers should be put here.
 (add-hook 'before-save-hook
-		  (lambda ()
-			"Commands to execute before saving any buffer."
-			(delete-trailing-whitespace)))
+	  (lambda ()
+	    "Commands to execute before saving any buffer."
+	    (delete-trailing-whitespace)))
+
+;; I want a keybinding to quickly revert buffers, since sometimes Magit doesn't do it.
+(global-set-key (kbd "C-c g") 'revert-buffer)
 
 ;; Try to use UTF-8 for everything
 (setq locale-coding-system 'utf-8)
