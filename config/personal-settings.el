@@ -64,9 +64,10 @@
 
 ;; ANYTHING that should happen before saving ANY buffers should be put here.
 (add-hook 'before-save-hook
-		  (lambda ()
-			"Commands to execute before saving any buffer."
-			(delete-trailing-whitespace)))
+	  (lambda ()
+	    "Commands to execute before saving any buffer."
+	    (delete-trailing-whitespace)))
+
 
 ;; Try to use UTF-8 for everything
 (setq locale-coding-system 'utf-8)
