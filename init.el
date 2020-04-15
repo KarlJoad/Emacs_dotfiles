@@ -38,6 +38,9 @@
 ;;;; Load in my current theme
 (require 'theme-config)
 
+;;;; Load in configuration to buffer management
+(require 'buffer-manage-config)
+
 ;;;; Load in my email settings
 (require 'email-config)
 
