@@ -79,7 +79,7 @@
 (prefer-coding-system 'utf-8) ;; A catch-all for any locations a coding system might be where I have forgotten.
 
 ;; Sentences DO NOT need 2 spaces to end.
-(set-default 'sentence-end-double-space nil) ;; Having spaces end in 2 spaces is stupid.
+(set-default 'sentence-end-double-space nil)
 
 ;; Can now open recently opened files
 ;; When Recentf mode is enabled, a "Open Recent" submenu is displayed in the "File" menu.
