@@ -46,7 +46,7 @@
 
 ;; setup GDB
 (setq gdb-many-windows t ;; use gdb-many-windows by default
-	  gdb-show-main t) ;; Non-nil means display source file containing the main routine at startup
+      gdb-show-main t) ;; Non-nil means display source file containing the main routine at startup
 
 (provide 'cc-mode-config)
 ;;; cc-mode-config.el ends here
