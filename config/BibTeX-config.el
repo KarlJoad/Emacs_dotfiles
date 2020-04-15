@@ -17,7 +17,8 @@
 		  (lambda ()
 			"Setup BibTeX-mode for me, but only when I open a *.bib file. Because not all globally exported variables work all the time."
 			(setq bibtex-dialect 'biblatex)
-			(setq bibtex-maintain-sorted-entries t)))
+			(setq bibtex-maintain-sorted-entries t)
+			(setq bibtex-parse-keys-timeout nil)))
 
 (provide 'BibTeX-config)
 ;;; BibTeX-config.el ends here

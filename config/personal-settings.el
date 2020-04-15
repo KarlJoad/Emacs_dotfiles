@@ -79,7 +79,7 @@
 (prefer-coding-system 'utf-8) ;; A catch-all for any locations a coding system might be where I have forgotten.
 
 ;; Sentences DO NOT need 2 spaces to end.
-(set-default 'sentence-end-double-space nil) ;; Having spaces end in 2 spaces is stupid.
+(set-default 'sentence-end-double-space nil)
 
 ;; Can now open recently opened files
 ;; When Recentf mode is enabled, a "Open Recent" submenu is displayed in the "File" menu.
@@ -91,9 +91,9 @@
 ;;(desktop-save-mode 1) ;; Commented out only while debugging my init files
 
 ;; Set my prefered font
-(if (equal system-type 'windows-nt)
-    (add-to-list 'default-frame-alist
-		 '(font . "Courier New-11"))) ;; In this case, 11pt Courier New
+(when (equal system-type 'windows-nt)
+  (add-to-list 'default-frame-alist
+	       '(font . "Courier New-11"))) ;; In this case, 11pt Courier New
 
 (provide 'personal-settings)
 ;;; personal-settings.el ends here
