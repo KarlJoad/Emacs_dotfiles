@@ -91,9 +91,9 @@
 ;;(desktop-save-mode 1) ;; Commented out only while debugging my init files
 
 ;; Set my prefered font
-(if (equal system-type 'windows-nt)
-    (add-to-list 'default-frame-alist
-		 '(font . "Courier New-11"))) ;; In this case, 11pt Courier New
+(when (equal system-type 'windows-nt)
+  (add-to-list 'default-frame-alist
+	       '(font . "Courier New-11"))) ;; In this case, 11pt Courier New
 
 (provide 'personal-settings)
 ;;; personal-settings.el ends here
