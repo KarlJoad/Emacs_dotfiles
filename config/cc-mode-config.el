@@ -30,8 +30,6 @@
 
 (use-package company-lsp)
 
-(setq c-default-style "linux") ;; set style to "linux"
-
 (add-hook 'c-mode-hook
 	  (lambda ()
 	    (local-set-key (kbd "C-c C-c") 'compile)
