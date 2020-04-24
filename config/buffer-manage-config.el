@@ -44,6 +44,7 @@
               ("/ V" . ibuffer-vc-set-filter-groups-by-vc-root)
               ("/ <deletechar>" . ibuffer-clear-filter-groups)))
 
+(use-package ibuffer-git)
 
 (provide 'buffer-manage-config)
 ;;; buffer-manage-config.el ends here
