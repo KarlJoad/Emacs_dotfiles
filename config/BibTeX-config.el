@@ -8,7 +8,7 @@
 ;;
 ;;; Code:
 
-(defvar my-default-bibtex-dialect "biblatex"
+(defvar karljoad-default-bibtex-dialect 'biblatex
   "By default, I like to use BibLaTeX, so I want to make sure I always use that.")
 
 (bibtex-mode)
