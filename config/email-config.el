@@ -173,7 +173,7 @@
 	  smtpmail-queue-dir "~/.msmtpqueue/") ;; What directory the queue is in
 
 ;; Overwrite the mu4e~main-toggle-mail-sending-mode keybinding with my own function
-(define-key 'mu4e-main-mode-map (kbd "m") 'karljoad/set-sendmail-program)
+(define-key mu4e-main-mode-map (kbd "m") 'karljoad/set-sendmail-program)
 (defun karljoad/set-sendmail-program ()
   "Set the smtpmail variable sendmail-program based on the value of smtpmail-queue-mail's value."
   (interactive)
@@ -182,8 +182,8 @@
 	  (setq sendmail-program "msmtp-enqueue.sh")
 	(setq sendmail-program "msmtp")))
 
-(define-key 'mu4e-main-mode-map (kbd "S") 'karljoad/send-queued-mail)
-(define-key 'mu4e-main-mode-map (kbd "f") 'karljoad/send-queued-mail)
+(define-key mu4e-main-mode-map (kbd "S") 'karljoad/send-queued-mail)
+(define-key mu4e-main-mode-map (kbd "f") 'karljoad/send-queued-mail)
 (defun karljoad/send-queued-mail ()
   "Sends all mail currently stored in ~/.msmtpqueue/. Put output in *msmtp-runqueue Output* buffer."
   (interactive)
