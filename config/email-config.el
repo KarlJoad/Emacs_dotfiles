@@ -188,8 +188,7 @@
   "Sends all mail currently stored in ~/.msmtpqueue/. Put output in *msmtp-runqueue Output* buffer."
   (interactive)
   ;; Now run the msmtp-runqueue.sh command, and put the output in a temporary buffer.
-  (let (buf (set-buffer "*msmtp-runqueue Output*"))
-	(shell-command "msmtp-runqueue.sh &" buf)))
+  (with-temp-buffer (async-shell-command "msmtp-runqueue.sh")))
 
 ;; Commented until I figure out how to make this work.
 ;; I want to print an additional command-context line in the main mu4e buffer.
