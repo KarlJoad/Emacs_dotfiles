@@ -15,6 +15,11 @@
 ;; to download the emails, since mu ONLY indexes and queries the downloaded
 ;; emails.
 ;;
+;; To start using `mu' (maildir-utils), you must first download the mail using isync/`mbsync'.
+;; Then, you must perform an `mu init --maildir=<path-to-maildir> --my-address="example@domain.com" [--my-address="example2@domain2.com"]'
+;; You only need to initialize the mu database once, but you can feed it several personal addresses when initializing.
+;; Once done, you must index the database with `mu index'
+;;
 ;; Lastly, we need a way to send the email through SMTP.
 ;; I will use msmtp to send my mail.
 ;; It requires there be an `~/.msmtprc' config file.
