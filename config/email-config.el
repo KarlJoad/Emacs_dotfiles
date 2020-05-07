@@ -7,7 +7,7 @@
 ;; First, we need an IMAP mail fetching program.
 ;; For OpenSUSE Tumbleweed, I build my own isync package.
 ;;   This program contains mbsync as its main binary; project name is isync.
-;;   The configuration file for this program is ~/.mbsyncrc
+;;   The configuration file for this program is `~/.mbsyncrc'
 ;;   You need libopenssl-devel and cyrus-sasl-devel packages from OpenSUSE.
 ;;
 ;; Next, we need a way to index our mail so we can search through it.
@@ -17,11 +17,13 @@
 ;;
 ;; Lastly, we need a way to send the email through SMTP.
 ;; I will use msmtp to send my mail.
-;; It requires there be an ~/.msmtprc config file.
+;; It requires there be an `~/.msmtprc' config file.
 ;; Special permissions are required, namely 600.
+;;
 ;;; Code:
 
 ;; Add the path to the mu4e source code
+;; This is placed here when mu is installed.
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
 (require 'mu4e)
 
