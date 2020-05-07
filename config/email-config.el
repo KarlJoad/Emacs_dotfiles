@@ -28,7 +28,11 @@
 (require 'mu4e)
 
 ;; The location of my mail for ALL of the accounts
-(setq mu4e-maildir "~/Mail")
+;; (setq mu4e-maildir "~/Mail")
+;; As of mu version 1.4.
+;; `mu4e' no longer uses the `mu4e-maildir' and instead it uses the information
+;; it gets from `mu'.
+;; See the large comment above in the commentary.
 
 ;; Give myself a nice easy keybinding to open mu4e
 (global-set-key (kbd "C-c m") 'mu4e)
