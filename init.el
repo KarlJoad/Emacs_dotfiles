@@ -24,9 +24,10 @@
 (require 'server)
 ;; Then we check if the function server-running-p is bound to a function
 ;;  which means that it is available for us to use.
-(if (and (fboundp 'server-running-p)
-		 (not (server-running-p)))
-	(server-start))
+(add-hook 'after-init-hook
+          (lambda ()
+            (unless (and (fboundp 'server-running-p))
+              (server-start))))
 
 ;;;; Load in my package list
 (require 'package-config)
