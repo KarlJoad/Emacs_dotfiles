@@ -11,14 +11,24 @@
 (defvar karljoad-default-bibtex-dialect 'biblatex
   "By default, I like to use BibLaTeX, so I want to make sure I always use that.")
 
-(bibtex-mode)
+;; Associate *.bib files with bibtex-mode.
+;; This also applies to *.bib files that are written in BibLaTeX style as well.
+(add-to-list 'auto-mode-alist '("\\.bib\\'" . bibtex-mode))
+
+;; When bibtex-mode is called, we do not want to load it when we do not need to.
+;; So, we let it autoload when we open a BibTeX/BibLaTeX file.
+;; This also solves the problem of bibtex-parse-buffers-stealthily problem I was
+;; having. It's likely this was a problem because I didn't have a *.bib file open
+;; when Emacs thought I did.
+(autoload 'bibtex-mode "Major mode for BibTeX and BibLaTeX files" t)
 
 (add-hook 'bibtex-mode-hook
-		  (lambda ()
-			"Setup BibTeX-mode for me, but only when I open a *.bib file. Because not all globally exported variables work all the time."
-			(setq bibtex-dialect 'biblatex)
-			(setq bibtex-maintain-sorted-entries t)
-			(setq bibtex-parse-keys-timeout nil)))
+	  (lambda ()
+	    "Setup BibTeX-mode for me, but only when I open a *.bib file. Because not all globally exported variables work all the time."
+	    (bibtex-mode)
+	    (setq bibtex-dialect karljoad-default-bibtex-dialect)
+	    (setq bibtex-maintain-sorted-entries t)
+	    (setq bibtex-parse-keys-timeout nil)))
 
 (provide 'BibTeX-config)
 ;;; BibTeX-config.el ends here
