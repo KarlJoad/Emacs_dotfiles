@@ -7,7 +7,7 @@
 ;; First, we need an IMAP mail fetching program.
 ;; For OpenSUSE Tumbleweed, I build my own isync package.
 ;;   This program contains mbsync as its main binary; project name is isync.
-;;   The configuration file for this program is ~/.mbsyncrc
+;;   The configuration file for this program is `~/.mbsyncrc'
 ;;   You need libopenssl-devel and cyrus-sasl-devel packages from OpenSUSE.
 ;;
 ;; Next, we need a way to index our mail so we can search through it.
@@ -15,18 +15,29 @@
 ;; to download the emails, since mu ONLY indexes and queries the downloaded
 ;; emails.
 ;;
+;; To start using `mu' (maildir-utils), you must first download the mail using isync/`mbsync'.
+;; Then, you must perform an `mu init --maildir=<path-to-maildir> --my-address="example@domain.com" [--my-address="example2@domain2.com"]'
+;; You only need to initialize the mu database once, but you can feed it several personal addresses when initializing.
+;; Once done, you must index the database with `mu index'
+;;
 ;; Lastly, we need a way to send the email through SMTP.
 ;; I will use msmtp to send my mail.
-;; It requires there be an ~/.msmtprc config file.
+;; It requires there be an `~/.msmtprc' config file.
 ;; Special permissions are required, namely 600.
+;;
 ;;; Code:
 
 ;; Add the path to the mu4e source code
+;; This is placed here when mu is installed.
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
 (require 'mu4e)
 
 ;; The location of my mail for ALL of the accounts
-(setq mu4e-maildir "~/Mail")
+;; (setq mu4e-maildir "~/Mail")
+;; As of mu version 1.4.
+;; `mu4e' no longer uses the `mu4e-maildir' and instead it uses the information
+;; it gets from `mu'.
+;; See the large comment above in the commentary.
 
 ;; Give myself a nice easy keybinding to open mu4e
 (global-set-key (kbd "C-c m") 'mu4e)
@@ -173,7 +184,7 @@
 	  smtpmail-queue-dir "~/.msmtpqueue/") ;; What directory the queue is in
 
 ;; Overwrite the mu4e~main-toggle-mail-sending-mode keybinding with my own function
-(define-key 'mu4e-main-mode-map (kbd "m") 'karljoad/set-sendmail-program)
+(define-key mu4e-main-mode-map (kbd "m") 'karljoad/set-sendmail-program)
 (defun karljoad/set-sendmail-program ()
   "Set the smtpmail variable sendmail-program based on the value of smtpmail-queue-mail's value."
   (interactive)
@@ -182,24 +193,23 @@
 	  (setq sendmail-program "msmtp-enqueue.sh")
 	(setq sendmail-program "msmtp")))
 
-(define-key 'mu4e-main-mode-map (kbd "S") 'karljoad/send-queued-mail)
-(define-key 'mu4e-main-mode-map (kbd "f") 'karljoad/send-queued-mail)
+(define-key mu4e-main-mode-map (kbd "S") 'karljoad/send-queued-mail)
+(define-key mu4e-main-mode-map (kbd "f") 'karljoad/send-queued-mail)
 (defun karljoad/send-queued-mail ()
   "Sends all mail currently stored in ~/.msmtpqueue/. Put output in *msmtp-runqueue Output* buffer."
   (interactive)
   ;; Now run the msmtp-runqueue.sh command, and put the output in a temporary buffer.
-  (let (buf (set-buffer "*msmtp-runqueue Output*"))
-	(shell-command "msmtp-runqueue.sh &" buf)))
+  (with-temp-buffer (async-shell-command "msmtp-runqueue.sh")))
 
 ;; Commented until I figure out how to make this work.
 ;; I want to print an additional command-context line in the main mu4e buffer.
 ;; (add-hook 'mu4e-main-mode
-;; 		  (let ((buf (get-buffer mu4e~main-buffer-name)))
-;; 			(with-current-buffer buf
-;; 			  (setq inhibit-read-only t)
-;; 			  (insert
-;; 			   (mu4e~main-action-str "\t[f]lush all queued mail and [S]end" 'karljoad/send-queued-mail))
-;; 			  (setq inhibit-read-only nil))))
+;; 	  (let ((buf (get-buffer mu4e-main-buffer-name)))
+;; 	    (with-current-buffer buf
+;; 	      (setq inhibit-read-only t)
+;; 	      (insert
+;; 	       (mu4e~main-action-str "\t[f]lush all queued mail and [S]end" 'karljoad/send-queued-mail))
+;; 	      (setq inhibit-read-only nil))))
 
 ;; Use a sendmail program rather than sending directly from Emacs
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
