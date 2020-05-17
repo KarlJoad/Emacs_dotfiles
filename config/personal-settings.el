@@ -107,6 +107,17 @@
   "Karl's preference on the battery information to display on the modeline. Use with battery-mode-line-format variable.")
 ;;; END OF CONSTANT DEFINITIONS
 
+;; Show time, date, and system process load information in the modeline.
+(display-time-mode show-time) ;; Show system time in buffer modeline.
+;; (setq display-time-24hr-format t) ;; Show system time in 24-hour clock
+;; (setq display-time-day-and-date t) ;; Show time AND date
+(setq display-time-format karljoad-display-time-mode-line-format) ;; Karl's preferred display-time setup
+(setq display-time-default-load-average 5-minute-load)
+
+;; Show battery information in the modeline.
+(display-battery-mode show-battery) ;; Show battery status info in buffer modeline.
+(setq battery-mode-line-format karljoad-battery-mode-line-format) ;; Karl's preferred battery-display setup.
+
 ;; Can now open recently opened files
 ;; When Recentf mode is enabled, a "Open Recent" submenu is displayed in the "File" menu.
 (require 'recentf)
