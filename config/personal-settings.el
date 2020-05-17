@@ -10,7 +10,7 @@
   )
 
 ;; Skip the "Welcome" Page
-;;(setq inhibit-startup-message t)
+(setq inhibit-startup-message t)
 
 ;; Remove scroll bar at side, when running in a GUI instance
 (when (display-graphic-p)
