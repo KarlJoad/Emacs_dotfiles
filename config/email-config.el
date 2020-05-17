@@ -67,8 +67,8 @@
 ;; By default, this is bound to "a h" in the mu4e mode.
 (add-to-list 'mu4e-view-actions
              '("HTML in Browser" . mu4e-action-view-in-browser)
-			 ;; Append the action, to list, rather than overwrite.
-			 ;; The add-to-list function actually appends to the FRONT of the list!
+	     ;; Append the action, to list, rather than overwrite.
+	     ;; The add-to-list function actually appends to the FRONT of the list!
              t)
 
 (setq mu4e-contexts
@@ -78,42 +78,42 @@
                         (when msg
                           (string-prefix-p "/Personal" (mu4e-message-field msg :maildir))))
           :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
-				  (user-mail-address . "karl@hallsby.com")
-				  ;; Although my personal email address is set in personal-info, I need to reset it
-				  ;; when I change contexts in mu4e
+		  (user-mail-address . "karl@hallsby.com")
+		  ;; Although personal email address set in personal-info, need to reset it
+		  ;; when I change contexts in mu4e
                   (mu4e-trash-folder . "/Personal/Trash")
                   (mu4e-refile-folder . "/Personal/Refile")
                   (mu4e-sent-folder . "/Personal/Sent")
                   (mu4e-drafts-folder . "/Personal/Drafts")))
-		,(make-mu4e-context
-		  :name "iit"
-		  :match-func (lambda (msg)
+	,(make-mu4e-context
+	  :name "iit"
+	  :match-func (lambda (msg)
                         (when msg
                           (string-prefix-p "/Personal" (mu4e-message-field msg :maildir))))
           :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
-				  (user-mail-address . "khallsby@hawk.iit.edu")
+		  (user-mail-address . "khallsby@hawk.iit.edu")
                   (mu4e-trash-folder . "/IIT/Trash")
                   (mu4e-refile-folder . "/IIT/Refile")
                   (mu4e-sent-folder . "/IIT/Sent")
                   (mu4e-drafts-folder . "/IIT/Drafts")))
-		,(make-mu4e-context
-		  :name "lund"
-		  :match-func (lambda (msg)
+	,(make-mu4e-context
+	  :name "lund"
+	  :match-func (lambda (msg)
                         (when msg
                           (string-prefix-p "/Lund" (mu4e-message-field msg :maildir))))
           :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
-				  (user-mail-address . "ka1867ha-s@student.lu.se")
+		  (user-mail-address . "ka1867ha-s@student.lu.se")
                   (mu4e-trash-folder . "/Lund/Trash")
                   (mu4e-refile-folder . "/Lund/Refile")
                   (mu4e-sent-folder . "/Lund/Sent")
                   (mu4e-drafts-folder . "/Lund/Drafts")))
-		,(make-mu4e-context
-		  :name "triangleserveradmin"
-		  :match-func (lambda (msg)
+	,(make-mu4e-context
+	  :name "triangleserveradmin"
+	  :match-func (lambda (msg)
                         (when msg
                           (string-prefix-p "/TriangleServerAdmin" (mu4e-message-field msg :maildir))))
           :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
-				  (user-mail-address . "serveradmin@triangleiit.org")
+		  (user-mail-address . "serveradmin@triangleiit.org")
                   (mu4e-trash-folder . "/TriangleServerAdmin/Trash")
                   (mu4e-refile-folder . "/TriangleServerAdmin/Refile")
                   (mu4e-sent-folder . "/TriangleServerAdmin/Sent")
