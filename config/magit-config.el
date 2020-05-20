@@ -12,6 +12,9 @@
 ;; Bring up a small menu to choose to do magit things
 (global-set-key (kbd "C-x M-g") 'magit-dispatch)
 
+;; With `git blame`, we can find out the commits that changed certain lines and/or regions
+(global-set-key (kbd "C-c b") 'magit-blame)
+
 ;;; Keybindings in Magit Major Mode
 ;; git fetch = "f"
 ;; git pull = "F"
