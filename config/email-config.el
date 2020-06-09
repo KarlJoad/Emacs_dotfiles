@@ -29,7 +29,11 @@
 
 ;; Add the path to the mu4e source code
 ;; This is placed here when mu is installed.
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
+;; THIS MUST BE DONE BEFORE requiring mu4e!!
+(if (karljoad/is-nixos)
+    (add-to-list 'load-path "/run/current-system/sw/share/emacs/site-lisp/mu4e")
+ (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e"))
+
 (require 'mu4e)
 
 ;; The location of my mail for ALL of the accounts
