@@ -45,6 +45,9 @@
 ;;;; Load in my email settings
 (require 'email-config)
 
+;;;; Load in configuration for Emacs' IRC client, ERC
+(require 'erc-config)
+
 ;;;; Load in Magit options
 (require 'magit-config)
 
