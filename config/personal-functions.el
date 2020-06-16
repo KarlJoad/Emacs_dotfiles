@@ -21,6 +21,16 @@
 	  ;; Otherwise, switch back to the regular size
       (set-face-attribute 'default nil :height regular-fontsize))))
 
+(defun karljoad/is-nixos ()
+  "Return t or nil, depending on if the current OS is NixOS."
+  (with-temp-buffer
+    (insert (shell-command-to-string "cat /etc/os-release"))
+    (goto-char 0)
+    (condition-case nil
+	(progn
+	  (when (not (equal (search-forward "ID=nixos" nil t)
+			    nil))
+	    t)))))
 
 (provide 'personal-functions)
 ;;; personal-functions.el ends here

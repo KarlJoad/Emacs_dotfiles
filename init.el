@@ -32,9 +32,10 @@
 ;;;; Load in my package list
 (require 'package-config)
 
-;; Set up my personal information and my personal settings
+;; Set up: my personal info, my personal settings, and personal functions
 (require 'personal-info)
 (require 'personal-settings)
+(require 'personal-functions)
 
 ;;;; Load in my current theme
 (require 'theme-config)
