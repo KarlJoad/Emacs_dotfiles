@@ -9,12 +9,12 @@
   :ensure t)
 
 ;;; Start by setting the LaTeX command style
-;(setq LaTeX-command-style '(("" "%(PDF)%(latex) -synctex=1 -interaction=nonstopmode -aux-directory=./TeX_Aux_Files -output-directory=./TeX_Output %S%(PDFout)")))
-					;; synctex: Have Input and Output line up when viewed
-					;; interaction: Have processor ignore many errors, so this can be automated
-                                        ;; aux-directory: Put auxiliary files in in ./TeX_Aux_Files directory relative to the master document
-					;; output-directory: Also puts output file in ./TeX_Output directory relative to the master document
-					;; From: https://tex.stackexchange.com/questions/157242/adding-an-option-to-the-pdflatex-call-from-auctex
+					;(setq LaTeX-command-style '(("" "%(PDF)%(latex) -synctex=1 -interaction=nonstopmode -aux-directory=./TeX_Aux_Files -output-directory=./TeX_Output %S%(PDFout)")))
+;; synctex: Have Input and Output line up when viewed
+;; interaction: Have processor ignore many errors, so this can be automated
+;; aux-directory: Put auxiliary files in in ./TeX_Aux_Files directory relative to the master document
+;; output-directory: Also puts output file in ./TeX_Output directory relative to the master document
+;; From: https://tex.stackexchange.com/questions/157242/adding-an-option-to-the-pdflatex-call-from-auctex
 
 (setq TeX-parse-self t) ;; Parse multifile documents automagically
 (setq TeX-auto-save t) ;; Enables parsing upon saving the document
@@ -37,18 +37,18 @@
 	       '("IndexAuxDirectory" "makeindex %s" TeX-run-index nil t :help "Run makeindex to create index file in TeX_Aux_Files Directory"))
   (add-to-list 'TeX-command-list
 	       '("GlossaryAuxDirectory" "makeglossaries %s" TeX-run-command nil t :help "Run makeglossaries to create glossary file in TeX_Aux_Files Directory")); End of OS-agnostic commands
-  
+
   (when (equal system-type 'windows-nt)
     (add-to-list 'TeX-command-list
 		 '("LatexOutFolder" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -aux-directory=./TeX_Aux_Files -output-directory=./TeX_Output %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run LaTeX and put output in TeX_Output Directory")) ;; Different command because on Windows I use MikTeX, not TeXLive
     (add-to-list 'TeX-command-list
 		 '("LatexOutFolderShellEscape" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -shell-escape -aux-directory=./TeX_Aux_Files -output-directory=./TeX_Output %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run a shell-escaped version of LaTeX and put output in TeX_Output Directory")) ;; Provide a way for me to shell-escape if needed
     (add-to-list 'TeX-command-list
-  	       '("BiberAuxDirectory" "biber --input-directory ./TeX_Aux_Files --output-directory ./TeX_Aux_Files %s" TeX-run-Biber nil t :help "Run Biber with TeX_Aux_Files Directory")) ;; Run biber when the .aux file is in the ./TeX_Aux_Files directory
+		 '("BiberAuxDirectory" "biber --input-directory ./TeX_Aux_Files --output-directory ./TeX_Aux_Files %s" TeX-run-Biber nil t :help "Run Biber with TeX_Aux_Files Directory")) ;; Run biber when the .aux file is in the ./TeX_Aux_Files directory
     (add-to-list 'TeX-command-list
 		 '("Adobe View" "\"C:/Program Files (x86)/Adobe/Acrobat Reader DC/Reader/AcroRd32.exe\" ./TeX_Output/%o" TeX-run-discard-or-functionn t t :help "Run Adobe Acrobat Reader DC to View PDF")) ;%o is the output file's name and extension
     (add-to-list 'TeX-command-list
-	       '("Buffer View" "\"C:/emacs-26.2-x86_64/bin/emacsclientw.exe\" -n -e '(find-file-other-window ./TeX_Output/%o)"  TeX-run-discard-or-function t t :help "Open output PDF in Emacs Buffer"))
+		 '("Buffer View" "\"C:/emacs-26.2-x86_64/bin/emacsclientw.exe\" -n -e '(find-file-other-window ./TeX_Output/%o)"  TeX-run-discard-or-function t t :help "Open output PDF in Emacs Buffer"))
     ) ;; End of Windows Commands Insertion
   (when (equal system-type 'gnu/linux)
     (add-to-list 'TeX-command-list
@@ -56,13 +56,13 @@
     (add-to-list 'TeX-command-list
 		 '("LatexOutFolderShellEscape" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -shell-escape -output-directory=./TeX_Output %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run a shell-escaped version of LaTeX and put output in TeX_Output Directory"))
     (add-to-list 'TeX-command-list
-  	       '("BiberAuxDirectory" "biber --output-directory ./TeX_Output %s" TeX-run-Biber nil t :help "Run Biber where the .aux file is in the TeX_Output Directory"))
+		 '("BiberAuxDirectory" "biber --output-directory ./TeX_Output %s" TeX-run-Biber nil t :help "Run Biber where the .aux file is in the TeX_Output Directory"))
     (add-to-list 'TeX-command-list
 		 '("Zathura View" "zathura ./TeX_Output/%o" TeX-run-discard-or-function t t :help "Run Zathura to view PDF"))
     (add-to-list 'TeX-command-list
 		 '("Okular View" "okular ./TeX_Output/%o" TeX-run-discard-or-function t t :help "Run Okular to view PDF"))
     (add-to-list 'TeX-command-list
-		 '("Buffer View" "emacsclient -n -c ./TeX_Output/%o" teX-run-discard-or-function t t :help "View PDF in an Emacs Buffer"))
+		 '("Buffer View" "emacsclient -n -c ./TeX_Output/%o" TeX-run-discard-or-function t t :help "View PDF in an Emacs Buffer"))
     ) ;; End of Linux Commands Insertion
   ) ;; End of set-TeX-command-list function
 
