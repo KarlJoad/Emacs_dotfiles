@@ -10,6 +10,7 @@
 ;;; Code:
 
 (require 'magit)
+(require 'lsp-mode-config)
 
 ;; rust-mode is developed by The Rust Language makers, but not actively maintained
 ;; (use-package rust-mode)
@@ -23,11 +24,13 @@
 (setq rustic-lsp-client 'lsp-mode)
 
 (add-hook 'rustic-mode-hook
-		  (lambda ()
-			;; In rustic-mode buffers, C-c <tab> will format the entire buffer's code
-			(local-set-key (kbd "C-c <tab>") #'rustic-format-buffer)))
+	  (lambda ()
+	    ;; In rustic-mode buffers, C-c <tab> will format the entire buffer's code
+	    (local-set-key (kbd "C-c <tab>") #'rustic-format-buffer)))
 
-;; (require 'company-mode)
+(setq lsp-rust-clippy-preference "on")
+
+(require 'company-config)
 ;; Racer is used for code completion and source code navigation
 ;; It requires that company-mode be loaded into Emacs
 (use-package racer

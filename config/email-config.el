@@ -185,7 +185,11 @@
 ;; Or, we can queue them, and then have an mu4e keybinding to send them when we
 ;; get the chance.
 (setq smtpmail-queue-mail nil ;; Switched by my4e~main-toggle-mail-sending-mode function
-	  smtpmail-queue-dir "~/.msmtpqueue/") ;; What directory the queue is in
+      smtpmail-queue-dir "~/.msmtpqueue/") ;; What directory the queue is in
+;; We need to make sure the `.msmtpqueue/' directory exists, before Emacs lets the user
+;; attempt to use the directory.
+(when (not (file-directory-p "~/.msmtpqueue"))
+  (make-directory "~/.msmtpqueue"))
 
 ;; Overwrite the mu4e~main-toggle-mail-sending-mode keybinding with my own function
 (define-key mu4e-main-mode-map (kbd "m") 'karljoad/set-sendmail-program)
