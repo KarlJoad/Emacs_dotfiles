@@ -24,9 +24,9 @@
 (setq rustic-lsp-client 'lsp-mode)
 
 (add-hook 'rustic-mode-hook
-		  (lambda ()
-			;; In rustic-mode buffers, C-c <tab> will format the entire buffer's code
-			(local-set-key (kbd "C-c <tab>") #'rustic-format-buffer)))
+	  (lambda ()
+	    ;; In rustic-mode buffers, C-c <tab> will format the entire buffer's code
+	    (local-set-key (kbd "C-c <tab>") #'rustic-format-buffer)))
 
 (setq lsp-rust-clippy-preference "on")
 
