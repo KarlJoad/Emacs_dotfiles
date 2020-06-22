@@ -10,6 +10,7 @@
 ;;; Code:
 
 (require 'magit)
+(require 'lsp-mode-config)
 
 ;; rust-mode is developed by The Rust Language makers, but not actively maintained
 ;; (use-package rust-mode)
@@ -27,7 +28,7 @@
 			;; In rustic-mode buffers, C-c <tab> will format the entire buffer's code
 			(local-set-key (kbd "C-c <tab>") #'rustic-format-buffer)))
 
-;; (require 'company-mode)
+(require 'company-config)
 ;; Racer is used for code completion and source code navigation
 ;; It requires that company-mode be loaded into Emacs
 (use-package racer
