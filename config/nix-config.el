@@ -12,6 +12,10 @@
   :defer t)
 (use-package json-mode ;; nix-mode needs json-mode for some reason
   :defer t)
+(use-package nix-buffer
+  :defer t)
+(use-package nix-update
+  :defer t)
 (use-package nixos-options ;; Options for the Nixos .nix files
   :defer t)
 (use-package company-nixos-options ;; Provide a company backend for nixos-options
