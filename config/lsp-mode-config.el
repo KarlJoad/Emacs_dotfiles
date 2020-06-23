@@ -13,6 +13,8 @@
   :defer t
   :commands lsp-ui-mode)
 
+(add-hook 'lsp-mode-hook #'lsp-ui-mode)
+
 (use-package company-lsp
   :ensure t
   :defer t
