@@ -132,5 +132,12 @@
   (add-to-list 'default-frame-alist
 	       '(font . "Courier New-11"))) ;; In this case, 11pt Courier New
 
+;; Scratch is a package that allows me to create a *scratch* buffer for any
+;; major mode that I may be working in right now. By default, it opens a new
+;; scratch buffer with the same name as the programming language I am currently
+;; working in.
+(use-package scratch)
+(global-set-key (kbd "C-c s") #'scratch)
+
 (provide 'personal-settings)
 ;;; personal-settings.el ends here
