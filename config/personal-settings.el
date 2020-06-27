@@ -6,17 +6,18 @@
 ;; Except on Windows, where I think the window decorations are nice.
 (if (equal system-type 'windows-nt) ;; ONLY when on Windows/GUI DOS
 	(add-hook 'emacs-startup-hook 'toggle-frame-maximized) ;; Make Emacs a maximized window
-  (add-hook 'emacs-startup-hook 'toggle-frame-fullscreen) ;; Otherwise, on GNU/Linux/BSD/OSX, make Emacs fullscreen
-  )
+  (add-hook 'emacs-startup-hook 'toggle-frame-fullscreen)) ;; Otherwise, on GNU/Linux/BSD/OSX, make Emacs fullscreen
+
+(add-to-list 'default-frame-alist '(fullscreen . fullboth))
 
 ;; Skip the "Welcome" Page
 (setq inhibit-startup-message t)
 
 ;; Remove scroll bar at side, when running in a GUI instance
-(when (display-graphic-p)
+(when (not (display-graphic-p))
   (scroll-bar-mode -1)
   (menu-bar-mode 1) ;; Keep the top menu-bar, with the drop-down menus
-  (tool-bar-mode -1) ;; But get rid of the big icon tool-bar below it.
+  (tool-bar-mode -1) ;; Always get rid of the big icon tool-bar below the menu-bar.
   ;;;; Turn on Line numbering
   (global-display-line-numbers-mode) ;; Show line numbers everywhere
   (setq column-number-mode 1) ;; Turn on column numbers in ALL major modes
@@ -131,6 +132,13 @@
 (when (equal system-type 'windows-nt)
   (add-to-list 'default-frame-alist
 	       '(font . "Courier New-11"))) ;; In this case, 11pt Courier New
+
+;; Scratch is a package that allows me to create a *scratch* buffer for any
+;; major mode that I may be working in right now. By default, it opens a new
+;; scratch buffer with the same name as the programming language I am currently
+;; working in.
+(use-package scratch)
+(global-set-key (kbd "C-c s") #'scratch)
 
 (provide 'personal-settings)
 ;;; personal-settings.el ends here
