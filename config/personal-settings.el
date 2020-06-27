@@ -13,10 +13,10 @@
 (setq inhibit-startup-message t)
 
 ;; Remove scroll bar at side, when running in a GUI instance
-(when (display-graphic-p)
+(when (not (display-graphic-p))
   (scroll-bar-mode -1)
   (menu-bar-mode 1) ;; Keep the top menu-bar, with the drop-down menus
-  (tool-bar-mode -1) ;; But get rid of the big icon tool-bar below it.
+  (tool-bar-mode -1) ;; Always get rid of the big icon tool-bar below the menu-bar.
   ;;;; Turn on Line numbering
   (global-display-line-numbers-mode) ;; Show line numbers everywhere
   (setq column-number-mode 1) ;; Turn on column numbers in ALL major modes
