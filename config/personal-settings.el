@@ -8,6 +8,7 @@
 	(add-hook 'emacs-startup-hook 'toggle-frame-maximized) ;; Make Emacs a maximized window
   (add-hook 'emacs-startup-hook 'toggle-frame-fullscreen) ;; Otherwise, on GNU/Linux/BSD/OSX, make Emacs fullscreen
   )
+(add-to-list 'default-frame-alist '(fullscreen . fullboth))
 
 ;; Skip the "Welcome" Page
 (setq inhibit-startup-message t)
