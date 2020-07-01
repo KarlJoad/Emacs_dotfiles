@@ -115,13 +115,13 @@
 	  :name "triangleserveradmin"
 	  :match-func (lambda (msg)
                         (when msg
-                          (string-prefix-p "/TriangleServerAdmin" (mu4e-message-field msg :maildir))))
+                          (string-prefix-p "/ServerAdmin" (mu4e-message-field msg :maildir))))
           :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
 		  (user-mail-address . "serveradmin@triangleiit.org")
-                  (mu4e-trash-folder . "/TriangleServerAdmin/Trash")
-                  (mu4e-refile-folder . "/TriangleServerAdmin/Refile")
-                  (mu4e-sent-folder . "/TriangleServerAdmin/Sent")
-                  (mu4e-drafts-folder . "/TriangleServerAdmin/Drafts")))))
+                  (mu4e-trash-folder . "/ServerAdmin/Trash")
+                  (mu4e-refile-folder . "/ServerAdmin/Refile")
+                  (mu4e-sent-folder . "/ServerAdmin/Sent")
+                  (mu4e-drafts-folder . "/ServerAdmin/Drafts")))))
 
 (add-to-list 'mu4e-bookmarks
        (make-mu4e-bookmark
