@@ -198,11 +198,11 @@
 ;; Or, we can queue them, and then have an mu4e keybinding to send them when we
 ;; get the chance.
 (setq smtpmail-queue-mail nil ;; Switched by my4e~main-toggle-mail-sending-mode function
-      smtpmail-queue-dir "~/.msmtpqueue/") ;; What directory the queue is in
-;; We need to make sure the `.msmtpqueue/' directory exists, before Emacs lets the user
+      smtpmail-queue-dir karljoad/queued-mail-dir)
+;; We need to make sure the queuing directory exists, before Emacs lets the user
 ;; attempt to use the directory.
-(when (not (file-directory-p "~/.msmtpqueue"))
-  (make-directory "~/.msmtpqueue"))
+(when (not (file-directory-p smtpmail-queue-dir))
+  (make-directory smtpmail-queue-dir t))
 
 ;; Overwrite the mu4e~main-toggle-mail-sending-mode keybinding with my own function
 (define-key mu4e-main-mode-map (kbd "m") 'karljoad/set-sendmail-program)
@@ -211,16 +211,16 @@
   (interactive)
   (mu4e~main-toggle-mail-sending-mode)
   (if smtpmail-queue-mail ;; Is true, meaning we queue it
-	  (setq sendmail-program "msmtp-enqueue.sh")
-	(setq sendmail-program "msmtp")))
+      (setq sendmail-program karljoad/queue-mail-command)
+  (setq sendmail-program "msmtp")))
 
 (define-key mu4e-main-mode-map (kbd "S") 'karljoad/send-queued-mail)
 (define-key mu4e-main-mode-map (kbd "f") 'karljoad/send-queued-mail)
 (defun karljoad/send-queued-mail ()
-  "Sends all mail currently stored in ~/.msmtpqueue/. Put output in *msmtp-runqueue Output* buffer."
+  "Sends all mail currently stored in `smtpmail-queue-dir'. Put output in *msmtp-runqueue Output* buffer."
   (interactive)
   ;; Now run the msmtp-runqueue.sh command, and put the output in a temporary buffer.
-  (with-temp-buffer (async-shell-command "msmtp-runqueue.sh")))
+  (with-temp-buffer (async-shell-command karljoad/send-queued-mail-command)))
 
 ;; Commented until I figure out how to make this work.
 ;; I want to print an additional command-context line in the main mu4e buffer.
