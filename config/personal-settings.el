@@ -13,15 +13,14 @@
 ;; Skip the "Welcome" Page
 (setq inhibit-startup-message t)
 
-;; Remove scroll bar at side, when running in a GUI instance
-(when (not (display-graphic-p))
-  (scroll-bar-mode -1)
-  (menu-bar-mode 1) ;; Keep the top menu-bar, with the drop-down menus
-  (tool-bar-mode -1) ;; Always get rid of the big icon tool-bar below the menu-bar.
-  ;;;; Turn on Line numbering
-  (global-display-line-numbers-mode) ;; Show line numbers everywhere
-  (setq column-number-mode 1) ;; Turn on column numbers in ALL major modes
-  (global-hl-line-mode 1)) ;; Have line with my cursor highlighted
+(scroll-bar-mode -1) ;; Remove scroll bar at side
+(menu-bar-mode 1) ;; Keep the top menu-bar, with the drop-down menus
+(tool-bar-mode -1) ;; Always get rid of the big icon tool-bar below the menu-bar.
+
+;;;; Turn on Line numbering
+(global-display-line-numbers-mode) ;; Show line numbers everywhere
+(setq column-number-mode 1) ;; Turn on column numbers in ALL major modes
+(global-hl-line-mode 1) ;; Have line with my cursor highlighted
 
 ;; Parentheses/Brackets/Braces/Angles modifications
 (show-paren-mode) ;; Emphasize MATCHING Parentheses/Brackets/Braces/Angles
