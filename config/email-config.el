@@ -126,7 +126,7 @@
 (add-to-list 'mu4e-bookmarks
        (make-mu4e-bookmark
         :name "All Inboxes"
-        :query "maildir:/Personal/Inbox OR maildir:/IIT/Inbox OR maildir:/Lund/Inbox OR maildir:/TriangleServerAdmin/Inbox"
+        :query "maildir:/Personal/Inbox OR maildir:/IIT/Inbox OR maildir:/Lund/Inbox OR maildir:/ServerAdmin/Inbox"
         :key ?a))
 
 ;; We want to get ALL mail with the mbsync command with the -a flag.
