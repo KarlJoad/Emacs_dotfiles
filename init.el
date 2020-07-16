@@ -104,8 +104,7 @@
 ;;;; Nix stuff.  For editing *.nix files (Nix and NixOS)
 ;; But only if the system is a GNU/Linux system, because Nix only supports those
 (when (equal system-type 'gnu/linux)
-  (require 'nix-config)
-  )
+  (require 'nix-config))
 
 ;;;; Haskell Configs
 (require 'haskell-config)
