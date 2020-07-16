@@ -162,6 +162,8 @@
 ;; to be killed, rather than buried in the buffer-list.
 (setq message-kill-buffer-on-exit t)
 
+(setq mu4e-attachment-dir "/tmp")
+
 ;; =============================================================================
 ;; Allow mu4e to use some capabilities of org-mode
 ;; =============================================================================
