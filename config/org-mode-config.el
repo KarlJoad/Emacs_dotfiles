@@ -30,6 +30,8 @@
   (setq org-enforce-todo-dependencies t)
   ;; Ensure checkboxes in list are marked DONE before allowing parent to be DONE
   (setq org-enforce-todo-checkbox-dependencies t)
+  ;; Add ALL .org files in Agenda to the Agenda's file list
+  (setq org-agenda-files '("~/Agenda/"))
   )
 
 ;; Make org-babel do stuff with  source code blocks in Org-mode
