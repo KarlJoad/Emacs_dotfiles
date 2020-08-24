@@ -112,7 +112,7 @@
                   (mu4e-sent-folder . "/Lund/Sent")
                   (mu4e-drafts-folder . "/Lund/Drafts")))
 	,(make-mu4e-context
-	  :name "triangleserveradmin"
+	  :name "serveradmin"
 	  :match-func (lambda (msg)
                         (when msg
                           (string-prefix-p "/ServerAdmin" (mu4e-message-field msg :maildir))))
