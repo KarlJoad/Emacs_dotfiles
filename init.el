@@ -58,6 +58,14 @@
 ;;;; flycheck for spell/syntax checking
 (require 'flycheck-config)
 
+;;;; TeX/LaTeX (AucTeX) options
+(require 'auctex-config)
+(require 'auctex-latexmk-config)
+(require 'reftex-config) ;; RefTeX is part of Emacs, but it's getting its own config file
+(require 'BibTeX-config) ;; BibTeX is part of Emacs, but it's getting its own config file
+(require 'preview-latex-config)
+(require 'pdf-tools-config)
+
 ;;;; Company and its associated packages
 (require 'company-config)
 (require 'company-auctex-config)
@@ -92,14 +100,6 @@
 (require 'cobol-config) ;; This is probably a temporary config file.
 (require 'scala-config)
 (require 'rust-config)
-
-;;;; TeX/LaTeX (AucTeX) options
-(require 'auctex-config)
-(require 'auctex-latexmk-config)
-(require 'reftex-config) ;; RefTeX is part of Emacs, but it's getting its own config file
-(require 'BibTeX-config) ;; BibTeX is part of Emacs, but it's getting its own config file
-(require 'preview-latex-config)
-(require 'pdf-tools-config)
 
 ;;;; Nix stuff.  For editing *.nix files (Nix and NixOS)
 ;; But only if the system is a GNU/Linux system, because Nix only supports those
