@@ -32,6 +32,10 @@
   (setq org-enforce-todo-checkbox-dependencies t)
   ;; Add ALL .org files in Agenda to the Agenda's file list
   (setq org-agenda-files '("~/Agenda/"))
+  ;; Include American holidays on the Org-Agenda
+  (setq org-agenda-include-diary t)
+  ;; In the calendar to select days, highlight the ones that are American holidays.
+  (setq calendar-mark-holidays-flag t)
   )
 
 ;; Make org-babel do stuff with  source code blocks in Org-mode
