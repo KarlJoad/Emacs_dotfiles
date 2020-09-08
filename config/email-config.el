@@ -93,7 +93,7 @@
 	  :name "iit"
 	  :match-func (lambda (msg)
                         (when msg
-                          (string-prefix-p "/Personal" (mu4e-message-field msg :maildir))))
+                          (string-prefix-p "/IIT" (mu4e-message-field msg :maildir))))
           :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
 		  (user-mail-address . "khallsby@hawk.iit.edu")
                   (mu4e-trash-folder . "/IIT/Trash")
