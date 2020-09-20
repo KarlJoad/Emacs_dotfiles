@@ -25,7 +25,7 @@
 (add-hook 'bibtex-mode-hook
 	  (lambda ()
 	    "Setup BibTeX-mode for me, but only when I open a *.bib file. Because not all globally exported variables work all the time."
-	    (bibtex-mode)
+ 	    (setq bibtex-dialect karljoad-default-bibtex-dialect)))
 
 (provide 'BibTeX-config)
 ;;; BibTeX-config.el ends here
