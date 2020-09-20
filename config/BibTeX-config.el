@@ -19,12 +19,13 @@
 ;; BibLaTeX is newer, so that should be the default anyways.
 (setq bibtex-dialect karljoad-default-bibtex-dialect)
 
+(setq bibtex-maintain-sorted-entries t)
+(setq bibtex-parse-keys-timeout nil)
+
 (add-hook 'bibtex-mode-hook
 	  (lambda ()
 	    "Setup BibTeX-mode for me, but only when I open a *.bib file. Because not all globally exported variables work all the time."
 	    (bibtex-mode)
-	    (setq bibtex-maintain-sorted-entries t)
-	    (setq bibtex-parse-keys-timeout nil)))
 
 (provide 'BibTeX-config)
 ;;; BibTeX-config.el ends here
