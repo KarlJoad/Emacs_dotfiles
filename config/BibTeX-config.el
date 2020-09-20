@@ -15,13 +15,6 @@
 ;; This also applies to *.bib files that are written in BibLaTeX style as well.
 (add-to-list 'auto-mode-alist '("\\.bib\\'" . bibtex-mode))
 
-;; When bibtex-mode is called, we do not want to load it when we do not need to.
-;; So, we let it autoload when we open a BibTeX/BibLaTeX file.
-;; This also solves the problem of bibtex-parse-buffers-stealthily problem I was
-;; having. It's likely this was a problem because I didn't have a *.bib file open
-;; when Emacs thought I did.
-(autoload 'bibtex-mode "Major mode for BibTeX and BibLaTeX files" t)
-
 ;; When creating/opening *.bib files for TeX and derivatives, use biblatex style
 ;; BibLaTeX is newer, so that should be the default anyways.
 (setq bibtex-dialect karljoad-default-bibtex-dialect)
