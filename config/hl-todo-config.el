@@ -22,5 +22,5 @@
 ;;         ("GOTCHA" . "#FF4500")
 ;;         ("STUB"   . "#1E90FF")))
 
-(provide 'ht-todo-config)
+(provide 'hl-todo-config)
 ;;; hl-todo-config.el ends here
