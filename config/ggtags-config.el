@@ -13,6 +13,7 @@
 	("C-x t u" . 'ggtags-update-tags)
 	("C-x t f" . 'ggtags-find-file)
 	("C-x t r" . 'ggtags-find-reference)
+	("C-x t d" . 'ggtags-find-definition)
 	("C-x t h" . 'ggtags-view-tag-history)
 	("C-x t s" . 'ggtags-find-other-symbol)))
 
