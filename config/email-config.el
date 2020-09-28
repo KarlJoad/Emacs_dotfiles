@@ -135,6 +135,15 @@
 ;; Rename files when moving them between directories
 (setq mu4e-change-filenames-when-moving t)
 
+;; When writing an email, a file is created in `mu4e-drafts-folder', which keeps
+;; copies of the message as I write it. However, using the email stack I have now,
+;; by default, causes my drafts to be synced up to Gmail, but never get removed
+;; when I send the actual email. So, disable `auto-save-mode' in `mu4e-compose-mode'
+;; preventing drafts from being saved when I don't want them to be.
+;; NOTE, this does NOT stop me from saving drafts. It just prevents ausot-saving
+;; of drafts.
+(add-hook 'mu4e-compose-mode-hook #'(lambda () (auto-save-mode -1)))
+
 ;; When sending mail, delete the message file.
 ;; If using Gmail, messages are moved to the Sent folder by Google.
 ;; So, we don't need to do anything on our end.
