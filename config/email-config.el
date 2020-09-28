@@ -93,7 +93,7 @@
 	  :name "iit"
 	  :match-func (lambda (msg)
                         (when msg
-                          (string-prefix-p "/Personal" (mu4e-message-field msg :maildir))))
+                          (string-prefix-p "/IIT" (mu4e-message-field msg :maildir))))
           :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
 		  (user-mail-address . "khallsby@hawk.iit.edu")
                   (mu4e-trash-folder . "/IIT/Trash")
@@ -112,21 +112,21 @@
                   (mu4e-sent-folder . "/Lund/Sent")
                   (mu4e-drafts-folder . "/Lund/Drafts")))
 	,(make-mu4e-context
-	  :name "triangleserveradmin"
+	  :name "serveradmin"
 	  :match-func (lambda (msg)
                         (when msg
-                          (string-prefix-p "/TriangleServerAdmin" (mu4e-message-field msg :maildir))))
+                          (string-prefix-p "/ServerAdmin" (mu4e-message-field msg :maildir))))
           :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
 		  (user-mail-address . "serveradmin@triangleiit.org")
-                  (mu4e-trash-folder . "/TriangleServerAdmin/Trash")
-                  (mu4e-refile-folder . "/TriangleServerAdmin/Refile")
-                  (mu4e-sent-folder . "/TriangleServerAdmin/Sent")
-                  (mu4e-drafts-folder . "/TriangleServerAdmin/Drafts")))))
+                  (mu4e-trash-folder . "/ServerAdmin/Trash")
+                  (mu4e-refile-folder . "/ServerAdmin/Refile")
+                  (mu4e-sent-folder . "/ServerAdmin/Sent")
+                  (mu4e-drafts-folder . "/ServerAdmin/Drafts")))))
 
 (add-to-list 'mu4e-bookmarks
        (make-mu4e-bookmark
         :name "All Inboxes"
-        :query "maildir:/Personal/Inbox OR maildir:/IIT/Inbox OR maildir:/Lund/Inbox OR maildir:/TriangleServerAdmin/Inbox"
+        :query "maildir:/Personal/Inbox OR maildir:/IIT/Inbox OR maildir:/Lund/Inbox OR maildir:/ServerAdmin/Inbox"
         :key ?a))
 
 ;; We want to get ALL mail with the mbsync command with the -a flag.
@@ -134,6 +134,15 @@
 
 ;; Rename files when moving them between directories
 (setq mu4e-change-filenames-when-moving t)
+
+;; When writing an email, a file is created in `mu4e-drafts-folder', which keeps
+;; copies of the message as I write it. However, using the email stack I have now,
+;; by default, causes my drafts to be synced up to Gmail, but never get removed
+;; when I send the actual email. So, disable `auto-save-mode' in `mu4e-compose-mode'
+;; preventing drafts from being saved when I don't want them to be.
+;; NOTE, this does NOT stop me from saving drafts. It just prevents ausot-saving
+;; of drafts.
+(add-hook 'mu4e-compose-mode-hook #'(lambda () (auto-save-mode -1)))
 
 ;; When sending mail, delete the message file.
 ;; If using Gmail, messages are moved to the Sent folder by Google.
@@ -162,6 +171,8 @@
 ;; to be killed, rather than buried in the buffer-list.
 (setq message-kill-buffer-on-exit t)
 
+(setq mu4e-attachment-dir "/tmp")
+
 ;; =============================================================================
 ;; Allow mu4e to use some capabilities of org-mode
 ;; =============================================================================
@@ -178,6 +189,19 @@
 ;; Since I use Gmail, I have to use SMTP to send my emails.
 ;; This means I need to use a non-default mail sender, namely the program msmtp.
 
+(defvar karljoad/queue-mail-command (if (karljoad/is-nixos)
+					"~/.nix-profile/share/doc/msmtp/scripts/msmtpqueue/msmtp-enqueue.sh"
+				      "/usr/share/doc/msmtp/scripts/msmtpqueue/msmtp-enqueue.sh")
+  "Command that will queue the mail for sending by placing it in a directory for later sending.")
+(defvar karljoad/send-queued-mail-command (if (karljoad/is-nixos)
+					      "~/.nix-profile/share/doc/msmtp/scripts/msmtpqueue/msmtp-runqueue.sh"
+					    "/usr/share/doc/msmtp/scripts/msmtpqueue/msmtp-runqueue.sh")
+  "Command that will send ALL queued mail.")
+(defvar karljoad/queued-mail-dir "~/.msmtpqueue/" ;; (if (getenv "MSMTP_QUEUE")
+				 ;;     (concat (getenv "MSMTP_QUEUE") "/")
+				 ;;   "~/.msmtpqueue/")
+  "Location where the mail queued to be sent will be stored until that time.")
+
 ;; This will send ALL mail IMMEDIATELY, and will fail if you do not have an
 ;; Internet connection.
 ;; We set this by default here, so we can always try to send something
@@ -185,11 +209,11 @@
 ;; Or, we can queue them, and then have an mu4e keybinding to send them when we
 ;; get the chance.
 (setq smtpmail-queue-mail nil ;; Switched by my4e~main-toggle-mail-sending-mode function
-      smtpmail-queue-dir "~/.msmtpqueue/") ;; What directory the queue is in
-;; We need to make sure the `.msmtpqueue/' directory exists, before Emacs lets the user
+      smtpmail-queue-dir karljoad/queued-mail-dir)
+;; We need to make sure the queuing directory exists, before Emacs lets the user
 ;; attempt to use the directory.
-(when (not (file-directory-p "~/.msmtpqueue"))
-  (make-directory "~/.msmtpqueue"))
+(when (not (file-directory-p smtpmail-queue-dir))
+  (make-directory smtpmail-queue-dir t))
 
 ;; Overwrite the mu4e~main-toggle-mail-sending-mode keybinding with my own function
 (define-key mu4e-main-mode-map (kbd "m") 'karljoad/set-sendmail-program)
@@ -198,16 +222,16 @@
   (interactive)
   (mu4e~main-toggle-mail-sending-mode)
   (if smtpmail-queue-mail ;; Is true, meaning we queue it
-	  (setq sendmail-program "msmtp-enqueue.sh")
-	(setq sendmail-program "msmtp")))
+      (setq sendmail-program karljoad/queue-mail-command)
+  (setq sendmail-program "msmtp")))
 
 (define-key mu4e-main-mode-map (kbd "S") 'karljoad/send-queued-mail)
 (define-key mu4e-main-mode-map (kbd "f") 'karljoad/send-queued-mail)
 (defun karljoad/send-queued-mail ()
-  "Sends all mail currently stored in ~/.msmtpqueue/. Put output in *msmtp-runqueue Output* buffer."
+  "Sends all mail currently stored in `smtpmail-queue-dir'. Put output in *msmtp-runqueue Output* buffer."
   (interactive)
   ;; Now run the msmtp-runqueue.sh command, and put the output in a temporary buffer.
-  (with-temp-buffer (async-shell-command "msmtp-runqueue.sh")))
+  (with-temp-buffer (async-shell-command karljoad/send-queued-mail-command)))
 
 ;; Commented until I figure out how to make this work.
 ;; I want to print an additional command-context line in the main mu4e buffer.
