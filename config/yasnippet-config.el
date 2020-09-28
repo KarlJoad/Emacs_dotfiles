@@ -21,7 +21,7 @@
 			       yas-dropdown-prompt))
   (define-key yas-minor-mode-map (kbd "<escape>") 'yas-exit-snippet)) ;; If there was a menu for selecting snippets, provide an escape route
 
-(setq yas-global-mode 1) ;; Make sure yasnippet is almost always present
+(yas-global-mode 1) ;; Make sure yasnippet is almost always present
 
 (provide 'yasnippet-config)
 ;;; yasnippet-config.el ends here
