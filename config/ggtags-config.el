@@ -24,7 +24,7 @@
 				  'asm-mode
 				  'python-mode))))
 
-;; (ggtags-mode 1) ;; Turn ggtags on in every buffer
+(ggtags-mode 1) ;; Turn ggtags on in every buffer
 
 ;; Auto reload tags when they're regenerated.
 (setq tags-revert-without-query t)
