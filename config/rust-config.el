@@ -33,10 +33,10 @@
 (require 'company-config)
 ;; Racer is used for code completion and source code navigation
 ;; It requires that company-mode be loaded into Emacs
-(use-package racer
-  :after company-mode)
+;; (use-package racer
+;  :after company-mode)
 
-(setq racer-cmd "~/.cargo/bin/racer") ;; Binary path for rustup
+;;(setq racer-cmd "~/.cargo/bin/racer") ;; Binary path for rustup
 
 ;; (add-hook 'rust-mode-hook #'racer-mode)
 ;; (add-hook 'racer-mode-hook #'eldoc-mode)
@@ -45,7 +45,7 @@
 ;; (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 
 ;; Cargo is a package that allows us to control Rust's cargo from Emacs
-(use-package cargo)
+;;(use-package cargo)
 
 (provide 'rust-config)
 ;;; rust-config.el ends here
