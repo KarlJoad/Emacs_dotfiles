@@ -106,6 +106,10 @@
 (when (equal system-type 'gnu/linux)
   (require 'nix-config))
 
+;; Only pull in direnv configuration if our current system is NixOS
+(when (karljoad/is-nixos)
+  (require 'direnv-config))
+
 ;;;; Haskell Configs
 (require 'haskell-config)
 
