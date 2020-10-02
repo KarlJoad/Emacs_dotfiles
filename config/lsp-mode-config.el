@@ -15,12 +15,8 @@
 
 (add-hook 'lsp-mode-hook #'lsp-ui-mode)
 
-(use-package company-lsp
   :ensure t
   :defer t
-  :config (push 'company-lsp company-backends)
-  :commands company-lsp)
-
 
 (provide 'lsp-mode-config)
 ;;; lsp-mode-config ends here
