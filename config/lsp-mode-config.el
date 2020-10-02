@@ -7,7 +7,9 @@
   :hook (c++-mode . lsp)
   :commands lsp)
 
-;; Optional add-ins to lsp-mode
+;;; Optional add-ins to lsp-mode
+
+;; Fancy sideline, Popup documentation, VS Code-like peek UI
 (use-package lsp-ui
   :ensure t
   :defer t
