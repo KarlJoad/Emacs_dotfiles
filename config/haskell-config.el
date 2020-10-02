@@ -10,6 +10,14 @@
 	    (turn-on-haskell-indent) ;; Use smart indentation for Haskell buffers/files
 	    ))
 
+(use-package company-ghc
+  :ensure t
+  :defer t)
+
+(use-package company-ghci
+  :ensure t
+  :defer t)
+
 ;; Sub-mode for Haskell-mode
 (use-package ghc
   :defer t)
