@@ -18,14 +18,14 @@
 (direnv-mode)
 
 ;; Bind direnv-allow (equivalent of shell's direnv allow) to a key chord.
-(global-set-key (kbd "C-c d a") 'direnv-allow)
+(global-set-key (kbd "s-d a") 'direnv-allow)
 
 ;; Update Emacs environment to the direnv environment for the current file
-(global-set-key (kbd "C-c d u") 'direnv-update-environment)
+(global-set-key (kbd "s-d u") 'direnv-update-environment)
 
 ;; Update Emacs to the direnv environment for the current buffer (doesn't have
 ;; to be associated with a file).
-(global-set-key (kbd "C-c d e") 'direnv-update-directory-environment)
+(global-set-key (kbd "s-d e") 'direnv-update-directory-environment)
 
 ;; Always show summary message in minibuffer.
 ;; Contains list of automatic changes taken by direnv.
