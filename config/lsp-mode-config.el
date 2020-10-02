@@ -15,8 +15,11 @@
 
 (add-hook 'lsp-mode-hook #'lsp-ui-mode)
 
+;; Various tree based UI controls (symbols, errors overview, call hierarchy, etc.)
+(use-package lsp-treemacs
   :ensure t
   :defer t
+  :commands lsp-treemacs-errors-list)
 
 (provide 'lsp-mode-config)
 ;;; lsp-mode-config ends here
