@@ -142,5 +142,7 @@
 (use-package scratch)
 (global-set-key (kbd "C-c s") #'scratch)
 
+(global-set-key (kbd "C-c w") 'whitespace-mode)
+
 (provide 'personal-settings)
 ;;; personal-settings.el ends here
