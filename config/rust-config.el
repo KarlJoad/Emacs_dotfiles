@@ -13,12 +13,14 @@
 (require 'lsp-mode-config)
 
 ;; rust-mode is developed by The Rust Language makers, but not actively maintained
-;; (use-package rust-mode)
+(use-package rust-mode)
 
 ;; Therefore, I will use the rustic package for Rust development instead
 ;; This is a fork of rust-mode that is actively maintained.
 ;; Right now, it is generally better than rust-mode for everything.
 (use-package rustic) ;; Development environment for Rust
+
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rustic-mode))
 
 (setq rustic-lsp-server 'rust-analyzer)
 (setq rustic-lsp-client 'lsp-mode)
