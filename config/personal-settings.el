@@ -87,6 +87,9 @@
 ;; Sentences DO NOT need 2 spaces to end.
 (set-default 'sentence-end-double-space nil)
 
+;; Make sure tab-width is 4, not 8
+(setq-default tab-width 4)
+
 ;;; CONSTANT DEFINITIONS
 (defconst do-not-show-time 0
   "Do NOT show current time on the modeline. Use with 'display-time-mode' function.")
