@@ -100,6 +100,7 @@
 (require 'cobol-config) ;; This is probably a temporary config file.
 (require 'scala-config)
 (require 'rust-config)
+(require 'haskell-config)
 
 ;;;; Nix stuff.  For editing *.nix files (Nix and NixOS)
 ;; But only if the system is a GNU/Linux system, because Nix only supports those
@@ -109,9 +110,6 @@
 ;; Only pull in direnv configuration if our current system is NixOS
 (when (karljoad/is-nixos)
   (require 'direnv-config))
-
-;;;; Haskell Configs
-(require 'haskell-config)
 
 ;;;; Java/Eclim Configs
 (require 'eclim-config)
