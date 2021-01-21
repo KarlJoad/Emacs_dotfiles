@@ -111,9 +111,6 @@
 (when (karljoad/is-nixos)
   (require 'direnv-config))
 
-;;;; Java/Eclim Configs
-(require 'eclim-config)
-
 ;;;; Docker packages and configuration
 (require 'docker-config)
 
