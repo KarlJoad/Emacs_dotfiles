@@ -73,6 +73,10 @@
 	       )) ;; End of Linux Setup
 	    )) ;; End of Org-mode source code blocks setup
 
+(defadvice org-agenda-goto-today (after org-recenter-today-frame-top ())
+  "Recenter today to the top of the buffer/frame in org-mode's agenda."
+  (recenter-top-bottom 'top))
+
 ;; This package minimizes bullets that are used in Org-mode
 (use-package org-bullets
   :init
