@@ -54,7 +54,9 @@
     (add-to-list 'TeX-command-list
 		 '("LatexOutFolder" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -output-directory=./TeX_Output %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run LaTeX and put output in TeX_Output Directory"))
     (add-to-list 'TeX-command-list
-		 '("LatexOutFolderShellEscape" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -shell-escape -output-directory=./TeX_Output %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run a shell-escaped version of LaTeX and put output in TeX_Output Directory"))
+				 '("LatexOutFolderShellEscape" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -shell-escape -output-directory=./TeX_Output %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run a shell-escaped version of LaTeX and put output in TeX_Output Directory"))
+	(add-to-list 'TeX-command-list
+		 '("LatexShellEscape" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -shell-escape %T" TeX-run-TeX nil (latex-mode doctex-mode) :help "Run a shell-escaped version of LaTeX and put output in TeX_Output Directory"))
     (add-to-list 'TeX-command-list
 		 '("BiberAuxDirectory" "biber --output-directory ./TeX_Output %s" TeX-run-Biber nil t :help "Run Biber where the .aux file is in the TeX_Output Directory"))
     (add-to-list 'TeX-command-list
