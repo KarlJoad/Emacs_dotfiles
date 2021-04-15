@@ -78,3 +78,7 @@ projectile-bookmarks.eld
 
 # Sessions from lsp-mode
 /.lsp-session-v1
+
+.dap-breakpoints
+**.ls
+workspace
