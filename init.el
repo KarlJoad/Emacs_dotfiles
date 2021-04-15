@@ -101,6 +101,7 @@
 (require 'scala-config)
 (require 'rust-config)
 (require 'haskell-config)
+(require 'assembly-config)
 (require 'arduino-config)
 
 ;;;; Nix stuff.  For editing *.nix files (Nix and NixOS)
