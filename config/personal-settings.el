@@ -26,7 +26,7 @@
 (show-paren-mode) ;; Emphasize MATCHING Parentheses/Brackets/Braces/Angles
 (setq blink-matching-paren nil) ;; But don't let them blink
 (require 'rainbow-delimiters-config) ;; Require that we pull in the rainbow-delimiters config from here
-(electric-pair-mode 1) ;; Emacs automatically inserts closing pair
+;(electric-pair-mode 1) ;; Emacs automatically inserts closing pair
 
 ;; Enable syntax highlighting for older Emacsen that have it off
 (global-font-lock-mode t)
