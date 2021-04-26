@@ -88,7 +88,15 @@
                   (mu4e-trash-folder . "/Personal/Trash")
                   (mu4e-refile-folder . "/Personal/Refile")
                   (mu4e-sent-folder . "/Personal/Sent")
-                  (mu4e-drafts-folder . "/Personal/Drafts")))
+                  (mu4e-drafts-folder . "/Personal/Drafts")
+				  (mu4e-compose-signature . "Karl Hallsby
+BS Computer Engineering 2022
+MS Computer Engineering 2022
+Illinois Institute of Technology
+
+Contact:
+karl@hallsby.com
++1-630-815-7827")))
 	,(make-mu4e-context
 	  :name "iit"
 	  :match-func (lambda (msg)
@@ -99,7 +107,15 @@
                   (mu4e-trash-folder . "/IIT/Trash")
                   (mu4e-refile-folder . "/IIT/Refile")
                   (mu4e-sent-folder . "/IIT/Sent")
-                  (mu4e-drafts-folder . "/IIT/Drafts")))
+                  (mu4e-drafts-folder . "/IIT/Drafts")
+				  (mu4e-compose-signature . "Karl Hallsby
+BS Computer Engineering 2022
+MS Computer Engineering 2022
+Illinois Institute of Technology
+
+Contact:
+khallsby@hawk.iit.edu
++1-630-815-7827")))
 	,(make-mu4e-context
 	  :name "serveradmin"
 	  :match-func (lambda (msg)
