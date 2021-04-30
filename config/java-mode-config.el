@@ -31,7 +31,8 @@
   "Build the Java application with gradle, then run the resulting program."
   (interactive)
   (gradle-run "build run"))
-(define-key gradle-mode-map (kbd "C-c C-c") 'build-and-run)
+; TODO: The line below binds "C-c C-c" for EVERY major mode, not just gradle/java
+; (define-key gradle-mode-map (kbd "C-c C-c") 'build-and-run)
 
 (require 'company)
 (use-package company-emacs-eclim)
