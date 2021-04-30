@@ -14,7 +14,7 @@
   :defer t
   :config
   (yas-reload-all)
-  (defvar yas-snippet-dirs (list (concat user-emacs-directory "snippets") yasnippet-snippets-dir) "List of directories to find snippets for the yasnippet package")
+  (defconst yas-snippet-dirs (list (concat user-emacs-directory "snippets") yasnippet-snippets-dir) "List of directories to find snippets for the yasnippet package")
   (setq tab-always-indent 'complete) ;; Tabs indent
   (setq yas-prompt-functions '(yas-completing-prompt ;; List of prompts that yasnippet can go through
 			       yas-ido-prompt

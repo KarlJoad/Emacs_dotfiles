@@ -211,15 +211,15 @@ khallsby@hawk.iit.edu
 ;; Since I use Gmail, I have to use SMTP to send my emails.
 ;; This means I need to use a non-default mail sender, namely the program msmtp.
 
-(defvar karljoad/queue-mail-command (if (karljoad/is-nixos)
+(defconst karljoad/queue-mail-command (if (karljoad/is-nixos)
 					"~/.nix-profile/share/doc/msmtp/scripts/msmtpqueue/msmtp-enqueue.sh"
 				      "/usr/share/doc/msmtp/scripts/msmtpqueue/msmtp-enqueue.sh")
   "Command that will queue the mail for sending by placing it in a directory for later sending.")
-(defvar karljoad/send-queued-mail-command (if (karljoad/is-nixos)
+(defconst karljoad/send-queued-mail-command (if (karljoad/is-nixos)
 					      "~/.nix-profile/share/doc/msmtp/scripts/msmtpqueue/msmtp-runqueue.sh"
 					    "/usr/share/doc/msmtp/scripts/msmtpqueue/msmtp-runqueue.sh")
   "Command that will send ALL queued mail.")
-(defvar karljoad/queued-mail-dir "~/.msmtpqueue/" ;; (if (getenv "MSMTP_QUEUE")
+(defconst karljoad/queued-mail-dir "~/.msmtpqueue/" ;; (if (getenv "MSMTP_QUEUE")
 				 ;;     (concat (getenv "MSMTP_QUEUE") "/")
 				 ;;   "~/.msmtpqueue/")
   "Location where the mail queued to be sent will be stored until that time.")

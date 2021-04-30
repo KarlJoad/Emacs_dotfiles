@@ -10,7 +10,7 @@
 
 (require 'bibtex)
 
-(defvar karljoad/default-bibtex-dialect 'biblatex
+(defconst karljoad/default-bibtex-dialect 'biblatex
   "By default, I like to use BibLaTeX, so I want to make sure I always use that.")
 
 ;; Associate *.bib files with bibtex-mode.
