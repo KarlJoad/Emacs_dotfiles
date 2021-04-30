@@ -8,7 +8,7 @@
 ;;
 ;;; Code:
 
-(defvar karljoad-default-bibtex-dialect 'biblatex
+(defvar karljoad/default-bibtex-dialect 'biblatex
   "By default, I like to use BibLaTeX, so I want to make sure I always use that.")
 
 ;; Associate *.bib files with bibtex-mode.
@@ -17,7 +17,7 @@
 
 ;; When creating/opening *.bib files for TeX and derivatives, use biblatex style
 ;; BibLaTeX is newer, so that should be the default anyways.
-(setq bibtex-dialect karljoad-default-bibtex-dialect)
+(setq bibtex-dialect karljoad/default-bibtex-dialect)
 
 (setq bibtex-maintain-sorted-entries t)
 (setq bibtex-parse-keys-timeout nil)
@@ -25,7 +25,7 @@
 (add-hook 'bibtex-mode-hook
 	  (lambda ()
 	    "Setup BibTeX-mode for me, but only when I open a *.bib file. Because not all globally exported variables work all the time."
- 	    (setq bibtex-dialect karljoad-default-bibtex-dialect)))
+ 	    (setq bibtex-dialect karljoad/default-bibtex-dialect)))
 
 ;; This was causing problems when botting, because the bibtex-mode-map was not
 ;; available.
