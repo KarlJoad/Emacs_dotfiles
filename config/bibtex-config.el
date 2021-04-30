@@ -33,5 +33,5 @@
 ;; available.
 ;; (define-key bibtex-mode-map (kbd "C-c C-e C-o") 'bibtex-Online)
 
-(provide 'BibTeX-config)
+(provide 'bibtex-config)
 ;;; BibTeX-config.el ends here
