@@ -72,8 +72,6 @@
 
 ;;;; Company and its associated packages
 (require 'company-config)
-(require 'company-auctex-config)
-(require 'company-math-config)
 
 ;;;; Snippets are provided by Yasnippet
 (require 'yasnippet-config)

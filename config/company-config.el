@@ -26,11 +26,11 @@
   (define-key company-active-map (kbd "C-l") 'company-show-location) ;; Use C-l to show the location of the suggestion that Company is giving you right now
   )
 
-;; Company-AUCTeX provides the backend for Company
-;;(use-package company-auctex)
-;;(company-auctex-init)
+;; Company-AUCTeX provides support for AucTeX-based files, TeX/LaTeX/others
+(use-package company-auctex)
+(company-auctex-init)
 
-;; Company-math
+;; Display mathematical symbols in company completion dropdown.
 (use-package company-math)
 
 (provide 'company-config)
