@@ -36,6 +36,9 @@
 
 (require 'mu4e)
 
+;; Allow for the viewing of HTML emails using an XWidgets window/renderer
+(use-package mu4e-views)
+
 ;; The location of my mail for ALL of the accounts
 ;; (setq mu4e-maildir "~/Mail")
 ;; As of mu version 1.4.
