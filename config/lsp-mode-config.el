@@ -1,6 +1,9 @@
 ;;; lsp-mode-config --- Settings for lsp-mode
 ;;; Commentary:
 ;;; Code:
+
+(setq lsp-keymap-prefix "C-M-l")
+
 (use-package lsp-mode
   :ensure t
   :defer t
