@@ -4,35 +4,41 @@
 
 (if (display-graphic-p) ;; If using GUI, then use GUI theme
 ;;; Uncomment one of these lines, then change the load-theme line to the appropriate theme
-    ;; (use-package abyss-theme)
-    ;; (use-package cyberpunk-theme)
-    ;; (use-package spacemacs-theme
-    ;;   :defer t
-    ;;   :init (load-theme 'spacemacs-dark t)) ;; Load the dark theme
-    (use-package modus-vivendi-theme ;; The dark theme
-      :defer t
-      :ensure t
-      :config
-      (setq modus-vivendi-theme-slanted-constructs t)
-      (setq modus-vivendi-theme-bold-constructs t)
-      (setq modus-vivendi-theme-proportional-fonts nil))
-  (use-package modus-operandi-theme ;; The light theme
-      :defer t
-      :ensure t
-      :config
-      (setq modus-operandi-theme-slanted-constructs t)
-      (setq modus-operandi-theme-bold-constructs t)
-      (setq modus-operandi-theme-proportional-fonts nil))
-    ;; (use-package doom-themes
-    ;;   :defer t
-    ;;   :init ; (load-theme 'doom-outrun-electric t)
-    ;;   (load-theme 'doom-acario-dark t)
-    ;;   :config
-    ;;   (setq doom-themes-enable-bold t)
-    ;;   (setq doom-themes-enable-italic t)
-    ;;   (setq doom-themes-treemacs-theme "doom-colors")
-    ;;   (doom-themes-treemacs-config)
-    ;;   (doom-themes-org-config))
+    (progn
+      ;; (use-package abyss-theme)
+      ;; (use-package cyberpunk-theme)
+      ;; (use-package spacemacs-theme
+      ;;   :defer t
+      ;;   :init (load-theme 'spacemacs-dark t)) ;; Load the dark theme
+      (use-package modus-vivendi-theme ;; The dark theme
+		:defer t
+		:ensure t
+		:config
+		(setq modus-vivendi-theme-section-headings t)
+		(setq modus-vivendi-theme-slanted-constructs t)
+		(setq modus-vivendi-theme-bold-constructs t)
+		(setq modus-vivendi-theme-proportional-fonts nil))
+      ;; (setq modus-vivendi-theme-headings
+      ;; 	    ''((1 . highlight)
+      ;; 	       (2 . line)
+      ;; 	       (t . rainbow-line-no-bold)))
+      ;; (use-package modus-operandi-theme ;; The light theme
+      ;; 	:defer t
+      ;; 	:ensure t
+      ;; 	:config
+      ;; 	(setq modus-operandi-theme-slanted-constructs t)
+      ;; 	(setq modus-operandi-theme-bold-constructs t)
+      ;; 	(setq modus-operandi-theme-proportional-fonts nil)))
+      (use-package doom-themes
+		;;   :defer t
+		;;   :init ; (load-theme 'doom-outrun-electric t)
+		:init (load-theme 'doom-one t)
+		:config
+		(setq doom-themes-enable-bold t)
+		(setq doom-themes-enable-italic t)
+		(setq doom-themes-treemacs-theme "doom-colors")
+		(doom-themes-treemacs-config)
+		(doom-themes-org-config)))
   (use-package monokai-theme))
 
 ;;; Change Default custom-theme-load-path
