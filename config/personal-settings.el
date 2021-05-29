@@ -37,6 +37,10 @@
 ;; Add highlighting for TODO/NOTE/FIXME strings in most buffers.
 (require 'hl-todo-config)
 
+;; Change the title of the frame when opened in GUI mode.
+(setq-default frame-title-format
+			  '("%b@" (:eval (or (file-remote-p default-directory 'host) system-name)) " - Emacs"))
+
 ;; Automatic file creation/manipulation/backups
 ;; I choose to remove the backup~ files because I don't want to have to add every one of those files
 ;; to the .gitignore for projects.
