@@ -15,7 +15,7 @@
 
 (scroll-bar-mode -1) ;; Remove scroll bar at side
 (menu-bar-mode 1) ;; Keep the top menu-bar, with the drop-down menus
-(tool-bar-mode -1) ;; Always get rid of the big icon tool-bar below the menu-bar.
+(tool-bar-mode -1) ;; Remove big icon tool-bar below the menu-bar.
 
 ;;;; Turn on Line numbering
 (global-display-line-numbers-mode) ;; Show line numbers everywhere
@@ -25,7 +25,7 @@
 ;; Parentheses/Brackets/Braces/Angles modifications
 (show-paren-mode) ;; Emphasize MATCHING Parentheses/Brackets/Braces/Angles
 (setq blink-matching-paren nil) ;; But don't let them blink
-(require 'rainbow-delimiters-config) ;; Require that we pull in the rainbow-delimiters config from here
+(require 'rainbow-delimiters-config) ;; Pull in rainbow-delimiters config
 ;(electric-pair-mode 1) ;; Emacs automatically inserts closing pair
 
 ;; Enable syntax highlighting for older Emacsen that have it off
@@ -86,7 +86,7 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8) ;; A catch-all for any locations a coding system might be where I have forgotten.
+(prefer-coding-system 'utf-8) ;; Catch-all
 
 ;; Sentences DO NOT need 2 spaces to end.
 (set-default 'sentence-end-double-space nil)
