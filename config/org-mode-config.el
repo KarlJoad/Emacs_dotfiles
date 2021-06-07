@@ -73,6 +73,10 @@
 	       )) ;; End of Linux Setup
 	    )) ;; End of Org-mode source code blocks setup
 
+(defadvice org-agenda-goto-today (before org-agenda-refresh-before-goto-today ())
+  "Refresh all Org files that build the agenda before jumping to today."
+  (org-agenda-redo-all))
+
 (defadvice org-agenda-goto-today (after org-recenter-today-frame-top ())
   "Recenter today to the top of the buffer/frame in org-mode's agenda."
   (recenter-top-bottom 'top))
