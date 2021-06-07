@@ -5,7 +5,7 @@
 ;; Make Emacs Start Full-Screen
 ;; Except on Windows, where I think the window decorations are nice.
 (if (equal system-type 'windows-nt) ;; ONLY when on Windows/GUI DOS
-	(add-hook 'emacs-startup-hook 'toggle-frame-maximized) ;; Make Emacs a maximized window
+    (add-hook 'emacs-startup-hook 'toggle-frame-maximized) ; Make Emacs a maximized window
   (add-hook 'emacs-startup-hook 'toggle-frame-fullscreen)) ;; Otherwise, on GNU/Linux/BSD/OSX, make Emacs fullscreen
 
 (add-to-list 'default-frame-alist '(fullscreen . fullboth))
@@ -39,7 +39,7 @@
 
 ;; Change the title of the frame when opened in GUI mode.
 (setq-default frame-title-format
-			  '("%b@" (:eval (or (file-remote-p default-directory 'host) system-name)) " - Emacs"))
+							'("%b@" (:eval (or (file-remote-p default-directory 'host) system-name)) " - Emacs"))
 
 ;; Automatic file creation/manipulation/backups
 ;; I choose to remove the backup~ files because I don't want to have to add every one of those files
@@ -72,9 +72,9 @@
 
 ;; ANYTHING that should happen before saving ANY buffers should be put here.
 (add-hook 'before-save-hook
-	  (lambda ()
-	    "Commands to execute before saving any buffer."
-	    (delete-trailing-whitespace)))
+          (lambda ()
+            "Commands to execute before saving any buffer."
+            (delete-trailing-whitespace)))
 
 ;; I want a keybinding to quickly revert buffers, since sometimes Magit doesn't do it.
 (global-set-key (kbd "C-c g") 'revert-buffer)
