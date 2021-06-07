@@ -143,7 +143,10 @@
 ;; Set my prefered font
 (when (equal system-type 'windows-nt)
   (add-to-list 'default-frame-alist
-	       '(font . "Courier New-11"))) ;; In this case, 11pt Courier New
+               '(font . "Courier New-11"))) ;; In this case, 11pt Courier New
+
+(setq-default tab-width 2) ; Default to indentation size of 2 spaces
+(setq-default indent-tabs-mode nil) ; Use spaces instead of tabs
 
 ;; Scratch is a package that allows me to create a *scratch* buffer for any
 ;; major mode that I may be working in right now. By default, it opens a new
