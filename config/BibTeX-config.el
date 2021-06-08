@@ -27,7 +27,9 @@
 	    "Setup BibTeX-mode for me, but only when I open a *.bib file. Because not all globally exported variables work all the time."
  	    (setq bibtex-dialect karljoad-default-bibtex-dialect)))
 
-(define-key bibtex-mode-map (kbd "C-c C-e C-o") 'bibtex-Online)
+;; This was causing problems when botting, because the bibtex-mode-map was not
+;; available.
+;; (define-key bibtex-mode-map (kbd "C-c C-e C-o") 'bibtex-Online)
 
 (provide 'BibTeX-config)
 ;;; BibTeX-config.el ends here
