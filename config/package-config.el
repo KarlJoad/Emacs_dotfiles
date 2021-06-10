@@ -21,7 +21,7 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
-(defvar straight-use-package-by-default t)
+(setq straight-use-package-by-default t)
 
 ;;; Ensure packages are always new and always loaded
 ;; (add-to-list 'load-path "/home/karl/.emacs.d/elpa")
