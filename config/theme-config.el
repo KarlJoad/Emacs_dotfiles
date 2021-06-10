@@ -12,7 +12,7 @@
       ;;   :init (load-theme 'spacemacs-dark t)) ;; Load the dark theme
       (use-package modus-vivendi-theme ;; The dark theme
 		:defer t
-		; :ensure t
+		:straight t
 		:config
 		(setq modus-vivendi-theme-section-headings t)
 		(setq modus-vivendi-theme-slanted-constructs t)
@@ -24,7 +24,7 @@
       ;; 	       (t . rainbow-line-no-bold)))
       ;; (use-package modus-operandi-theme ;; The light theme
       ;; 	:defer t
-      ;; 	; :ensure t
+      ;; 	:straight t
       ;; 	:config
       ;; 	(setq modus-operandi-theme-slanted-constructs t)
       ;; 	(setq modus-operandi-theme-bold-constructs t)

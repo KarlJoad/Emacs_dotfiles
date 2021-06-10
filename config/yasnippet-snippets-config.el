@@ -9,7 +9,7 @@
 
 (use-package yasnippet-snippets
   :after yasnippet
-  ; :ensure t
+  :straight t
   :config (yasnippet-snippets-initialize))
 
 (provide 'yasnippet-snippets-config)

@@ -6,7 +6,7 @@
 ;;; Code:
 
 (use-package treemacs
-  ; :ensure t
+  :straight t
   :defer t
   :bind
   (:map global-map
@@ -22,18 +22,18 @@
 ;; Treemacs-magit fills in the gaps that treemacs can't handle for git/magit
 (use-package treemacs-magit
   :after treemacs magit
-  ; :ensure t
+  :straight t
   :defer t)
 
 ;; Integrage treemacs with projectile
 (use-package treemacs-projectile
   :after treemacs projectile
-  ; :ensure t)
+  :straight t)
 
 ;; Allows me to use treemacs icons in dired buffers
 (use-package treemacs-icons-dired
   :after treemacs dired
-  ; :ensure t
+  :straight t
   :defer t
   :config (treemacs-icons-dired-mode))
 

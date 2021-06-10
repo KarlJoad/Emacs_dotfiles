@@ -11,7 +11,7 @@
 
 ;; Spell-checking and syntax checking
 (use-package flycheck
-  ; :ensure t
+  :straight t
   :init (global-flycheck-mode))
 
 (provide 'flycheck-config)

@@ -9,7 +9,7 @@
 ;;; List the information about me
 (use-package cobol-mode
   :defer t
-  ; :ensure t)
+  :straight t)
 
 (provide 'cobol-config)
 ;;; cobol-config.el ends here

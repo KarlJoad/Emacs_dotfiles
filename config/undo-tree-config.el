@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package undo-tree
-	     ; :ensure t
+	     :straight t
 	     :defer t
 		 :config
 		 (global-undo-tree-mode t)

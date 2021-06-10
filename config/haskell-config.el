@@ -11,7 +11,7 @@
 	    ))
 
 (use-package company-ghci
-  ; :ensure t
+  :straight t
   :defer t)
 
 ;; Sub-mode for Haskell-mode
