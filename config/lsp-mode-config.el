@@ -5,7 +5,7 @@
 (setq lsp-keymap-prefix "C-M-l")
 
 (use-package lsp-mode
-  :ensure t
+  ; :ensure t
   :defer t
   :hook (c++-mode . lsp)
   :commands lsp)
@@ -14,7 +14,7 @@
 
 ;; Fancy sideline, Popup documentation, VS Code-like peek UI
 (use-package lsp-ui
-  :ensure t
+  ; :ensure t
   :defer t
   :commands lsp-ui-mode)
 
@@ -22,7 +22,7 @@
 
 ;; Various tree based UI controls (symbols, errors overview, call hierarchy, etc.)
 (use-package lsp-treemacs
-  :ensure t
+  ; :ensure t
   :defer t
   :commands lsp-treemacs-errors-list)
 

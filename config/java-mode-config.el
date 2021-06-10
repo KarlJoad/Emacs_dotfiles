@@ -13,13 +13,13 @@
 
 ;; Setup LSP for java.
 (use-package lsp-mode
-  :ensure t
+  ; :ensure t
   :hook (
 	 (java-mode . #'lsp-deferred))
   :commands lsp)
 
 (use-package lsp-java
-  :ensure t)
+  ; :ensure t)
 
 (add-hook 'java-mode-hook #'lsp)
 (add-hook 'java-mode-hook 'flycheck-mode)
@@ -40,10 +40,10 @@
 
 ;; Debugger Adapter Protocol, for debugging java code
 (use-package dap-java
-  :ensure nil)
+  ; :ensure nil)
 
 (use-package dap-mode
-  :ensure t
+  ; :ensure t
   :after (lsp-mode)
   :functions dap-hydra/nix
   :config

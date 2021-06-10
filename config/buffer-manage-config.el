@@ -38,7 +38,7 @@
          ("/ g" . ibuffer-filter-by-content)))
 
 (use-package ibuffer-vc
-  :ensure t
+  ; :ensure t
   :after (ibuffer vc)
   :bind (:map ibuffer-mode-map
               ("/ V" . ibuffer-vc-set-filter-groups-by-vc-root)

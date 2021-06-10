@@ -4,7 +4,7 @@
 
 (use-package sml-mode
   :defer t
-  :ensure t)
+  ; :ensure t)
 
 (provide 'sml-mode-config)
 ;;; sml-mode-config.el ends here

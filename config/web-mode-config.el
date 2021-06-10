@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package web-mode
-  :ensure t
+  ; :ensure t
   :defer t)
 
 (add-hook 'web-mode-hook

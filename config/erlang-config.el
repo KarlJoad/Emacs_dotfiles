@@ -3,19 +3,19 @@
 ;;; Code:
 
 (use-package erlang
-  :ensure t
+  ; :ensure t
   :defer t)
 
 (use-package erlstack-mode
-  :ensure t
+  ; :ensure t
   :defer t)
 
 (use-package edts
-  :ensure t
+  ; :ensure t
   :defer t)
 
 (use-package company-erlang
-  :ensure t
+  ; :ensure t
   :defer t)
 
 (provide 'erlang-config)

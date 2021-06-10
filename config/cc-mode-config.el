@@ -25,7 +25,7 @@
   (add-to-list 'company-backends 'company-c-headers))
 
 (use-package company-ctags
-  :ensure t
+  ; :ensure t
   :defer t)
 
 (use-package company-lsp)

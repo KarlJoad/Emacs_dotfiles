@@ -10,7 +10,7 @@
 ;;; Code:
 
 (use-package yasnippet
-  :ensure t
+  ; :ensure t
   :defer t
   :config
   (yas-reload-all)

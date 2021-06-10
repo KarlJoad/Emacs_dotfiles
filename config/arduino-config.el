@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package arduino-mode
-  :ensure t
+  ; :ensure t
   :defer t)
 
 (provide 'arduino-config)

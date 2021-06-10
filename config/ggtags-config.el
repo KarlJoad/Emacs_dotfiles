@@ -5,7 +5,7 @@
 ;;; Code:
 
 (use-package ggtags
-  :ensure t
+  ; :ensure t
   :defer t
   :bind
   (:map global-map
