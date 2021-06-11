@@ -40,6 +40,11 @@
 ;;;; Load in configuration to buffer management
 (require 'buffer-manage-config)
 
+;;;; Loading Org early is best for straight.el
+(require 'org-mode-config) ;; org-mode configuration
+;; Org-mode MUST be loaded before my email config, because mu4e has a dependency
+;; on org-mode.
+
 ;;;; Load in my email settings
 (require 'email-config)
 
@@ -86,7 +91,6 @@
 (require 'treemacs-config)
 
 ;;;; Major mode configuration and loading
-(require 'org-mode-config) ;; org-mode configuration
 (require 'markdown-config) ;; markdown configuration
 (require 'Emacs-Lisp-config) ;; Emacs-List major mode configuration
 (require 'java-mode-config) ;; Java major mode configuration
