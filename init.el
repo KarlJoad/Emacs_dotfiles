@@ -37,9 +37,6 @@
 (require 'personal-settings)
 (require 'personal-functions)
 
-;;;; Load in my current theme
-(require 'theme-config)
-
 ;;;; Load in configuration to buffer management
 (require 'buffer-manage-config)
 
@@ -125,5 +122,8 @@
 
 ;;;; Coloring things with rainbow-mode
 (require 'rainbow-mode-config)
+
+;;;; Load in my current theme
+(require 'theme-config)
 
 ;;; init.el ends here
