@@ -18,7 +18,12 @@
 	  erc-autojoin-channels-alist '(("irc.libera.chat" "#nixos"))
 	  erc-kill-buffer-on-part t ; Kill a channel's buffer when I part from it.
     erc-modules
-    '(button completion fill irccontrols match menu readonly ring spelling stamp))
+    '(button completion fill irccontrols match menu readonly ring spelling stamp
+             notifications))
+
+(use-package erc-hl-nicks
+  :after erc
+  :config (add-to-list 'erc-modules 'hl-nicks))
 
 
 (provide 'erc-config)
