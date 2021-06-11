@@ -20,5 +20,7 @@
 ;; git pull = "F"
 ;; git push = "P"
 
+(setq magit-auto-revert-mode t)
+
 (provide 'magit-config)
 ;;; magit-config.el ends here
