@@ -14,10 +14,6 @@
   :straight t
   :defer t)
 
-;; Sub-mode for Haskell-mode
-(use-package ghc
-  :defer t)
-
 (use-package attrap
   :defer t)
 
