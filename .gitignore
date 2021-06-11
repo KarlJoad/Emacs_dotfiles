@@ -82,3 +82,6 @@ projectile-bookmarks.eld
 .dap-breakpoints
 **.ls
 workspace
+
+# straight.el sources
+/straight

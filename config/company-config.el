@@ -11,7 +11,7 @@
 
 ;; Company gives us an engine for some auto-completion for things we provide a backend for
 (use-package company
-  :ensure t
+  :straight t
   :defer t
   :init
   (global-company-mode)

@@ -6,7 +6,7 @@
 
 (use-package auctex
   :defer t
-  :ensure t)
+  :straight t)
 
 ;;; Start by setting the LaTeX command style
 					;(setq LaTeX-command-style '(("" "%(PDF)%(latex) -synctex=1 -interaction=nonstopmode -aux-directory=./TeX_Aux_Files -output-directory=./TeX_Output %S%(PDFout)")))

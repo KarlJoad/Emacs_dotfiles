@@ -7,7 +7,7 @@
 ;;; Code:
 
 (use-package rainbow-mode
-  :ensure t
+  :straight t
   :defer t)
 
 ;; Enable Rainbow-mode for any buffer that runs the css-mode-hook

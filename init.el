@@ -32,16 +32,23 @@
 ;;;; Load in my package list
 (require 'package-config)
 
+;;;; Load project.el, using straight RIGHT NOW (ASAP), because if any packages
+;;;; depend on it, they use `(require 'project)', then the one shipped with Emacs
+;;;; is used, which is very old and causes problems everywhere.
+(straight-use-package 'project)
+
 ;; Set up: my personal info, my personal settings, and personal functions
 (require 'personal-info)
 (require 'personal-settings)
 (require 'personal-functions)
 
-;;;; Load in my current theme
-(require 'theme-config)
-
 ;;;; Load in configuration to buffer management
 (require 'buffer-manage-config)
+
+;;;; Loading Org early is best for straight.el
+(require 'org-mode-config) ;; org-mode configuration
+;; Org-mode MUST be loaded before my email config, because mu4e has a dependency
+;; on org-mode.
 
 ;;;; Load in my email settings
 (require 'email-config)
@@ -51,9 +58,6 @@
 
 ;;;; Load in Magit options
 (require 'magit-config)
-
-;;;; Project commands and management
-(require 'projectile-config)
 
 ;;;; flycheck for spell/syntax checking
 (require 'flycheck-config)
@@ -88,12 +92,17 @@
 ;;(require 'neotree-config)
 (require 'treemacs-config)
 
+;;;; For interaction with projects, we use project.el and projectile
+;;;; Project commands and management
+(require 'projectile-config)
+
+;;;; LSP, for interacting with programming language servers
+(require 'lsp-mode-config)
+
 ;;;; Major mode configuration and loading
-(require 'org-mode-config) ;; org-mode configuration
 (require 'markdown-config) ;; markdown configuration
 (require 'Emacs-Lisp-config) ;; Emacs-List major mode configuration
 (require 'java-mode-config) ;; Java major mode configuration
-(require 'lsp-mode-config)
 (require 'cc-mode-config)
 (require 'web-mode-config)
 (require 'sml-mode-config)
@@ -125,5 +134,8 @@
 
 ;;;; Coloring things with rainbow-mode
 (require 'rainbow-mode-config)
+
+;;;; Load in my current theme
+(require 'theme-config)
 
 ;;; init.el ends here
