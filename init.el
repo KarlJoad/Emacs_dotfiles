@@ -90,11 +90,13 @@
 ;;(require 'neotree-config)
 (require 'treemacs-config)
 
+;;;; LSP, for interacting with programming language servers
+(require 'lsp-mode-config)
+
 ;;;; Major mode configuration and loading
 (require 'markdown-config) ;; markdown configuration
 (require 'Emacs-Lisp-config) ;; Emacs-List major mode configuration
 (require 'java-mode-config) ;; Java major mode configuration
-(require 'lsp-mode-config)
 (require 'cc-mode-config)
 (require 'web-mode-config)
 (require 'sml-mode-config)
