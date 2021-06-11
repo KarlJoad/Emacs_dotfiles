@@ -50,14 +50,14 @@
 ;; Originally Stolen from protesilaos' .emacs config, slightly modified by me
 ;; https://gitlab.com/protesilaos/dotemacs/-/blob/master/emacs-init.org
 (defun karljoad/modus-themes-toggle ()
-    "Simplistic toggle for Modus Themes.
+  "Simplistic toggle for Modus Themes.
 Check if `modus-operandi' is active and if so switch to `modus-vivendi'.
 The inverse applies when Vivendi is in use."
-    (interactive)
-    (if (eq (car custom-enabled-themes) 'modus-operandi)
-	(setq current-theme 'modus-vivendi)
-      (setq current-theme 'modus-operandi))
-    (load-theme current-theme t))
+  (interactive)
+  (if (eq (car custom-enabled-themes) 'modus-operandi)
+	    (setq current-theme 'modus-vivendi)
+    (setq current-theme 'modus-operandi))
+  (load-theme current-theme t))
 (global-set-key (kbd "C-c T") 'karljoad/modus-themes-toggle)
 
 (if (daemonp)
