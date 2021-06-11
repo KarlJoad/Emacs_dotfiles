@@ -62,9 +62,13 @@ The inverse applies when Vivendi is in use."
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions
-	      (lambda (frame)
-		(with-selected-frame frame (apply-theme-if-daemon))))
-  (apply-theme-if-daemon))
+              (defun karljoad/daemon-theme-init (frame)
+                (with-selected-frame frame
+                  (load-theme current-theme t))
+                (remove-hook 'after-make-frame-functions
+                             #'karljoad/theme-init-daemon)
+                (fmakunbound 'karljoad/theme-init-daemon)))
+  (load-theme current-theme t))
 
 (provide 'theme-config)
 ;;; theme-config.el ends here
