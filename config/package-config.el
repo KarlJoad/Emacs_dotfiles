@@ -2,13 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-;;(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
-
-;;; Pin some packages to specific repositories
-(setq package-pinned-packages '((gtags . "melpa")))
-
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -22,6 +15,13 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 (setq straight-use-package-by-default t)
+
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+;;(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
+
+;;; Pin some packages to specific repositories
+(setq package-pinned-packages '((gtags . "melpa")))
 
 ;;; Ensure packages are always new and always loaded
 ;; (add-to-list 'load-path "/home/karl/.emacs.d/elpa")
