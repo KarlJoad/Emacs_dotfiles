@@ -32,10 +32,15 @@
 ;;;; Load in my package list
 (require 'package-config)
 
+;;;; Load certain packages VERY early, so that ANY packages that depend on it
+;;;; are loaded correctly. This also goes for packages from within Emacs itself,
+;;;; as those are typically outdated with regards to the packages pulled in by
+;;;; straght.el.
 ;;;; Load project.el, using straight RIGHT NOW (ASAP), because if any packages
 ;;;; depend on it, they use `(require 'project)', then the one shipped with Emacs
 ;;;; is used, which is very old and causes problems everywhere.
 (straight-use-package 'project)
+(straight-use-package 'dom)
 
 ;; Set up: my personal info, my personal settings, and personal functions
 (require 'personal-info)
