@@ -90,7 +90,7 @@
 
 ;;;; Load in interactive file managers for Emacs
 ;;(require 'neotree-config)
-(require 'treemacs-config)
+;; (require 'treemacs-config)
 
 ;;;; For interaction with projects, we use project.el and projectile
 ;;;; Project commands and management
