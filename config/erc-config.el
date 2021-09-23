@@ -10,8 +10,6 @@
 (add-to-list 'erc-keywords "\\KarlJoad`\\b")
 (add-to-list 'erc-keywords "\\KarlJoad-\\b")
 
-(setq  erc-server-coding-system '(utf-8 . utf-8))
-
 (setq erc-server "irc.libera.chat"
 	  erc-nick "KarlJoad"
 	  erc-user-full-name "Karl"
@@ -21,6 +19,8 @@
     erc-modules
     '(button completion fill irccontrols match menu readonly ring spelling stamp
              notifications))
+(setq erc-server-coding-system '(utf-8 . utf-8))
+
 
 (use-package erc-hl-nicks
   :after erc
