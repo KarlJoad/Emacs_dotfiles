@@ -58,6 +58,9 @@
 ;;;; Load in my email settings
 (require 'email-config)
 
+;;;; Load Elfeed config, to read RSS feeds
+(require 'elfeed-config)
+
 ;;;; Load in configuration for Emacs' IRC client, ERC
 (require 'erc-config)
 
