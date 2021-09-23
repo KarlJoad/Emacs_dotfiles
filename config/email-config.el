@@ -35,6 +35,8 @@
   (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e"))
 
 (require 'mu4e)
+(when (karljoad/is-nixos)
+  (setq mu4e-mu-binary "/run/current-system/sw/bin/mu"))
 
 ;; Allow for the viewing of HTML emails using an XWidgets window/renderer
 (use-package ivy)
