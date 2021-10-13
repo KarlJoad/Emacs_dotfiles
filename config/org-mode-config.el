@@ -35,10 +35,9 @@
   ;; Include American holidays on the Org-Agenda
   (setq org-agenda-include-diary t)
   ;; In the calendar to select days, highlight the ones that are American holidays.
-  (setq calendar-mark-holidays-flag t)
-  )
+  (setq calendar-mark-holidays-flag t))
 
-;; Make org-babel do stuff with  source code blocks in Org-mode
+;; Make org-babel do stuff with source code blocks in Org-mode
 ;; But only after there is an org file loaded up, otherwise, do nothing
 ;; These are only loaded when an org file is first loaded because it is time-consuming to do this during Emacs startup
 ;;(with-eval-after-load "org"
