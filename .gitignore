@@ -87,3 +87,6 @@ workspace
 /straight
 
 extras.el
+
+# org-roam DB
+org-roam.db

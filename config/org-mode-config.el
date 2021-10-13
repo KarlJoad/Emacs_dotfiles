@@ -86,5 +86,22 @@
   :init
   (add-hook 'org-mode-hook 'org-bullets-mode))
 
+(use-package org-roam
+  :straight t
+  :defer t
+  :custom (org-roam-directory (file-truename "~/OrgRoamNotes/"))
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n g" . org-roam-graph)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n c" . org-roam-capture)
+         ;; Dailies
+         ("C-c n j" . org-roam-dailies-capture-today))
+  :config
+  (org-roam-db-autosync-mode)
+  (org-roam-setup))
+
+(setq org-roam-v2-ack t)
+
 (provide 'org-mode-config)
 ;;; org-mode-config.el ends here
