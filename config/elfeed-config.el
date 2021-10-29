@@ -13,7 +13,8 @@
 (setq elfeed-feeds '(("https://karl.hallsby.com/feed.xml" personal blog)
                      ("https://xkcd.com/atom.xml" comic webcomic)
                      ("https://guix.gnu.org/feeds/blog.atom" guix reproducible)
-                     ("https://protesilaos.com/codelog.xml" emacs blog)))
+                     ("https://protesilaos.com/codelog.xml" emacs blog)
+                     ("https://ambrevar.xyz/atom.xml" emacs guix reproducible blog)))
 
 ;; Prettify the elfeed buffer, making some things easier to read
 (use-package elfeed-goodies)
