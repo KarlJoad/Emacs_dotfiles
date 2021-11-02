@@ -58,7 +58,8 @@ The inverse applies when Vivendi is in use."
 	    (setq current-theme 'modus-vivendi)
     (setq current-theme 'modus-operandi))
   (load-theme current-theme t))
-(global-set-key (kbd "C-c T") 'karljoad/modus-themes-toggle)
+
+(global-set-key (kbd "C-c T") 'modus-themes-toggle)
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions
