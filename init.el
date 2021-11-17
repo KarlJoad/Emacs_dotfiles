@@ -121,6 +121,7 @@
 (require 'assembly-config)
 (require 'arduino-config)
 (require 'erlang-config)
+(require 'common-lisp-config)
 
 ;;;; Nix stuff.  For editing *.nix files (Nix and NixOS)
 ;; But only if the system is a GNU/Linux system, because Nix only supports those
