@@ -14,7 +14,8 @@
                      ("https://xkcd.com/atom.xml" comic webcomic)
                      ("https://guix.gnu.org/feeds/blog.atom" guix reproducible)
                      ("https://protesilaos.com/codelog.xml" emacs blog)
-                     ("https://ambrevar.xyz/atom.xml" emacs guix reproducible blog)))
+                     ("https://ambrevar.xyz/atom.xml" emacs guix reproducible blog)
+                     ("https://christine.website/blog.rss" nixos reproducible blog)))
 
 ;; Prettify the elfeed buffer, making some things easier to read
 (use-package elfeed-goodies)
