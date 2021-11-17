@@ -50,6 +50,10 @@
 ;;;; Load in configuration to buffer management
 (require 'buffer-manage-config)
 
+;;;; Set up a proper terminal emulator in Emacs.
+;;; term-mode and ansi-term are alright, but vterm is better.
+;; (require 'vterm-config)
+
 ;;;; Loading Org early is best for straight.el
 (require 'org-mode-config) ;; org-mode configuration
 ;; Org-mode MUST be loaded before my email config, because mu4e has a dependency
