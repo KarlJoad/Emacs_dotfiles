@@ -146,6 +146,7 @@
 ;;;; Docker packages and configuration
 (require 'docker-config)
 
+;; (require 'test-config)
 (require 'eshell-config)
 
 ;;; init.el ends here
