@@ -2,10 +2,15 @@
 ;;; Commentary:
 ;;; Code:
 
-(add-hook 'java-mode-hook (lambda ()
-			    (setq c-basic-offset 4
-				 tab-width 4
-				 indent-tabs-mode nil)))
+;;; Gradle Build System
+(require 'gradle-config)
+
+(add-hook 'java-mode-hook
+          (lambda ()
+            (lsp nil)
+			      (setq c-basic-offset 4
+				          tab-width 4
+				          indent-tabs-mode nil)))
 ;; By setting indent-tabs-mode to nil, when I press <TAB>, I insert 4 spaces instead
 
 (use-package posframe)
@@ -31,8 +36,9 @@
   "Build the Java application with gradle, then run the resulting program."
   (interactive)
   (gradle-run "build run"))
-; TODO: The line below binds "C-c C-c" for EVERY major mode, not just gradle/java
-; (define-key gradle-mode-map (kbd "C-c C-c") 'build-and-run)
+;; TODO: The line below binds "C-c C-c" for EVERY major mode, not just gradle/java
+(eval-after-load 'gradle-mode
+  '(define-key gradle-mode-map (kbd "C-c C-c") 'build-and-run))
 
 (require 'company)
 (use-package company-emacs-eclim)

@@ -15,17 +15,6 @@
   (setq ibuffer-default-sorting-mode 'filename/process)
   (setq ibuffer-use-header-line t)
   (setq ibuffer-default-shrink-to-minimum-size nil)
-  ;; (setq ibuffer-formats
-  ;;       '((mark modified read-only locked " "
-  ;;               (name 30 30 :left :elide)
-  ;;               " "
-  ;;               (size 9 -1 :right)
-  ;;               " "
-  ;;               (mode 16 16 :left :elide)
-  ;;               " " filename-and-process)
-  ;;         (mark " "
-  ;;               (name 16 -1)
-  ;;               " " filename)))
   (setq ibuffer-saved-filter-groups nil)
   :hook
   (ibuffer-mode . hl-line-mode)

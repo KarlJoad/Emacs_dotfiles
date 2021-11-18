@@ -3,6 +3,8 @@
 ;;; Commentary:
 ;;; Code:
 
+(require 'magit-config)
+(require 'lsp-config)
 (use-package ccls)
 
 ;; Available C style:
@@ -16,9 +18,7 @@
 ;; “python”: What Python developers use for extension modules
 ;; “java”: The default style for java-mode (see below)
 ;; “user”: When you want to define your own style
-(setq c-default-style
-	  '((java-mode . "java")
-		(other . "linux")))
+(setq c-default-style "stroustrup")
 
 (use-package company-c-headers
   :init
@@ -31,16 +31,18 @@
 (use-package company-lsp)
 
 (add-hook 'c-mode-hook
-	  (lambda ()
-	    (local-set-key (kbd "C-c C-c") 'compile)
-		(local-set-key (kbd "C-c SPC") 'company-complete)
-		(local-set-key (kbd "C-c ;") 'comment-or-uncomment-region)))
+	        (lambda ()
+            (lsp nil)
+	          (local-set-key (kbd "C-c C-c") 'compile)
+		        (local-set-key (kbd "C-c SPC") 'company-complete)
+		        (local-set-key (kbd "C-c ;") 'comment-or-uncomment-region)))
 
 (add-hook 'c++-mode-hook
-	  (lambda ()
-	    (local-set-key (kbd "C-c C-c") 'compile)
-		(local-set-key (kbd "C-c SPC") 'company-complete)
-		(local-set-key (kbd "C-c ;") 'comment-or-uncomment-region)))
+	        (lambda ()
+            (lsp nil)
+	          (local-set-key (kbd "C-c C-c") 'compile)
+		        (local-set-key (kbd "C-c SPC") 'company-complete)
+		        (local-set-key (kbd "C-c ;") 'comment-or-uncomment-region)))
 
 ;; setup GDB
 (setq gdb-many-windows t ;; use gdb-many-windows by default

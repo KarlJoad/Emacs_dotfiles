@@ -1,4 +1,4 @@
-;;; BibTeX-config.el --- This file provides my changes to Emacs' default BibTeX major mode
+;;; bibtex-config.el --- This file provides my changes to Emacs' default BibTeX major mode
 ;;; Commentary:
 ;;
 ;; By default, Emacs comes with a BibTeX major mode.
@@ -7,6 +7,9 @@
 ;; To go with BibLaTeX, I use Biber as the backend citation and cross-referencing manager.
 ;;
 ;;; Code:
+
+(require 'latex)
+(require 'bibtex) ;; BibTeX comes with Emacs
 
 (defvar karljoad-default-bibtex-dialect 'biblatex
   "By default, I like to use BibLaTeX, so I want to make sure I always use that.")
@@ -31,5 +34,5 @@
 ;; available.
 ;; (define-key bibtex-mode-map (kbd "C-c C-e C-o") 'bibtex-Online)
 
-(provide 'BibTeX-config)
-;;; BibTeX-config.el ends here
+(provide 'bibtex-config)
+;;; bibtex-config.el ends here

@@ -26,12 +26,5 @@
   (define-key company-active-map (kbd "C-l") 'company-show-location) ;; Use C-l to show the location of the suggestion that Company is giving you right now
   )
 
-;; Company-AUCTeX provides the backend for Company
-;;(use-package company-auctex)
-;;(company-auctex-init)
-
-;; Company-math
-(use-package company-math)
-
 (provide 'company-config)
 ;;; company-config.el ends here

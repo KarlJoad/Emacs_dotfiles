@@ -7,7 +7,12 @@
 ;;
 ;;; Code:
 
-(use-package pdf-tools)
+(use-package pdf-tools
+  :defer t
+  :straight t)
+
+(add-hook 'pdf-tools-enabled-hook
+          #'pdf-view-midnight-minor-mode)
 
 (provide 'pdf-tools-config)
 ;;; pdf-tools-config.el ends here

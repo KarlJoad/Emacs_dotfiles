@@ -22,7 +22,7 @@
       (set-face-attribute 'default nil :height regular-fontsize))))
 
 (defun karljoad/is-nixos ()
-  "Return t or nil, depending on if the current OS is NixOS."
+  "Return 't' or 'nil', depending on if the current OS is NixOS."
   (with-temp-buffer
     (insert (shell-command-to-string "cat /etc/os-release"))
     (goto-char 0)
@@ -31,6 +31,14 @@
 	  (when (not (equal (search-forward "ID=nixos" nil t)
 			    nil))
 	    t)))))
+
+(defun karljoad/is-guix-system ()
+  "Return t or nil, depending on if the current OS is Guix System.
+
+This works because the `/run/current-system/profile' does NOT exist as a symlink unsless the running OS is weird or is NOT a Guix System."
+  (if (file-symlink-p "/run/current-system/profile")
+      t
+    nil))
 
 (provide 'personal-functions)
 ;;; personal-functions.el ends here

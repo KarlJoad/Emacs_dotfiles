@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+;; Bootstrap straight.el
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -14,16 +15,12 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
-(setq straight-use-package-by-default t)
+(setq straight-use-package-by-default t) ;; If I use use-package, use straight instead
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
-;;; Pin some packages to specific repositories
-(setq package-pinned-packages '((gtags . "melpa")))
-
 ;;; Ensure packages are always new and always loaded
-;; (add-to-list 'load-path "/home/karl/.emacs.d/elpa")
 (straight-use-package 'use-package)
 (when (not (package-installed-p 'use-package)) ;; When use-package is not installed,
   (package-refresh-contents nil)               ;; refresh package repositories, synchronously

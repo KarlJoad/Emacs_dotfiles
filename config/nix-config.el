@@ -6,6 +6,8 @@
 ;; on reproducability between computers.
 ;;
 ;;; Code:
+(require 'functional-packaging-config)
+
 ;; Each of these is deferred because I won't necessarily edit Nix files on every GNU/Linux
 ;; computer that I use
 (use-package nix-mode ;; Major mode for editing *.nix files

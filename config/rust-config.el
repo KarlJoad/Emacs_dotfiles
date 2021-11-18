@@ -10,7 +10,7 @@
 ;;; Code:
 
 (require 'magit)
-(require 'lsp-mode-config)
+(require 'lsp-config)
 
 ;; rust-mode is developed by The Rust Language makers, but not actively maintained
 (use-package rust-mode)

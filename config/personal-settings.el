@@ -16,6 +16,7 @@
 (scroll-bar-mode -1) ;; Remove scroll bar at side
 (menu-bar-mode 1) ;; Keep the top menu-bar, with the drop-down menus
 (tool-bar-mode -1) ;; Remove big icon tool-bar below the menu-bar.
+(tooltip-mode -1) ;; On clickable text, remove tooltip pop-up. Use minibuffer.
 
 ;;;; Turn on Line numbering
 (global-display-line-numbers-mode) ;; Show line numbers everywhere
@@ -47,6 +48,7 @@
 ;; Besides, auto-saving happens frequently enough for it to not really matter.
 (setq auto-save-default t) ;; Allow the #auto-save# files. They are removed upon buffer save anyways
 (setq make-backup-files nil) ;; Disable backup~ files
+(setq vc-follow-symlinks t) ;; Never ask whether or not to follow symlinks
 
 ;; Disable some minor disturbances that I find quite annoying.
 (setq visible-bell nil) ;; Disable the visual bell
@@ -67,7 +69,7 @@
 ;; Show keystrokes in progress more quickly than default
 (setq echo-keystrokes 0.75)
 
-;; ALWAYS as for confirmation before exiting Emacs
+;; ALWAYS ask for confirmation before exiting Emacs
 (setq confirm-kill-emacs 'y-or-n-p)
 
 ;; ANYTHING that should happen before saving ANY buffers should be put here.
@@ -114,9 +116,9 @@
 (defconst show-battery 1
   "Show battery status in modeline. Use with the 'display-battery-mode' function.")
 
-(defconst karljoad-display-time-mode-line-format "%R %F"
+(defconst karljoad/display-time-mode-line-format "%R %F"
   "Karl's preference on the time and date information to display on the modeline. Use with display-time-format variable.")
-(defconst karljoad-battery-mode-line-format "[%p%%,%mMin]"
+(defconst karljoad/battery-mode-line-format "[%p%%,%mMin]"
   "Karl's preference on the battery information to display on the modeline. Use with battery-mode-line-format variable.")
 ;;; END OF CONSTANT DEFINITIONS
 
@@ -124,21 +126,12 @@
 (display-time-mode show-time) ;; Show system time in buffer modeline.
 ;; (setq display-time-24hr-format t) ;; Show system time in 24-hour clock
 ;; (setq display-time-day-and-date t) ;; Show time AND date
-(setq display-time-format karljoad-display-time-mode-line-format) ;; Karl's preferred display-time setup
+(setq display-time-format karljoad/display-time-mode-line-format) ;; Karl's preferred display-time setup
 (setq display-time-default-load-average 5-minute-load)
 
 ;; Show battery information in the modeline.
 (display-battery-mode show-battery) ;; Show battery status info in buffer modeline.
-(setq battery-mode-line-format karljoad-battery-mode-line-format) ;; Karl's preferred battery-display setup.
-
-;; Can now open recently opened files
-;; When Recentf mode is enabled, a "Open Recent" submenu is displayed in the "File" menu.
-(require 'recentf)
-(recentf-mode 1) ;; Turn on recentf
-(setq recentf-max-saved-items 25) ;; Maximum number of buffers to remember
-
-;;; Restore opened files from last session
-;;(desktop-save-mode 1) ;; Commented out only while debugging my init files
+(setq battery-mode-line-format karljoad/battery-mode-line-format) ;; Karl's preferred battery-display setup.
 
 ;; Set my prefered font
 (when (equal system-type 'windows-nt)
