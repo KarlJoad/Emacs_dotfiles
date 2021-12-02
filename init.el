@@ -52,7 +52,7 @@
 ;;;; Load project.el, using straight RIGHT NOW (ASAP), because if any packages
 ;;;; depend on it, they use `(require 'project)', then the one shipped with Emacs
 ;;;; is used, which is very old and causes problems everywhere.
-;; (straight-use-package 'project)
+(straight-use-package 'project)
 ;; (straight-use-package 'dom)
 
 ;;;; Load in configuration to buffer management
