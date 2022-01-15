@@ -55,6 +55,9 @@
 (straight-use-package 'project)
 ;; (straight-use-package 'dom)
 
+;;;; Load config to make navigating through Emacs and files easier.
+(require 'navigation-config)
+
 ;;;; Load in configuration to buffer management
 (require 'buffer-manage-config)
 
