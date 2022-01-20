@@ -205,7 +205,8 @@ khallsby@hawk.iit.edu
 
 ;; Enable org-mode like list manipulation
 ;; This may also include the section headers that org-mode uses
-(add-hook 'message-mode-hook 'turn-on-orgstruct++)
+;; (add-hook 'message-mode-hook 'turn-on-orgstruct++)
+;; FIXME: Symbol disappeared. Causes face attribute issues.
 
 ;; =============================================================================
 ;; Mail sending setup
