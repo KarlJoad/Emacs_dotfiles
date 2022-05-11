@@ -95,7 +95,8 @@
          ("C-c n i" . org-roam-node-insert)
          ("C-c n c" . org-roam-capture)
          ;; Dailies
-         ("C-c n j" . org-roam-dailies-capture-today))
+         ("C-c n j" . org-roam-dailies-capture-today)
+         ("M-," . org-mark-ring-goto))
   :config
   (org-roam-db-autosync-mode)
   (org-roam-setup))
