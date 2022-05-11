@@ -142,6 +142,7 @@
 
 ;; Only pull in direnv configuration if our current system is NixOS or Guix System
 (when (or (karljoad/is-nixos) (karljoad/is-guix-system))
+  (require 'functional-packaging-config)
   ;; (require 'direnv-config)
   (require 'envrc-config)
   )
