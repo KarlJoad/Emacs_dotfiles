@@ -5,7 +5,7 @@
 ;;
 ;;; Code:
 (use-package org
-  :straight t
+  :straight (:type built-in)
   :defer t
   :bind (;; These keybindings are set without needing an org file, because they should always be available.
 	 ("C-c a" . 'org-agenda) ;; "C-c a" opens the Agenda Buffer to choose where to go
