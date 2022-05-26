@@ -5,7 +5,7 @@
 (use-package gradle-mode)
 
 (require 'gradle-mode)
-(add-hook 'java-mode-hook '(lambda() (gradle-mode 1)))
+(add-hook 'java-mode-hook #'(lambda() (gradle-mode 1)))
 
 (provide 'gradle-config)
 ;;; gradle-config.el ends here

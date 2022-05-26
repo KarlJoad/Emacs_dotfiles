@@ -6,7 +6,7 @@
 (require 'gradle-config)
 
 (add-hook 'java-mode-hook
-          (lambda ()
+          #'(lambda ()
             (lsp nil)
 			      (setq c-basic-offset 4
 				          tab-width 4
