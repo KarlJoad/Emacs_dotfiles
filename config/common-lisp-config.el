@@ -17,5 +17,7 @@
 
 (use-package sly)
 
+(paredit-mode)
+
 (provide 'common-lisp-config)
 ;;; common-lisp-config.el ends here

@@ -15,5 +15,7 @@
   :defer t
   :straight t)
 
+(paredit-mode)
+
 (provide 'scheme-config)
 ;;; scheme-config.el ends here
