@@ -29,7 +29,6 @@
 (add-hook 'java-mode-hook #'lsp)
 (add-hook 'java-mode-hook 'flycheck-mode)
 (add-hook 'java-mode-hook 'company-mode)
-(add-hook 'java-mode-hook '(lambda() (gradle-mode 1)))
 
 (use-package gradle-mode)
 (defun build-and-run ()
