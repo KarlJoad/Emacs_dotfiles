@@ -4,7 +4,13 @@
 
 (require 'magit-config)
 
-(use-package scala-mode)
+(use-package scala-mode
+  :defer t
+  :straight t)
+
+(use-package sbt-mode
+  :defer t
+  :straight t)
 
 (provide 'scala-config)
 ;;; scala-config.el ends here

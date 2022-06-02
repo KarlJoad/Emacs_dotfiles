@@ -131,7 +131,7 @@
 (require 'java-mode-config)
 (require 'web-mode-config)
 ;; (require 'sml-mode-config)
-;; (require 'scala-config)
+(require 'scala-config)
 ;; (require 'haskell-config)
 ;; (require 'assembly-config)
 ;; (require 'arduino-config)
