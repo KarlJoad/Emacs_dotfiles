@@ -122,6 +122,7 @@
 
 ;;;; Major mode configuration and loading
 (require 'cc-mode-config) ;; C/C++
+(require 'kconfig-config)
 (require 'scheme-config)
 (require 'guile-config)
 (require 'common-lisp-config)
