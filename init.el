@@ -115,7 +115,7 @@
 
 ;;;; For interaction with projects, we use project.el and projectile
 ;;;; Project commands and mannagement
-;; (require 'projectile-config)
+(require 'projectile-config)
 
 ;;;; LSP, for interacting with programming language servers
 (require 'lsp-config)
