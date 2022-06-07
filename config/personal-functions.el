@@ -41,10 +41,13 @@ This works because the `/run/current-system/profile' does NOT exist as a symlink
     nil))
 
 (defun karljoad/etags-generate (dir-name)
-  "Generate an etags TAGS file for C in the specified DIR-NAME."
+  "Generate an etags TAGS file for C in the specified DIR-NAME.
+
+Note that this uses `xargs' and `find', both of which are provided by GNU
+findutils."
   (interactive "DDirectory: ")
   (eshell-command
-      (format "find %s -type f -name \"*.[ch]\" | etags -" dir-name)))
+      (format "find %s -type f -name \"*.[chS]\" | xargs etags -a" dir-name)))
 
 (provide 'personal-functions)
 ;;; personal-functions.el ends here
