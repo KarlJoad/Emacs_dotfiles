@@ -35,7 +35,8 @@
 (defun karljoad/is-guix-system ()
   "Return t or nil, depending on if the current OS is Guix System.
 
-This works because the `/run/current-system/profile' does NOT exist as a symlink unsless the running OS is weird or is NOT a Guix System."
+This works because the `/run/current-system/profile' does NOT exist as a
+symlink unsless the running OS is weird or is NOT a Guix System."
   (if (file-symlink-p "/run/current-system/profile")
       t
     nil))
