@@ -21,25 +21,25 @@
 	  ;; Otherwise, switch back to the regular size
       (set-face-attribute 'default nil :height regular-fontsize))))
 
-(defun karljoad/is-nixos ()
-  "Return 't' or 'nil', depending on if the current OS is NixOS."
+(defun karljoad/this-system-this-linux-distro? (distro)
+  "Return 't' or 'nil', depending on if the current OS is DISTRO."
   (with-temp-buffer
     (insert (shell-command-to-string "cat /etc/os-release"))
     (goto-char 0)
     (condition-case nil
-	(progn
-	  (when (not (equal (search-forward "ID=nixos" nil t)
-			    nil))
-	    t)))))
+	      (progn
+	        (when (not (equal (search-forward
+                             (concat "ID=" distro) nil t)
+			                      nil))
+	          t)))))
+
+(defun karljoad/is-nixos ()
+  "Return 't' or 'nil', depending on if the current OS is NixOS."
+  (karljoad/this-system-this-linux-distro? "nixos"))
 
 (defun karljoad/is-guix-system ()
-  "Return t or nil, depending on if the current OS is Guix System.
-
-This works because the `/run/current-system/profile' does NOT exist as a
-symlink unsless the running OS is weird or is NOT a Guix System."
-  (if (file-symlink-p "/run/current-system/profile")
-      t
-    nil))
+  "Return 't' or 'nil', depending on if the current OS is Guix System."
+  (karljoad/this-system-this-linux-distro? "guix"))
 
 (defun karljoad/etags-generate (dir-name)
   "Generate an etags TAGS file for C in the specified DIR-NAME.
