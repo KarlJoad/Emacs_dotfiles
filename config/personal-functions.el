@@ -23,6 +23,7 @@
 
 (defun karljoad/this-system-this-linux-distro? (distro)
   "Return 't' or 'nil', depending on if the current OS is DISTRO."
+  (interactive "MID of the distro (as found in /etc/os-release): ")
   (with-temp-buffer
     (insert (shell-command-to-string "cat /etc/os-release"))
     (goto-char 0)
