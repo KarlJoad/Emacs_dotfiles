@@ -33,6 +33,11 @@
       '(button completion fill irccontrols match menu readonly ring spelling stamp
                notifications))
 
+;; ERC can rename server-connection buffers to just the network's name.
+;; This is useful when using an IRC bouncer, like ZNC, which has multiple
+;; connections to the same server.
+(setq erc-rename-buffers t)
+
 (use-package erc-hl-nicks
   :after erc
   :config (add-to-list 'erc-modules 'hl-nicks))
