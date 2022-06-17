@@ -32,6 +32,15 @@
 (setq lin-face 'lin-mac)
 (lin-global-mode)
 
+;; Pulse the current line when performing certain actions in Emacs.
+;; The functions that cause the pulse are in the `pulsar-pulse-functions' list.
+(use-package pulsar
+  :straight t
+  :ensure t)
+(setq pulsar-face 'pulsar-magenta)
+(setq pulsar-delay 0.05)
+(pulsar-global-mode)
+
 ;; Parentheses/Brackets/Braces/Angles modifications
 (show-paren-mode) ;; Emphasize MATCHING Parentheses/Brackets/Braces/Angles
 (setq blink-matching-paren nil) ;; But don't let them blink
