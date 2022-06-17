@@ -16,5 +16,17 @@
   (projectile-mode +1)
   (setq projectile-enable-caching t))
 
+(defun projectile-whitespace-cleanup-project-files ()
+  "Run `whitespace-cleanup' on all project files."
+  (interactive)
+  (dolist (file (projectile-current-project-files))
+    (let* ((path (concat (projectile-project-root) file))
+           (buffer (find-file-noselect path)))
+      (when buffer
+        (with-current-buffer buffer
+          (whitespace-cleanup)
+          (save-buffer)
+          (kill-buffer))))))
+
 (provide 'projectile-config)
 ;;; projectile-config.el ends here
