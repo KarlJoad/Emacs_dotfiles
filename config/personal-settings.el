@@ -23,6 +23,12 @@
 (setq column-number-mode 1) ;; Turn on column numbers in ALL major modes
 (global-hl-line-mode 1) ;; Have line with my cursor highlighted
 
+(use-package lin
+  :ensure t
+  :straight t)
+(setq lin-face 'lin-mac)
+(lin-global-mode 1)
+
 ;; Parentheses/Brackets/Braces/Angles modifications
 (show-paren-mode) ;; Emphasize MATCHING Parentheses/Brackets/Braces/Angles
 (setq blink-matching-paren nil) ;; But don't let them blink
