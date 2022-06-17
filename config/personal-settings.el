@@ -23,11 +23,14 @@
 (setq column-number-mode 1) ;; Turn on column numbers in ALL major modes
 (global-hl-line-mode 1) ;; Have line with my cursor highlighted
 
+;; Use special line-highlighting for line-oriented or text-oriented buffers.
+;; In line-oriented buffers (mu4e, elfeed), highlights the point's current line
+;; more heavily.
 (use-package lin
   :ensure t
   :straight t)
 (setq lin-face 'lin-mac)
-(lin-global-mode 1)
+(lin-global-mode)
 
 ;; Parentheses/Brackets/Braces/Angles modifications
 (show-paren-mode) ;; Emphasize MATCHING Parentheses/Brackets/Braces/Angles
