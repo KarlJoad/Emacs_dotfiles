@@ -8,5 +8,7 @@
   :defer t
   :straight t)
 
+(setq-default guix-state-directory "/var")
+
 (provide 'guix-config)
 ;;; guix-config.el ends here
