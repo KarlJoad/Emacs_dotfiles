@@ -116,28 +116,44 @@
 
 ;;; CONSTANT DEFINITIONS
 (defconst do-not-show-time 0
-  "Do NOT show current time on the modeline. Use with 'display-time-mode' function.")
+  "Do NOT show current time on the modeline.
+Use with 'display-time-mode' function.")
 (defconst show-time 1
-  "Show current time in the modeline. Use with 'display-time-mode' function.")
+  "Show current time in the modeline.
+Use with 'display-time-mode' function.")
 
 (defconst do-not-show-load nil
-  "Do not display a load average on modeline. Use with display-time-default-load-average variable.")
+  "Do not display a load average on modeline.
+Use with `display-time-default-load-average' variable.")
 (defconst 1-minute-load 0
-  "Put last 1 minute of load average on modeline. Use with display-time-default-load-average variable.")
+  "Put last 1 minute of load average on modeline.
+Use with `display-time-default-load-average' variable.")
 (defconst 5-minute-load 1
-  "Put last 5 minutes of load average on modeline. Use with display-time-default-load-average variable.")
+  "Put last 5 minutes of load average on modeline.
+Use with `display-time-default-load-average' variable.")
 (defconst 15-minute-load 2
-  "Put last 15 minutes of load average on modeline. Use with display-time-default-load-average variable.")
+  "Put last 15 minutes of load average on modeline.
+Use with `display-time-default-load-average' variable.")
 
 (defconst do-not-show-battery 0
-  "Do NOT show battery information on the modeline. Use with the 'display-battery-mode' function.")
+  "Do NOT show battery information on the modeline.
+Use with the 'display-battery-mode' function.")
 (defconst show-battery 1
-  "Show battery status in modeline. Use with the 'display-battery-mode' function.")
+  "Show battery status in modeline.
+Use with the 'display-battery-mode' function.")
 
 (defconst karljoad/display-time-mode-line-format "%R %F"
-  "Karl's preference on the time and date information to display on the modeline. Use with display-time-format variable.")
+  "Karl's preference on the time and date information to display on the modeline.
+Displays the time in HH:MM format (24-hour), then the date in YYYY-MM-DD format.
+
+Use with `display-time-format' variable.")
 (defconst karljoad/battery-mode-line-format "[%p%%,%mMin]"
-  "Karl's preference on the battery information to display on the modeline. Use with battery-mode-line-format variable.")
+  "Karl's preference on the battery information to display on the modeline.
+Displays an approximation of the current amount of battery left, as a
+percentage, then the number of minutes left until the battery is emptied or
+fully charged.
+
+Use with `battery-mode-line-format' variable.")
 ;;; END OF CONSTANT DEFINITIONS
 
 ;; Show time, date, and system process load information in the modeline.
