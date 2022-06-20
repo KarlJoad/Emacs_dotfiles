@@ -16,6 +16,8 @@
 (setq inferior-lisp-program "sbcl")
 
 (use-package sly)
+(use-package sly-asdf)
+(use-package sly-quicklisp)
 
 (paredit-mode)
 
