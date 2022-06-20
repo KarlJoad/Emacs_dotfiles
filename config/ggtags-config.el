@@ -18,8 +18,14 @@
 	      ("C-x t s" . 'ggtags-find-other-symbol)))
 
 (add-hook 'c-mode-common-hook
-
-(ggtags-mode 1) ;; Turn ggtags on in every buffer
+	        (lambda ()
+	          (when (derived-mode-p 'c-mode
+				                          'c++-mode
+				                          'java-mode
+				                          'asm-mode
+				                          'python-mode)))
+          ;; Turn ggtags on in all of these buffer
+          (ggtags-mode 1))
 
 ;; Auto reload tags when they're regenerated.
 (setq tags-revert-without-query t)
