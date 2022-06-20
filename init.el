@@ -111,7 +111,7 @@
 ;;;; Tags and their configurations. For now, I just use etags, so no config.
 ;; (require 'ctags-config)
 ;; (require 'gtags-config)
-;; (require 'ggtags-config)
+(require 'ggtags-config)
 
 ;;;; For interaction with projects, we use project.el and projectile
 ;;;; Project commands and mannagement
