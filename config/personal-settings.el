@@ -188,8 +188,7 @@ Use with `battery-mode-line-format' variable.")
 This needs to be a string that matches a font available on the system Emacs is
 currently running on.")
 
-(set-face-attribute 'default nil :font karljoad/preferred-font)
-(set-frame-font karljoad/preferred-font nil t)
+(add-to-list 'default-frame-alist '((font . karljoad/preferred-font)))
 
 (provide 'personal-settings)
 ;;; personal-settings.el ends here
