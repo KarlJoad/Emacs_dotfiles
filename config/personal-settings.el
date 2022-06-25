@@ -167,11 +167,6 @@ Use with `battery-mode-line-format' variable.")
 (display-battery-mode show-battery) ;; Show battery status info in buffer modeline.
 (setq battery-mode-line-format karljoad/battery-mode-line-format) ;; Karl's preferred battery-display setup.
 
-;; Set my prefered font
-(when (equal system-type 'windows-nt)
-  (add-to-list 'default-frame-alist
-               '(font . "Courier New-11"))) ;; In this case, 11pt Courier New
-
 (setq-default tab-width 2) ; Default to indentation size of 2 spaces
 (setq-default indent-tabs-mode nil) ; Use spaces instead of tabs
 
@@ -183,6 +178,18 @@ Use with `battery-mode-line-format' variable.")
 (global-set-key (kbd "C-c s") #'scratch)
 
 (global-set-key (kbd "C-c w") 'whitespace-mode)
+
+;; Set my preferred font style.
+(defconst karljoad/preferred-font
+  (cond
+   ((equal system-type 'windows-nt) "Courier New-11") ;; In this case, 11pt Courier New
+   ((equal system-type 'gnu/linux) "Iosevka Semibold-10.5")) ;"Fira Code Retina-11"
+  "My (KarlJoad's) preferred font.
+This needs to be a string that matches a font available on the system Emacs is
+currently running on.")
+
+(set-face-attribute 'default nil :font karljoad/preferred-font)
+(set-frame-font karljoad/preferred-font nil t)
 
 (provide 'personal-settings)
 ;;; personal-settings.el ends here
