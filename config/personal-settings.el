@@ -179,6 +179,7 @@ Use with `battery-mode-line-format' variable.")
 
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 
+
 ;; Set my preferred font style.
 (defconst karljoad/preferred-font
   (cond
