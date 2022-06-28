@@ -148,10 +148,9 @@ khallsby@hawk.iit.edu
                   (mu4e-drafts-folder . "/ServerAdmin/Drafts")))))
 
 (add-to-list 'mu4e-bookmarks
-       (make-mu4e-bookmark
-        :name "All Inboxes"
-        :query "maildir:/Personal/Inbox OR maildir:/IIT/Inbox OR maildir:/Lund/Inbox OR maildir:/ServerAdmin/Inbox"
-        :key ?a))
+             '( :name "All Inboxes"
+                :key ?a
+                :query "maildir:/Personal/Inbox OR maildir:/IIT/Inbox OR maildir:/Lund/Inbox OR maildir:/ServerAdmin/Inbox"))
 
 ;; We want to get ALL mail with the mbsync command with the -a flag.
 (setq mu4e-get-mail-command "mbsync -a")
