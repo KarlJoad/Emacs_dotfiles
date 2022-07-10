@@ -2,13 +2,24 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Make Emacs Start Full-Screen
-;; Except on Windows, where I think the window decorations are nice.
-(if (equal system-type 'windows-nt) ;; ONLY when on Windows/GUI DOS
-    (add-hook 'emacs-startup-hook 'toggle-frame-maximized) ; Make Emacs a maximized window
-  (add-hook 'emacs-startup-hook 'toggle-frame-fullscreen)) ;; Otherwise, on GNU/Linux/BSD/OSX, make Emacs fullscreen
-
-(add-to-list 'default-frame-alist '(fullscreen . fullboth))
+(require 'personal-functions)
+;; Change the way an Emacs frame is drawn upon startup depending on OS.
+(cond
+ ;; On Windows GUI, make Emacs a maximized window
+ ((equal system-type 'windows-nt)
+  (progn
+    (add-hook 'emacs-startup-hook 'toggle-frame-maximized)
+    (add-to-list 'default-frame-alist '(fullscreen . fullboth))))
+ ;; On Guix, I use StumpWM, use a maximized frame to NOT cover Stump's modeline
+ ((karljoad/is-guix-system)
+  (progn
+    (add-hook 'emacs-startup-hook 'toggle-frame-maximized)
+    (add-to-list 'default-frame-alist '(maximized . fullboth))))
+ ;; Otherwise, on GNU/Linux/BSD/OSX, make Emacs fullscreen
+ ((equal system-type 'gnu/linux)
+  (progn
+    (add-hook 'emacs-startup-hook 'toggle-frame-fullscreen)
+    (add-to-list 'default-frame-alist '(fullscreen . fullboth)))))
 
 ;; Skip the "Welcome" Page
 (setq inhibit-startup-message t)
