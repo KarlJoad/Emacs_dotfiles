@@ -4,11 +4,16 @@
 
 (require 'functional-packaging-config)
 
-(use-package guix
-  :defer t
-  :straight t)
+(require 'guix)
+;; (use-package guix
+;;   :defer t
+;;   :straight t)
 
-(setq-default guix-state-directory "/var")
+;; (setq-default guix-state-directory "/var")
+
+;; (setq-default guix-config-guile-program "guile")
+
+;; (setq-default guix-scheme-directory )
 
 (provide 'guix-config)
 ;;; guix-config.el ends here
