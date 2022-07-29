@@ -151,6 +151,11 @@ khallsby@hawk.iit.edu
              '( :name "All Inboxes"
                 :key ?a
                 :query "maildir:/Personal/Inbox OR maildir:/IIT/Inbox OR maildir:/Lund/Inbox OR maildir:/ServerAdmin/Inbox"))
+(add-to-list 'mu4e-bookmarks
+             '( :name "All Mail"
+                :key ?A
+                ;; This query works because the * is expanded by the shell before being passed to the mu binary.
+                :query "maildir:/Personal/* OR maildir:/IIT/* OR maildir:/ServerAdmin/*"))
 
 ;; We want to get ALL mail with the mbsync command with the -a flag.
 (setq mu4e-get-mail-command "mbsync -a")
