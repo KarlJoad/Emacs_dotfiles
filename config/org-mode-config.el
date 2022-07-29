@@ -70,6 +70,7 @@
 	       'org-babel-load-languages
 	       '((shell . t)) ;; Bash Shell mode for editing bash files in Linux
 	       )) ;; End of Linux Setup
+      (visual-line-mode 1)
 	    )) ;; End of Org-mode source code blocks setup
 
 (defadvice org-agenda-goto-today (before org-agenda-refresh-before-goto-today ())
