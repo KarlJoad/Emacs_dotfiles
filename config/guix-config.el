@@ -10,5 +10,13 @@
 
 (setq-default guix-state-directory "/var")
 
+
+;;;
+;;; Allow reading & checking Guix Debbugs instances from Emacs
+;;;
+(use-package debbugs
+  :defer t
+  :straight t)
+
 (provide 'guix-config)
 ;;; guix-config.el ends here
