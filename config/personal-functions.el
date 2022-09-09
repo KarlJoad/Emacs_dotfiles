@@ -51,5 +51,11 @@ findutils."
   (eshell-command
       (format "find %s -type f -name \"*.[chS]\" | xargs etags -a" dir-name)))
 
+(defun karljoad/reload-dir-locals-for-current-buffer ()
+  "Reload `.dir-locals.el' for the current buffer."
+  (interactive)
+  (let ((enable-local-variables :all))
+    (hack-dir-local-variables-non-file-buffer)))
+
 (provide 'personal-functions)
 ;;; personal-functions.el ends here
