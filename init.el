@@ -64,6 +64,9 @@
 ;;;; Load in an Undo-Tree for reverting buffers
 (require 'undo-tree-config)
 
+;;;; Bring in tree-sitter support for Emacs
+;; (require 'tree-sitter-config)
+
 ;;;; Set up a proper terminal emulator in Emacs.
 ;;; term-mode and ansi-term are alright, but vterm is better.
 ;; (require 'vterm-config)
