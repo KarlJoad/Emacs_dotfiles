@@ -17,7 +17,8 @@
                      ("https://ambrevar.xyz/atom.xml" emacs guix reproducible blog)
                      ("https://christine.website/blog.rss" nixos reproducible blog)
                      ("https://ag91.github.io/rss.xml" emacs nyxt blog)
-                     ("https://nyxt.atlas.engineer/feed" nyxt blog)))
+                     ("https://nyxt.atlas.engineer/feed" nyxt blog)
+                     ("https://rss.acm.org/technews/TechNews.xml" ACM research news)))
 
 ;; Prettify the elfeed buffer, making some things easier to read
 (use-package elfeed-goodies)
