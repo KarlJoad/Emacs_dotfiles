@@ -7,6 +7,11 @@
 
 (use-package magit)
 
+;; To make magit work, we need the compat package too
+(use-package compat
+  :ensure t
+  :defer t)
+
 ;; Open Magit Status for git handling
 (global-set-key (kbd "C-x g") 'magit-status) ;; C-x g will bring up magit status (git status)
 ;; Bring up a small menu to choose to do magit things
