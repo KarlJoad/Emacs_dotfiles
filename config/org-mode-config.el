@@ -99,8 +99,9 @@
          ("C-c n j" . org-roam-dailies-capture-today)
          ("M-," . org-mark-ring-goto))
   :config
-  (org-roam-db-autosync-mode)
-  (org-roam-setup))
+  (progn
+    (org-roam-db-autosync-mode)
+    (org-roam-setup)))
 
 (setq org-roam-v2-ack t)
 
