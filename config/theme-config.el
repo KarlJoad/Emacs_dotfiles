@@ -5,7 +5,6 @@
 (use-package modus-themes ;; BOTH light (vivendi) and dark (operandi)
 	:defer t
 	:straight t
-  :init (modus-themes-load-themes)
 	:config
 	(setq modus-vivendi-theme-section-headings t)
 	(setq modus-vivendi-theme-slanted-constructs t)
