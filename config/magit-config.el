@@ -5,7 +5,11 @@
 ;;
 ;;; Code:
 
-(use-package magit)
+(use-package magit
+  :ensure t
+  :defer t
+  :after (compat)
+  :requires compat)
 
 ;; To make magit work, we need the compat package too
 (use-package compat
