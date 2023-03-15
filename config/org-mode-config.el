@@ -101,7 +101,8 @@
   :config
   (progn
     (org-roam-db-autosync-mode)
-    (org-roam-setup)))
+    (org-roam-setup)
+    (setq-local completion-ignore-case t)))
 
 (setq org-roam-v2-ack t)
 
