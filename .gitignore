@@ -90,3 +90,6 @@ extras.el
 
 # org-roam DB
 org-roam.db
+
+# Native-compilation directory
+/eln-cache
