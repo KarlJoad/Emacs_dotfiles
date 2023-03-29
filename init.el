@@ -69,7 +69,8 @@
 
 ;;;; Set up a proper terminal emulator in Emacs.
 ;;; term-mode and ansi-term are alright, but vterm is better.
-;; (require 'vterm-config)
+(when (karljoad/is-guix-system)
+  (require 'vterm-config))
 
 ;;;; Loading Org early is best for straight.el
 (require 'org-mode-config) ;; org-mode configuration

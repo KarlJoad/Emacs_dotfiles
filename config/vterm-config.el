@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package vterm
-  :straight t
+  :straight (:type built-in)
   :defer t)
 
 (provide 'vterm-config)
