@@ -30,9 +30,10 @@
 ;; Add the path to the mu4e source code
 ;; This is placed here when mu is installed.
 ;; THIS MUST BE DONE BEFORE requiring mu4e!!
-(if (karljoad/is-nixos)
-    (add-to-list 'load-path "/run/current-system/sw/share/emacs/site-lisp/mu4e")
-  (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e"))
+(cond
+ ((karljoad/is-nixos) (add-to-list 'load-path "/run/current-system/sw/share/emacs/site-lisp/mu4e"))
+ ((karljoad/is-guix-system) (add-to-list 'load-path (concat (getenv "HOME") "/.guix-home/profile/share/emacs")))
+ (t (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")))
 
 (require 'mu4e)
 (when (karljoad/is-nixos)
