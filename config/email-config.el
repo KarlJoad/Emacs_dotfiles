@@ -250,7 +250,7 @@ khallsby@hawk.iit.edu
 (defun karljoad/set-sendmail-program ()
   "Set the smtpmail variable sendmail-program based on the value of smtpmail-queue-mail's value."
   (interactive)
-  (mu4e~main-toggle-mail-sending-mode)
+  (mu4e--main-toggle-mail-sending-mode)
   (if smtpmail-queue-mail ;; Is true, meaning we queue it
       (setq sendmail-program karljoad/queue-mail-command)
   (setq sendmail-program "msmtp")))
