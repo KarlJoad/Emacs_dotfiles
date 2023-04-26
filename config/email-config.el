@@ -246,7 +246,7 @@ khallsby@hawk.iit.edu
   (make-directory smtpmail-queue-dir t))
 
 ;; Overwrite the mu4e~main-toggle-mail-sending-mode keybinding with my own function
-(define-key mu4e-main-mode-map (kbd "m") 'karljoad/set-sendmail-program)
+;; (define-key mu4e-main-mode-map (kbd "m") 'karljoad/set-sendmail-program)
 (defun karljoad/set-sendmail-program ()
   "Set the smtpmail variable sendmail-program based on the value of smtpmail-queue-mail's value."
   (interactive)
