@@ -86,23 +86,43 @@
   :init
   (add-hook 'org-mode-hook 'org-bullets-mode))
 
-(use-package org-roam
-  :straight t
-  :defer t
-  :custom (org-roam-directory (file-truename "~/OrgRoamNotes/"))
-  :bind (("C-c n l" . org-roam-buffer-toggle)
-         ("C-c n f" . org-roam-node-find)
-         ("C-c n g" . org-roam-graph)
-         ("C-c n i" . org-roam-node-insert)
-         ("C-c n c" . org-roam-capture)
-         ;; Dailies
-         ("C-c n j" . org-roam-dailies-capture-today)
-         ("M-," . org-mark-ring-goto))
-  :config
-  (progn
-    (org-roam-db-autosync-mode)
-    (org-roam-setup)
-    (setq-local completion-ignore-case t)))
+(if (karljoad/is-guix-system)
+    ;; When using Guix, I have org-roam installed because it needs compilation
+    (use-package org-roam
+      :straight (:type built-in)
+      :defer t
+      :custom (org-roam-directory (file-truename "~/OrgRoamNotes/"))
+      :bind (("C-c n l" . org-roam-buffer-toggle)
+             ("C-c n f" . org-roam-node-find)
+             ("C-c n g" . org-roam-graph)
+             ("C-c n i" . org-roam-node-insert)
+             ("C-c n c" . org-roam-capture)
+             ;; Dailies
+             ("C-c n j" . org-roam-dailies-capture-today)
+             ("M-," . org-mark-ring-goto))
+      :config
+      (progn
+        (org-roam-db-autosync-mode)
+        (org-roam-setup)
+        (setq-local completion-ignore-case t)))
+  ;; Otherwise, we must fetch from upstream
+  (use-package org-roam
+      :straight t
+      :defer t
+      :custom (org-roam-directory (file-truename "~/OrgRoamNotes/"))
+      :bind (("C-c n l" . org-roam-buffer-toggle)
+             ("C-c n f" . org-roam-node-find)
+             ("C-c n g" . org-roam-graph)
+             ("C-c n i" . org-roam-node-insert)
+             ("C-c n c" . org-roam-capture)
+             ;; Dailies
+             ("C-c n j" . org-roam-dailies-capture-today)
+             ("M-," . org-mark-ring-goto))
+      :config
+      (progn
+        (org-roam-db-autosync-mode)
+        (org-roam-setup)
+        (setq-local completion-ignore-case t))))
 
 (setq org-roam-v2-ack t)
 
