@@ -59,5 +59,16 @@ This function is from https://emacs.stackexchange.com/a/13096"
   (let ((enable-local-variables :all))
     (hack-dir-local-variables-non-file-buffer)))
 
+(defun dos2unix (buffer)
+  "Convert BUFFER from DOS line-endings to UNIX line-endings.
+This function simply replaces all instances of \r ( in Emacs character type)
+with the empty character."
+  (interactive "*b") ;; Name of existing buffer that is RW
+  (save-excursion
+    (goto-char (point-min))
+    (while (search-forward (string ?\C-m) nil t)
+      (replace-match (string ?\C-j) nil t))
+    (set-buffer-file-coding-system 'unix 't)))
+
 (provide 'personal-functions)
 ;;; personal-functions.el ends here
