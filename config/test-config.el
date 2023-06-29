@@ -18,5 +18,10 @@
 ;; (use-package embark-consult)
 ;; (global-set-key (kbd "C-s-a") #'embark-act)
 
+(use-package project-shells)
+(global-project-shells-mode)
+;; (global-set-key (kbd "C-c C-s") #'project-shells-keymap-prefix)
+;; (project-shells-setup projectile-mode-map)
+
 (provide 'test-config)
 ;;; test-config.el ends here
