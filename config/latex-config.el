@@ -38,15 +38,15 @@
   (add-to-list 'TeX-command-list
 		           '("LatexOutFolder"
                  "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -output-directory=./TeX_Output %T"
-                 TeX-run-TeX nil (latex-mode doctex-mode)
+                 TeX-run-TeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode)
                  :help "Run LaTeX and put output in TeX_Output Directory"))
   (add-to-list 'TeX-command-list
 				       '("LatexOutFolderShellEscape" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -shell-escape -output-directory=./TeX_Output %T"
-                 TeX-run-TeX nil (latex-mode doctex-mode)
+                 TeX-run-TeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode)
                  :help "Run a shell-escaped version of LaTeX and put output in TeX_Output Directory"))
 	(add-to-list 'TeX-command-list
 		           '("LatexShellEscape" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -shell-escape %T"
-                 TeX-run-TeX nil (latex-mode doctex-mode)
+                 TeX-run-TeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode)
                  :help "Run a shell-escaped version of LaTeX"))
   (add-to-list 'TeX-command-list
 		           '("latexmk" "latexmk"
