@@ -45,6 +45,10 @@
                  TeX-run-TeX nil (latex-mode doctex-mode)
                  :help "Run a shell-escaped version of LaTeX and put output in TeX_Output Directory"))
   (add-to-list 'TeX-command-list
+		           '("latexmk" "latexmk"
+                 TeX-run-TeX nil (latex-mode ams-tex-mode)
+                 :help "Run latexmk to compile the document"))
+  (add-to-list 'TeX-command-list
 		           '("BiberAuxDirectory" "biber --output-directory ./TeX_Output %s"
                  TeX-run-Biber nil t
                  :help "Run Biber where the .aux file is in the TeX_Output Directory"))
