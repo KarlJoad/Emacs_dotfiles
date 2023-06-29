@@ -23,6 +23,10 @@
 ;;; Set up the compilation options
 (defun karljoad/set-TeX-command-list ()
   "Set up the TeX-command-list for me."
+  ;; %l adds the current LaTeX-command-style to the command line
+  ;; Usually, this is "pdflatex/xelatex/lualatex -file-line-error ..."
+  ;; %(mode) adds -interaction=nonstopmode to command line if TeX-interactive-mode
+  ;; %T adds currently active master document to command line, with quotes
   (add-to-list 'TeX-command-list
 	             '("IndexAuxDirectory" "makeindex %s"
                  TeX-run-index nil t
