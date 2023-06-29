@@ -22,8 +22,8 @@
 ;;       '(button completion fill irccontrols match menu readonly ring spelling stamp
 ;;                notifications))
 
-(setq erc-server "192.168.1.2"
-      erc-port 5000
+(setq erc-server "irc.libera.chat"
+      erc-port 6697
 	    erc-nick "KarlJoad"
 	    erc-user-full-name "Karl"
 	    erc-track-shorten-start 8 ; Show first 8 characters of channel name with activity
