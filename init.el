@@ -141,6 +141,7 @@
 ;; (require 'assembly-config)
 ;; (require 'arduino-config)
 ;; (require 'erlang-config)
+(require 'typescript-config)
 
 (when (equal system-type 'gnu/linux)
   (require 'nix-config)
