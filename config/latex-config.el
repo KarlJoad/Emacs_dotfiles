@@ -57,9 +57,13 @@
                  TeX-run-discard-or-function t t
                  :help "Run Zathura to view PDF"))
   (add-to-list 'TeX-command-list
-		           '("Okular View" "okular ./TeX_Output/%o"
+		           '("Okular View" "okular ./%o"
                  TeX-run-discard-or-function t t
                  :help "Run Okular to view PDF"))
+  (add-to-list 'TeX-command-list
+		           '("Okular View Out Folder" "okular ./TeX_Output/%o"
+                 TeX-run-discard-or-function t t
+                 :help "Run Okular to view PDF in ./TeX_Output/ directory"))
   (add-to-list 'TeX-command-list
 		           '("Buffer View" "emacsclient -n -c ./TeX_Output/%o"
                  TeX-run-discard-or-function t t
