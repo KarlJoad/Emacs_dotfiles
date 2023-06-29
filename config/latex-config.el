@@ -43,7 +43,7 @@
 	(add-to-list 'TeX-command-list
 		           '("LatexShellEscape" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -shell-escape %T"
                  TeX-run-TeX nil (latex-mode doctex-mode)
-                 :help "Run a shell-escaped version of LaTeX and put output in TeX_Output Directory"))
+                 :help "Run a shell-escaped version of LaTeX"))
   (add-to-list 'TeX-command-list
 		           '("latexmk" "latexmk"
                  TeX-run-TeX nil (latex-mode ams-tex-mode)
