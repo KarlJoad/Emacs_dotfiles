@@ -17,7 +17,8 @@
 	    erc-nick "RavenJoad"
 	    erc-user-full-name "Raven"
 	    erc-track-shorten-start 8 ; Show first 8 characters of channel name with activity
-	    erc-autojoin-channels-alist '(("irc.libera.chat" "#guix" "#guile" "#nixos"))
+	    erc-autojoin-channels-alist '(("irc.libera.chat" "#guix" "#guile" "#spritely"
+                                     "#nixos"))
 	    erc-kill-buffer-on-part t ; Kill a channel's buffer when I part from it.
       erc-modules
       '(button completion fill irccontrols match menu readonly ring spelling stamp
