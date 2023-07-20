@@ -226,5 +226,11 @@ currently running on.")
 ;; Storing the data outright mitigates this problem.
 (setq bookmark-save-flag 1)
 
+
+;;; Searching
+(setq isearch-lazy-count t)
+(setq isearch-count-prefix-format "(%s/%s) ")
+(setq isearch-count-prefix-format nil)
+
 (provide 'personal-settings)
 ;;; personal-settings.el ends here
