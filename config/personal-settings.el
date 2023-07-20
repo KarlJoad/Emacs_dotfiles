@@ -203,5 +203,28 @@ currently running on.")
 (add-to-list 'initial-frame-alist `(font . ,karljoad/preferred-font))
 (add-to-list 'default-frame-alist `(font . ,karljoad/preferred-font))
 
+
+;;; Registers & Bookmarks
+;;; Registers are single-character named "boxes" to store any kind of
+;;; information in Emacs, including locations of the point (cursor).
+;;; Bookmarks are similar, but use full names instead.
+;;; In addition, bookmarks are persistent across sessions, whereas
+;;; registers MAY not be.
+
+;; Immediately pop up the register preview when using register commands.
+(setq-default register-preview-delay 0)
+
+;; Make Emacs repeat the C-u C-SPC command (`set-mark-command') by
+;; following it up with another C-SPC.  It is faster to type
+;; C-u C-SPC, C-SPC, C-SPC, than C-u C-SPC, C-u C-SPC, C-u C-SPC...
+(setq-default set-mark-command-repeat-pop t)
+
+;; I want Emacs to write the list of bookmarks to the `bookmark-file'
+;; as soon as I set a new bookmark.  The default behaviour of Emacs is
+;; to write to the disk as a final step before closing Emacs.  Though
+;; this can lead to data loss, such as in the case of a power failure.
+;; Storing the data outright mitigates this problem.
+(setq bookmark-save-flag 1)
+
 (provide 'personal-settings)
 ;;; personal-settings.el ends here
