@@ -26,5 +26,13 @@
   (package-refresh-contents nil)               ;; refresh package repositories, synchronously
   (package-install 'use-package))              ;; and install use-package
 
+
+;;; Emacs 29.1 added a the ability for Emacs' built-in package.el to upgrade
+;;; some packages that are shipped with Emacs, such as flymake. Hopefully,
+;;; straight.el picks this option up and upgrades these too.
+(when (and (= emacs-major-version 29)
+           (= emacs-major-version 1))
+  (setq-default package-install-upgrade-built-in 't))
+
 (provide 'package-config)
 ;;; package-config.el ends here
