@@ -72,7 +72,7 @@
 
 ;; If there are web links in an email, open them in my default browser
 ;; This uses the same keybinding as org-mode, making it easy to remember.
-(define-key mu4e-view-mode-map (kbd "C-c C-o") 'mu4e~view-browse-url-from-binding)
+(define-key mu4e-view-mode-map (kbd "C-c C-o") #'mu4e--view-browse-url-from-binding)
 
 ;; HTML email is rife in the world. It is used by Gmail, for instance.
 ;; There are accessibility reasons why not to use it, but I still want to be able
