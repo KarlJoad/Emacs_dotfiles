@@ -156,10 +156,10 @@ khallsby@hawk.iit.edu
 		  (user-mail-address . "karlhallsby2027@u.northwestern.edu")
 		  ;; Although personal email address set in personal-info, need to reset it
 		  ;; when I change contexts in mu4e
-                  (mu4e-trash-folder . "/Personal/Trash")
-                  (mu4e-refile-folder . "/Personal/Refile")
-                  (mu4e-sent-folder . "/Personal/Sent")
-                  (mu4e-drafts-folder . "/Personal/Drafts")
+                  (mu4e-trash-folder . "/Northwestern/Trash")
+                  (mu4e-refile-folder . "/Northwestern/Refile")
+                  (mu4e-sent-folder . "/Northwestern/Sent")
+                  (mu4e-drafts-folder . "/Northwestern/Drafts")
 				  (mu4e-compose-signature . "Karl Hallsby
 PhD Computer Engineering 2027
 Northwestern University
