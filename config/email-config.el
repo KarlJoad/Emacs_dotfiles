@@ -163,6 +163,7 @@ khallsby@hawk.iit.edu
 				  (mu4e-compose-signature . "Karl Hallsby
 PhD Computer Engineering 2027
 Northwestern University
+Mudd Library, Room 3302
 
 Contact:
 kgh@u.northwestern.edu
