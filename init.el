@@ -135,9 +135,9 @@
 (require 'rust-config)
 (require 'web-mode-config)
 (require 'scala-config)
-;; (require 'haskell-config)
-;; (require 'assembly-config)
-;; (require 'erlang-config)
+(require 'haskell-config)
+(require 'assembly-config)
+(require 'erlang-config)
 (require 'typescript-config)
 
 (when (equal system-type 'gnu/linux)
