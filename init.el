@@ -64,9 +64,6 @@
 ;;;; Load in an Undo-Tree for reverting buffers
 (require 'undo-tree-config)
 
-;;;; Bring in tree-sitter support for Emacs
-;; (require 'tree-sitter-config)
-
 ;;;; Set up a proper terminal emulator in Emacs.
 ;;; term-mode and ansi-term are alright, but vterm is better.
 (when (karljoad/is-guix-system)
@@ -123,6 +120,15 @@
 
 ;;;; LSP, for interacting with programming language servers
 (require 'lsp-config)
+
+;;;; Treesit for semantic highlighting & editing of source code
+;;;; I choose to only use the version of tree-sitter support built INTO Emacs,
+;;;; which requires Emacs to be >29 AND be configured with:
+;;;; ./configure --with-tree-sitter.
+;;;; We first check the version of Emacs before going on and potentially loading
+;;;; treesit & its changing the major-mode-remap-alist.
+(when (>= emacs-major-version 29)
+  (require 'treesit-config))
 
 ;;;; Major mode configuration and loading
 (require 'cc-mode-config) ;; C/C++
