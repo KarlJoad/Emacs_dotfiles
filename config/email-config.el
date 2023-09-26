@@ -240,18 +240,25 @@ kgh@u.northwestern.edu
 ;; Since I use Gmail, I have to use SMTP to send my emails.
 ;; This means I need to use a non-default mail sender, namely the program msmtp.
 
-(defvar karljoad/queue-mail-command (if (karljoad/is-nixos)
-					"~/.nix-profile/share/doc/msmtp/scripts/msmtpqueue/msmtp-enqueue.sh"
-				      "/usr/share/doc/msmtp/scripts/msmtpqueue/msmtp-enqueue.sh")
-  "Command that will queue the mail for sending by placing it in a directory for later sending.")
-(defvar karljoad/send-queued-mail-command (if (karljoad/is-nixos)
-					      "~/.nix-profile/share/doc/msmtp/scripts/msmtpqueue/msmtp-runqueue.sh"
-					    "/usr/share/doc/msmtp/scripts/msmtpqueue/msmtp-runqueue.sh")
+;; FIXME: Use msmtp-queue directly?
+(defvar karljoad/queue-mail-command
+  (cond ((karljoad/is-nixos) "~/.nix-profile/share/doc/msmtp/scripts/msmtpqueue/msmtp-enqueue.sh")
+        ;; ((karljoad/is-guix-system) (concat "EMAIL_CONN_TEST=x EMAIL_QUEUE_QUIET=t " (getenv "HOME") "/.guix-home/profile/bin/msmtpq"))
+        ((karljoad/is-guix-system) (concat (getenv "HOME") "/.guix-home/profile/bin/msmtpq"))
+        (t "/usr/share/doc/msmtp/scripts/msmtpqueue/msmtp-enqueue.sh"))
+  "Command to queue mail for later sending by placing the mail in a queue directory.")
+(defvar karljoad/send-queued-mail-command
+  (cond ((karljoad/is-nixos) "~/.nix-profile/share/doc/msmtp/scripts/msmtpqueue/msmtp-runqueue.sh")
+        ((karljoad/is-guix-system) (concat (getenv "HOME") "/.guix-home/profile/bin/msmtpq -r"))
+        (t "/usr/share/doc/msmtp/scripts/msmtpqueue/msmtp-runqueue.sh"))
   "Command that will send ALL queued mail.")
-(defvar karljoad/queued-mail-dir "~/.msmtpqueue/" ;; (if (getenv "MSMTP_QUEUE")
-				 ;;     (concat (getenv "MSMTP_QUEUE") "/")
-				 ;;   "~/.msmtpqueue/")
-  "Location where the mail queued to be sent will be stored until that time.")
+(defvar karljoad/queued-mail-dir
+  (or (getenv "QUEUEDIR")    ;; MSMTP's expected env var
+      (concat (getenv "MSMTP_QUEUE") "/") ;; An alternative name
+      "~/.msmtp.queue/")                  ;; A fallback default.
+  "Location where the mail queued to be sent will be stored until sending.
+
+The queue directory string CANNOT end with a trailing slash, `/'.")
 
 ;; This will send ALL mail IMMEDIATELY, and will fail if you do not have an
 ;; Internet connection.
@@ -259,7 +266,7 @@ kgh@u.northwestern.edu
 (setq sendmail-program "msmtp")
 ;; Or, we can queue them, and then have an mu4e keybinding to send them when we
 ;; get the chance.
-(setq smtpmail-queue-mail nil ;; Switched by my4e~main-toggle-mail-sending-mode function
+(setq smtpmail-queue-mail nil ;; Start in direct-send by default
       smtpmail-queue-dir karljoad/queued-mail-dir)
 ;; We need to make sure the queuing directory exists, before Emacs lets the user
 ;; attempt to use the directory.
@@ -268,13 +275,20 @@ kgh@u.northwestern.edu
 
 ;; Overwrite the mu4e~main-toggle-mail-sending-mode keybinding with my own function
 ;; (define-key mu4e-main-mode-map (kbd "m") 'karljoad/set-sendmail-program)
-(defun karljoad/set-sendmail-program ()
-  "Set the smtpmail variable sendmail-program based on the value of smtpmail-queue-mail's value."
-  (interactive)
-  (mu4e--main-toggle-mail-sending-mode)
-  (if smtpmail-queue-mail ;; Is true, meaning we queue it
-      (setq sendmail-program karljoad/queue-mail-command)
-  (setq sendmail-program "msmtp")))
+;; FIXME: Use a defadvice instead of a function and rebinding the key.
+;; (defadvice mu4e--main-toggle-mail-sending-mode (after set-sendmail-program)
+;;   "Set the smtpmail variable sendmail-program based on the value of smtpmail-queue-mail's value."
+;;   (if smtpmail-queue-mail ;; Is true, meaning we queue it
+;;       (setq sendmail-program karljoad/queue-mail-command)
+;;     (setq sendmail-program "msmtp")))
+;; (define-key mu4e-main-mode-map (kbd "m") 'karljoad/set-sendmail-program)
+;; (defun karljoad/set-sendmail-program ()
+;;    "Set the smtpmail variable sendmail-program based on the value of smtpmail-queue-mail's value."
+;;   (interactive)
+;;   (mu4e--main-toggle-mail-sending-mode)
+;;   (if smtpmail-queue-mail ;; Is true, meaning we queue it
+;;       (setq sendmail-program karljoad/queue-mail-command)
+;;   (setq sendmail-program "msmtp")))
 
 (define-key mu4e-main-mode-map (kbd "S") 'karljoad/send-queued-mail)
 (define-key mu4e-main-mode-map (kbd "f") 'karljoad/send-queued-mail)
