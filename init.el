@@ -133,13 +133,10 @@
 (require 'stumpwm-config)
 (require 'markdown-config)
 (require 'rust-config)
-(require 'java-mode-config)
 (require 'web-mode-config)
-;; (require 'sml-mode-config)
 (require 'scala-config)
 ;; (require 'haskell-config)
 ;; (require 'assembly-config)
-;; (require 'arduino-config)
 ;; (require 'erlang-config)
 (require 'typescript-config)
 
@@ -150,9 +147,7 @@
 ;; Only pull in direnv configuration if our current system is NixOS or Guix System
 (when (or (karljoad/is-nixos) (karljoad/is-guix-system))
   (require 'functional-packaging-config)
-  ;; (require 'direnv-config)
-  (require 'envrc-config)
-  )
+  (require 'envrc-config))
 
 ;;;; Docker packages and configuration
 (require 'docker-config)
