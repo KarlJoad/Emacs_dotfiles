@@ -153,7 +153,7 @@ khallsby@hawk.iit.edu
                         (when msg
                           (string-prefix-p "/Northwestern" (mu4e-message-field msg :maildir))))
           :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
-		  (user-mail-address . "kgh@u.northwestern.edu")
+		  (user-mail-address . "karlhallsby2027@u.northwestern.edu")
 		  ;; Although personal email address set in personal-info, need to reset it
 		  ;; when I change contexts in mu4e
                   (mu4e-trash-folder . "/Northwestern/Trash")
