@@ -6,7 +6,9 @@
 	:straight t
 	:defer t
 	:config
-	(setq undo-tree-visualizer-diff t))
+	(setq undo-tree-visualizer-diff t)
+  (setq-default undo-tree-history-directory-alist
+                `(("." . ,(concat no-littering-var-directory "undo-tree-hist")))))
 
 (global-undo-tree-mode)
 
