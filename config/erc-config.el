@@ -21,8 +21,8 @@
                                      "#nixos"))
 	    erc-kill-buffer-on-part t ; Kill a channel's buffer when I part from it.
       erc-modules
-      '(button completion fill irccontrols match menu readonly ring spelling stamp
-               notifications))
+      '(button completion fill irccontrols match menu readonly ring spelling
+               stamp notifications networks))
 
 ;; ERC can rename server-connection buffers to just the network's name.
 ;; This is useful when using an IRC bouncer, like ZNC, which has multiple
