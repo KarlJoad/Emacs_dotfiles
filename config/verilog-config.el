@@ -23,5 +23,9 @@
       verilog-linter                   "my_lint_shell_command"
       )
 
+(use-package verilog-ts-mode
+  :straight t
+  :defer t)
+
 (provide 'verilog-config)
 ;;; verilog-config.el ends here
