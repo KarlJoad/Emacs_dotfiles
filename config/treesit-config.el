@@ -20,7 +20,8 @@
           (json-mode . json-ts-mode)
           (css-mode . css-ts-mode)
           (python-mode . python-ts-mode)
-          (verilog-mode . verilog-ts-mode))))
+          (verilog-mode . verilog-ts-mode)
+          (vhdl-mode . vhdl-ts-mode))))
 
 (when (karljoad/is-guix-system)
   (add-to-list 'treesit-extra-load-path (getenv "TREE_SITTER_GRAMMAR_PATH")))
