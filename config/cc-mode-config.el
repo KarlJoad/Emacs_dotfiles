@@ -1,11 +1,10 @@
-;;; cc-mode-config.el --- Config for C/C++/Java editing
+;;; cc-mode-config.el --- Config for C/C++ editing
 					;-*-Emacs-Lisp-*-
 ;;; Commentary:
 ;;; Code:
 
 (require 'magit-config)
 (require 'lsp-config)
-(use-package ccls)
 
 ;; Available C style:
 ;; “gnu”: The default style for GNU projects
