@@ -57,7 +57,7 @@
                  TeX-run-Biber nil t
                  :help "Run Biber where the .aux file is in the TeX_Output Directory"))
   (add-to-list 'TeX-command-list
-		           '("Zathura View" "zathura ./TeX_Output/%o"
+		           '("Zathura View" "zathura ./%o"
                  TeX-run-discard-or-function t t
                  :help "Run Zathura to view PDF"))
   (add-to-list 'TeX-command-list
