@@ -13,10 +13,23 @@ This buries the buffer to the bottom of the buffer list and deletes the window."
   (interactive)
   (switch-to-buffer-other-window (eldoc-doc-buffer)))
 
+(use-package eldoc
+  :straight (:type built-in)
+  :ensure t
+  :defer t
+  :custom
+  ;; Do not use multiline for documentation in the echo area (minibuffer)
+  ;; FIXME: Do I actually want this? Perhaps just signatures in the minibuffer?
+  (eldoc-echo-area-use-multiline-p 'nil)
+  ;; Prefer to use the doc-buffer if it is already showing, rather than the
+  ;; echo area (in the minibuffer).
+  (eldoc-echo-area-prefer-doc-buffer 't))
+
 (use-package eglot
   :straight (:type built-in)
   :ensure t
   :defer t
+  :after (eldoc)
   :bind (("C-h ." . #'karljoad/eldoc-doc-buffer) ;; Override the default binding
          ("C-c h ." . #'karljoad/eldoc-doc-buffer)
          ;; Rebind eldoc to something else I use less often. eldoc will open
