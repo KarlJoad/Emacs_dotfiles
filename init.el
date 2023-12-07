@@ -155,9 +155,6 @@
   (require 'functional-packaging-config)
   (require 'envrc-config))
 
-;;;; Docker packages and configuration
-(require 'docker-config)
-
 ;; (require 'test-config)
 (require 'eshell-config)
 
