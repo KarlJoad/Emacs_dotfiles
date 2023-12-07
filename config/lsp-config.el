@@ -17,6 +17,12 @@ This buries the buffer to the bottom of the buffer list and deletes the window."
   :straight (:type built-in)
   :ensure t
   :defer t
+  :bind (("C-h ." . #'karljoad/eldoc-doc-buffer) ;; Override the default binding
+         ("C-c h ." . #'karljoad/eldoc-doc-buffer)
+         ;; Rebind eldoc to something else I use less often. eldoc will open
+         ;; the buffer, but then not switch to it, just leaving it open to stare at.
+         ("C-c h ?" . #'eldoc)
+         ("C-h >" . #'karljoad/close-eldoc-doc-buffer))
   :hook (((c-mode c++-mode c-ts-mode c++-ts-mode) . eglot-ensure))
   :custom
   (eglot-autoshutdown t)
