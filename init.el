@@ -109,11 +109,6 @@
 
 (require 'pdf-tools-config)
 
-;;;; Tags and their configurations. For now, I just use etags, so no config.
-;; (require 'ctags-config)
-;; (require 'gtags-config)
-;; (require 'ggtags-config)
-
 ;;;; For interaction with projects, we use project.el
 ;;;; Project commands and mannagement
 (require 'project-config)
