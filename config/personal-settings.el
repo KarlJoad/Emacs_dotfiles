@@ -76,7 +76,24 @@
 (minions-mode 1)
 
 ;; Add highlighting for TODO/NOTE/FIXME strings in most buffers.
-(require 'hl-todo-config)
+;; By default, it highlights TODO, FIXME, and NOTE.
+;; You can also choose what words should be recognized and what color they should
+;; be highlighted with my modifying the hl-todo-keyword-faces variable.
+(use-package hl-todo
+  :straight t
+  :ensure t
+  :defer t
+  :bind (("C-c C-t p" . #'hl-todo-previous)
+         ("C-c C-t n" . #'hl-todo-next))
+  :config (global-hl-todo-mode))
+
+;; (setq hl-todo-keyword-faces
+;;       '(("TODO"   . "#FF0000")
+;;         ("FIXME"  . "#FF0000")
+;;         ("DEBUG"  . "#A020F0")
+;;         ("GOTCHA" . "#FF4500")
+;;         ("STUB"   . "#1E90FF")))
+
 
 ;; Change the title of the frame when opened in GUI mode.
 (setq-default frame-title-format
