@@ -63,8 +63,17 @@
 ;; Enable syntax highlighting for older Emacsen that have it off
 (global-font-lock-mode t)
 
-;; Hide the long list of minor modes from the mode-line.
-(require 'minions-config)
+;; Hide the long list of minor modes from the mode-line. The minions
+;; package removes all the additional minor-mode names and their
+;; information from the mode-line. If I have them all showing, the
+;; modeline gets very busy, and very hard to read sometimes. So, I use
+;; this package to remove them, leaving only the current major-mode
+;; and a ;-) for the rest of the minor modes.
+(use-package minions
+  :straight t
+  :ensure t
+  :defer t)
+(minions-mode 1)
 
 ;; Add highlighting for TODO/NOTE/FIXME strings in most buffers.
 (require 'hl-todo-config)
