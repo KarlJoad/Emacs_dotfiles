@@ -114,9 +114,9 @@
 ;; (require 'gtags-config)
 ;; (require 'ggtags-config)
 
-;;;; For interaction with projects, we use project.el and projectile
+;;;; For interaction with projects, we use project.el
 ;;;; Project commands and mannagement
-(require 'projectile-config)
+(require 'project-config)
 
 ;;;; LSP, for interacting with programming language servers
 (require 'lsp-config)
