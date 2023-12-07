@@ -49,9 +49,6 @@ This buries the buffer to the bottom of the buffer list and deletes the window."
      ;; Emacs' built-in regexp-based major modes for font-locking.
      :colorProvider
      :documentHighlightProvider
-     :documentFormattingProvider
-     :documentRangeFormattingProvider
-     :documentOnTypeFormattingProvider
      :foldingRangeProvider))
   (eglot-stay-out-of '(yasnippet)))
 
