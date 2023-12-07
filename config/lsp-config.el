@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package eglot
-  :straight t
+  :straight (:type built-in)
   :ensure t
   :defer t
   :hook (((c-mode c++-mode c-ts-mode c++-ts-mode) . eglot-ensure))
