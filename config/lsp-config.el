@@ -2,6 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
+(defun karljoad/close-eldoc-doc-buffer ()
+  "Quit the Eldoc buffer window using `quit-window'.
+This buries the buffer to the bottom of the buffer list and deletes the window."
+  (interactive)
+  (quit-window 'nil (get-buffer-window (eldoc-doc-buffer))))
+
 (use-package eglot
   :straight (:type built-in)
   :ensure t
