@@ -11,6 +11,16 @@
 ;;
 ;;; Code:
 
+(require 'magit-config)
+
+(use-package project
+  :straight (:type built-in)
+  :ensure t
+  :defer t
+  :after (magit)
+  :custom
+  (add-to-list project-switch-commands (list #'magit-status "Magit")))
+
 (defun project-whitespace-cleanup-project-files ()
   "Run `whitespace-cleanup' on all project files."
   (interactive)
