@@ -9,7 +9,7 @@
 ;;
 ;;; Code:
 
-(require 'magit)
+(require 'treesit-config)
 (require 'lsp-config)
 
 ;; rust-mode is developed by The Rust Language makers, but not actively maintained
@@ -21,9 +21,6 @@
 (use-package rustic) ;; Development environment for Rust
 
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rustic-mode))
-
-(setq rustic-lsp-server 'rust-analyzer)
-(setq rustic-lsp-client 'lsp-mode)
 
 (add-hook 'rustic-mode-hook
 	  (lambda ()

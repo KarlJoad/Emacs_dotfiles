@@ -15,10 +15,6 @@
   :defer t
   :straight t)
 
-;; (use-package lsp-scheme
-;;   :straight t
-;;   :defer t)
-
 (paredit-mode)
 
 (provide 'scheme-config)

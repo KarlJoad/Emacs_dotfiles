@@ -3,7 +3,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'magit-config)
+(require 'treesit-config)
 (require 'lsp-config)
 
 ;; Available C style:
@@ -19,26 +19,14 @@
 ;; “user”: When you want to define your own style
 (setq c-default-style "stroustrup")
 
-(use-package company-c-headers
-  :init
-  (add-to-list 'company-backends 'company-c-headers))
-
-(use-package company-ctags
-  :straight t
-  :defer t)
-
-(use-package company-lsp)
-
 (add-hook 'c-mode-hook
 	        (lambda ()
-            (lsp nil)
 	          (local-set-key (kbd "C-c C-c") 'compile)
 		        (local-set-key (kbd "C-c SPC") 'company-complete)
 		        (local-set-key (kbd "C-c ;") 'comment-or-uncomment-region)))
 
 (add-hook 'c++-mode-hook
 	        (lambda ()
-            (lsp nil)
 	          (local-set-key (kbd "C-c C-c") 'compile)
 		        (local-set-key (kbd "C-c SPC") 'company-complete)
 		        (local-set-key (kbd "C-c ;") 'comment-or-uncomment-region)))
