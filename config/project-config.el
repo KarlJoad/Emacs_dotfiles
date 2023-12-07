@@ -22,11 +22,13 @@
   (add-to-list project-switch-commands (list #'magit-status "Magit")))
 
 (defun project-whitespace-cleanup-project-files ()
-  "Run `whitespace-cleanup' on all project files."
+  "Run `whitespace-cleanup' on all project files.
+NOTE: This will also close your currently open buffer if you are visiting a file
+in the project."
   (interactive)
-  (dolist (file (project-current-project-files))
-    (let* ((path (concat (project-project-root) file))
-           (buffer (find-file-noselect path)))
+  (require 'project)
+  (dolist (file-path (project-files (project-current)))
+    (let* ((buffer (find-file-noselect file-path)))
       (when buffer
         (with-current-buffer buffer
           (whitespace-cleanup)
