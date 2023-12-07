@@ -107,8 +107,6 @@
 ;;;; Configuration for TeX and all of TeX's variations/extensions
 (require 'tex-config)
 
-(require 'pdf-tools-config)
-
 ;;;; For interaction with projects, we use project.el
 ;;;; Project commands and mannagement
 (require 'project-config)
