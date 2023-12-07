@@ -47,9 +47,11 @@
 ;; The functions that cause the pulse are in the `pulsar-pulse-functions' list.
 (use-package pulsar
   :straight t
-  :ensure t)
-(setq pulsar-face 'pulsar-magenta)
-(setq pulsar-delay 0.05)
+  :ensure t
+  :custom
+  (pulsar-face 'pulsar-magenta)
+  (pulsar-delay 0.05))
+
 (pulsar-global-mode)
 
 ;; Parentheses/Brackets/Braces/Angles modifications
