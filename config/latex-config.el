@@ -2,12 +2,66 @@
 ;;; Commentary:
 ;;
 ;; Auctex provides many QoL things for editing TeX/LaTeX documents
+;; However, it also defaults to the BibTeX citation database. BibTeX
+;; is fairly old, so I prefer to use BibLaTeX instead. To go along
+;; with BibLaTeX, I use Biber as the backend citation and
+;; cross-referencing manager.
 ;;
 ;;; Code:
 
-(use-package auctex
+;; Emacs ships with some default TeX/LaTeX support.
+(require 'tex-mode)
+
+;;; 
+;;; RefTeX
+(use-package reftex
+  :straight (:type built-in)
+  :ensure t
   :defer t
-  :straight t)
+  :after (tex-mode)
+  ;; Make sure that reftex gets loaded when AucTeX gets loaded, i.e. when LaTeX file is opened
+  :hook (latex-mode . #'turn-on-reftex)
+  :bind (:map latex-mode-map
+              ;; Scan the whole document for new labels/citations
+              ("C-c r" . #'reftex-parse-all))
+  :custom
+  ;; Make RefTeX play nice with AucTeX
+  (reftex-plug-into-AUCTeX t)
+  ;; When parsing very large documents, we might not want to reparse every file
+  (reftex-enable-partial-scans t)
+  ;; Set default citation style for RefTeX to use
+  (reftex-cite-format 'biblatex)
+  ;; Set a default style to present possible citation matches
+  (reftex-sort-bibtex-matches 'author))
+
+;;; 
+;;; BibTeX
+(defvar karljoad/default-bibtex-dialect 'biblatex
+  "By default, I like to use BibLaTeX, so I want to make sure I always use that.")
+
+(use-package bibtex
+  :straight (:type built-in) ;; BibTeX comes with Emacs
+  :ensure t
+  :defer t
+  :hook (bibtex-mode . (lambda () (setq bibtex-dialect karljoad/default-bibtex-dialect)))
+  :custom
+  ;; Default to newer BibLaTeX style
+  (bibtex-dialect karljoad/default-bibtex-dialect)
+  (bibtex-maintain-sorted-entries t)
+  (bibtex-parse-keys-timeout nil))
+
+;; Associate *.bib files with bibtex-mode.
+;; This also applies to *.bib files that are written in BibLaTeX style as well.
+(add-to-list 'auto-mode-alist '("\\.bib\\'" . bibtex-mode))
+
+;;; 
+;;; AucTeX
+
+(use-package auctex
+  :straight t
+  :ensure t
+  :defer t
+  :after (reftex bibtex))
 
 (setq TeX-parse-self t) ;; Parse multifile documents automagically
 (setq TeX-auto-save t) ;; Enables parsing upon saving the document
@@ -85,10 +139,6 @@
 (setq auto-mode-alist
       (append '(("\\.tikz\\'" . latex-mode))
 	      auto-mode-alist))
-
-;;; Extra code to further extend TeX/LaTeX/AucTeX
-(require 'reftex-config) ;; RefTeX is part of Emacs, but it's getting its own config file
-(require 'bibtex-config) ;; BibTeX is part of Emacs, but it's getting its own config file
 
 (require 'company)
 ;; Since company needs a backend for its autocompletion, one is needed for TeX/LaTeX
