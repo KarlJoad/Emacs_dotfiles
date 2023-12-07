@@ -1,5 +1,27 @@
 ;;; treesit-config.el --- This file provides configuration for Treesitter
 ;;; Commentary:
+
+;; treesit is Emacs' built-in support for tree-sitter. treesit started to be
+;; available in Emacs version >29. Before that, you needed to use the tree-sitter
+;; ELisp package, which brough the first support of tree-sitter to Emacs.
+;;
+;; The tree-sitter & tree-sitter-* ELisp packages are a set of 3rd party packages
+;; that brought initial support for the tree-sitter incremental parser
+;; and all of its supporting libraries (one for each programming
+;; language).
+;;
+;; tree-sitter (the incremental parser) is intended to provide incredibly fast
+;; and accurate AST information WITHOUT needing to send the program through a
+;; compiler/LSP.
+;; Emacs uses tree-sitter for font-locking (highlighting), indentation, and all
+;; the other features it used to use regular expressions for when building a
+;; major mode. In theory, tree-sitter will produce both more precise and accurate
+;; syntax font-locking and indentation.
+;;
+;; It will take some time for Emacs to move over to tree-sitter (if it ever fully
+;; does), so we must remap major modes that previously relied on regular
+;; expression parsing to now use the tree-sitter supported mode.
+
 ;;; Code:
 
 (require 'personal-functions)
@@ -23,6 +45,12 @@
           (verilog-mode . verilog-ts-mode)
           (vhdl-mode . vhdl-ts-mode))))
 
+;; I use Guix Home to install tree-sitter grammars for programming which, by the
+;; nature of its functional package-management system, will install these shared
+;; objects into a particular location within the Guix store, which is then
+;; exposed with an environment variable.
+;; When I am on a Guix-based system, assume I am using Guix Home and add the
+;; store path to Emacs' understanding of the tree-sitter module load path.
 (when (karljoad/is-guix-system)
   (add-to-list 'treesit-extra-load-path (getenv "TREE_SITTER_GRAMMAR_PATH")))
 
