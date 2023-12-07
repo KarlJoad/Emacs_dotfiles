@@ -8,7 +8,10 @@
 ;;
 ;;; Code:
 
-(use-package hl-todo)
+(use-package hl-todo
+  :straight t
+  :ensure t
+  :defer t)
 
 (global-hl-todo-mode)
 
