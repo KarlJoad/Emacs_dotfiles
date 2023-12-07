@@ -43,7 +43,8 @@
           (css-mode . css-ts-mode)
           (python-mode . python-ts-mode)
           (verilog-mode . verilog-ts-mode)
-          (vhdl-mode . vhdl-ts-mode))))
+          (vhdl-mode . vhdl-ts-mode)
+          (rust-mode . rust-ts-mode))))
 
 ;; I use Guix Home to install tree-sitter grammars for programming which, by the
 ;; nature of its functional package-management system, will install these shared
