@@ -104,8 +104,8 @@
 ;;; stuff can assume it exists.
 (require 'company-config)
 
-;;;; TeX/LaTeX (AucTeX) options
-(require 'latex-config)
+;;;; Configuration for TeX and all of TeX's variations/extensions
+(require 'tex-config)
 
 (require 'pdf-tools-config)
 

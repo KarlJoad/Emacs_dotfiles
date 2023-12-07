@@ -1,4 +1,4 @@
-;;; latex-config.el --- Provides and changes how I want to work with LaTeX
+;;; tex-config.el --- Provides and changes how I want to work with TeX-based docs
 ;;; Commentary:
 ;;
 ;; Auctex provides many QoL things for editing TeX/LaTeX documents
@@ -148,5 +148,5 @@
 ;; Backend needed for company to provide autocompletion for TeX/LaTeX math.
 (use-package company-math)
 
-(provide 'latex-config)
-;;; latex-config.el ends here
+(provide 'tex-config)
+;;; tex-config.el ends here
