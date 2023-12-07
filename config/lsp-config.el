@@ -8,6 +8,11 @@ This buries the buffer to the bottom of the buffer list and deletes the window."
   (interactive)
   (quit-window 'nil (get-buffer-window (eldoc-doc-buffer))))
 
+(defun karljoad/eldoc-doc-buffer ()
+  "Run Eldoc at symbol at point, switching to the Eldoc buffer in another window."
+  (interactive)
+  (switch-to-buffer-other-window (eldoc-doc-buffer)))
+
 (use-package eglot
   :straight (:type built-in)
   :ensure t
