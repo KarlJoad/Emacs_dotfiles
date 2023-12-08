@@ -1,4 +1,5 @@
-;;; verilog-config.el --- This file provides my personal information
+;;; verilog-config.el --- This file configures Emacs to write
+;;; Verilog/SystemVerilog
 ;;; Commentary:
 ;;; Code:
 
