@@ -6,7 +6,5 @@
 
 (use-package typescript-mode)
 
-(use-package ts-comint)
-
 (provide 'typescript-config)
 ;;; typescript-config.el ends here

@@ -17,9 +17,5 @@
   :straight t
   :defer t)
 
-(use-package company-erlang
-  :straight t
-  :defer t)
-
 (provide 'erlang-config)
 ;;; erlang-config.el ends here
