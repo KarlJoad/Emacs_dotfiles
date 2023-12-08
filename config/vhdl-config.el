@@ -1,4 +1,4 @@
-;;; verilog-config.el --- This file provides my personal information
+;;; vhdl-config.el --- This file configures Emacs for writing VHDL
 ;;; Commentary:
 ;;; Code:
 
