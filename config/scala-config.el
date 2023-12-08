@@ -3,6 +3,7 @@
 ;;; Code:
 
 (require 'magit-config)
+(require 'lsp-config)
 
 (use-package scala-mode
   :defer t
