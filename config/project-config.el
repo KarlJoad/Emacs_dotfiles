@@ -15,7 +15,6 @@
 
 (use-package project
   :straight (:type built-in)
-  :ensure t
   :defer t
   :after (magit)
   :custom

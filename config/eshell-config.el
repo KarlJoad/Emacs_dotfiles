@@ -4,7 +4,6 @@
 
 (use-package eshell
   :straight (:type built-in)
-  :ensure t
   :defer t
   :bind (("s-s" . #'eshell)))
 

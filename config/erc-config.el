@@ -5,7 +5,6 @@
 
 (use-package erc
   :straight (:type built-in)
-  :ensure t
   :defer t
   :config
   (erc-match-mode 1)

@@ -38,8 +38,8 @@
 ;; In line-oriented buffers (mu4e, elfeed), highlights the point's current line
 ;; more heavily.
 (use-package lin
-  :ensure t
   :straight t
+  :defer t
   :config
   (lin-global-mode)
   :custom
@@ -49,7 +49,6 @@
 ;; The functions that cause the pulse are in the `pulsar-pulse-functions' list.
 (use-package pulsar
   :straight t
-  :ensure t
   :config
   (pulsar-global-mode)
   :custom
@@ -83,7 +82,6 @@
 ;; be highlighted with my modifying the hl-todo-keyword-faces variable.
 (use-package hl-todo
   :straight t
-  :ensure t
   :defer t
   :bind (("C-c C-t p" . #'hl-todo-previous)
          ("C-c C-t n" . #'hl-todo-next))

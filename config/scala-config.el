@@ -14,9 +14,8 @@
 
 ;; LSP mode for handling scala with LSP
 (use-package lsp-metals
-  :ensure t
-  :defer t
   :straight t
+  :defer t
   :after (eglot)
   :custom
   ;; Metals claims to support range formatting by default but it supports range

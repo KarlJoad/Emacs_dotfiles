@@ -4,7 +4,6 @@
 
 (use-package haskell-mode
   :straight t
-  :ensure t
   :defer t
   :hook (((haskell-mode) . (lambda ()
                              ;; Display function type signature
@@ -14,7 +13,6 @@
 
 (use-package dante
   :straight t
-  :ensure t
   :defer t
   :after (haskell-mode)
   :commands 'dante-mode

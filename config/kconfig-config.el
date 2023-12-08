@@ -3,9 +3,8 @@
 ;;; Code:
 
 (use-package kconfig-mode
-  :ensure t
-  :defer t
-  :straight t)
+  :straight t
+  :defer t)
 
 (provide 'kconfig-config)
 ;;; kconfig-config.el ends here

@@ -16,7 +16,6 @@
 ;;; RefTeX
 (use-package reftex
   :straight (:type built-in)
-  :ensure t
   :defer t
   :after (tex-mode)
   ;; Make sure that reftex gets loaded when AucTeX gets loaded, i.e. when LaTeX file is opened
@@ -41,7 +40,6 @@
 
 (use-package bibtex
   :straight (:type built-in) ;; BibTeX comes with Emacs
-  :ensure t
   :defer t
   :hook (bibtex-mode . (lambda () (setq bibtex-dialect karljoad/default-bibtex-dialect)))
   :custom
@@ -59,7 +57,6 @@
 
 (use-package auctex
   :straight t
-  :ensure t
   :defer t
   :after (reftex bibtex))
 

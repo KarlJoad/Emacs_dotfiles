@@ -6,14 +6,13 @@
 ;;; Code:
 
 (use-package magit
-  :ensure t
+  :straight t
   :defer t
   :after (compat)
   :requires compat)
 
 ;; To make magit work, we need the compat package too
 (use-package compat
-  :ensure t
   :defer t)
 
 ;; Open Magit Status for git handling
