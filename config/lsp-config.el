@@ -30,7 +30,8 @@ This buries the buffer to the bottom of the buffer list and deletes the window."
   :ensure t
   :defer t
   :after (eldoc)
-  :bind (("C-h ." . #'karljoad/eldoc-doc-buffer) ;; Override the default binding
+  :bind (:map eglot-mode-map
+         ("C-h ." . #'karljoad/eldoc-doc-buffer) ;; Override the default binding
          ("C-c h ." . #'karljoad/eldoc-doc-buffer)
          ;; Rebind eldoc to something else I use less often. eldoc will open
          ;; the buffer, but then not switch to it, just leaving it open to stare at.
