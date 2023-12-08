@@ -3,42 +3,26 @@
 ;;; Code:
 
 (use-package haskell-mode
-  :defer t)
-(add-hook 'haskell-mode-hook
-	  (lambda ()
-	    (haskell-doc-mode) ;; Displays the type signature for a function
-	    (turn-on-haskell-indent) ;; Use smart indentation for Haskell buffers/files
-	    ))
-
-(use-package company-ghci
   :straight t
-  :defer t)
-
-(use-package attrap
-  :defer t)
+  :ensure t
+  :defer t
+  :hook (((haskell-mode) . (lambda ()
+                             ;; Display function type signature
+                             (haskell-doc-mode)
+                             ;; Smart indentation for Haskell buffers/files
+	                           (turn-on-haskell-indent)))))
 
 (use-package dante
+  :straight t
+  :ensure t
   :defer t
-  :after haskell-mode
+  :after (haskell-mode)
   :commands 'dante-mode
-  :init
-  (add-hook 'haskell-mode-hook 'flycheck-mode)
-  (add-hook 'haskell-mode-hook 'dante-mode))
-
-;; Interface to Stack Haskell development tool
-(use-package hasky-stack
-  :defer t)
-
-;; Lookup Haskell documentation
-(use-package ghc-imported-from
-  :defer t)
+  :hook (((haskell-mode) . #'flycheck-mode)
+         ((haskell-mode) . #'dante-mode)))
 
 ;; flycheck stuff for Haskell
 (use-package flycheck-haskell
-  :defer t)
-
-;; Yasnippet snippets for Haskell
-(use-package haskell-snippets
   :defer t)
 
 (provide 'haskell-config)
