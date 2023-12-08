@@ -2,6 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
+;; I require my markdown config because language servers can choose to return
+;; their information/documentation as formatted markdown, which markdown-mode
+;; can then nicely render for me.
+(require 'markdown-config)
+
 (defun karljoad/close-eldoc-doc-buffer ()
   "Quit the Eldoc buffer window using `quit-window'.
 This buries the buffer to the bottom of the buffer list and deletes the window."
