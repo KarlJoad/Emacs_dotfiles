@@ -4,8 +4,8 @@
 ;;
 ;;; Code:
 
-(require 'magit)
-(require 'company)
+(require 'magit-config)
+(require 'company-config)
 (require 'yasnippet-config)
 (require 'lispy-config)
 

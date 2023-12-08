@@ -140,7 +140,7 @@
       (append '(("\\.tikz\\'" . latex-mode))
 	      auto-mode-alist))
 
-(require 'company)
+(require 'company-config)
 ;; Since company needs a backend for its autocompletion, one is needed for TeX/LaTeX
 ;; Fortunately, auctex exposes enough for another package to make company work.
 (use-package company-auctex)
