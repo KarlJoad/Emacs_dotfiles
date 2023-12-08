@@ -6,6 +6,7 @@
   :straight (:type built-in)
   :defer t)
 
+(require 'treesit-config)
 (use-package vhdl-ts-mode
   :straight t
   :defer t)

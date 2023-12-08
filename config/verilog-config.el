@@ -24,6 +24,7 @@
   (verilog-auto-lineup              'declarations)
   (verilog-linter                   "my_lint_shell_command"))
 
+(require 'treesit-config)
 (use-package verilog-ts-mode
   :straight t
   :defer t)
