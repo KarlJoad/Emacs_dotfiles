@@ -9,14 +9,16 @@
 (require 'yasnippet-config)
 (require 'lispy-config)
 
-;; Get Yasnippets for Common Lisp
-(use-package common-lisp-snippets)
-
 (setq inferior-lisp-program "sbcl")
 
-(use-package sly)
-;; (use-package sly-asdf)
-;; (use-package sly-quicklisp)
+(use-package slime
+  :straight t
+  :defer t)
+
+(use-package sly
+  :straight t
+  :defer t
+  :after (slime))
 
 (paredit-mode)
 
