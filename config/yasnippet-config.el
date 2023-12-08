@@ -12,18 +12,31 @@
 (use-package yasnippet
   :straight t
   :defer t
+  :bind (:map yas-minor-mode-map
+         ;; If there was a menu for selecting snippets, provide an escape route
+         ("<escape>" . #'yas-exit-snippet))
   :config
   (yas-reload-all)
-  (defvar yas-snippet-dirs (list (concat user-emacs-directory "snippets") yasnippet-snippets-dir) "List of directories to find snippets for the yasnippet package")
-  (setq tab-always-indent 'complete) ;; Tabs indent
-  (setq yas-prompt-functions
-        '(yas-completing-prompt ;; List of prompts that yasnippet can go through
-			    yas-ido-prompt
-			    yas-dropdown-prompt))
-  (define-key yas-minor-mode-map (kbd "<escape>") 'yas-exit-snippet))
-;; If there was a menu for selecting snippets, provide an escape route
+  (yas-global-mode 1)
+  (defvar yas-snippet-dirs
+    (list (concat user-emacs-directory "snippets") yasnippet-snippets-dir)
+    "List of directories to find snippets for the yasnippet package.")
+  :custom
+  (tab-always-indent 'complete) ;; Tabs indent
+  (yas-prompt-functions
+   '(yas-completing-prompt ;; List of prompts that yasnippet can go through
+		 yas-ido-prompt
+		 yas-dropdown-prompt)))
 
-(yas-global-mode 1) ;; Make sure yasnippet is almost always present
+;;; 
+;;; yasnippet-snippets provides a large amount of snippets for yasnippet to work with.
+;;; There are an innumerable amount of snippets for many, many languages.
+;;; This provides a good starting set of yasnippet snippets to use for most major modes.
+
+(use-package yasnippet-snippets
+  :after (yasnippet)
+  :straight t
+  :config (yasnippet-snippets-initialize))
 
 (provide 'yasnippet-config)
 ;;; yasnippet-config.el ends here

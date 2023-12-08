@@ -97,7 +97,6 @@
 
 ;;;; Snippets are provided by Yasnippet
 (require 'yasnippet-config)
-(require 'yasnippet-snippets-config)
 
 ;;;; Company and its associated packages
 ;;; Company MUST be loaded very early, to make sure that all programming language

@@ -6,8 +6,7 @@
 
 (require 'magit)
 (require 'company)
-(require 'yasnippet)
-(require 'yasnippet-snippets)
+(require 'yasnippet-config)
 (require 'lispy-config)
 
 ;; Get Yasnippets for Common Lisp
