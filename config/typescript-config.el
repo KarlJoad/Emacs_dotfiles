@@ -4,7 +4,9 @@
 
 (require 'lsp-config)
 
-(use-package typescript-mode)
+(use-package typescript-mode
+  :straight t
+  :defer t)
 
 (provide 'typescript-config)
 ;;; typescript-config.el ends here

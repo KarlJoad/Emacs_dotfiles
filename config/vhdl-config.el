@@ -2,7 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package vhdl-mode)
+(use-package vhdl-mode
+  :straight (:type built-in)
+  :defer t)
 
 (use-package vhdl-ts-mode
   :straight t

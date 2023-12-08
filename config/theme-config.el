@@ -3,29 +3,22 @@
 ;;; Code:
 
 (use-package modus-themes ;; BOTH light (vivendi) and dark (operandi)
+	:straight (:type built-in)
 	:defer t
-	:straight t
-	:config
-	(setq modus-vivendi-theme-section-headings t)
-	(setq modus-vivendi-theme-slanted-constructs t)
-	(setq modus-vivendi-theme-bold-constructs t)
-	(setq modus-vivendi-theme-proportional-fonts nil)
-  (setq modus-operandi-theme-slanted-constructs t)
-  (setq modus-operandi-theme-bold-constructs t)
-  (setq modus-operandi-theme-proportional-fonts nil))
+  :bind ("C-c T" . #'modus-themes-toggle)
+	:custom
+	(modus-vivendi-theme-section-headings t)
+	(modus-vivendi-theme-slanted-constructs t)
+	(modus-vivendi-theme-bold-constructs t)
+	(modus-vivendi-theme-proportional-fonts nil)
+  (modus-operandi-theme-slanted-constructs t)
+  (modus-operandi-theme-bold-constructs t)
+  (modus-operandi-theme-proportional-fonts nil))
 
-(defvar current-theme 'modus-vivendi "The currently running theme.")
+(defconst karljoad/default-start-theme 'modus-vivendi
+  "The theme to load by default.")
 
-;;; This function will make sure that if we start Emacs with emacs --daemon,
-;;; each subsequent frame with have the correct theme
-(defun apply-theme-if-daemon ()
-  "Apply the theme used above if Emacs is evaluated with `emacs --daemon`, ensuring each subsequent frame is themed appropriately."
-  (interactive) ;; This can be calld with M-x apply-theme-if-daemon
-  (load-theme current-theme t)) ;; CHANGE ME WHEN YOU CHANGE THE EARLIER load-theme
-
-(load-theme current-theme t)
-
-(global-set-key (kbd "C-c T") 'modus-themes-toggle)
+(load-theme karljoad/default-start-theme t)
 
 (provide 'theme-config)
 ;;; theme-config.el ends here

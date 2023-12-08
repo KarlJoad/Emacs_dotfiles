@@ -5,14 +5,12 @@
 (use-package undo-tree
 	:straight t
 	:defer t
+  :bind (("C-c u v" . #'undo-tree-visualize))
 	:config
+  (global-undo-tree-mode)
 	(setq undo-tree-visualizer-diff t)
   (setq-default undo-tree-history-directory-alist
                 `(("." . ,(concat no-littering-var-directory "undo-tree-hist")))))
-
-(global-undo-tree-mode)
-
-(global-set-key (kbd "C-c u v") #'undo-tree-visualize)
 
 (provide 'undo-tree-config)
 ;;; undo-tree-config.el ends here

@@ -39,20 +39,22 @@
 ;; more heavily.
 (use-package lin
   :ensure t
-  :straight t)
-(setq lin-face 'lin-mac)
-(lin-global-mode)
+  :straight t
+  :config
+  (lin-global-mode)
+  :custom
+  (lin-face 'lin-mac))
 
 ;; Pulse the current line when performing certain actions in Emacs.
 ;; The functions that cause the pulse are in the `pulsar-pulse-functions' list.
 (use-package pulsar
   :straight t
   :ensure t
+  :config
+  (pulsar-global-mode)
   :custom
   (pulsar-face 'pulsar-magenta)
   (pulsar-delay 0.05))
-
-(pulsar-global-mode)
 
 ;; Parentheses/Brackets/Braces/Angles modifications
 (show-paren-mode) ;; Emphasize MATCHING Parentheses/Brackets/Braces/Angles
@@ -71,9 +73,9 @@
 ;; and a ;-) for the rest of the minor modes.
 (use-package minions
   :straight t
-  :ensure t
-  :defer t)
-(minions-mode 1)
+  :defer t
+  :config
+  (minions-mode 1))
 
 ;; Add highlighting for TODO/NOTE/FIXME strings in most buffers.
 ;; By default, it highlights TODO, FIXME, and NOTE.

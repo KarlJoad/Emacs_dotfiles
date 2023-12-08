@@ -3,13 +3,11 @@
 ;;; Code:
 
 (use-package envrc
+  :straight t
   :defer t
-  :straight t)
-
-(envrc-global-mode)
-
-(with-eval-after-load 'envrc
-  (define-key envrc-mode-map (kbd "C-c e") #'envrc-command-map))
+  :config
+  (envrc-global-mode)
+  :bind (("C-c e" . #'envrc-command-map)))
 
 (provide 'envrc-config)
 ;;; envrc-config.el ends here

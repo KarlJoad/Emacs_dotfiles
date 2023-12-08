@@ -4,8 +4,8 @@
 
 ;; Use geiser to make Guile development nicer
 (use-package geiser-guile
-  :defer t
-  :straight t)
+  :straight t
+  :defer t)
 
 (provide 'guile-config)
 ;;; guile-config.el ends here
