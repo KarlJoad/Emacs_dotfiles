@@ -78,6 +78,7 @@
   :init
   (add-hook 'org-mode-hook 'org-bullets-mode))
 
+(require 'personal-functions)
 (if (karljoad/is-guix-system)
     ;; When using Guix, I have org-roam installed because it needs compilation
     (use-package org-roam
