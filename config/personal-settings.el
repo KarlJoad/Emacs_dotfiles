@@ -72,7 +72,6 @@
 ;; and a ;-) for the rest of the minor modes.
 (use-package minions
   :straight t
-  :defer t
   :config
   (minions-mode 1))
 
