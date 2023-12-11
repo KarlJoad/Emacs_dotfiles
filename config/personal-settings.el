@@ -81,7 +81,6 @@
 ;; be highlighted with my modifying the hl-todo-keyword-faces variable.
 (use-package hl-todo
   :straight t
-  :defer t
   :bind (("C-c C-t p" . #'hl-todo-previous)
          ("C-c C-t n" . #'hl-todo-next))
   :config (global-hl-todo-mode))
