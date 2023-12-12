@@ -11,14 +11,9 @@
 
 (setq inferior-lisp-program "sbcl")
 
-(use-package slime
-  :straight t
-  :defer t)
-
 (use-package sly
   :straight t
-  :defer t
-  :after (slime))
+  :defer t)
 
 (paredit-mode)
 
