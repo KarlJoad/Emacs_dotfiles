@@ -29,6 +29,11 @@
 (tool-bar-mode -1) ;; Remove big icon tool-bar below the menu-bar.
 (tooltip-mode -1) ;; On clickable text, remove tooltip pop-up. Use minibuffer.
 
+;; Unbind C-z from suspending the current Emacs frame.
+;; This stops me from accidentally minimizing Emacs when running graphically.
+;; You can still access this with C-x C-z (which is a default keybinding).
+(global-unset-key (kbd "C-z"))
+
 ;;;; Turn on Line numbering
 (global-display-line-numbers-mode) ;; Show line numbers everywhere
 (setq column-number-mode 1) ;; Turn on column numbers in ALL major modes
