@@ -22,7 +22,7 @@
       (set-face-attribute 'default nil :height regular-fontsize))))
 
 (defun karljoad/this-system-this-linux-distro? (distro)
-  "Return 't' or 'nil', depending on if the current OS is DISTRO."
+  "Return t or nil, depending on if the current OS is DISTRO."
   (interactive "MID of the distro (as found in /etc/os-release): ")
   (with-temp-buffer
     (insert (shell-command-to-string "cat /etc/os-release"))
@@ -35,11 +35,11 @@
 	          t)))))
 
 (defun karljoad/is-nixos ()
-  "Return 't' or 'nil', depending on if the current OS is NixOS."
+  "Return t or nil, depending on if the current OS is NixOS."
   (karljoad/this-system-this-linux-distro? "nixos"))
 
 (defun karljoad/is-guix-system ()
-  "Return 't' or 'nil', depending on if the current OS is Guix System."
+  "Return t or nil, depending on if the current OS is Guix System."
   (karljoad/this-system-this-linux-distro? "guix"))
 
 (defun karljoad/etags-generate (dir-name)
