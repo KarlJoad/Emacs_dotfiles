@@ -16,13 +16,12 @@
 (defun karljoad/toggle-presentation ()
   "Toggle presentation features, like font increase."
   (interactive)
-  (let ((regular-fontsize 98)
-        (presentation-fontsize 200))
-    (if (equal (face-attribute 'default :height) regular-fontsize) ;; If the current face-attribute's height is the regular
-		;; Then switch to the presentation size
+  (let ((presentation-fontsize 200))
+    (if (equal (face-attribute 'default :height) karljoad--default-font-height) ;; If the current face-attribute's height is the regular
+		    ;; Then switch to the presentation size
         (set-face-attribute 'default nil :height presentation-fontsize)
-	  ;; Otherwise, switch back to the regular size
-      (set-face-attribute 'default nil :height regular-fontsize))))
+	    ;; Otherwise, switch back to the regular size
+      (set-face-attribute 'default nil :height karljoad--default-font-height))))
 
 (defun karljoad/this-system-this-linux-distro? (distro)
   "Return t or nil, depending on if the current OS is DISTRO."
