@@ -10,6 +10,9 @@
 ;;; Code:
 
 ;; Shamelessly stolen from Adrien Brochard's configuration.org
+(defconst karljoad--default-font-height (face-attribute 'default :height)
+  "The \"height\" of the default face when Emacs starts.")
+
 (defun karljoad/toggle-presentation ()
   "Toggle presentation features, like font increase."
   (interactive)
