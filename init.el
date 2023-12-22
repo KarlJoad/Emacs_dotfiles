@@ -91,6 +91,7 @@
 
 ;;;; Load in Magit options
 (require 'magit-config)
+(require 'ediff-config)
 
 ;;;; flycheck for spell/syntax checking
 (require 'flycheck-config)
