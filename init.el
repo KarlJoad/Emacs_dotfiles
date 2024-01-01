@@ -42,6 +42,9 @@
 (require 'personal-settings)
 (require 'personal-functions)
 
+;; Configure dired
+(require 'dired-config)
+
 ;;;; Load in my current theme
 (require 'theme-config)
 
