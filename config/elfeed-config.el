@@ -5,7 +5,7 @@
 ;; Pull in the elfeed package
 (use-package elfeed)
 
-(global-set-key (kbd "C-c f") #'elfeed)
+(keymap-global-set "C-c f" #'elfeed)
 
 ;; List of all feeds that I should fetch and care about
 ;; The cdr (tail of list) will be symbols attached to anything coming from that

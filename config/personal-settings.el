@@ -32,7 +32,7 @@
 ;; Unbind C-z from suspending the current Emacs frame.
 ;; This stops me from accidentally minimizing Emacs when running graphically.
 ;; You can still access this with C-x C-z (which is a default keybinding).
-(global-unset-key (kbd "C-z"))
+(keymap-global-unset "C-z")
 
 ;;;; Turn on Line numbering
 (global-display-line-numbers-mode) ;; Show line numbers everywhere
@@ -139,7 +139,7 @@
             (delete-trailing-whitespace)))
 
 ;; I want a keybinding to quickly revert buffers, since sometimes Magit doesn't do it.
-(global-set-key (kbd "C-c g") 'revert-buffer)
+(keymap-global-set "C-c g" 'revert-buffer)
 
 ;; Try to use UTF-8 for everything
 (set-language-environment "UTF-8")
@@ -217,9 +217,9 @@ Use with `battery-mode-line-format' variable.")
 ;; scratch buffer with the same name as the programming language I am currently
 ;; working in.
 (use-package scratch)
-(global-set-key (kbd "C-c s") #'scratch)
+(keymap-global-set "C-c s" #'scratch)
 
-(global-set-key (kbd "C-c w") 'whitespace-mode)
+(keymap-global-set "C-c w" 'whitespace-mode)
 
 
 ;; Set my preferred font style.
@@ -269,10 +269,10 @@ currently running on.")
 ;;; For example, C-x o runs the command (other-window) by default.
 ;;; Add keybindings for moving between windows in certain directions.
 ;;; These were originally set to S-direction.
-(global-set-key (kbd "C-c C-b") #'windmove-left)
-(global-set-key (kbd "C-c C-n") #'windmove-down)
-(global-set-key (kbd "C-c C-p") #'windmove-up)
-(global-set-key (kbd "C-c C-f") #'windmove-right)
+(keymap-global-set "C-c C-b" #'windmove-left)
+(keymap-global-set "C-c C-n" #'windmove-down)
+(keymap-global-set "C-c C-p" #'windmove-up)
+(keymap-global-set "C-c C-f" #'windmove-right)
 
 (provide 'personal-settings)
 ;;; personal-settings.el ends here

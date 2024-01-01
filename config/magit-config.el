@@ -16,12 +16,12 @@
   :defer t)
 
 ;; Open Magit Status for git handling
-(global-set-key (kbd "C-x g") 'magit-status) ;; C-x g will bring up magit status (git status)
+(keymap-global-set "C-x g" 'magit-status) ;; C-x g will bring up magit status (git status)
 ;; Bring up a small menu to choose to do magit things
-(global-set-key (kbd "C-x M-g") 'magit-dispatch)
+(keymap-global-set "C-x M-g" 'magit-dispatch)
 
 ;; With `git blame`, we can find out the commits that changed certain lines and/or regions
-(global-set-key (kbd "C-c b") 'magit-blame)
+(keymap-global-set "C-c b" 'magit-blame)
 
 ;; Default directory to clone into is the Repos directory
 (setq magit-clone-default-directory "~/Repos/")

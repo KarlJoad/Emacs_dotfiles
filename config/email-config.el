@@ -64,7 +64,7 @@
 ;; See the large comment above in the commentary.
 
 ;; Give myself a nice easy keybinding to open mu4e
-(global-set-key (kbd "C-c m") 'mu4e)
+(keymap-global-set "C-c m" 'mu4e)
 
 ;; mu4e starts REAL QUICK, so closing it isn't that bad.
 ;; Besides, I have a nice easy keybinding to open it quickly anyways.
