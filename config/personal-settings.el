@@ -263,5 +263,16 @@ currently running on.")
 (setq isearch-count-prefix-format "(%s/%s) ")
 (setq isearch-count-prefix-format nil)
 
+
+;;; Window navigation
+;;; Windows contain buffers, and are the things you switch between.
+;;; For example, C-x o runs the command (other-window) by default.
+;;; Add keybindings for moving between windows in certain directions.
+;;; These were originally set to S-direction.
+(global-set-key (kbd "C-c C-b") #'windmove-left)
+(global-set-key (kbd "C-c C-n") #'windmove-down)
+(global-set-key (kbd "C-c C-p") #'windmove-up)
+(global-set-key (kbd "C-c C-f") #'windmove-right)
+
 (provide 'personal-settings)
 ;;; personal-settings.el ends here
