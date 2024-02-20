@@ -19,7 +19,8 @@
                      ("https://ag91.github.io/rss.xml" emacs nyxt blog)
                      ("https://nyxt.atlas.engineer/feed" nyxt blog)
                      ("https://rss.acm.org/technews/TechNews.xml" ACM research news)
-                     ("https://wingolog.org/feed/atom" guile compilers blog)))
+                     ("https://wingolog.org/feed/atom" guile compilers blog)
+                     ("https://karthinks.com/index.xml" emacs blog)))
 
 ;; Prettify the elfeed buffer, making some things easier to read
 (use-package elfeed-goodies)
