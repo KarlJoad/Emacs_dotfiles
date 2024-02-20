@@ -154,4 +154,8 @@
 ;; (require 'test-config)
 (require 'eshell-config)
 
+;; If Emacs has been idle for 15+ seconds, perform a GC run.
+;; From https://akrl.sdf.org/#orgc15a10d
+(run-with-idle-timer 15 t #'garbage-collect)
+
 ;;; init.el ends here
