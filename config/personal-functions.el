@@ -65,5 +65,10 @@ file."
             (delete-trailing-whitespace (point-min) nil)))
         (dired-get-marked-files nil)))
 
+(defun karljoad/gc-events ()
+  "Print message about GC statistics."
+  (interactive)
+  (message "%d GC Events\n%0.2f Seconds spent GC-ing" gcs-done gc-elapsed))
+
 (provide 'personal-functions)
 ;;; personal-functions.el ends here
