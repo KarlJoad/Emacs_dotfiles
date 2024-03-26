@@ -9,21 +9,19 @@
 ;;
 ;;; Code:
 
-;; Shamelessly stolen from Adrien Brochard's configuration.org
-(defconst karljoad--default-font-height (face-attribute 'default :height)
-  "The \"height\" of the default face when Emacs starts.")
+(defvar karljoad--in-presentation-mode-p 'nil
+  "Is Emacs currently in \"presentation mode\"?")
 
+;; Modified from Adrien Brochard's configuration.org
 (defun karljoad/toggle-presentation ()
-  "Toggle presentation features, like font increase."
+  "If NEW-FONT-HEIGHT provided, toggle presentation features, like font increase."
   (interactive)
+  (require 'personal-settings)
   (let ((presentation-fontsize 200))
-    (if (equal (face-attribute 'default :height) karljoad--default-font-height) ;; If the current face-attribute's height is the regular
-		    ;; Then switch to the presentation size
-        (set-face-attribute 'default nil :height presentation-fontsize)
-	    ;; Otherwise, switch back to the regular size
-      (set-face-attribute 'default nil :height karljoad--default-font-height))))
-
-
+    (if karljoad--in-presentation-mode-p
+        (set-face-attribute 'default nil :height karljoad--default-font-height)
+      (set-face-attribute 'default nil :height presentation-fontsize))
+    (setq karljoad--in-presentation-mode-p (not karljoad--in-presentation-mode-p))))
 
 (defun karljoad/etags-generate (dir-name)
   "Generate an etags TAGS file for C in the specified DIR-NAME.

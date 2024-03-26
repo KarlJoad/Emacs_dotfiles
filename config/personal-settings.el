@@ -231,6 +231,13 @@ Use with `battery-mode-line-format' variable.")
 This needs to be a string that matches a font available on the system Emacs is
 currently running on.")
 
+;; NOTE: Emacs' :height face-attribute is in 1/10pt, so 105 = 10.5 point font
+(defconst karljoad--default-font-height
+  (cond
+   ((equal system-type 'windows-nt) 110)
+   ((equal system-type 'gnu/linux) 105))
+  "The \"height\" of the default face (font) when Emacs starts.")
+
 (add-to-list 'initial-frame-alist `(font . ,karljoad/preferred-font))
 (add-to-list 'default-frame-alist `(font . ,karljoad/preferred-font))
 
