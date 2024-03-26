@@ -65,6 +65,22 @@ file."
             (delete-trailing-whitespace (point-min) nil)))
         (dired-get-marked-files nil)))
 
+(defun karljoad/revert-selected-buffers ()
+  "Revert all buffers currently selected by ibuffer.
+
+This will revert all the marked buffers, but will NOT open them for viewing,
+and will leave you in the *Ibuffer* buffer.
+
+WARNING: This does NOT ask for confirmation before reverting any buffer, even
+if it is modified!"
+  (interactive)
+  (require 'ibuffer)
+  (save-window-excursion
+    (mapc (lambda (buffer-name)
+            (switch-to-buffer buffer-name)
+            (revert-buffer-quick))
+          (ibuffer-get-marked-buffers))))
+
 (defun karljoad/gc-events ()
   "Print message about GC statistics."
   (interactive)
