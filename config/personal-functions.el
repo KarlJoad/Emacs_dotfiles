@@ -53,7 +53,6 @@ with the empty character."
       (replace-match (string ?\C-j) nil t))
     (set-buffer-file-coding-system 'unix 't)))
 
-(require 'dired)
 (defun karljoad/remove-file-whitespace ()
   "Remove trailing whitespace from files.
 
@@ -61,6 +60,7 @@ Opens and removes all trailing whitespace from the list of files selected in a
 Dired buffer. Trailing whitespace includes empty newlines at the end of the
 file."
   (interactive)
+  (require 'dired)
   (mapc (lambda (file-name)
           (with-temp-file file-name
             (insert-file-contents-literally file-name)
