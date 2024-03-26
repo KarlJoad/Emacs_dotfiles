@@ -1,4 +1,4 @@
-;;; assembly-config.el --- This file configures various assembly languages modes
+;;; assembly-config.el --- This file configures various assembly languages modes -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

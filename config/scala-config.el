@@ -1,4 +1,4 @@
-;;; scala-config.el --- This file provides changes to allow the writing of Scala
+;;; scala-config.el --- This file provides changes to allow the writing of Scala -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

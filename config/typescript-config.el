@@ -1,4 +1,4 @@
-;;; typescript-config.el --- Configuration for editing Typescript source code
+;;; typescript-config.el --- Configuration for editing Typescript source code -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

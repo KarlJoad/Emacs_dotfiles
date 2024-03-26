@@ -1,4 +1,4 @@
-;;; guix-config.el --- This file configures Guix
+;;; guix-config.el --- This file configures Guix -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

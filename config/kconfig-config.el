@@ -1,4 +1,4 @@
-;;; kconfig-config.el --- This file configures Kconfig
+;;; kconfig-config.el --- This file configures Kconfig -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

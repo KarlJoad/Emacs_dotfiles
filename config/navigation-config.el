@@ -1,4 +1,4 @@
-;;; navigation-config.el --- Ease navigation through Emacs
+;;; navigation-config.el --- Ease navigation through Emacs -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

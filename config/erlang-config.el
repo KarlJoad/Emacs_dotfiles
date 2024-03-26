@@ -1,4 +1,4 @@
-;;; erlang-config.el --- Packages and configuration for Erlang
+;;; erlang-config.el --- Packages and configuration for Erlang -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

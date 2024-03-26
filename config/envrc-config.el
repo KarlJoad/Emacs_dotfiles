@@ -1,4 +1,4 @@
-;;; envrc-config.el --- Settings for making Envrc(s) workable
+;;; envrc-config.el --- Settings for making Envrc(s) workable -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

@@ -1,4 +1,4 @@
-;;; verilog-config.el --- This file configures Emacs to write
+;;; verilog-config.el --- This file configures Emacs to write -*- lexical-binding: t -*-
 ;;; Verilog/SystemVerilog
 ;;; Commentary:
 ;;; Code:

@@ -1,4 +1,4 @@
-;;; functional-packaging-config.el --- Set up for work with functional packaging in Emacs
+;;; functional-packaging-config.el --- Set up for work with functional packaging in Emacs -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; Functional package managers take their key concepts from functional programming

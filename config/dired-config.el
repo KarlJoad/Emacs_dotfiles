@@ -1,4 +1,4 @@
-;;; dired-config.el --- Configure dired
+;;; dired-config.el --- Configure dired -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

@@ -1,4 +1,4 @@
-;;; rainbow-mode-config.el --- Provides and configures rainbow-mode
+;;; rainbow-mode-config.el --- Provides and configures rainbow-mode -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; rainbow-mode is a package that colorizes the background of colors

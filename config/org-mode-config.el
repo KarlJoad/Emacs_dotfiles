@@ -1,4 +1,4 @@
-;;; org-mode-config.el --- Provides and configures org-mode
+;;; org-mode-config.el --- Provides and configures org-mode -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; This file provides my changes to keybindings and commands while in the major mode Org-mode

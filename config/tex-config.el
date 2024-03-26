@@ -1,4 +1,4 @@
-;;; tex-config.el --- Provides and changes how I want to work with TeX-based docs
+;;; tex-config.el --- Provides and changes how I want to work with TeX-based docs -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; Auctex provides many QoL things for editing TeX/LaTeX documents

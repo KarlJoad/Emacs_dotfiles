@@ -1,4 +1,4 @@
-;;; package-config-el --- Lists packages to load into Emacs
+;;; package-config-el --- Lists packages to load into Emacs -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

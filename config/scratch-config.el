@@ -1,4 +1,4 @@
-;;;; This file provides changes to the scratch buffer, as I need them
+;;;; This file provides changes to the scratch buffer, as I need them -*- lexical-binding: t -*-
 (provide 'personal-scratch)
 
 ;;; Initial messsage presented to the user in the *scratch* buffer.

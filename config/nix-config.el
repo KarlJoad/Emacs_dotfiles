@@ -1,4 +1,4 @@
-;;; nix-config.el --- Provides and configures packages for Nix and NixOS
+;;; nix-config.el --- Provides and configures packages for Nix and NixOS -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; NixOS is a GNU/Linux operating system built around the Nix package manager.

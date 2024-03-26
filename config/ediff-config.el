@@ -1,4 +1,4 @@
-;;; ediff-config.el --- Configure ediff
+;;; ediff-config.el --- Configure ediff -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

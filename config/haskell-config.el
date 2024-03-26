@@ -1,4 +1,4 @@
-;;; haskell-config.el --- Provides and configures packages for writing Haskell
+;;; haskell-config.el --- Provides and configures packages for writing Haskell -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

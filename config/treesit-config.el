@@ -1,4 +1,4 @@
-;;; treesit-config.el --- This file provides configuration for Treesitter
+;;; treesit-config.el --- This file provides configuration for Treesitter -*- lexical-binding: t -*-
 ;;; Commentary:
 
 ;; treesit is Emacs' built-in support for tree-sitter. treesit started to be

@@ -1,4 +1,4 @@
-;;; personal-settings.el --- Settings for making Emacs mine
+;;; personal-settings.el --- Settings for making Emacs mine -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

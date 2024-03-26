@@ -1,4 +1,4 @@
-;;; stumpwm-config.el --- Handles everything needed for Common Lisp development
+;;; stumpwm-config.el --- Handles everything needed for Common Lisp development -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;;

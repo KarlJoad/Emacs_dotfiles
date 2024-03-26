@@ -1,4 +1,4 @@
-;;; elfeed-config.el --- elfeed configuration
+;;; elfeed-config.el --- elfeed configuration -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

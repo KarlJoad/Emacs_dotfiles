@@ -1,4 +1,4 @@
-;;; undo-tree-config.el --- Settings for making Emacs mine
+;;; undo-tree-config.el --- Settings for making Emacs mine -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

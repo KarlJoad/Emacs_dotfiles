@@ -1,4 +1,4 @@
-;;; magit-config.el --- ;; Provides and configures Magit
+;;; magit-config.el --- Provides and configures Magit -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; Magit is a Git procelain that gives us a nice way to work with Git

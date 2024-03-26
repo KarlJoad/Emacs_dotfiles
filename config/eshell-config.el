@@ -1,4 +1,4 @@
-;;; eshell-config.el --- Settings for making Eshell(s) workable
+;;; eshell-config.el --- Settings for making Eshell(s) workable -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

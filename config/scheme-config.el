@@ -1,4 +1,4 @@
-;;; scheme-config.el --- Settings for making Scheme(s) workable
+;;; scheme-config.el --- Settings for making Scheme(s) workable -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

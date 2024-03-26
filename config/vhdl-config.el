@@ -1,4 +1,4 @@
-;;; vhdl-config.el --- This file configures Emacs for writing VHDL
+;;; vhdl-config.el --- This file configures Emacs for writing VHDL -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

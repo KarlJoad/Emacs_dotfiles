@@ -1,4 +1,4 @@
-;;; init.el --- Karl's .emacs Init File
+;;; init.el --- Karl's .emacs Init File -*- lexical-binding: t -*-
 					;-*-Emacs-Lisp-*-
 ;;; Commentary:
 ;;

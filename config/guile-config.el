@@ -1,4 +1,4 @@
-;;; guile-config.el --- Settings for making Guile(s) workable
+;;; guile-config.el --- Settings for making Guile(s) workable -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

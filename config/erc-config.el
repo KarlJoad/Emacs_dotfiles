@@ -1,4 +1,4 @@
-;;; erc-config.el --- This file provides my configuration for ERC
+;;; erc-config.el --- This file provides my configuration for ERC -*- lexical-binding: t -*-
 ;;; Commentary:
 ;; ERC is the Emacs major mode for IRC conversations and channels.
 ;;; Code:

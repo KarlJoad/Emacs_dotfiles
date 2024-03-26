@@ -1,4 +1,4 @@
-;;; project-config.el --- Provides and configures project.el for my needs
+;;; project-config.el --- Provides and configures project.el for my needs -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; project.el gives us a nice way to move through and around projects.

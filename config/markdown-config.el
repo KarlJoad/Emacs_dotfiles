@@ -1,4 +1,4 @@
-;;; markdown-config.el --- Provides and configures markdown-mode for me
+;;; markdown-config.el --- Provides and configures markdown-mode for me -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; This major mode provides syntax highlighting, among other things, that makes it easier

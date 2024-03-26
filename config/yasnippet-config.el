@@ -1,4 +1,4 @@
-;;; yasnippet-config.el --- Provides and configure yasnippet
+;;; yasnippet-config.el --- Provides and configure yasnippet -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; This provides the yasnippet package, which allows me to auto-generate a certain control flow.

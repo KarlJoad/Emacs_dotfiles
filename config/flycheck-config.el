@@ -1,4 +1,4 @@
-;;; flycheck-config.el --- Provides and changes flycheck for my needs
+;;; flycheck-config.el --- Provides and changes flycheck for my needs -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; flycheck requires a backend to run, just like company

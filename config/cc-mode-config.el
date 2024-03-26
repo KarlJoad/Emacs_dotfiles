@@ -1,4 +1,4 @@
-;;; cc-mode-config.el --- Config for C/C++ editing
+;;; cc-mode-config.el --- Config for C/C++ editing -*- lexical-binding: t -*-
 					;-*-Emacs-Lisp-*-
 ;;; Commentary:
 ;;; Code:

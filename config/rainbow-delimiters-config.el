@@ -1,4 +1,4 @@
-;;; rainbow-delimiters-config.el --- This file configures rainbow-delimiters
+;;; rainbow-delimiters-config.el --- This file configures rainbow-delimiters -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; This is NOT to be confused with rainbow-mode.

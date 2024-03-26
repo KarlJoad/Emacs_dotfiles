@@ -1,4 +1,4 @@
-;;; multiple-cursors-config.el --- Provides and configures the multiple-cursors package
+;;; multiple-cursors-config.el --- Provides and configures the multiple-cursors package -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

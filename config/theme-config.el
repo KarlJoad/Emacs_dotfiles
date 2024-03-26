@@ -1,4 +1,4 @@
-;;; theme-config.el --- This file provides my theming options and configuration
+;;; theme-config.el --- This file provides my theming options and configuration -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

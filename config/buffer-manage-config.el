@@ -1,4 +1,4 @@
-;;; buffer-manage-config.el --- Configuration changes to buffer management
+;;; buffer-manage-config.el --- Configuration changes to buffer management -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; This file provides configuration changes to buffer manage

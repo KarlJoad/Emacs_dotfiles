@@ -1,4 +1,4 @@
-;;; lsp-config --- Settings for lsp-mode
+;;; lsp-config --- Settings for lsp-mode -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

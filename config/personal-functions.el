@@ -1,4 +1,4 @@
-;;; personal-functions.el --- This file provides my exported personal functions
+;;; personal-functions.el --- This file provides my exported personal functions -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; I have a file for personal information and personal settings, so it makes

@@ -1,4 +1,4 @@
-;;; email-config.el --- This file configured mu4e for my email
+;;; email-config.el --- This file configured mu4e for my email -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; Since I tend to use GMail for many things, I have to perform multiple steps

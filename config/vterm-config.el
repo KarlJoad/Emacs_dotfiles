@@ -1,4 +1,4 @@
-;;; vterm-config.el --- Configuration for vterm-mode
+;;; vterm-config.el --- Configuration for vterm-mode -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

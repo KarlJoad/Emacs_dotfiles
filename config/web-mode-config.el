@@ -1,4 +1,4 @@
-;;; web-mode-config.el --- Provides and configures rainbow-mode
+;;; web-mode-config.el --- Provides and configures rainbow-mode -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

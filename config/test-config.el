@@ -1,4 +1,4 @@
-;;; test-config.el --- Settings for making Test(s) workable
+;;; test-config.el --- Settings for making Test(s) workable -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

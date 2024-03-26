@@ -1,4 +1,4 @@
-;;; rust-config.el --- Handles everything needed for Rust source code development
+;;; rust-config.el --- Handles everything needed for Rust source code development -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; In order to make this work, you will need to install some Rust crates through

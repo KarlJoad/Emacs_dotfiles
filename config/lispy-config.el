@@ -1,4 +1,4 @@
-;;; lispy-config.el --- Settings for making Lisp(s) workable
+;;; lispy-config.el --- Settings for making Lisp(s) workable -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; A lot of Lisps have a lot of things in common (I am looking at you

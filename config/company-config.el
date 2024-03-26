@@ -1,4 +1,4 @@
-;;; company-config.el --- Provides and configures company-mode
+;;; company-config.el --- Provides and configures company-mode -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; Provides and configures CompleteAny-mode

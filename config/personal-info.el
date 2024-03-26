@@ -1,4 +1,4 @@
-;;; personal-info.el --- This file provides my personal information
+;;; personal-info.el --- This file provides my personal information -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 
