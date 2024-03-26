@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'personal-functions)
+(require 'os-detection)
 ;; Change the way an Emacs frame is drawn upon startup depending on OS.
 (cond
  ;; On Windows GUI, make Emacs a maximized window
