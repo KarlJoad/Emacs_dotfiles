@@ -151,8 +151,11 @@
   (require 'functional-packaging-config)
   (require 'envrc-config))
 
-;; (require 'test-config)
+;; Configure various shells and their behavior
+(require 'shell-config)
 (require 'eshell-config)
+
+;; (require 'test-config)
 
 ;; If Emacs has been idle for 15+ seconds, perform a GC run.
 ;; From https://akrl.sdf.org/#orgc15a10d
