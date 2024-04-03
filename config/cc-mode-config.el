@@ -21,13 +21,13 @@
 
 (add-hook 'c-mode-hook
 	        (lambda ()
-	          (local-set-key (kbd "C-c C-c") 'compile)
-		        (local-set-key (kbd "C-c ;") 'comment-or-uncomment-region)))
+	          (local-set-key (kbd "C-c C-c") #'compile)
+		        (local-set-key (kbd "C-c ;") #'comment-or-uncomment-region)))
 
 (add-hook 'c++-mode-hook
 	        (lambda ()
-	          (local-set-key (kbd "C-c C-c") 'compile)
-		        (local-set-key (kbd "C-c ;") 'comment-or-uncomment-region)))
+	          (local-set-key (kbd "C-c C-c") #'compile)
+		        (local-set-key (kbd "C-c ;") #'comment-or-uncomment-region)))
 
 ;; setup GDB
 (setq gdb-many-windows t ;; use gdb-many-windows by default
