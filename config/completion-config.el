@@ -82,6 +82,8 @@
   ;;(add-to-list 'completion-at-point-functions #'cape-line)
   )
 
+(advice-add 'eglot-completion-at-point :around #'cape-wrap-buster)
+
 ;; A few more useful configurations...
 (use-package emacs
   :init
