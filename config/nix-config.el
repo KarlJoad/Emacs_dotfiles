@@ -20,8 +20,6 @@
   :defer t)
 (use-package nixos-options ;; Options for the Nixos .nix files
   :defer t)
-(use-package company-nixos-options ;; Provide a company backend for nixos-options
-  :defer t)
 
 (provide 'nix-config)
 ;;; nix-config.el ends here

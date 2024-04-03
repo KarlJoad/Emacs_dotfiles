@@ -137,13 +137,5 @@
       (append '(("\\.tikz\\'" . latex-mode))
 	      auto-mode-alist))
 
-(require 'company-config)
-;; Since company needs a backend for its autocompletion, one is needed for TeX/LaTeX
-;; Fortunately, auctex exposes enough for another package to make company work.
-(use-package company-auctex)
-(company-auctex-init)
-;; Backend needed for company to provide autocompletion for TeX/LaTeX math.
-(use-package company-math)
-
 (provide 'tex-config)
 ;;; tex-config.el ends here

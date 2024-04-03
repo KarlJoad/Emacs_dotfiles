@@ -9,7 +9,6 @@
 
 (require 'treesit-config)
 (require 'lsp-config)
-(require 'company-config)
 
 ;; rust-mode is minimal, but relies on an LSP to provide good information.
 ;; Fortunately, I will always have rust-analyzer present in any Rust project I

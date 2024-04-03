@@ -61,6 +61,9 @@
 ;;;; Load config to make navigating through Emacs and files easier.
 (require 'navigation-config)
 
+;; Configure Emacs' completion options, ordering, and display
+(require 'completion-config)
+
 ;;;; Load in configuration to buffer management
 (require 'buffer-manage-config)
 
@@ -101,11 +104,6 @@
 
 ;;;; Snippets are provided by Yasnippet
 (require 'yasnippet-config)
-
-;;;; Company and its associated packages
-;;; Company MUST be loaded very early, to make sure that all programming language
-;;; stuff can assume it exists.
-(require 'company-config)
 
 ;;;; Configuration for TeX and all of TeX's variations/extensions
 (require 'tex-config)

@@ -1,4 +1,4 @@
-;;; company-config.el --- Provides and configures company-mode -*- lexical-binding: t -*-
+;;; completion-config.el --- Configure completions -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 ;; Provides and configures CompleteAny-mode
@@ -26,5 +26,5 @@
   (define-key company-active-map (kbd "C-l") 'company-show-location) ;; Use C-l to show the location of the suggestion that Company is giving you right now
   )
 
-(provide 'company-config)
-;;; company-config.el ends here
+(provide 'completion-config)
+;;; completion-config.el ends here
