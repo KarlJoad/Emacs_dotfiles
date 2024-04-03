@@ -19,7 +19,8 @@
   :defer t
   :after (tex-mode)
   ;; Make sure that reftex gets loaded when AucTeX gets loaded, i.e. when LaTeX file is opened
-  :hook (latex-mode . #'turn-on-reftex)
+  :hook ((LaTeX-mode . #'turn-on-reftex)
+         (latex-mode . #'turn-on-reftex))
   :bind (:map latex-mode-map
               ;; Scan the whole document for new labels/citations
               ("C-c r" . #'reftex-parse-all))
@@ -140,7 +141,7 @@
 
 ;;; Apply latex-mode to TikZ pictures
 (setq auto-mode-alist
-      (append '(("\\.tikz\\'" . latex-mode))
+      (append '(("\\.tikz\\'" . LaTeX-mode))
 	      auto-mode-alist))
 
 (provide 'tex-config)
