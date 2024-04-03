@@ -3,7 +3,6 @@
 ;;; Code:
 
 (require 'magit)
-(require 'company)
 (require 'yasnippet)
 (require 'yasnippet-snippets)
 (require 'lispy-config)
