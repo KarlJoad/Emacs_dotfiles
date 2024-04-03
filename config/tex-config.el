@@ -65,18 +65,18 @@
 (use-package auctex
   :straight t
   :defer t
-  :after (reftex bibtex))
-
-(setq TeX-parse-self t) ;; Parse multifile documents automagically
-(setq TeX-auto-save t) ;; Enables parsing upon saving the document
-(setq TeX-show-compilation t) ;; Always show compilation output
-(setq TeX-global-PDF-mode t) ;; Make the default TeX mode PDF mode
-(setq TeX-command-default "pdflatex") ;; Default compile to PDF
-(setq LaTeX-biblatex-use-Biber t) ;; Make biblatex use Biber automatically
-(setq TeX-electric-sub-and-superscript t) ;; Inserts {} automaticly on _ and ^
-(setq TeX-source-correlate-mode t) ;; Correlate output to input so we can easily navigate
-(setq TeX-source-correlate-method 'synctex)
-(setq TeX-source-correlate-start-server t)
+  :after (reftex bibtex)
+  :custom
+  (TeX-parse-self t) ;; Parse multifile documents automagically
+  (TeX-auto-save t) ;; Enables parsing upon saving the document
+  (TeX-show-compilation t) ;; Always show compilation output
+  (TeX-global-PDF-mode t) ;; Make the default TeX mode PDF mode
+  (TeX-command-default "pdflatex") ;; Default compile to PDF
+  (LaTeX-biblatex-use-Biber t) ;; Make biblatex use Biber automatically
+  (TeX-electric-sub-and-superscript t) ;; Inserts {} automaticly on _ and ^
+  (TeX-source-correlate-mode t) ;; Correlate output to input so we can easily navigate
+  (TeX-source-correlate-method 'synctex)
+  (TeX-source-correlate-start-server t))
 
 ;;; Set up the compilation options
 (defun karljoad/set-TeX-command-list ()
