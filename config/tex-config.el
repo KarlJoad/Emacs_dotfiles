@@ -54,6 +54,12 @@
 
 ;;; 
 ;;; AucTeX
+;; Force auctex (the strictly superior (La)TeX major-mode) to be used by setting
+;; both the auto-mode-alist and remapping the built-in latex-mode and tex-mode
+;; major modes to the auctex versions.
+(add-to-list 'auto-mode-alist '("\\.tex\\'" . LaTeX-mode))
+(add-to-list 'major-mode-remap-alist '(latex-mode . LaTeX-mode))
+(add-to-list 'major-mode-remap-alist '(tex-mode . TeX-mode))
 
 (use-package auctex
   :straight t
