@@ -15,7 +15,7 @@
 ;;; 
 ;;; RefTeX
 (use-package reftex
-  :straight (:type built-in)
+  :ensure nil ;; built-in
   :defer t
   :after (tex-mode)
   ;; Make sure that reftex gets loaded when AucTeX gets loaded, i.e. when LaTeX file is opened
@@ -40,7 +40,7 @@
   "By default, I like to use BibLaTeX, so I want to make sure I always use that.")
 
 (use-package bibtex
-  :straight (:type built-in) ;; BibTeX comes with Emacs
+  :ensure nil ;; built-in ;; BibTeX comes with Emacs
   :defer t
   :hook (bibtex-mode . (lambda () (setq bibtex-dialect karljoad/default-bibtex-dialect)))
   :custom

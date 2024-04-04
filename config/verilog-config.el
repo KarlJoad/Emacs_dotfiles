@@ -4,7 +4,7 @@
 ;;; Code:
 
 (use-package verilog-mode
-  :straight (:type built-in)
+  :ensure nil ;; built-in
   :defer t
   :config
   (add-to-list 'auto-mode-alist '("\\.[ds]?va?h?\\'" . verilog-mode))

@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package vhdl-mode
-  :straight (:type built-in)
+  :ensure nil ;; built-in
   :defer t)
 
 (require 'treesit-config)

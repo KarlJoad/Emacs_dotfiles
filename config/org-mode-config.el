@@ -32,7 +32,7 @@
   (visual-line-mode 1))
 
 (use-package org
-  :straight (:type built-in)
+  :ensure nil ;; built-in
   :defer t
   :bind (;; These keybindings are set without needing an org file, because they should always be available.
 	 ("C-c a" . 'org-agenda) ;; "C-c a" opens the Agenda Buffer to choose where to go
@@ -82,7 +82,7 @@
 (if (karljoad/is-guix-system)
     ;; When using Guix, I have org-roam installed because it needs compilation
     (use-package org-roam
-      :straight (:type built-in)
+      :ensure nil ;; built-in
       :defer t
       :custom (org-roam-directory (file-truename "~/OrgRoamNotes/"))
       :bind (("C-c n l" . org-roam-buffer-toggle)

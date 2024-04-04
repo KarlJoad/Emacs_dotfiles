@@ -4,7 +4,7 @@
 ;;; Code:
 
 (use-package erc
-  :straight (:type built-in)
+  :ensure nil ;; built-in
   :defer t
   :config
   (erc-match-mode 1)

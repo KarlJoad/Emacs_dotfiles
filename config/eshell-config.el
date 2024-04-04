@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package eshell
-  :straight (:type built-in)
+  :ensure nil ;; built-in
   :defer t
   :bind (("s-s" . #'eshell)))
 

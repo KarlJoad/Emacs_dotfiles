@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package ediff
-  :straight (:type built-in)
+  :ensure nil ;; built-in
   :defer t
   :custom
   (ediff-keep-variants nil)

@@ -6,7 +6,7 @@
 ;;; Code:
 
 (use-package ibuffer
-  :straight (:type built-in)
+  :ensure nil ;; built-in
   :config
   (setq ibuffer-expert t)
   (setq ibuffer-display-summary nil)

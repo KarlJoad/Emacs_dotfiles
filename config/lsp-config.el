@@ -19,7 +19,7 @@ This buries the buffer to the bottom of the buffer list and deletes the window."
   (switch-to-buffer-other-window (eldoc-doc-buffer)))
 
 (use-package eldoc
-  :straight (:type built-in)
+  :ensure nil ;; built-in
   :defer t
   :custom
   ;; Do not use multiline for documentation in the echo area (minibuffer)
@@ -30,7 +30,7 @@ This buries the buffer to the bottom of the buffer list and deletes the window."
   (eldoc-echo-area-prefer-doc-buffer 't))
 
 (use-package eglot
-  :straight (:type built-in)
+  :ensure nil ;; built-in
   :defer t
   :after (eldoc)
   :bind (:map eglot-mode-map

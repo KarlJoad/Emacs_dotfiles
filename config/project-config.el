@@ -14,7 +14,7 @@
 (require 'magit-config)
 
 (use-package project
-  :straight (:type built-in)
+  :ensure nil ;; built-in
   :defer t
   :after (magit)
   :custom

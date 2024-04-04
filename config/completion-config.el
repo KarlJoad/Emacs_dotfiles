@@ -102,7 +102,7 @@
 
 ;; A few more useful configurations...
 (use-package emacs
-  :straight (:type built-in)
+  :ensure nil ;; built-in
   :hook (((minibuffer-setup-hook) . #'cursor-intangible-mode))
   :init
   ;; TAB cycle if there are only few candidates

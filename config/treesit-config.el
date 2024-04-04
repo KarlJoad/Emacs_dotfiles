@@ -28,7 +28,7 @@
 
 ;; Fetch and use the treesit package when Emacs is built with treesitter support
 (use-package treesit
-  :straight (:type built-in)
+  :ensure nil ;; built-in
   :when (treesit-available-p)
   :init
   (setq major-mode-remap-alist
