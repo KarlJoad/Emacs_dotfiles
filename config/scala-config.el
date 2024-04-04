@@ -6,7 +6,7 @@
 (require 'lsp-config)
 
 (use-package scala-mode
-  :ensure t
+  :ensure (scala-mode :inherit elpaca-menu-melpa)
   :defer t)
 
 (use-package sbt-mode
