@@ -40,7 +40,10 @@
   (setq mu4e-mu-binary "/run/current-system/sw/bin/mu"))
 
 ;; Allow for the viewing of HTML emails using an XWidgets window/renderer
-(use-package ivy)
+(use-package ivy
+  :straight t
+  :defer t)
+
 (use-package mu4e-views
   :after mu4e
   :bind (:map mu4e-headers-mode-map

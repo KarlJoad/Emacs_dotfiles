@@ -216,8 +216,9 @@ Use with `battery-mode-line-format' variable.")
 ;; major mode that I may be working in right now. By default, it opens a new
 ;; scratch buffer with the same name as the programming language I am currently
 ;; working in.
-(use-package scratch)
-(keymap-global-set "C-c s" #'scratch)
+(use-package scratch
+  :straight t
+  :bind (("C-c s" . #'scratch)))
 
 (keymap-global-set "C-c w" 'whitespace-mode)
 

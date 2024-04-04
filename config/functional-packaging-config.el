@@ -20,8 +20,12 @@
 ;;
 ;;; Code:
 
-(use-package pretty-sha-path :defer t :straight t)
-(global-pretty-sha-path-mode)
+(use-package pretty-sha-path
+  :straight t
+  :defer t
+  :config
+  (global-pretty-sha-path-mode))
+
 ;; Can turn off the pretty-sha-path-mode on a buffer-by-buffer basis by using the
 ;; non-global variant of the command.
 

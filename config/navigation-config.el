@@ -9,7 +9,9 @@
 
 ;; Show information in minibuffer about function/variable and keybinding
 (use-package marginalia
-  :init (marginalia-mode)
+  :straight t
+  :defer nil
+  :config (marginalia-mode)
   :bind (("M-A" . marginalia-cycle)))
 
 (provide 'navigation-config)

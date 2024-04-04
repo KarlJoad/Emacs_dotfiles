@@ -56,7 +56,9 @@
   (add-to-list 'treesit-extra-load-path (getenv "TREE_SITTER_GRAMMAR_PATH")))
 
 ;; Bring paredit-like functionality to every programming language!
-(use-package tree-edit)
+(use-package tree-edit
+  :straight t
+  :defer t)
 
 (provide 'treesit-config)
 ;;; treesit-config.el ends here

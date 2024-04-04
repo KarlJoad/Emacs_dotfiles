@@ -75,8 +75,8 @@
 
 ;; This package minimizes bullets that are used in Org-mode
 (use-package org-bullets
-  :init
-  (add-hook 'org-mode-hook 'org-bullets-mode))
+  :straight t
+  :hook ((org-mode . #'org-bullets-mode)))
 
 (require 'personal-functions)
 (if (karljoad/is-guix-system)

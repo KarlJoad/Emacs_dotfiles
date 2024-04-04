@@ -29,7 +29,10 @@
 (setq user-emacs-directory (expand-file-name "~/.cache/emacs/")
       url-history-file (expand-file-name "url/history" user-emacs-directory))
 ;; Use no-littering to automatically set common paths to the new user-emacs-directory
-(use-package no-littering)
+(use-package no-littering
+  :straight t
+  :defer nil)
+
 ;; Keep customization settings in a temporary file (thanks Ambrevar & Daviwil!)
 (setq custom-file
       (if (boundp 'server-socket-dir)
@@ -48,15 +51,13 @@
 ;;;; Load in my current theme
 (require 'theme-config)
 
-;;;; Load certain packages VERY early, so that ANY packages that depend on it
-;;;; are loaded correctly. This also goes for packages from within Emacs itself,
-;;;; as those are typically outdated with regards to the packages pulled in by
-;;;; straght.el.
-;;;; Load project.el, using straight RIGHT NOW (ASAP), because if any packages
-;;;; depend on it, they use `(require 'project)', then the one shipped with Emacs
-;;;; is used, which is very old and causes problems everywhere.
-(straight-use-package 'project)
-;; (straight-use-package 'dom)
+;; Load certain packages VERY early, so that ANY packages that depend on it are
+;; loaded correctly. Load project.el, using straight RIGHT NOW (ASAP), because
+;; if any packages depend on it, they use `(require 'project)', then the one
+;; shipped with Emacs is used, which is very old and causes problems everywhere.
+(use-package project
+  :straight t
+  :defer nil)
 
 ;;;; Load config to make navigating through Emacs and files easier.
 (require 'navigation-config)
