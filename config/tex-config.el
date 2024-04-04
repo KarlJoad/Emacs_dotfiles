@@ -63,7 +63,17 @@
 (add-to-list 'major-mode-remap-alist '(tex-mode . TeX-mode))
 
 (use-package auctex
-  :ensure t
+  ;; NOTE: You need autoconf, automake, make, and some of TeXLive to build
+  ;; auctex!
+  :ensure (auctex :pre-build (("./autogen.sh")
+  		                        ("./configure"
+  		                         "--without-texmf-dir"
+  		                         "--with-packagelispdir=./"
+  		                         "--with-packagedatadir=./")
+  		                        ("make"))
+                  :build (:not elpaca--compile-info) ;; Make will take care of this step
+                  :files ("*.el" "doc/*.info*" "etc" "images" "latex" "style")
+                  :version (lambda (_) (require 'tex-site) AUCTeX-version))
   :defer t
   :after (reftex bibtex)
   :custom
