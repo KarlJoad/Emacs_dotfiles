@@ -47,6 +47,9 @@ This buries the buffer to the bottom of the buffer list and deletes the window."
   (eglot-autoshutdown t)
   ;; For performance, set this to a low number. When debugging, comment this out.
   ;; Setting to 0 means no messages/events are logged in the EGLOT events buffer.
+  ;; NOTE: In eglot 1.16, this variable was deprecated! If you still want to set
+  ;; the events buffer size to 0, you need the following:
+  ;; (setf (plist-get eglot-events-buffer-config :size) 0)
   (eglot-events-buffer-size 0)
   ;; For performance, set this to ignore. When debugging, comment this out.
   ;; fset-ing to ignore means no jsonrpc event are logged by Emacs.
