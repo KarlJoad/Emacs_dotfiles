@@ -5,7 +5,7 @@
 (require 'lsp-config)
 
 (use-package typescript-mode
-  :straight t
+  :ensure t
   :defer t)
 
 (provide 'typescript-config)

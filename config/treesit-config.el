@@ -57,7 +57,7 @@
 
 ;; Bring paredit-like functionality to every programming language!
 (use-package tree-edit
-  :straight t
+  :ensure t
   :defer t)
 
 (provide 'treesit-config)

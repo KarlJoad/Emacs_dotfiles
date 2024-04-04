@@ -11,7 +11,7 @@
 (setq inferior-lisp-program "sbcl")
 
 (use-package sly
-  :straight t
+  :ensure t
   :defer t)
 
 (provide 'common-lisp-config)

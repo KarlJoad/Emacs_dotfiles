@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package undo-tree
-	:straight t
+	:ensure t
 	:defer t
   :bind (("C-c u v" . #'undo-tree-visualize))
 	:config

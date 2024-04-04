@@ -7,7 +7,7 @@
 ;;; Code:
 
 (use-package markdown-mode
-  :straight t
+  :ensure t
   :defer t)
 
 (provide 'markdown-config)

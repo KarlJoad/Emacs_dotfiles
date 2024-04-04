@@ -4,7 +4,7 @@
 ;;; Code:
 
 (use-package corfu
-  :straight t
+  :ensure t
   :defer nil
   ;; Optional customizations
   :custom
@@ -34,7 +34,7 @@
 ;; which does not work well in the terminal. corfu-terminal replaces the child
 ;; frames with popup/popon, which does work.
 (use-package corfu-terminal
-  :straight t
+  :ensure t
   :defer nil
   :init
   (unless (display-graphic-p)
@@ -42,7 +42,7 @@
 
 ;; Add completion extensions that corfu can use.
 (use-package cape
-  :straight t
+  :ensure t
   :defer nil
   ;; Bind dedicated completion commands
   ;; Alternative prefix keys: C-c p, M-p, M-+, ...
@@ -84,7 +84,7 @@
 (advice-add 'eglot-completion-at-point :around #'cape-wrap-buster)
 
 (use-package vertico
-  :straight t
+  :ensure t
   :defer nil
   :init (vertico-mode)
   ;; Different scroll margin

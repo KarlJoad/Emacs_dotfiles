@@ -21,7 +21,7 @@
 ;;; Code:
 
 (use-package pretty-sha-path
-  :straight t
+  :ensure t
   :defer t
   :config
   (global-pretty-sha-path-mode))

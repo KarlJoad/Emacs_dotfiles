@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package envrc
-  :straight t
+  :ensure t
   :config
   (envrc-global-mode)
   :bind (("C-c e" . #'envrc-command-map)))

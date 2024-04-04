@@ -4,17 +4,17 @@
 
 ;; Major mode for Erlang
 (use-package erlang
-  :straight t
+  :ensure t
   :defer t)
 
 ;; Minor mode to analyze stack traces
 (use-package erlstack-mode
-  :straight t
+  :ensure t
   :defer t)
 
 ;; Project management allowing for REST calls to EDTS backend server
 (use-package edts
-  :straight t
+  :ensure t
   :defer t)
 
 (provide 'erlang-config)

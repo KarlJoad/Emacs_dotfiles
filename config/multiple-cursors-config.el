@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package multiple-cursors
-  :straight t
+  :ensure t
   :bind (;; Place cursor on each line in selected region
          ("C-S-c C-S-C" . #'mc/edit-lines)
          ;; Place cursors based on keywords in buffer

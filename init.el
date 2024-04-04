@@ -30,7 +30,7 @@
       url-history-file (expand-file-name "url/history" user-emacs-directory))
 ;; Use no-littering to automatically set common paths to the new user-emacs-directory
 (use-package no-littering
-  :straight t
+  :ensure t
   :defer nil)
 
 ;; Keep customization settings in a temporary file (thanks Ambrevar & Daviwil!)
@@ -56,7 +56,7 @@
 ;; if any packages depend on it, they use `(require 'project)', then the one
 ;; shipped with Emacs is used, which is very old and causes problems everywhere.
 (use-package project
-  :straight t
+  :ensure t
   :defer nil)
 
 ;;;; Load config to make navigating through Emacs and files easier.

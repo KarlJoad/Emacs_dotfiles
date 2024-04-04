@@ -10,7 +10,7 @@
 ;;; Code:
 
 (use-package yasnippet
-  :straight t
+  :ensure t
   :defer t
   :bind (:map yas-minor-mode-map
          ;; If there was a menu for selecting snippets, provide an escape route
@@ -35,7 +35,7 @@
 
 (use-package yasnippet-snippets
   :after (yasnippet)
-  :straight t
+  :ensure t
   :config (yasnippet-snippets-initialize))
 
 (provide 'yasnippet-config)

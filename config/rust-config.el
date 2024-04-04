@@ -14,7 +14,7 @@
 ;; Fortunately, I will always have rust-analyzer present in any Rust project I
 ;; work on, so I am fine there.
 (use-package rust-mode
-  :straight t
+  :ensure t
   :defer t)
 
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))

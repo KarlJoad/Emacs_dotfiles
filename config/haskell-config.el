@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package haskell-mode
-  :straight t
+  :ensure t
   :defer t
   :hook ((haskell-mode . (lambda ()
                              ;; Display function type signature
@@ -12,7 +12,7 @@
 	                           (turn-on-haskell-indent)))))
 
 (use-package dante
-  :straight t
+  :ensure t
   :defer t
   :after (haskell-mode)
   :commands 'dante-mode

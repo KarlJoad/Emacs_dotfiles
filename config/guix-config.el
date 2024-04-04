@@ -6,7 +6,7 @@
 
 (use-package guix
   :defer t
-  :straight t)
+  :ensure t)
 
 (setq-default guix-state-directory "/var")
 
@@ -16,7 +16,7 @@
 ;;;
 (use-package debbugs
   :defer t
-  :straight t)
+  :ensure t)
 
 (provide 'guix-config)
 ;;; guix-config.el ends here

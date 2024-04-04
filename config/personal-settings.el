@@ -43,7 +43,7 @@
 ;; In line-oriented buffers (mu4e, elfeed), highlights the point's current line
 ;; more heavily.
 (use-package lin
-  :straight t
+  :ensure t
   :defer t
   :config
   (lin-global-mode)
@@ -53,7 +53,7 @@
 ;; Pulse the current line when performing certain actions in Emacs.
 ;; The functions that cause the pulse are in the `pulsar-pulse-functions' list.
 (use-package pulsar
-  :straight t
+  :ensure t
   :config
   (pulsar-global-mode)
   :custom
@@ -76,7 +76,7 @@
 ;; this package to remove them, leaving only the current major-mode
 ;; and a ;-) for the rest of the minor modes.
 (use-package minions
-  :straight t
+  :ensure t
   :config
   (minions-mode 1))
 
@@ -85,7 +85,7 @@
 ;; You can also choose what words should be recognized and what color they should
 ;; be highlighted with my modifying the hl-todo-keyword-faces variable.
 (use-package hl-todo
-  :straight t
+  :ensure t
   :bind (("C-c C-t p" . #'hl-todo-previous)
          ("C-c C-t n" . #'hl-todo-next))
   :config (global-hl-todo-mode))
@@ -217,7 +217,7 @@ Use with `battery-mode-line-format' variable.")
 ;; scratch buffer with the same name as the programming language I am currently
 ;; working in.
 (use-package scratch
-  :straight t
+  :ensure t
   :bind (("C-c s" . #'scratch)))
 
 (keymap-global-set "C-c w" 'whitespace-mode)

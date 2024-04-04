@@ -13,7 +13,7 @@
 
 ;; Make editing sexps easier
 (use-package paredit
-  :straight t
+  :ensure t
   :defer t
   :config
   (paredit-mode))

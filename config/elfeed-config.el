@@ -4,7 +4,7 @@
 
 ;; Pull in the elfeed package
 (use-package elfeed
-  :straight t
+  :ensure t
   :bind (("C-c f" . #'elfeed))
   :custom
   ;; List of all feeds that I should fetch and care about
@@ -24,7 +24,7 @@
 
 ;; Prettify the elfeed buffer, making some things easier to read
 (use-package elfeed-goodies
-  :straight t
+  :ensure t
   :after (elfeed)
   :config
   (elfeed-goodies/setup))

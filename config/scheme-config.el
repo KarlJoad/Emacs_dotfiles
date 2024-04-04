@@ -11,7 +11,7 @@
 ;; Use geiser to make Scheme development nicer
 (use-package geiser
   :defer t
-  :straight t)
+  :ensure t)
 
 (provide 'scheme-config)
 ;;; scheme-config.el ends here

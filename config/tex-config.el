@@ -63,7 +63,7 @@
 (add-to-list 'major-mode-remap-alist '(tex-mode . TeX-mode))
 
 (use-package auctex
-  :straight t
+  :ensure t
   :defer t
   :after (reftex bibtex)
   :custom

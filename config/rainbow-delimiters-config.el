@@ -9,7 +9,7 @@
 
 ;; Color nested parentheses/brackets/braces successively
 (use-package rainbow-delimiters
-  :straight t
+  :ensure t
   :hook ((prog-mode . rainbow-delimiters-mode)))
 
 (provide 'rainbow-delimiters-config)

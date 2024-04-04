@@ -75,7 +75,7 @@
 
 ;; This package minimizes bullets that are used in Org-mode
 (use-package org-bullets
-  :straight t
+  :ensure t
   :hook ((org-mode . #'org-bullets-mode)))
 
 (require 'personal-functions)
@@ -100,7 +100,7 @@
         (setq-local completion-ignore-case t)))
   ;; Otherwise, we must fetch from upstream
   (use-package org-roam
-      :straight t
+      :ensure t
       :defer t
       :custom (org-roam-directory (file-truename "~/OrgRoamNotes/"))
       :bind (("C-c n l" . org-roam-buffer-toggle)

@@ -4,21 +4,21 @@
 
 ;; x86 and amd64 assembly major-mode
 (use-package masm-mode
-  :straight t
+  :ensure t
   :defer t)
 
 (use-package nasm-mode
-  :straight t
+  :ensure t
   :defer t)
 
 ;; MIPS assembly major-mode
 (use-package mips-mode
-  :straight t
+  :ensure t
   :defer t)
 
 ;; RISC-V assembly major-mode
 (use-package riscv-mode
-  :straight t
+  :ensure t
   :defer t)
 
 (provide 'assembly-config)

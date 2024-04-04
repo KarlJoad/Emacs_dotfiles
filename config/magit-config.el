@@ -6,7 +6,7 @@
 ;;; Code:
 
 (use-package magit
-  :straight t
+  :ensure t
   :defer t
   :after (compat)
   :requires compat)

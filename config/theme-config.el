@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package modus-themes ;; BOTH light (vivendi) and dark (operandi)
-	:straight t
+	:ensure t
 	:defer t
   :bind ("C-c T" . #'modus-themes-toggle)
 	:custom

@@ -39,7 +39,7 @@ forward ARG times if negative."
 ;;  ((python-mode . ((apheleia-formatter . (isort black))))))
 
 (use-package apheleia
-  :straight t
+  :ensure t
   :defer t
   ;; :config
   ;; (apheleia-global-mode 1)

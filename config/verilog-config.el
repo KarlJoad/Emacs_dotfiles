@@ -26,7 +26,7 @@
 
 (require 'treesit-config)
 (use-package verilog-ts-mode
-  :straight t
+  :ensure t
   :defer t)
 
 (provide 'verilog-config)

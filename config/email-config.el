@@ -41,7 +41,7 @@
 
 ;; Allow for the viewing of HTML emails using an XWidgets window/renderer
 (use-package ivy
-  :straight t
+  :ensure t
   :defer t)
 
 (use-package mu4e-views

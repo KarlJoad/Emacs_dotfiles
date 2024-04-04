@@ -6,16 +6,16 @@
 (require 'lsp-config)
 
 (use-package scala-mode
-  :straight t
+  :ensure t
   :defer t)
 
 (use-package sbt-mode
-  :straight t
+  :ensure t
   :defer t)
 
 ;; LSP mode for handling scala with LSP
 (use-package lsp-metals
-  :straight t
+  :ensure t
   :defer t
   :after (eglot scala-mode)
   :custom

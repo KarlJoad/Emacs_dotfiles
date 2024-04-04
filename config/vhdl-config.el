@@ -8,7 +8,7 @@
 
 (require 'treesit-config)
 (use-package vhdl-ts-mode
-  :straight t
+  :ensure t
   :defer t)
 
 (provide 'vhdl-config)

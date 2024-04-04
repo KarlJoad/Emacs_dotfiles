@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package kconfig-mode
-  :straight t
+  :ensure t
   :defer t)
 
 (provide 'kconfig-config)
