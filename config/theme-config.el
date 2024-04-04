@@ -2,10 +2,17 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package modus-themes ;; BOTH light (vivendi) and dark (operandi)
-	:ensure t
-	:defer t
-  :bind ("C-c T" . #'modus-themes-toggle)
+(use-package modus-themes
+  :ensure t
+  :bind ("C-c T" . modus-themes-toggle)
+  :hook ((elpaca-after-init . (lambda () (load-theme 'modus-vivendi t))))
+  ;; NOTE: Because elpaca does all its work async, the initial frame would be
+  ;; put onto the monitor before the theme loaded. So we use the elpaca-after-init-hook
+  ;; hook to load the theme once all the async work is done.
+  ;; We could also have gotten away with an (elpaca-wait) call.
+  :config
+  (load-theme 'modus-vivendi t)
+
 	:custom
 	(modus-vivendi-theme-section-headings t)
 	(modus-vivendi-theme-slanted-constructs t)
@@ -14,11 +21,6 @@
   (modus-operandi-theme-slanted-constructs t)
   (modus-operandi-theme-bold-constructs t)
   (modus-operandi-theme-proportional-fonts nil))
-
-(defconst karljoad/default-start-theme 'modus-vivendi
-  "The theme to load by default.")
-
-(load-theme karljoad/default-start-theme t)
 
 (provide 'theme-config)
 ;;; theme-config.el ends here
