@@ -14,7 +14,5 @@
   :straight t
   :defer t)
 
-(paredit-mode)
-
 (provide 'common-lisp-config)
 ;;; common-lisp-config.el ends here

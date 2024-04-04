@@ -13,8 +13,10 @@
 
 ;; Make editing sexps easier
 (use-package paredit
+  :straight t
   :defer t
-  :straight t)
+  :config
+  (paredit-mode))
 
 (provide 'lispy-config)
 ;;; lispy-config.el ends here
