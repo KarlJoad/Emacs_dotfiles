@@ -86,6 +86,9 @@ workspace
 # straight.el sources
 /straight
 
+# elpaca sources
+/elpaca
+
 extras.el
 
 # org-roam DB

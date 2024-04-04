@@ -6,7 +6,7 @@
 ;;; Code:
 ;;; -*- lexical-binding: t -*-
 
-;; Disable package.el from start-up, because using straight.el
+;; Disable package.el from start-up, because using elpaca
 (setq package-enable-at-startup nil)
 
 ;; Increase the amount of heap memory Emacs is allowed to use before GC.
