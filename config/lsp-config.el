@@ -42,6 +42,8 @@ This buries the buffer to the bottom of the buffer list and deletes the window."
          ("C-h >" . #'karljoad/close-eldoc-doc-buffer))
   :hook (((c-mode c++-mode c-ts-mode c++-ts-mode) . eglot-ensure))
   :custom
+  ;; When no buffers are connected to an LSP server, shut down the server and
+  ;; eglot, to lighten the load on Emacs.
   (eglot-autoshutdown t)
   ;; For performance, set this to a low number. When debugging, comment this out.
   ;; Setting to 0 means no messages/events are logged in the EGLOT events buffer.
