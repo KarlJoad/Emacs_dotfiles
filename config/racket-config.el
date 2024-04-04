@@ -12,8 +12,8 @@
 
 (use-package racket-mode
   :ensure `(racket-mode :type git :host github :repo "greghendershott/racket-mode"
-                         :fork (:host github
-                                      :repo "KarlJoad/racket-mode"))
+                        :fork (:host github
+                                     :repo "KarlJoad/racket-mode"))
   :hook ((racket-mode . racket-xp-mode)
          (racket-mode . racket-unicode-input-method-enable)
          (racket-repl-mode . racket-unicode-input-method-enable)
