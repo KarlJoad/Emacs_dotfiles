@@ -131,7 +131,6 @@
 (require 'scheme-config)
 (require 'guile-config)
 (require 'common-lisp-config)
-(require 'stumpwm-config)
 (require 'markdown-config)
 (require 'rust-config)
 (require 'web-mode-config)
