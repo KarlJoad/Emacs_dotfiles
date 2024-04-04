@@ -25,5 +25,25 @@ forward ARG times if negative."
             (local-set-key (kbd "M-f") #'forward-symbol)
             (local-set-key (kbd "M-b") #'backward-symbol)))
 
+;;;
+;;; Code formatting
+
+;; apheleia uses a neat method to ensure that the current buffer visiting a file
+;; is formatted without interrupting your editing flow. Using an RCS patch after
+;; the save completes and applying that, only if your point is not currently
+;; inside the generated patch.
+;;
+;; To enable this on a per-project basis, use the following in the project's
+;; .dir-locals.el:
+;; ((nil . ((eval . (apheleia-mode 1))))
+;;  ((python-mode . ((apheleia-formatter . (isort black))))))
+
+(use-package apheleia
+  :straight t
+  :defer t
+  ;; :config
+  ;; (apheleia-global-mode 1)
+  )
+
 (provide 'prog-mode-config)
 ;;; prog-mode-config.el ends here
