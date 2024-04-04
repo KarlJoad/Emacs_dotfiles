@@ -10,7 +10,7 @@
   :straight t
   :defer t
   ;; Enable Rainbow-mode for any buffer that runs the css-mode-hook
-  :hook ((css-mode . #'rainbow-mode)))
+  :hook ((css-mode . rainbow-mode)))
 
 (provide 'rainbow-mode-config)
 ;;; rainbow-mode-config ends here

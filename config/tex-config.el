@@ -19,11 +19,11 @@
   :defer t
   :after (tex-mode)
   ;; Make sure that reftex gets loaded when AucTeX gets loaded, i.e. when LaTeX file is opened
-  :hook ((LaTeX-mode . #'turn-on-reftex)
-         (latex-mode . #'turn-on-reftex))
+  :hook ((LaTeX-mode . turn-on-reftex)
+         (latex-mode . turn-on-reftex))
   :bind (:map latex-mode-map
               ;; Scan the whole document for new labels/citations
-              ("C-c r" . #'reftex-parse-all))
+              ("C-c r" . reftex-parse-all))
   :custom
   ;; Make RefTeX play nice with AucTeX
   (reftex-plug-into-AUCTeX t)

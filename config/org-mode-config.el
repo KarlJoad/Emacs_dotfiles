@@ -39,7 +39,7 @@
 	 ("C-c l" . 'org-store-link) ;; "C-c l" stores a hyperlink to the cursor's current position in the current Org-mode document
 	 ("C-c c" . 'org-capture) ;; "C-c c" will let me select a template and file the new information
 	 )
-  :hook (((org-mode) . #'karljoad/set-org-mode-prog-langs))
+  :hook ((org-mode . karljoad/set-org-mode-prog-langs))
   :custom
   ;; Use major-mode specific syntax highliting in source blocks while editing
   (org-src-fontify-natively t)

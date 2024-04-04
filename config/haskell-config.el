@@ -5,7 +5,7 @@
 (use-package haskell-mode
   :straight t
   :defer t
-  :hook (((haskell-mode) . (lambda ()
+  :hook ((haskell-mode . (lambda ()
                              ;; Display function type signature
                              (haskell-doc-mode)
                              ;; Smart indentation for Haskell buffers/files
@@ -16,8 +16,8 @@
   :defer t
   :after (haskell-mode)
   :commands 'dante-mode
-  :hook (((haskell-mode) . #'flycheck-mode)
-         ((haskell-mode) . #'dante-mode)))
+  :hook ((haskell-mode . flycheck-mode)
+         (haskell-mode . dante-mode)))
 
 ;; flycheck stuff for Haskell
 (use-package flycheck-haskell
