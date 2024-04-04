@@ -3,8 +3,7 @@
 ;;; Code:
 
 (require 'magit)
-(require 'yasnippet)
-(require 'yasnippet-snippets)
+(require 'yasnippet-config)
 (require 'lispy-config)
 
 ;; scheme-mode comes built into Emacs, so no need to fetch anything for that.
