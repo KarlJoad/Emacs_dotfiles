@@ -132,6 +132,7 @@
 (require 'scheme-config)
 (require 'guile-config)
 (require 'common-lisp-config)
+(require 'racket-config)
 (require 'markdown-config)
 (require 'rust-config)
 (require 'web-mode-config)
