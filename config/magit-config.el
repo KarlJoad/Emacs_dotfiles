@@ -5,6 +5,14 @@
 ;;
 ;;; Code:
 
+;; Use more up-to-date packages for magit
+(use-package seq
+  :ensure t)
+
+(use-package transient
+  :ensure t
+  :defer nil)
+
 (use-package magit
   :ensure t
   :defer t
