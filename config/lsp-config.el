@@ -46,8 +46,17 @@ This buries the buffer to the bottom of the buffer list and deletes the window."
   ;; For performance, set this to a low number. When debugging, comment this out.
   ;; Setting to 0 means no messages/events are logged in the EGLOT events buffer.
   (eglot-events-buffer-size 0)
+  ;; For performance, set this to ignore. When debugging, comment this out.
+  ;; fset-ing to ignore means no jsonrpc event are logged by Emacs.
+  (fset #'jsonrpc--log-event #'ignore)
   ;; XRef look-ups can leave the project Eglot is running a server for
   (eglot-extend-to-xref t)
+  ;; Wait some number of seconds before waiting for the connection to the LSP.
+  ;; With nil, do not wait to connect at all, just try to connect immediately.
+  (eglot-sync-connect nil)
+  ;; Reduce the amount of time required for eglot to time-out LSP server
+  ;; connection attempts.
+  (eglot-connect-timeout 10)
   (eglot-ignored-server-capabilities
    '(;; Disable LSP from providing highlighting, since I use treesitter-based or
      ;; Emacs' built-in regexp-based major modes for font-locking.
