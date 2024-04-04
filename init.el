@@ -125,6 +125,7 @@
   (require 'treesit-config))
 
 ;;;; Major mode configuration and loading
+(require 'prog-mode-config)
 (require 'cc-mode-config) ;; C/C++
 (require 'kconfig-config)
 (require 'scheme-config)
