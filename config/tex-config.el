@@ -55,12 +55,6 @@
 
 ;;; 
 ;;; AucTeX
-;; Force auctex (the strictly superior (La)TeX major-mode) to be used by setting
-;; both the auto-mode-alist and remapping the built-in latex-mode and tex-mode
-;; major modes to the auctex versions.
-(add-to-list 'auto-mode-alist '("\\.tex\\'" . LaTeX-mode))
-(add-to-list 'major-mode-remap-alist '(latex-mode . LaTeX-mode))
-(add-to-list 'major-mode-remap-alist '(tex-mode . TeX-mode))
 
 (use-package auctex
   ;; NOTE: You need autoconf, automake, make, and some of TeXLive to build
@@ -75,7 +69,13 @@
                   :files ("*.el" "doc/*.info*" "etc" "images" "latex" "style")
                   :version (lambda (_) (require 'tex-site) AUCTeX-version))
   :defer t
-  :after (reftex bibtex)
+  :init
+  ;; Force auctex (the strictly superior (La)TeX major-mode) to be used by setting
+  ;; both the auto-mode-alist and remapping the built-in latex-mode and tex-mode
+  ;; major modes to the auctex versions.
+  (add-to-list 'auto-mode-alist '("\\.tex\\'" . LaTeX-mode))
+  (add-to-list 'major-mode-remap-alist '(latex-mode . LaTeX-mode))
+  (add-to-list 'major-mode-remap-alist '(tex-mode . TeX-mode))
   :custom
   (TeX-parse-self t) ;; Parse multifile documents automagically
   (TeX-auto-save t) ;; Enables parsing upon saving the document
