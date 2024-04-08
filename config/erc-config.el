@@ -30,6 +30,7 @@
 
 
 (use-package erc-hl-nicks
+  :ensure t
   :after (erc)
   :config (add-to-list 'erc-modules 'hl-nicks))
 
