@@ -5,13 +5,18 @@
 ;;
 ;;; Code:
 
-;; Make org-babel do stuff with source code blocks in Org-mode But
-;; only after there is an org file loaded up, otherwise, do nothing
-;; These is only done when an org file is first loaded because it is
-;; time-consuming to do this during Emacs startup
-(defun karljoad/set-org-mode-prog-langs ()
-  "Setup settings for Org-mode specifically."
-	(org-babel-do-load-languages
+(use-package org
+  :ensure nil ;; built-in
+  :defer t
+  :bind (;; These keybindings are set without needing an org file, because they should always be available.
+	 ("C-c a" . 'org-agenda) ;; "C-c a" opens the Agenda Buffer to choose where to go
+	 ("C-c l" . 'org-store-link) ;; "C-c l" stores a hyperlink to the cursor's current position in the current Org-mode document
+	 ("C-c c" . 'org-capture) ;; "C-c c" will let me select a template and file the new information
+	 )
+  :config
+  ;; Only load org-babel languages after loading org-mode, which we do lazily.
+  ;; This is done lazily because it is time-consuming to do this during startup.
+  (org-babel-do-load-languages
 	 'org-babel-load-languages
 	 '((C . t) ;; Works on C, C++, and D source blocks
 	   (emacs-lisp . t) ;; For ELisp blocks
@@ -29,17 +34,8 @@
 	   (sql . t) ;; SQL blocks
 	   (sqlite . t) ;; SQLite blocks
 	   ))
-  (visual-line-mode 1))
-
-(use-package org
-  :ensure nil ;; built-in
-  :defer t
-  :bind (;; These keybindings are set without needing an org file, because they should always be available.
-	 ("C-c a" . 'org-agenda) ;; "C-c a" opens the Agenda Buffer to choose where to go
-	 ("C-c l" . 'org-store-link) ;; "C-c l" stores a hyperlink to the cursor's current position in the current Org-mode document
-	 ("C-c c" . 'org-capture) ;; "C-c c" will let me select a template and file the new information
-	 )
-  :hook ((org-mode . karljoad/set-org-mode-prog-langs))
+  ;; Enable line-wrapping in org-mode.
+  (visual-line-mode 1)
   :custom
   ;; Use major-mode specific syntax highliting in source blocks while editing
   (org-src-fontify-natively t)
