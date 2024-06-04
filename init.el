@@ -137,6 +137,8 @@
 (require 'assembly-config)
 (require 'erlang-config)
 (require 'typescript-config)
+(require 'vhdl-config)
+(require 'verilog-config)
 
 (when (equal system-type 'gnu/linux)
   (require 'nix-config)
