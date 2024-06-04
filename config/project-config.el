@@ -25,7 +25,9 @@
   :requires (xref)
   :after (magit)
   :custom
-  (add-to-list project-switch-commands (list #'magit-status "Magit")))
+  ;; Add magit-status as a possible project.el keybinding
+  (add-to-list project-switch-commands (list #'magit-status "Magit"))
+  (define-key project-prefix-map "m" #'magit-status))
 
 (defun project-whitespace-cleanup-project-files ()
   "Run `whitespace-cleanup' on all project files.
