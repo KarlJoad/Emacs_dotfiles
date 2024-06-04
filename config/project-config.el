@@ -13,9 +13,16 @@
 
 (require 'magit-config)
 
+(use-package xref
+  :ensure t
+  :defer nil)
+
+;; We fetch the most recent version of project.el rather than use the one built
+;; into Emacs, for no particular reason.
 (use-package project
-  :ensure nil ;; built-in
-  :defer t
+  :ensure t
+  :defer nil
+  :requires (xref)
   :after (magit)
   :custom
   (add-to-list project-switch-commands (list #'magit-status "Magit")))
