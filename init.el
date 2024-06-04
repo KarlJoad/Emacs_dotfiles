@@ -1,5 +1,5 @@
 ;;; init.el --- Karl's .emacs Init File -*- lexical-binding: t -*-
-					;-*-Emacs-Lisp-*-
+                                        ;-*-Emacs-Lisp-*-
 ;;; Commentary:
 ;;
 ;; Karl's Emacs init file, in all of it's weird glory
@@ -10,13 +10,14 @@
 (defvar user-emacs-config-directory (concat user-emacs-directory "config/")
   "Variable for this user's configuration directory.")
 
-(add-to-list 'load-path (expand-file-name "config/" user-emacs-directory)) ;; user-emacs-directory + "config/" to put the config directory in the load-path
+;; user-emacs-directory + "config/" to put the config directory in the load-path
+(add-to-list 'load-path (expand-file-name "config/" user-emacs-directory))
 
 ;; Start a server version of Emacs
 ;; First we ensure that the server.el(c) file is loaded with require
 (require 'server)
 ;; Then we check if the function server-running-p is bound to a function
-;;  which means that it is available for us to use.
+;; which means that it is available for us to use.
 (add-hook 'after-init-hook
           (lambda ()
             (unless (and (fboundp 'server-running-p))
@@ -28,7 +29,8 @@
 ;; Change the user-emacs-directory to keep unwanted things out of ~/.emacs.d
 (setq user-emacs-directory (expand-file-name "~/.cache/emacs/")
       url-history-file (expand-file-name "url/history" user-emacs-directory))
-;; Use no-littering to automatically set common paths to the new user-emacs-directory
+;; Use no-littering to automatically set common paths to the new
+;; user-emacs-directory
 (use-package no-littering
   :ensure t
   :defer nil)
@@ -37,7 +39,8 @@
 (setq custom-file
       (if (boundp 'server-socket-dir)
           (expand-file-name "custom.el" server-socket-dir)
-        (expand-file-name (format "emacs-custom-%s.el" (user-uid)) temporary-file-directory)))
+        (expand-file-name (format "emacs-custom-%s.el" (user-uid))
+                          temporary-file-directory)))
 (load custom-file t)
 
 ;; Set up: my personal info, my personal settings, and personal functions
@@ -76,7 +79,6 @@
 (when (karljoad/is-guix-system)
   (require 'vterm-config))
 
-;;;; Loading Org early is best for straight.el
 (require 'org-mode-config) ;; org-mode configuration
 ;; Org-mode MUST be loaded before my email config, because mu4e has a dependency
 ;; on org-mode.
@@ -160,3 +162,4 @@
 (run-with-idle-timer 15 t #'garbage-collect)
 
 ;;; init.el ends here
+(put 'narrow-to-region 'disabled nil)
