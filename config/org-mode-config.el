@@ -74,46 +74,33 @@
   :ensure t
   :hook ((org-mode . org-bullets-mode)))
 
-(require 'personal-functions)
-(if (karljoad/is-guix-system)
-    ;; When using Guix, I have org-roam installed because it needs compilation
-    (use-package org-roam
-      :ensure nil ;; built-in
-      :defer t
-      :custom (org-roam-directory (file-truename "~/OrgRoamNotes/"))
-      :bind (("C-c n l" . org-roam-buffer-toggle)
-             ("C-c n f" . org-roam-node-find)
-             ("C-c n g" . org-roam-graph)
-             ("C-c n i" . org-roam-node-insert)
-             ("C-c n c" . org-roam-capture)
-             ;; Dailies
-             ("C-c n j" . org-roam-dailies-capture-today)
-             ("M-," . org-mark-ring-goto))
-      :config
-      (progn
-        (org-roam-db-autosync-mode)
-        (org-roam-setup)
-        (setq-local completion-ignore-case t)))
-  ;; Otherwise, we must fetch from upstream
-  (use-package org-roam
-      :ensure t
-      :defer t
-      :custom (org-roam-directory (file-truename "~/OrgRoamNotes/"))
-      :bind (("C-c n l" . org-roam-buffer-toggle)
-             ("C-c n f" . org-roam-node-find)
-             ("C-c n g" . org-roam-graph)
-             ("C-c n i" . org-roam-node-insert)
-             ("C-c n c" . org-roam-capture)
-             ;; Dailies
-             ("C-c n j" . org-roam-dailies-capture-today)
-             ("M-," . org-mark-ring-goto))
-      :config
-      (progn
-        (org-roam-db-autosync-mode)
-        (org-roam-setup)
-        (setq-local completion-ignore-case t))))
+;; emacsql-sqlite-builtin is a faster alternative than the separately-compiled
+;; sqlite binary that org-roam used to use. This also means that we do not need
+;; to compile emacsqlite, so no compiler, and thus, no need to have Guix build
+;; it for us.
+(use-package emacsql-sqlite-builtin
+  :ensure t
+  :defer t)
 
-(setq org-roam-v2-ack t)
+(use-package org-roam
+  :ensure t
+  :defer t
+  :custom (org-roam-directory (file-truename "~/OrgRoamNotes/"))
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n g" . org-roam-graph)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n c" . org-roam-capture)
+         ;; Dailies
+         ("C-c n j" . org-roam-dailies-capture-today)
+         ("M-," . org-mark-ring-goto))
+  :config
+  (progn
+    (org-roam-db-autosync-mode)
+    (org-roam-setup)
+    (setq-local completion-ignore-case t))
+  :custom
+  (org-roam-v2-ack t))
 
 (provide 'org-mode-config)
 ;;; org-mode-config.el ends here

@@ -12,4 +12,5 @@
  (list autoconf automake
        coreutils moreutils
        bash
-       gnu-make))
+       gnu-make
+       gcc-toolchain))
