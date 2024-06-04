@@ -55,9 +55,9 @@
 ;; loaded correctly. Load project.el, using straight RIGHT NOW (ASAP), because
 ;; if any packages depend on it, they use `(require 'project)', then the one
 ;; shipped with Emacs is used, which is very old and causes problems everywhere.
-(use-package project
-  :ensure t
-  :defer nil)
+;; For interaction with projects, we use project.el
+;; Project commands and mannagement
+(require 'project-config)
 
 ;;;; Load config to make navigating through Emacs and files easier.
 (require 'navigation-config)
@@ -108,10 +108,6 @@
 
 ;;;; Configuration for TeX and all of TeX's variations/extensions
 (require 'tex-config)
-
-;;;; For interaction with projects, we use project.el
-;;;; Project commands and mannagement
-(require 'project-config)
 
 ;;;; LSP, for interacting with programming language servers
 (require 'lsp-config)
