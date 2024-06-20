@@ -15,12 +15,10 @@
 ;; work on, so I am fine there.
 (use-package rust-mode
   :ensure t
-  :defer t)
-
-(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
-(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode))
-
-(add-hook 'rust-mode-hook #'eglot-ensure)
+  :defer t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+  (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode)))
 
 (provide 'rust-config)
 ;;; rust-config.el ends here

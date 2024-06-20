@@ -141,6 +141,7 @@
 (require 'typescript-config)
 (require 'vhdl-config)
 (require 'verilog-config)
+(require 'rust-config)
 
 (when (equal system-type 'gnu/linux)
   (require 'nix-config)
