@@ -62,6 +62,9 @@
 ;; Project commands and mannagement
 (require 'project-config)
 
+;; Load in Magit options
+(require 'magit-config)
+
 ;;;; Load config to make navigating through Emacs and files easier.
 (require 'navigation-config)
 
@@ -98,8 +101,6 @@
 ;;;; Multiple Cursors
 (require 'multiple-cursors-config)
 
-;;;; Load in Magit options
-(require 'magit-config)
 (require 'ediff-config)
 
 ;;;; flycheck for spell/syntax checking
