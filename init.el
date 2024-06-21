@@ -64,6 +64,7 @@
 
 ;; Load in Magit options
 (require 'magit-config)
+(elpaca-wait)
 
 ;;;; Load config to make navigating through Emacs and files easier.
 (require 'navigation-config)
