@@ -93,6 +93,7 @@
          ("C-c n c" . org-roam-capture)
          ;; Dailies
          ("C-c n j" . org-roam-dailies-capture-today)
+         :map org-mode-map
          ("M-," . org-mark-ring-goto))
   :config
   (progn
