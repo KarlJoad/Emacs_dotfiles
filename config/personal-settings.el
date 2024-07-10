@@ -274,9 +274,12 @@ currently running on.")
 
 
 ;;; Searching
-(setq isearch-lazy-count t)
-(setq isearch-count-prefix-format "(%s/%s) ")
-(setq isearch-count-prefix-format nil)
+(use-package ispell
+  :ensure nil ; Use built-in
+  :custom
+  (isearch-lazy-count t)
+  (isearch-count-prefix-format "(%s/%s) ")
+  (isearch-count-prefix-format nil))
 
 
 ;;; Window navigation
