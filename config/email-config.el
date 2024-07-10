@@ -141,17 +141,6 @@ Illinois Institute of Technology
 
 Contact:
 khallsby@hawk.iit.edu")))
-	,(make-mu4e-context
-	  :name "serveradmin"
-	  :match-func (lambda (msg)
-                        (when msg
-                          (string-prefix-p "/ServerAdmin" (mu4e-message-field msg :maildir))))
-          :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
-		  (user-mail-address . "serveradmin@triangleiit.org")
-                  (mu4e-trash-folder . "/ServerAdmin/Trash")
-                  (mu4e-refile-folder . "/ServerAdmin/Refile")
-                  (mu4e-sent-folder . "/ServerAdmin/Sent")
-                  (mu4e-drafts-folder . "/ServerAdmin/Drafts")))
   ,(make-mu4e-context
           :name "nu"
           :match-func (lambda (msg)
