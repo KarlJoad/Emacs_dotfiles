@@ -265,6 +265,13 @@ currently running on.")
 ;; Storing the data outright mitigates this problem.
 (setq bookmark-save-flag 1)
 
+;; If you are using the wonderful `consult' package, set up the
+;; register preview facility with its more informative presentation:
+(use-package consult
+  :ensure t
+  :custom
+  (register-preview-function #'consult-register-format))
+
 
 ;;; Searching
 (setq isearch-lazy-count t)
