@@ -269,6 +269,7 @@ currently running on.")
 ;; register preview facility with its more informative presentation:
 (use-package consult
   :ensure t
+  :defer t
   :custom
   (register-preview-function #'consult-register-format))
 
