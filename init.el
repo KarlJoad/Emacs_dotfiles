@@ -113,6 +113,9 @@
 ;;;; Configuration for TeX and all of TeX's variations/extensions
 (require 'tex-config)
 
+;; gnuplot, for command-driven and interactive command-line plotting
+(require 'gnuplot-config)
+
 ;;;; LSP, for interacting with programming language servers
 (require 'lsp-config)
 
