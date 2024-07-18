@@ -25,6 +25,25 @@
                      (setq-local treesit-font-lock-level 3)
                      (treesit-font-lock-recompute-features))))
 
+;; TODO: The real way to handle changing these treesit-font-lock variables would
+;; be to create a minor-mode which can be attached to a scala-ts-mode and alter
+;; the variables. We could even go so far as do some regex on the file to
+;; determine if this Scala file _does_ contain any Chisel code.
+;; (require 'treesit)
+;; (define-minor-mode chisel-mode
+;;   "Minor mode intended for Chisel files written in Scala."
+;;   :global nil ; buffer-local minor-mode
+;;   :init-value nil
+;;   :lighter " Chisel"
+;;   (when (treesit-available-p)
+;;     (setq-local treesit-font-lock-feature-list
+;;                 '((comment doc-comment definition)
+;;                   (keyword type)
+;;                   (variable function import literal)
+;;                   (operator interpolation extra)))
+;;     (setq-local treesit-font-lock-level 3)
+;;     (treesit-font-lock-recompute-features)))
+
 (use-package sbt-mode
   :ensure t
   :defer t)
