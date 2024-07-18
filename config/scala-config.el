@@ -12,18 +12,18 @@
 (use-package scala-ts-mode
   :ensure t
   :defer t
-  :config
-  ;; Tinkering with making Scala literals, functions, and vars font-lock the
-  ;; same way as scala-mode. Involves tinkering with tree-sitter's
-  ;; font-lock-feature-list.
-  (progn
-    (setq treesit-font-lock-feature-list
-          '((comment doc-comment definition)
-            (keyword type)
-            (variable function import literal)
-            (operator interpolation extra)))
-    (setq treesit-font-lock-level 3)
-    (treesit-font-lock-recompute-features)))
+  ;; Using a hook is a work-around for setting these treesit variables AFTER the
+  ;; major-mode is loaded. :config is run after the FEATURE is available, NOT
+  ;; after the major-mode is loaded and ready.
+  :hook
+  (scala-ts-mode . (lambda ()
+                     (setq-local treesit-font-lock-feature-list
+                                   '((comment doc-comment definition)
+                                     (keyword type)
+                                     (variable function import literal)
+                                     (operator interpolation extra)))
+                     (setq-local treesit-font-lock-level 3)
+                     (treesit-font-lock-recompute-features))))
 
 (use-package sbt-mode
   :ensure t
