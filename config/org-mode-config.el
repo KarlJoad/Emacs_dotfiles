@@ -36,6 +36,19 @@
 	   ))
   ;; Enable line-wrapping in org-mode.
   (visual-line-mode 1)
+
+  ;; Advise org-agenda-goto-today to behave how I prefer
+  ;; NOTE: The syntax is:
+  ;; (define-advice fn-to-advise (WHERE (args ...) advice-name)
+  ;;   "Documentation String"
+  ;;   body body1 ...)
+  (define-advice org-agenda-goto-today (:before () org-agenda-refresh-before-goto-today)
+    "Refresh all Org files that build the agenda before jumping to today."
+    (message "Refreshing all Org-agenda files")
+    (org-agenda-redo-all))
+  (define-advice org-agenda-goto-today (:after () org-recenter-today-frame-top)
+    "Recenter today to the top of the buffer/frame in org-mode's agenda."
+    (recenter-top-bottom 'top))
   :custom
   ;; Use major-mode specific syntax highliting in source blocks while editing
   (org-src-fontify-natively t)
@@ -60,14 +73,6 @@
   (org-agenda-include-diary t)
   ;; In the calendar to select days, highlight the ones that are American holidays.
   (calendar-mark-holidays-flag t))
-
-(defadvice org-agenda-goto-today (before org-agenda-refresh-before-goto-today ())
-  "Refresh all Org files that build the agenda before jumping to today."
-  (org-agenda-redo-all))
-
-(defadvice org-agenda-goto-today (after org-recenter-today-frame-top ())
-  "Recenter today to the top of the buffer/frame in org-mode's agenda."
-  (recenter-top-bottom 'top))
 
 ;; This package minimizes bullets that are used in Org-mode
 (use-package org-bullets
