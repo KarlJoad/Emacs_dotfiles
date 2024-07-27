@@ -21,7 +21,8 @@
                   ("https://rss.acm.org/technews/TechNews.xml" ACM research news)
                   ("https://wingolog.org/feed/atom" guile compilers blog)
                   ("https://karthinks.com/index.xml" emacs blog)
-                  ("https://nickw.io/api/rss.xml" compilers systems blog))))
+                  ("https://nickw.io/api/rss.xml" compilers systems blog)
+                  ("https://www.cs.cornell.edu/~asampson/blog.xml" systems languages research blog))))
 
 ;; Prettify the elfeed buffer, making some things easier to read
 (use-package elfeed-goodies
