@@ -86,5 +86,16 @@ if it is modified!"
   (interactive)
   (message "%d GC Events\n%0.2f Seconds spent GC-ing" gcs-done gc-elapsed))
 
+;; TODO: Allow universal argument (C-u) to customize the format and allow the
+;; desired location to be set (location other than point).
+(defun karljoad/insert-today-date ()
+  "Insert todays date in ISO (YYYY-MM-DD) format at point."
+  (interactive)
+  (require 'calendar)
+  ;; Use a let-binding here so that the user's locale-based preference is not
+  ;; overridden by inserting today's date in ISO format by this function.
+  (let ((calendar-date-display-form calendar-iso-date-display-form))
+    (insert (calendar-date-string (calendar-current-date) nil 't))))
+
 (provide 'personal-functions)
 ;;; personal-functions.el ends here
