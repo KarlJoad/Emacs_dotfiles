@@ -24,7 +24,8 @@
                   ("https://nickw.io/api/rss.xml" compilers systems blog)
                   ("https://www.cs.cornell.edu/~asampson/blog.xml" systems languages research blog)
                   ("https://spritely.institute/feed.xml" systems guile guix blog)
-                  ("https://fasterthanli.me/index.xml" systems blog))))
+                  ("https://fasterthanli.me/index.xml" systems blog)
+                  ("https://atillahallsby.com/feed/" blog rhetoric research))))
 
 ;; Prettify the elfeed buffer, making some things easier to read
 (use-package elfeed-goodies
