@@ -90,9 +90,11 @@
 (use-package org-roam
   :ensure t
   :defer t
+  :after cl-lib
   :custom (org-roam-directory (file-truename "~/OrgRoamNotes/"))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
+         ("C-c n t" . karljoad/org-roam-node-find-by-tag)
          ("C-c n g" . org-roam-graph)
          ("C-c n i" . org-roam-node-insert)
          ("C-c n c" . org-roam-capture)
@@ -100,6 +102,31 @@
          ("C-c n j" . org-roam-dailies-capture-today)
          :map org-mode-map
          ("M-," . org-mark-ring-goto))
+  :init
+  (require 'cl-lib)
+  ;; TODO: Get list of possible completions from org-roam database, so the user
+  ;; has an easier time selecting tags.
+  (defun karljoad/org-roam-node-find-by-tag (tag)
+    "Find and open an org-roam node based on the specified TAG."
+    (interactive "sEnter Tag: ")
+    (org-roam-node-find nil nil
+                        (lambda (node) (karljoad/org-roam-node-has-tag node tag))
+                        ;; PRED below gets used as a sorting function in the
+                        ;; completion.
+                        nil))
+  (defun karljoad/org-roam-node-has-tag (node tag)
+    "Filter function to check if the given NODE has the specified TAG."
+    ;; Set operations are required because even though we can enter tags with
+    ;; spaces through the minibuffer, org-roam v2 only uses org-mode's notion of
+    ;; tags, which is controlled by the org-tag-re regexp. Notably, this means
+    ;; that spaces are not allowed in tags. So if I want to filter by tags, and I
+    ;; enter a space into the tag filter function, we should split it up so that
+    ;; it can kind of match what org-tag-re expectes, and therefore what org-roam
+    ;; actually uses and stores.
+    (consp
+     (cl-intersection (string-split tag)
+                      (org-roam-node-tags node)
+                      :test #'equal)))
   :config
   (progn
     (org-roam-db-autosync-mode)
