@@ -4,6 +4,7 @@
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
+  :ensure nil ; Built-in
   :init
   (savehist-mode))
 
