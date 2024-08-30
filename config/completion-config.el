@@ -33,8 +33,12 @@
 ;; corfu uses child frames (smaller frames inside the main frame view-port),
 ;; which does not work well in the terminal. corfu-terminal replaces the child
 ;; frames with popup/popon, which does work.
+(use-package popon
+  :ensure (:host codeberg :repo "akib/emacs-popon")
+  :defer t)
+
 (use-package corfu-terminal
-  :ensure t
+  :ensure (:host codeberg :repo "akib/emacs-corfu-terminal")
   :defer nil
   :init
   (unless (display-graphic-p)
