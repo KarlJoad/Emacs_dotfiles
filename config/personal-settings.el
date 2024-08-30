@@ -85,7 +85,7 @@
 ;; You can also choose what words should be recognized and what color they should
 ;; be highlighted with my modifying the hl-todo-keyword-faces variable.
 (use-package hl-todo
-  :ensure t
+  :ensure (:depth nil)
   :bind (("C-c C-t p" . #'hl-todo-previous)
          ("C-c C-t n" . #'hl-todo-next))
   :config (global-hl-todo-mode))
