@@ -79,6 +79,11 @@
   :ensure t
   :hook ((org-mode . org-bullets-mode)))
 
+;; Make sure we update Emacs' built-in emacsql
+(use-package emacsql
+  :ensure t
+  :defer t)
+
 ;; emacsql-sqlite-builtin is a faster alternative than the separately-compiled
 ;; sqlite binary that org-roam used to use. This also means that we do not need
 ;; to compile emacsqlite, so no compiler, and thus, no need to have Guix build
