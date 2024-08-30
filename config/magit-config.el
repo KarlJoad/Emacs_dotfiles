@@ -9,6 +9,11 @@
 (use-package seq
   :ensure t)
 
+;; To make magit work, we need the compat package too
+(use-package compat
+  :ensure t
+  :defer t)
+
 (use-package transient
   :ensure t
   :defer nil)
@@ -28,11 +33,6 @@
   (magit-no-confirm '(stage-all-changes unstage-all-changes))
   (magit-clone-default-directory "~/Repos/")
   (magit-auto-revert-mode t))
-
-;; To make magit work, we need the compat package too
-(use-package compat
-  :ensure t
-  :defer t)
 
 (provide 'magit-config)
 ;;; magit-config.el ends here
