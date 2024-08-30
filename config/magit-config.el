@@ -34,5 +34,18 @@
   (magit-clone-default-directory "~/Repos/")
   (magit-auto-revert-mode t))
 
+;; Display TODO/FIXME/other tagged items in the repository in the magit-status
+;; buffer.
+(use-package magit-todos
+  :ensure t
+  :demand t ; Use :demand, because we still autoload magit
+  :after magit
+  :custom
+  (magit-todos-keywords-list (mapcar #'car hl-todo-keyword-faces))
+  (magit-todos-auto-group-items 50)
+  (magit-todos-exclude-globs '(".git/"))
+  :config
+  (magit-todos-mode))
+
 (provide 'magit-config)
 ;;; magit-config.el ends here
