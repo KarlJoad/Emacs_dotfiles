@@ -25,6 +25,7 @@
    ;; With `git blame`, we can find out the commits that changed certain lines and/or regions
    ("C-c b" . #'magit-blame))
   :custom
+  (magit-no-confirm '(stage-all-changes unstage-all-changes))
   (magit-clone-default-directory "~/Repos/")
   (magit-auto-revert-mode t))
 
