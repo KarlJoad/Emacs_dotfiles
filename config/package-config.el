@@ -44,7 +44,7 @@
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(package-refresh-contents nil) ;; refresh package repositories, synchronously
+(package-refresh-contents t)
 
 ;; Install use-package support
 (elpaca elpaca-use-package
