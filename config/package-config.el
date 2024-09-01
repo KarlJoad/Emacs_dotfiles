@@ -57,7 +57,7 @@
       use-package-always-defer 't)
 
 ;; Block until current queue processed.
-(elpaca-wait);;; Ensure packages are always new and always loaded
+(elpaca-wait)
 
 
 ;;; Emacs 29.1 added a the ability for Emacs' built-in package.el to upgrade
