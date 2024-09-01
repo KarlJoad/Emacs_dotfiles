@@ -40,7 +40,12 @@ This buries the buffer to the bottom of the buffer list and deletes the window."
          ;; the buffer, but then not switch to it, just leaving it open to stare at.
          ("C-c h ?" . #'eldoc)
          ("C-h >" . #'karljoad/close-eldoc-doc-buffer))
-  :hook (((c-mode c++-mode c-ts-mode c++-ts-mode rust-mode rust-ts-mode) . eglot-ensure))
+  :hook (((c-mode c++-mode c-ts-mode c++-ts-mode rust-mode rust-ts-mode scala-mode scala-ts-mode) . eglot-ensure))
+  :config
+  (add-to-list
+   'eglot-server-programs
+   `((scala-ts-mode scala-mode) . ,(eglot-alternatives
+                                    '("metals" "metals-emacs"))))
   :custom
   ;; When no buffers are connected to an LSP server, shut down the server and
   ;; eglot, to lighten the load on Emacs.
