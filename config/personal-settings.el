@@ -297,5 +297,18 @@ currently running on.")
 (keymap-global-set "C-c C-p" #'windmove-up)
 (keymap-global-set "C-c C-f" #'windmove-right)
 
+
+;;;
+;;; EditorConfig provides a way for projects to define coding styles for all
+;;; editors in a uniform way that is easily checked into version control
+;;; systems. Think of this like a cross-editor/IDE version of .dir-locals.el.
+;;;
+
+(use-package editorconfig
+  :ensure t
+  :defer t
+  :config
+  (editorconfig-mode 1))
+
 (provide 'personal-settings)
 ;;; personal-settings.el ends here
