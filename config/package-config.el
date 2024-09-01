@@ -51,6 +51,11 @@
   ;; Enable use-package :ensure support for Elpaca.
   (elpaca-use-package-mode))
 
+;; Automatically use :ensure and :defer on every package, unless the package
+;; SPECIFICALLY overrides this behavior by specifying :ensure/:defer itself.
+(setq use-package-always-ensure 't
+      use-package-always-defer 't)
+
 ;; Block until current queue processed.
 (elpaca-wait);;; Ensure packages are always new and always loaded
 
