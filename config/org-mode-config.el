@@ -109,16 +109,6 @@
          ("M-," . org-mark-ring-goto))
   :init
   (require 'cl-lib)
-  ;; TODO: Get list of possible completions from org-roam database, so the user
-  ;; has an easier time selecting tags.
-  (defun karljoad/org-roam-node-find-by-tag (tag)
-    "Find and open an org-roam node based on the specified TAG."
-    (interactive "sEnter Tag: ")
-    (org-roam-node-find nil nil
-                        (lambda (node) (karljoad/org-roam-node-has-tag node tag))
-                        ;; PRED below gets used as a sorting function in the
-                        ;; completion.
-                        nil))
   (defun karljoad/org-roam-node-has-tag (node tag)
     "Filter function to check if the given NODE has the specified TAG."
     ;; Set operations are required because even though we can enter tags with
@@ -133,6 +123,16 @@
                       (org-roam-node-tags node)
                       :test (lambda (s1 s2) (or (string-equal-ignore-case s1 s2)
                                                 (< (string-distance s1 s2) 5))))))
+  ;; TODO: Get list of possible completions from org-roam database, so the user
+  ;; has an easier time selecting tags.
+  (defun karljoad/org-roam-node-find-by-tag (tag)
+    "Find and open an org-roam node based on the specified TAG."
+    (interactive "sEnter Tag: ")
+    (org-roam-node-find nil nil
+                        (lambda (node) (karljoad/org-roam-node-has-tag node tag))
+                        ;; PRED below gets used as a sorting function in the
+                        ;; completion.
+                        nil))
   :config
   (progn
     (org-roam-db-autosync-mode)
