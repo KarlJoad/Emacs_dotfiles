@@ -77,6 +77,7 @@
 ;; and a ;-) for the rest of the minor modes.
 (use-package minions
   :ensure t
+  :demand t
   :config
   (minions-mode 1))
 
@@ -86,6 +87,7 @@
 ;; be highlighted with my modifying the hl-todo-keyword-faces variable.
 (use-package hl-todo
   :ensure (:depth nil)
+  :demand t
   :bind (("C-c C-t p" . #'hl-todo-previous)
          ("C-c C-t n" . #'hl-todo-next))
   :config (global-hl-todo-mode))

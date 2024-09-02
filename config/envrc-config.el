@@ -4,6 +4,7 @@
 
 (use-package envrc
   :ensure t
+  :demand t
   :config
   (envrc-global-mode)
   :bind (("C-c e" . #'envrc-command-map)))
