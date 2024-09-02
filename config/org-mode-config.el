@@ -109,6 +109,8 @@
          ("M-," . org-mark-ring-goto))
   :init
   (require 'cl-lib)
+  (defvar karljoad/org-roam--node-tag-string-distance 5
+    "The Levenshtein distance to use when matching against `#:filetag's.")
   (defun karljoad/org-roam-node-has-tag (node tag)
     "Filter function to check if the given NODE has the specified TAG."
     ;; Set operations are required because even though we can enter tags with
@@ -119,10 +121,12 @@
     ;; it can kind of match what org-tag-re expectes, and therefore what org-roam
     ;; actually uses and stores.
     (consp
-     (cl-intersection (string-split tag)
-                      (org-roam-node-tags node)
-                      :test (lambda (s1 s2) (or (string-equal-ignore-case s1 s2)
-                                                (< (string-distance s1 s2) 5))))))
+     (cl-intersection
+      (string-split tag)
+      (org-roam-node-tags node)
+      :test (lambda (s1 s2) (or (string-equal-ignore-case s1 s2)
+                                (< (string-distance s1 s2)
+                                   karljoad/org-roam--node-tag-string-distance))))))
   ;; TODO: Get list of possible completions from org-roam database, so the user
   ;; has an easier time selecting tags.
   (defun karljoad/org-roam-node-find-by-tag (tag)
