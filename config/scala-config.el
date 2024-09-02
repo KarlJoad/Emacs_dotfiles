@@ -25,7 +25,8 @@
   (setq sbt:program-options '("-Dsbt.supershell=false")))
 
 (use-package scala-ts-mode
-  :ensure t
+  :ensure (:host github :repo "KarlJoad/scala-ts-mode"
+           :branch "fix-comments-syntax-table")
   :defer t
   :interpreter ("scala" . scala-ts-mode))
 
