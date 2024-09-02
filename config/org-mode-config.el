@@ -131,7 +131,8 @@
     (consp
      (cl-intersection (string-split tag)
                       (org-roam-node-tags node)
-                      :test #'equal)))
+                      :test (lambda (s1 s2) (or (string-equal-ignore-case s1 s2)
+                                                (< (string-distance s1 s2) 5))))))
   :config
   (progn
     (org-roam-db-autosync-mode)
