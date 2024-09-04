@@ -25,7 +25,12 @@
                   ("https://www.cs.cornell.edu/~asampson/blog.xml" systems languages research blog)
                   ("https://spritely.institute/feed.xml" systems guile guix blog)
                   ("https://fasterthanli.me/index.xml" systems blog)
-                  ("https://atillahallsby.com/feed/" blog rhetoric research))))
+                  ("https://atillahallsby.com/feed/" blog rhetoric research)))
+  ;; NOTE: Make elfeed use Emacs' built-in url-retrieve function rather than cURL.
+  ;; This is significantly faster, but only works on Emacsen running on Linux
+  ;; and Emacsen that are compiled with GNUTLS support
+  ;; (see system-configuration-features).
+  (elfeed-use-curl 'nil))
 
 ;; Prettify the elfeed buffer, making some things easier to read
 (use-package elfeed-goodies
