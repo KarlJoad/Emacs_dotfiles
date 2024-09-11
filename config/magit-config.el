@@ -5,6 +5,8 @@
 ;;
 ;;; Code:
 
+(require 'pcase)
+
 ;; Use more up-to-date packages for magit
 (use-package seq
   :ensure t)
@@ -42,7 +44,10 @@
   :demand t ; Use :demand, because we still autoload magit
   :after magit
   :custom
-  (magit-todos-keywords-list (mapcar #'car hl-todo-keyword-faces))
+  (magit-todos-keywords-list
+   (mapcar (pcase-lambda (`(,keyword . ,rgb-face))
+             keyword)
+           hl-todo-keyword-faces))
   (magit-todos-auto-group-items 50)
   (magit-todos-exclude-globs '(".git/"))
   :config
