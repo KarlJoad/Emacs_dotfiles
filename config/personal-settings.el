@@ -116,7 +116,7 @@
 
 ;; Disable some minor disturbances that I find quite annoying.
 (setq visible-bell nil) ;; Disable the visual bell
-(setq ring-bell-function 'ignore) ;; Don't make a ding when failing command
+(setq ring-bell-function #'ignore) ;; Don't make a ding when failing command
 
 ;; NOTE: Emacs calls refreshing a buffer a revert.
 ;; Unless you have modifications in memory that are not saved to the disk, then you will be fine.
