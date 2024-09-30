@@ -27,6 +27,7 @@
                   ("https://fasterthanli.me/index.xml" systems blog)
                   ("https://ferd.ca/feed.rss" systems erlang languages blog)
                   ("https://tymoon.eu/api/reader/atom" languages lisp blog)
+                  ("https://www.masteringemacs.org/feed" emacs)
                   ("https://atillahallsby.com/feed/" blog rhetoric research)))
   ;; NOTE: Make elfeed use Emacs' built-in url-retrieve function rather than cURL.
   ;; This is significantly faster, but only works on Emacsen running on Linux
