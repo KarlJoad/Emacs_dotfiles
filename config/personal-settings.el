@@ -24,6 +24,12 @@
 ;; Skip the "Welcome" Page
 (setq inhibit-startup-message t)
 
+(use-package emacs
+  :ensure nil ;; built-in
+  :custom
+  ;; Make Emacs treat manual and programmatic buffer switches the same.
+  (switch-to-buffer-obey-display-actions t))
+
 (scroll-bar-mode -1) ;; Remove scroll bar at side
 (menu-bar-mode 1) ;; Keep the top menu-bar, with the drop-down menus
 (tool-bar-mode -1) ;; Remove big icon tool-bar below the menu-bar.
