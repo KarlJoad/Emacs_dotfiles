@@ -39,8 +39,7 @@
 ;; Display TODO/FIXME/other tagged items in the repository in the magit-status
 ;; buffer.
 (use-package magit-todos
-  :ensure (:host github :repo "KarlJoad/magit-todos"
-           :branch "improve-git-grep-pcre2-scanner-test")
+  :ensure t
   :demand t ; Use :demand, because we still autoload magit
   :after magit
   :custom
