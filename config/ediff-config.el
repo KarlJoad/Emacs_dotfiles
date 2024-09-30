@@ -10,7 +10,7 @@
   (ediff-make-buffers-readonly-at-startup 't)
   (ediff-merge-revisions-with-ancestor 't)
   (ediff-show-clashes-only 't)
-  ;; ediff splits should be made horizontally, producing several vertical buffers
+  ;; ediff splits should be made horizontally, producing several vertical windows
   (ediff-split-window-function #'split-window-horizontally)
   ;; Keep ediff control buffer in the same frame as the diff-ed contents
   (ediff-window-setup-function #'ediff-setup-windows-plain))
