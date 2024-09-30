@@ -145,5 +145,9 @@
   :custom
   (org-roam-v2-ack t))
 
+;; Add way to scrape from websites into Org-mode files.
+(use-package org-web-tools
+  :ensure t)
+
 (provide 'org-mode-config)
 ;;; org-mode-config.el ends here
