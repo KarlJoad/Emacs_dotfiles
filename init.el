@@ -147,6 +147,7 @@
 (require 'vhdl-config)
 (require 'verilog-config)
 (require 'rust-config)
+(require 'python-config)
 
 (when (equal system-type 'gnu/linux)
   (require 'nix-config)

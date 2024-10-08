@@ -40,7 +40,8 @@ This buries the buffer to the bottom of the buffer list and deletes the window."
          ;; the buffer, but then not switch to it, just leaving it open to stare at.
          ("C-c h ?" . #'eldoc)
          ("C-h >" . #'karljoad/close-eldoc-doc-buffer))
-  :hook (((c-mode c++-mode c-ts-mode c++-ts-mode rust-mode rust-ts-mode scala-mode scala-ts-mode) . eglot-ensure))
+  :hook (((c-mode c++-mode c-ts-mode c++-ts-mode rust-mode rust-ts-mode
+           scala-mode scala-ts-mode python-mode python-ts-mode) . eglot-ensure))
   :config
   (add-to-list
    'eglot-server-programs
@@ -73,7 +74,20 @@ This buries the buffer to the bottom of the buffer list and deletes the window."
      :colorProvider
      :documentHighlightProvider
      :foldingRangeProvider))
-  (eglot-stay-out-of '(yasnippet)))
+  (eglot-stay-out-of '(yasnippet))
+  (eglot-workspace-configuration
+   '((:pylsp . (:configurationSources ["flake8"]
+                :plugins (:pycodestyle (:enabled :json-false)
+                          :mccabe (:enabled :json-false)
+                          :pyflakes (:enabled :json-false)
+                          :flake8 (:enabled :json-false
+                                            :maxLineLength 88)
+                          :ruff (:enabled t :lineLength 88)
+                          :pydocstyle (:enabled t :convention "numpy")
+                          :yapf (:enabled :json-false)
+                          :autopep8 (:enabled :json-false)
+                          :black (:enabled t :line_length 88
+                                           :cache_config t)))))))
 
 ;; (or (getenv "GUIX_ENVIRONMENT")
 ;;     (getenv "IN_NIX_SHELL"))
