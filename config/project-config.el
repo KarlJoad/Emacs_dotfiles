@@ -13,26 +13,6 @@
 
 (require 'magit-config)
 
-(defun project-vterm ()
-  "Start an inferior vterm in the current project's root directory.
-If a buffer already exists for running a vterm in the project's root,
-switch to it.  Otherwise, create a new vterm buffer.
-With \\[universal-argument] prefix arg, create a new inferior vterm buffer even
-if one already exists."
-  (interactive)
-  (require 'project)
-  (require 'comint)
-  (require 'vterm)
-  (let* ((default-directory (project-root (project-current t)))
-         (default-project-vterm-name (project-prefixed-buffer-name "vterm"))
-         (vterm-buffer (get-buffer default-project-vterm-name)))
-    (if (and vterm-buffer (not current-prefix-arg))
-        (if (comint-check-proc vterm-buffer)
-            (pop-to-buffer vterm-buffer
-                           (bound-and-true-p display-comint-buffer-action))
-          (vterm vterm-buffer))
-      (vterm (generate-new-buffer-name default-project-vterm-name)))))
-
 (use-package xref
   :ensure t
   :defer nil)
@@ -44,6 +24,28 @@ if one already exists."
   :defer nil
   :requires (xref)
   :after (magit)
+  :init
+  ;; NOTE: The `project-vterm' function is copied & modified directly from the
+  ;; source for `project-shell'.
+  (defun project-vterm ()
+    "Start an inferior vterm in the current project's root directory.
+If a buffer already exists for running a vterm in the project's root,
+switch to it.  Otherwise, create a new vterm buffer.
+With \\[universal-argument] prefix arg, create a new inferior vterm buffer even
+if one already exists."
+    (interactive)
+    (require 'project)
+    (require 'comint)
+    (require 'vterm)
+    (let* ((default-directory (project-root (project-current t)))
+           (default-project-vterm-name (project-prefixed-buffer-name "vterm"))
+           (vterm-buffer (get-buffer default-project-vterm-name)))
+      (if (and vterm-buffer (not current-prefix-arg))
+          (if (comint-check-proc vterm-buffer)
+              (pop-to-buffer vterm-buffer
+                             (bound-and-true-p display-comint-buffer-action))
+            (vterm vterm-buffer))
+        (vterm (generate-new-buffer-name default-project-vterm-name)))))
   :custom
   ;; Add magit-status as a possible project.el keybinding
   (add-to-list project-switch-commands (list #'magit-status "Magit"))
