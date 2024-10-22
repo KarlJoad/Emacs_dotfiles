@@ -22,7 +22,7 @@
 (use-package project
   :ensure t
   :defer nil
-  :requires (xref)
+  ;; :requires (xref)
   :after (magit)
   :bind (:map
          project-prefix-map
