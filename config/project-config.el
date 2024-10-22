@@ -24,6 +24,10 @@
   :defer nil
   :requires (xref)
   :after (magit)
+  :bind (:map
+         project-prefix-map
+         ("m" . magit-project-status)
+         ("V" . project-vterm))
   :init
   ;; NOTE: The `project-vterm' function is copied & modified directly from the
   ;; source for `project-shell'.
@@ -48,11 +52,11 @@ if one already exists."
         (vterm (generate-new-buffer-name default-project-vterm-name)))))
   :custom
   ;; Add magit-status as a possible project.el keybinding
-  (add-to-list project-switch-commands (list #'magit-status "Magit"))
-  (define-key project-prefix-map "m" #'magit-status)
+  ;; (keymap-set project-prefix-map "m" #'magit-project-status)
+  (add-to-list 'project-switch-commands '(magit-project-status "Magit") t)
   ;; Add ability to spawn vterm instances using project.el
-  (add-to-list project-switch-commands (list #'project-vterm "Vterm"))
-  (define-key project-prefix-map "V" #'project-vterm))
+  ;; (keymap-set project-prefix-map "V" #'project-vterm)
+  (add-to-list 'project-switch-commands '(project-vterm "Vterm") t))
 
 (defun project-whitespace-cleanup-project-files ()
   "Run `whitespace-cleanup' on all project files.
