@@ -22,7 +22,7 @@
 
 (use-package pretty-sha-path
   :ensure t
-  :defer t
+  :defer nil
   :config
   (global-pretty-sha-path-mode))
 
