@@ -162,6 +162,9 @@
 (require 'shell-config)
 (require 'eshell-config)
 
+;;;; Docker packages and configuration
+(require 'docker-config)
+
 ;; (require 'test-config)
 
 ;; If Emacs has been idle for 15+ seconds, perform a GC run.
