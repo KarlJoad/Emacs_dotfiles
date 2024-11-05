@@ -163,7 +163,7 @@
 (require 'eshell-config)
 
 ;;;; Docker packages and configuration
-(require 'docker-config)
+(require 'container-config)
 
 ;; (require 'test-config)
 

@@ -1,8 +1,8 @@
-;;; docker-config.el --- Working with Docker/Podman -*- lexical-binding: t -*-
+;;; container-config.el --- Working with Docker/Podman Containers -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 
-;; Emacs Interface to Docker
+;; Emacs Interface to Docker/Podman
 (use-package docker
   :ensure t
   :defer t
@@ -18,7 +18,7 @@ Acceptable values are `'docker' and `'podman'.")
          (progn (setq docker-command "podman")
                 (setq docker-compose-command "podman-compose")))))
 
-;; Major mode for editing Docker's Dockerfiles
+;; Major mode for editing Containerfiles/Dockerfiles
 (use-package dockerfile-mode
   :ensure t
   :defer t
@@ -30,5 +30,5 @@ Acceptable values are `'docker' and `'podman'.")
               ((eq docker-executable 'podman) "podman")
               (t "podman"))))
 
-(provide 'docker-config)
-;;; docker-config.el ends here
+(provide 'container-config)
+;;; container-config.el ends here
