@@ -161,7 +161,7 @@
 (prefer-coding-system 'utf-8) ;; Catch-all
 
 ;; Sentences DO NOT need 2 spaces to end.
-(set-default 'sentence-end-double-space nil)
+(setq-default sentence-end-double-space nil)
 
 ;; Make sure tab-width is 4, not 8
 (setq-default tab-width 4)
