@@ -14,26 +14,6 @@
 	       ("C-c c" . 'org-capture) ;; "C-c c" will let me select a template and file the new information
 	       )
   :config
-  ;; Only load org-babel languages after loading org-mode, which we do lazily.
-  ;; This is done lazily because it is time-consuming to do this during startup.
-  (org-babel-do-load-languages
-	 'org-babel-load-languages
-	 '((C . t) ;; Works on C, C++, and D source blocks
-	   (emacs-lisp . t) ;; For ELisp blocks
-	   (java . t) ;; Java Blocks
-	   (gnuplot . nil) ;; nil to not load gnuplot
-	   (haskell . nil) ;; nil to not load haskell
-	   (matlab . nil) ;; nil to not load MATLAB stuff
-	   (octave . t) ;; Octave code blocks (Octave is a GNU replacement for MATLAB)
-	   (python . t) ;; Python blocks
-	   (R . t) ;; R blocks (Not sure when I'll use this, but I will some day)
-	   (ruby . nil) ;; nil to not load Ruby
-	   ;; (rust . t) ;; Rust, provided by rust-mode, which I am not using.
-	   ;; (rustic . t) ;; Rust which is not currently provided by the rustic package
-	   ;; (sml . t) ;; SML, only supported if the ob-sml.el package is manually installed
-	   (sql . t) ;; SQL blocks
-	   (sqlite . t) ;; SQLite blocks
-	   ))
   ;; Enable line-wrapping in org-mode.
   (visual-line-mode 1)
 
