@@ -146,10 +146,7 @@
 (setq confirm-kill-emacs 'y-or-n-p)
 
 ;; ANYTHING that should happen before saving ANY buffers should be put here.
-(add-hook 'before-save-hook
-          (lambda ()
-            "Commands to execute before saving any buffer."
-            (delete-trailing-whitespace)))
+(add-hook 'before-save-hook #'delete-trailing-whitespace)
 
 ;; I want a keybinding to quickly revert buffers, since sometimes Magit doesn't do it.
 (keymap-global-set "C-c g" 'revert-buffer)
