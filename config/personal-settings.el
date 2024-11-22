@@ -21,6 +21,9 @@
     (add-hook 'emacs-startup-hook 'toggle-frame-fullscreen)
     (add-to-list 'default-frame-alist '(fullscreen . fullboth)))))
 
+;; Set initial frame's width slighly larger than 80 characters wide.
+(add-to-list 'default-frame-alist '(width . 90))
+
 ;; Skip the "Welcome" Page
 (setq inhibit-startup-message t)
 
