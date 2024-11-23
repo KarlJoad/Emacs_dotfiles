@@ -63,6 +63,7 @@
 ;; The functions that cause the pulse are in the `pulsar-pulse-functions' list.
 (use-package pulsar
   :ensure t
+  :demand t
   :config
   (pulsar-global-mode)
   :custom
