@@ -27,9 +27,15 @@
          :map c++-mode-map
          ("C-c C-c" . compile)))
 
-;; setup GDB
-(setq gdb-many-windows t ;; use gdb-many-windows by default
-      gdb-show-main t) ;; Non-nil means display source file containing the main routine at startup
+;; Configure GDB
+(use-package gdb-mi
+  :ensure nil ; built-in
+  :defer t
+  :custom
+  ;; use gdb-many-windows by default
+  (gdb-many-windows t)
+  ;; Non-nil means display source file containing the main routine at startup
+  (gdb-show-main nil))
 
 (provide 'cc-mode-config)
 ;;; cc-mode-config.el ends here
