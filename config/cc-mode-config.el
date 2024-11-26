@@ -19,15 +19,13 @@
 ;; “user”: When you want to define your own style
 (setq c-default-style "stroustrup")
 
-(add-hook 'c-mode-hook
-	        (lambda ()
-	          (local-set-key (kbd "C-c C-c") #'compile)
-		        (local-set-key (kbd "C-c ;") #'comment-or-uncomment-region)))
-
-(add-hook 'c++-mode-hook
-	        (lambda ()
-	          (local-set-key (kbd "C-c C-c") #'compile)
-		        (local-set-key (kbd "C-c ;") #'comment-or-uncomment-region)))
+(use-package cc-mode
+  :ensure nil ; built-in
+  :defer t
+  :bind (:map c-mode-map
+         ("C-c C-c" . compile)
+         :map c++-mode-map
+         ("C-c C-c" . compile)))
 
 ;; setup GDB
 (setq gdb-many-windows t ;; use gdb-many-windows by default
