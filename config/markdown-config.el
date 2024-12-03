@@ -8,7 +8,9 @@
 
 (use-package markdown-mode
   :ensure t
-  :defer t)
+  :defer t
+  :custom
+  (markdown-fontify-code-block-natively t))
 
 (provide 'markdown-config)
 ;;; markdown-config.el ends here
