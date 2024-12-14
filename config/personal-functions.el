@@ -86,6 +86,29 @@ if it is modified!"
   (interactive)
   (message "%d GC Events\n%0.2f Seconds spent GC-ing" gcs-done gc-elapsed))
 
+(defun karljoad/remove-ansi-escape-sequences (&optional start end backward
+                                                        region-noncontiguous-p)
+  "Remove ANSI terminal color and formatting escape sequences from START to END.
+
+The color and formatting escape sequences are completely removed (replaced with
+empty strings), so the formatting is completely lost!
+
+BACKWARD and REGION-NONCONTIGUOUS-P are passed to `replace-regexp' exactly.
+
+Removes ANSI terminal escape sequences from region. If no region is provided,
+then remove escape sequences from the entire buffer."
+  (interactive "*r")
+  (require 'replace)
+  (if (use-region-p)
+      (replace-regexp "\\\\033\\[[0-9;]*[mK]" ""
+                      nil ; DELIMITED
+                      (region-beginning) (region-end)
+                      backward region-noncontiguous-p)
+    (replace-regexp "\\\\033\\[[0-9;]*[mK]" ""
+                    nil ; DELIMITED
+                    (point-min) (point-max) backward region-noncontiguous-p)))
+
+
 ;; TODO: Allow universal argument (C-u) to customize the format and allow the
 ;; desired location to be set (location other than point).
 (defun karljoad/insert-today-date ()
