@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package vhdl-mode
-  :ensure nil ;; built-in
+  :ensure t ; Despite being built-in, use an update version
   :defer t)
 
 (require 'treesit-config)
