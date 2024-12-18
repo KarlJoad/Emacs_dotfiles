@@ -33,7 +33,10 @@
   ;; Make Emacs treat manual and programmatic buffer switches the same. This
   ;; works by making `switch-to-buffer' actually use `pop-to-buffer-same-window'
   ;; which respects `display-buffer-alist'.
-  (switch-to-buffer-obey-display-actions t))
+  (switch-to-buffer-obey-display-actions t)
+  ;; Increase how much is read from processes in a single chunk. The default
+  ;; value of 4096 is a bit small; use 512k in this case.
+  (read-process-output-max (* 512 1024)))
 
 ;; Unbind C-z from suspending the current Emacs frame.
 ;; This stops me from accidentally minimizing Emacs when running graphically.
