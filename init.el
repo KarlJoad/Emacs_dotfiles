@@ -47,6 +47,9 @@
 ;; Configure dired
 (require 'dired-config)
 
+;;; Configure Emacs generic Command Interpreter (comint)
+(require 'comint-config)
+
 ;;;; Load in my current theme
 (require 'theme-config)
 
