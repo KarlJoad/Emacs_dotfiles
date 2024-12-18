@@ -112,6 +112,7 @@
 ;; Besides, auto-saving happens frequently enough for it to not really matter.
 (setq auto-save-default t) ;; Allow the #auto-save# files. They are removed upon buffer save anyways
 (setq make-backup-files nil) ;; Disable backup~ files
+(setq create-lockfiles nil) ;; Disable .#lockfile files
 (setq vc-follow-symlinks t) ;; Never ask whether or not to follow symlinks
 
 ;; Disable some minor disturbances that I find quite annoying.
