@@ -30,7 +30,9 @@
 (use-package emacs
   :ensure nil ;; built-in
   :custom
-  ;; Make Emacs treat manual and programmatic buffer switches the same.
+  ;; Make Emacs treat manual and programmatic buffer switches the same. This
+  ;; works by making `switch-to-buffer' actually use `pop-to-buffer-same-window'
+  ;; which respects `display-buffer-alist'.
   (switch-to-buffer-obey-display-actions t))
 
 ;; Unbind C-z from suspending the current Emacs frame.
