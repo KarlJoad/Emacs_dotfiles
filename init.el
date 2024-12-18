@@ -36,11 +36,7 @@
   :defer nil)
 
 ;; Keep customization settings in a temporary file (thanks Ambrevar & Daviwil!)
-(setq custom-file
-      (if (boundp 'server-socket-dir)
-          (expand-file-name "custom.el" server-socket-dir)
-        (expand-file-name (format "emacs-custom-%s.el" (user-uid))
-                          temporary-file-directory)))
+(setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file t)
 
 ;; Set up: my personal info, my personal settings, and personal functions
