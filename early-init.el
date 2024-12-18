@@ -23,6 +23,17 @@
 ;; Make sure Emacs loads up newer config files, even if they aren't compiled
 (setq load-prefer-newer t)
 
+(scroll-bar-mode -1) ;; Remove scroll bar at side
+(menu-bar-mode 1) ;; Keep the top menu-bar, with the drop-down menus
+(tool-bar-mode -1) ;; Remove big icon tool-bar below the menu-bar.
+(tooltip-mode -1) ;; On clickable text, remove tooltip pop-up. Use minibuffer.
+
+;; Change the title of the frame when opened in GUI mode.
+(setq-default frame-title-format
+              '("%b@" (:eval (or (file-remote-p default-directory 'host)
+                                 system-name))
+                " - Emacs"))
+
 ;; So we can detect this having been loaded
 (provide 'early-init)
 ;;; early-init.el ends here

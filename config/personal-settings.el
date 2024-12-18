@@ -33,11 +33,6 @@
   ;; Make Emacs treat manual and programmatic buffer switches the same.
   (switch-to-buffer-obey-display-actions t))
 
-(scroll-bar-mode -1) ;; Remove scroll bar at side
-(menu-bar-mode 1) ;; Keep the top menu-bar, with the drop-down menus
-(tool-bar-mode -1) ;; Remove big icon tool-bar below the menu-bar.
-(tooltip-mode -1) ;; On clickable text, remove tooltip pop-up. Use minibuffer.
-
 ;; Unbind C-z from suspending the current Emacs frame.
 ;; This stops me from accidentally minimizing Emacs when running graphically.
 ;; You can still access this with C-x C-z (which is a default keybinding).
@@ -108,13 +103,6 @@
 ;;         ("DEBUG"  . "#A020F0")
 ;;         ("GOTCHA" . "#FF4500")
 ;;         ("STUB"   . "#1E90FF")))
-
-
-;; Change the title of the frame when opened in GUI mode.
-(setq-default frame-title-format
-              '("%b@" (:eval (or (file-remote-p default-directory 'host)
-                                 system-name))
-                " - Emacs"))
 
 ;; Automatic file creation/manipulation/backups
 ;; I choose to remove the backup~ files because I don't want to have to add every one of those files
