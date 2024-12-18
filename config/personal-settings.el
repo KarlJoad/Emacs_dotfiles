@@ -39,7 +39,9 @@
   (read-process-output-max (* 512 1024))
   ;; According to the POSIX, a line is defined as "a sequence of zero or
   ;; more non-newline characters followed by a terminating newline".
-  (require-final-newline t))
+  (require-final-newline t)
+  ;; Remove duplicates from the kill ring to reduce clutter
+  (kill-do-not-save-duplicates t))
 
 ;; Unbind C-z from suspending the current Emacs frame.
 ;; This stops me from accidentally minimizing Emacs when running graphically.
