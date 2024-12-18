@@ -41,7 +41,11 @@
   ;; more non-newline characters followed by a terminating newline".
   (require-final-newline t)
   ;; Remove duplicates from the kill ring to reduce clutter
-  (kill-do-not-save-duplicates t))
+  (kill-do-not-save-duplicates t)
+  ;; Improve paren highlighting
+  (show-paren-highlight-openparen t)
+  (show-paren-when-point-in-periphery t)
+  (show-paren-when-point-inside-paren t))
 
 ;; Unbind C-z from suspending the current Emacs frame.
 ;; This stops me from accidentally minimizing Emacs when running graphically.
