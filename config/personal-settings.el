@@ -123,6 +123,14 @@
 ;; to the .gitignore for projects.
 ;; Besides, auto-saving happens frequently enough for it to not really matter.
 (setq auto-save-default t) ;; Allow the #auto-save# files. They are removed upon buffer save anyways
+;; Do not auto-disable auto-save after deleting large chunks of
+;; text. The purpose of auto-save is to provide a failsafe, and
+;; disabling it contradicts this objective.
+(setq auto-save-include-big-deletions t)
+;; Do not delete auto-save files when I kill a buffer. Just leave them sitting
+;; around for later clean-up.
+(setq kill-buffer-delete-auto-save-files nil)
+
 (setq make-backup-files nil) ;; Disable backup~ files
 (setq create-lockfiles nil) ;; Disable .#lockfile files
 (setq vc-follow-symlinks t) ;; Never ask whether or not to follow symlinks
