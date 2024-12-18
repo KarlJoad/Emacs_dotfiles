@@ -27,7 +27,10 @@ This buries the buffer to the bottom of the buffer list and deletes the window."
   (eldoc-echo-area-use-multiline-p 'nil)
   ;; Prefer to use the doc-buffer if it is already showing, rather than the
   ;; echo area (in the minibuffer).
-  (eldoc-echo-area-prefer-doc-buffer 't))
+  (eldoc-echo-area-prefer-doc-buffer 't)
+  ;; Collects and displays all available documentation immediately, even if
+  ;; multiple sources provide it. It concatenates the results.
+  (eldoc-documentation-strategy #'eldoc-documentation-compose))
 
 (use-package eglot
   :ensure nil ;; built-in
