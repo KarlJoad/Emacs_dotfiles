@@ -46,6 +46,14 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-refresh-contents t)
 
+;; Emacs 29 ships use-package built-in now. But older Emacsen don't, so if we
+;; are running on one of those older versions, manually install it.
+(when (< emacs-major-version 29)
+  (unless (package-installed-p 'use-package)
+    (unless package-archive-contents
+      (pakcage-refresh-contents))
+    (package-install 'use-package)))
+
 ;; Install use-package support
 (elpaca elpaca-use-package
   ;; Enable use-package :ensure support for Elpaca.
