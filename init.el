@@ -37,7 +37,7 @@
 
 ;; Keep customization settings in a temporary file (thanks Ambrevar & Daviwil!)
 (setq custom-file (locate-user-emacs-file "custom.el"))
-(load custom-file t)
+(load custom-file :no-error-if-file-is-missing)
 
 ;; Set up: my personal info, my personal settings, and personal functions
 (require 'personal-info)
