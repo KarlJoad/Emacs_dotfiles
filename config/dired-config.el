@@ -7,9 +7,18 @@
 ;; We leave the more powerful, but verbose, (dired) command on C-x D
 ;; It is safe to use keymap-global-set here because these dired commands are set
 ;; in the global-map.
-(keymap-global-unset "C-x C-j")
-(keymap-global-set "C-x d" #'dired-jump)
-(keymap-global-set "C-x D" #'dired)
+(use-package dired
+  :ensure nil ; built-in
+  :commands (dired dired-jump)
+  :bind (("C-x d" . dired-jump)
+         ("C-x D" . dired))
+  :init
+  (keymap-global-unset "C-x C-j")
+  :custom
+  (dired-recursive-copies #'always)
+  (dired-recursive-deletes #'always)
+  (delete-by-moving-to-trace t)
+  (dired-dwim-target t))
 
 (provide 'dired-config)
 ;;; dired-config.el ends here
