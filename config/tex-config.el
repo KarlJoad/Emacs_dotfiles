@@ -117,10 +117,6 @@
                  TeX-run-TeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode)
                  :help "Run a shell-escaped version of LaTeX"))
   (add-to-list 'TeX-command-list
-		           '("latexmk" "latexmk"
-                 TeX-run-TeX nil (latex-mode ams-tex-mode)
-                 :help "Run latexmk to compile the document"))
-  (add-to-list 'TeX-command-list
 		           '("BiberAuxDirectory" "biber --output-directory ./TeX_Output %s"
                  TeX-run-Biber nil t
                  :help "Run Biber where the .aux file is in the TeX_Output Directory"))
@@ -152,7 +148,12 @@
 ;;; Apply latex-mode to TikZ pictures
 (setq auto-mode-alist
       (append '(("\\.tikz\\'" . LaTeX-mode))
-	      auto-mode-alist))
+	            auto-mode-alist))
+
+;;; Bring latexmk support to auctex
+(use-package auctex-latexmk
+  :ensure t
+  :defer t)
 
 (provide 'tex-config)
 ;;; tex-config.el ends here
