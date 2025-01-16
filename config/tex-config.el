@@ -42,16 +42,15 @@
 (use-package bibtex
   :ensure nil ;; built-in ;; BibTeX comes with Emacs
   :defer t
+  ;; Associate *.bib files with bibtex-mode.
+  ;; This also applies to *.bib files that are written in BibLaTeX style as well.
+  :mode ("\\.bib\\'" . bibtex-mode)
   :hook (bibtex-mode . (lambda () (setq bibtex-dialect karljoad/default-bibtex-dialect)))
   :custom
   ;; Default to newer BibLaTeX style
   (bibtex-dialect karljoad/default-bibtex-dialect)
   (bibtex-maintain-sorted-entries t)
   (bibtex-parse-keys-timeout nil))
-
-;; Associate *.bib files with bibtex-mode.
-;; This also applies to *.bib files that are written in BibLaTeX style as well.
-(add-to-list 'auto-mode-alist '("\\.bib\\'" . bibtex-mode))
 
 ;;; 
 ;;; AucTeX
