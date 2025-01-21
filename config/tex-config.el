@@ -46,6 +46,8 @@
   ;; This also applies to *.bib files that are written in BibLaTeX style as well.
   :mode ("\\.bib\\'" . bibtex-mode)
   :hook (bibtex-mode . (lambda () (setq bibtex-dialect karljoad/default-bibtex-dialect)))
+  :config
+  (setq-default comment-start "%")
   :custom
   ;; Default to newer BibLaTeX style
   (bibtex-dialect karljoad/default-bibtex-dialect)
