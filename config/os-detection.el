@@ -9,11 +9,11 @@
     (insert (shell-command-to-string "cat /etc/os-release"))
     (goto-char 0)
     (condition-case nil
-	      (progn
-	        (when (not (equal (search-forward
+        (progn
+          (when (not (equal (search-forward
                              (concat "ID=" distro) nil t)
-			                      nil))
-	          t)))))
+                            nil))
+            t)))))
 
 (defun karljoad/is-nixos ()
   "Return t or nil, depending on if the current OS is NixOS."

@@ -25,8 +25,8 @@
   (tab-always-indent 'complete) ;; Tabs indent
   (yas-prompt-functions
    '(yas-completing-prompt ;; List of prompts that yasnippet can go through
-		 yas-ido-prompt
-		 yas-dropdown-prompt)))
+     yas-ido-prompt
+     yas-dropdown-prompt)))
 
 ;;; 
 ;;; yasnippet-snippets provides a large amount of snippets for yasnippet to work with.

@@ -3,12 +3,12 @@
 ;;; Code:
 
 (use-package undo-tree
-	:ensure t
-	:defer t
+  :ensure t
+  :defer t
   :bind (("C-c u v" . #'undo-tree-visualize))
-	:config
+  :config
   (global-undo-tree-mode)
-	(setq undo-tree-visualizer-diff t)
+  (setq undo-tree-visualizer-diff t)
   (setq-default undo-tree-history-directory-alist
                 `(("." . ,(concat no-littering-var-directory "undo-tree-hist")))))
 

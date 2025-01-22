@@ -13,11 +13,11 @@
   :config
   (load-theme 'modus-vivendi t)
 
-	:custom
-	(modus-vivendi-theme-section-headings t)
-	(modus-vivendi-theme-slanted-constructs t)
-	(modus-vivendi-theme-bold-constructs t)
-	(modus-vivendi-theme-proportional-fonts nil)
+  :custom
+  (modus-vivendi-theme-section-headings t)
+  (modus-vivendi-theme-slanted-constructs t)
+  (modus-vivendi-theme-bold-constructs t)
+  (modus-vivendi-theme-proportional-fonts nil)
   (modus-operandi-theme-slanted-constructs t)
   (modus-operandi-theme-bold-constructs t)
   (modus-operandi-theme-proportional-fonts nil))

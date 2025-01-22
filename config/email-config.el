@@ -47,11 +47,11 @@
 (use-package mu4e-views
   :after mu4e
   :bind (:map mu4e-headers-mode-map
-			  ("v" . mu4e-views-mu4e-select-view-msg-method) ;; select viewing method
-			  ("M-n" . mu4e-views-cursor-msg-view-window-down) ;; from headers window scroll the email view
-			  ("M-p" . mu4e-views-cursor-msg-view-window-up) ;; from headers window scroll the email view
-			  ("f" . mu4e-views-toggle-auto-view-selected-message) ;; toggle opening messages automatically when moving in the headers view
-			  )
+        ("v" . mu4e-views-mu4e-select-view-msg-method) ;; select viewing method
+        ("M-n" . mu4e-views-cursor-msg-view-window-down) ;; from headers window scroll the email view
+        ("M-p" . mu4e-views-cursor-msg-view-window-up) ;; from headers window scroll the email view
+        ("f" . mu4e-views-toggle-auto-view-selected-message) ;; toggle opening messages automatically when moving in the headers view
+        )
   :config
   (setq mu4e-views-completion-method 'ivy) ;; use ivy for completion
   (setq mu4e-views-default-view-method "text") ;; Show plaintext first
@@ -94,8 +94,8 @@
 ;; By default, this is bound to "a h" in the mu4e mode.
 (add-to-list 'mu4e-view-actions
              '("HTML in Browser" . mu4e-action-view-in-browser)
-	     ;; Append the action, to list, rather than overwrite.
-	     ;; The add-to-list function actually appends to the FRONT of the list!
+             ;; Append the action, to list, rather than overwrite.
+             ;; The add-to-list function actually appends to the FRONT of the list!
              t)
 
 (setq mu4e-contexts
@@ -105,14 +105,14 @@
                         (when msg
                           (string-prefix-p "/Personal" (mu4e-message-field msg :maildir))))
           :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
-		  (user-mail-address . "karl@hallsby.com")
-		  ;; Although personal email address set in personal-info, need to reset it
-		  ;; when I change contexts in mu4e
+                  (user-mail-address . "karl@hallsby.com")
+                  ;; Although personal email address set in personal-info, need
+                  ;; to reset it when I change contexts in mu4e
                   (mu4e-trash-folder . "/Personal/Trash")
                   (mu4e-refile-folder . "/Personal/Refile")
                   (mu4e-sent-folder . "/Personal/Sent")
                   (mu4e-drafts-folder . "/Personal/Drafts")
-				  (mu4e-compose-signature . "Karl Hallsby
+                  (mu4e-compose-signature . "Karl Hallsby
 PhD Computer Engineering 2027
 Northwestern University
 
@@ -123,38 +123,38 @@ Illinois Institute of Technology
 Contact:
 karl@hallsby.com
 +1-630-815-7827")))
-	,(make-mu4e-context
-	  :name "iit"
-	  :match-func (lambda (msg)
+        ,(make-mu4e-context
+          :name "iit"
+          :match-func (lambda (msg)
                         (when msg
                           (string-prefix-p "/IIT" (mu4e-message-field msg :maildir))))
           :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
-		  (user-mail-address . "khallsby@hawk.iit.edu")
+                  (user-mail-address . "khallsby@hawk.iit.edu")
                   (mu4e-trash-folder . "/IIT/Trash")
                   (mu4e-refile-folder . "/IIT/Refile")
                   (mu4e-sent-folder . "/IIT/Sent")
                   (mu4e-drafts-folder . "/IIT/Drafts")
-				  (mu4e-compose-signature . "Karl Hallsby
+                  (mu4e-compose-signature . "Karl Hallsby
 BS Computer Engineering 2022
 MS Computer Engineering 2022
 Illinois Institute of Technology
 
 Contact:
 khallsby@hawk.iit.edu")))
-  ,(make-mu4e-context
+        ,(make-mu4e-context
           :name "nu"
           :match-func (lambda (msg)
                         (when msg
                           (string-prefix-p "/Northwestern" (mu4e-message-field msg :maildir))))
           :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
-		  (user-mail-address . "karlhallsby2027@u.northwestern.edu")
-		  ;; Although personal email address set in personal-info, need to reset it
-		  ;; when I change contexts in mu4e
+                  (user-mail-address . "karlhallsby2027@u.northwestern.edu")
+                  ;; Although personal email address set in personal-info, need to reset it
+                  ;; when I change contexts in mu4e
                   (mu4e-trash-folder . "/Northwestern/Trash")
                   (mu4e-refile-folder . "/Northwestern/Refile")
                   (mu4e-sent-folder . "/Northwestern/Sent")
                   (mu4e-drafts-folder . "/Northwestern/Drafts")
-				  (mu4e-compose-signature . "Karl Hallsby
+                  (mu4e-compose-signature . "Karl Hallsby
 PhD Computer Engineering 2027
 Northwestern University
 Mudd Library, Room 3301
@@ -234,16 +234,16 @@ kgh@u.northwestern.edu")))))
 ;; This means I need to use a non-default mail sender, namely the program msmtp.
 
 (defvar karljoad/queue-mail-command (if (karljoad/is-nixos)
-					"~/.nix-profile/share/doc/msmtp/scripts/msmtpqueue/msmtp-enqueue.sh"
-				      "/usr/share/doc/msmtp/scripts/msmtpqueue/msmtp-enqueue.sh")
+          "~/.nix-profile/share/doc/msmtp/scripts/msmtpqueue/msmtp-enqueue.sh"
+              "/usr/share/doc/msmtp/scripts/msmtpqueue/msmtp-enqueue.sh")
   "Command that will queue the mail for sending by placing it in a directory for later sending.")
 (defvar karljoad/send-queued-mail-command (if (karljoad/is-nixos)
-					      "~/.nix-profile/share/doc/msmtp/scripts/msmtpqueue/msmtp-runqueue.sh"
-					    "/usr/share/doc/msmtp/scripts/msmtpqueue/msmtp-runqueue.sh")
+                "~/.nix-profile/share/doc/msmtp/scripts/msmtpqueue/msmtp-runqueue.sh"
+              "/usr/share/doc/msmtp/scripts/msmtpqueue/msmtp-runqueue.sh")
   "Command that will send ALL queued mail.")
 (defvar karljoad/queued-mail-dir "~/.msmtpqueue/" ;; (if (getenv "MSMTP_QUEUE")
-				 ;;     (concat (getenv "MSMTP_QUEUE") "/")
-				 ;;   "~/.msmtpqueue/")
+         ;;     (concat (getenv "MSMTP_QUEUE") "/")
+         ;;   "~/.msmtpqueue/")
   "Location where the mail queued to be sent will be stored until that time.")
 
 ;; This will send ALL mail IMMEDIATELY, and will fail if you do not have an

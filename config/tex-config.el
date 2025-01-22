@@ -61,11 +61,11 @@
   ;; NOTE: You need autoconf, automake, make, and some of TeXLive to build
   ;; auctex!
   :ensure (auctex :pre-build (("./autogen.sh")
-  		                        ("./configure"
-  		                         "--without-texmf-dir"
-  		                         "--with-packagelispdir=./"
-  		                         "--with-packagedatadir=./")
-  		                        ("make"))
+                              ("./configure"
+                               "--without-texmf-dir"
+                               "--with-packagelispdir=./"
+                               "--with-packagedatadir=./")
+                              ("make"))
                   :build (:not elpaca--compile-info) ;; Make will take care of this step
                   :files ("*.el" "doc/*.info*" "etc" "images" "latex" "style")
                   :version (lambda (_) (require 'tex-site) AUCTeX-version))
@@ -97,53 +97,53 @@
   ;; %(mode) adds -interaction=nonstopmode to command line if TeX-interactive-mode
   ;; %T adds currently active master document to command line, with quotes
   (add-to-list 'TeX-command-list
-	             '("IndexAuxDirectory" "makeindex %s"
+               '("IndexAuxDirectory" "makeindex %s"
                  TeX-run-index nil t
                  :help "Run makeindex to create index file in TeX_Aux_Files Directory"))
   (add-to-list 'TeX-command-list
-	             '("GlossaryAuxDirectory" "makeglossaries %s"
+               '("GlossaryAuxDirectory" "makeglossaries %s"
                  TeX-run-command nil t
                  :help "Run makeglossaries to create glossary file in TeX_Aux_Files Directory"))
   (add-to-list 'TeX-command-list
-		           '("LatexOutFolder"
+               '("LatexOutFolder"
                  "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -output-directory=./TeX_Output %T"
                  TeX-run-TeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode)
                  :help "Run LaTeX and put output in TeX_Output Directory"))
   (add-to-list 'TeX-command-list
-				       '("LatexOutFolderShellEscape" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -shell-escape -output-directory=./TeX_Output %T"
+               '("LatexOutFolderShellEscape" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -shell-escape -output-directory=./TeX_Output %T"
                  TeX-run-TeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode)
                  :help "Run a shell-escaped version of LaTeX and put output in TeX_Output Directory"))
-	(add-to-list 'TeX-command-list
-		           '("LatexShellEscape" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -shell-escape %T"
+  (add-to-list 'TeX-command-list
+               '("LatexShellEscape" "%`%l%(mode)%' -synctex=1 -interaction=nonstopmode -shell-escape %T"
                  TeX-run-TeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode)
                  :help "Run a shell-escaped version of LaTeX"))
   (add-to-list 'TeX-command-list
-		           '("BiberAuxDirectory" "biber --output-directory ./TeX_Output %s"
+               '("BiberAuxDirectory" "biber --output-directory ./TeX_Output %s"
                  TeX-run-Biber nil t
                  :help "Run Biber where the .aux file is in the TeX_Output Directory"))
   (add-to-list 'TeX-command-list
-		           '("Zathura View" "zathura ./%o"
+               '("Zathura View" "zathura ./%o"
                  TeX-run-discard-or-function t t
                  :help "Run Zathura to view PDF"))
   (add-to-list 'TeX-command-list
-		           '("Okular View" "okular ./%o"
+               '("Okular View" "okular ./%o"
                  TeX-run-discard-or-function t t
                  :help "Run Okular to view PDF"))
   (add-to-list 'TeX-command-list
-		           '("Okular View Out Folder" "okular ./TeX_Output/%o"
+               '("Okular View Out Folder" "okular ./TeX_Output/%o"
                  TeX-run-discard-or-function t t
                  :help "Run Okular to view PDF in ./TeX_Output/ directory"))
   (add-to-list 'TeX-command-list
-		           '("Buffer View" "emacsclient -n -c ./TeX_Output/%o"
+               '("Buffer View" "emacsclient -n -c ./TeX_Output/%o"
                  TeX-run-discard-or-function t t
                  :help "View PDF in an Emacs Buffer")))
 
 (with-eval-after-load "latex"
     (setq TeX-view-program-list '(("Zathura" "zathura ./TeX_Output/%o")
-				  ("Okular" "okular ./TeX_Output/%o")
-				  ("Emacs Buffer" "emacsclient -n -e ./TeX_Output/%o")))
+          ("Okular" "okular ./TeX_Output/%o")
+          ("Emacs Buffer" "emacsclient -n -e ./TeX_Output/%o")))
     (setq TeX-view-program-selection '(((output-dvi style pstricks) "dvips and start")
-				       (output-pdf "Zathura")))
+               (output-pdf "Zathura")))
   (karljoad/set-TeX-command-list)) ;; Calls the function that sets up my TeX-command-list
 
 ;;; Apply latex-mode to TikZ pictures

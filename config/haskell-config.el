@@ -9,7 +9,7 @@
                              ;; Display function type signature
                              (haskell-doc-mode)
                              ;; Smart indentation for Haskell buffers/files
-	                           (turn-on-haskell-indent)))))
+                             (turn-on-haskell-indent)))))
 
 (use-package dante
   :ensure t
