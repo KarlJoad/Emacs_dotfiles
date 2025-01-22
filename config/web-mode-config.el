@@ -4,11 +4,8 @@
 
 (use-package web-mode
   :ensure t
-  :defer t)
-
-(add-hook 'web-mode-hook
-          (lambda ()
-            (rainbow-mode)))
+  :defer t
+  :hook (web-mode . rainbow-mode))
 
 (provide 'web-mode-config)
 ;;; web-mode-config ends here
