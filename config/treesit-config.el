@@ -29,7 +29,8 @@
 ;; Fetch and use the treesit package when Emacs is built with treesitter support
 (use-package treesit
   :ensure nil ;; built-in
-  :when (treesit-available-p)
+  :when (and (treesit-available-p)
+             (getenv "TREE_SITTER_GRAMMAR_PATH"))
   :init
   (setq major-mode-remap-alist
         '((yaml-mode . yaml-ts-mode)
