@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;;; List the information about me
-(setq user-full-name "Karl G. Hallsby"
+(setq user-full-name "Karl Hallsby"
       user-mail-address "karl@hallsby.com")
 
 (provide 'personal-info)
