@@ -80,8 +80,13 @@
   (pulsar-delay 0.05))
 
 ;; Parentheses/Brackets/Braces/Angles modifications
-(show-paren-mode) ;; Emphasize MATCHING Parentheses/Brackets/Braces/Angles
-(setq blink-matching-paren nil) ;; But don't let them blink
+(use-package emacs
+  :ensure nil ; Fake built-in package
+  :config
+  (show-paren-mode) ;; Emphasize MATCHING Parentheses/Brackets/Braces/Angles
+  :custom
+  ;; Don't let matching parens blink
+  (blink-matching-paren nil))
 (require 'rainbow-delimiters-config) ;; Pull in rainbow-delimiters config
 ;(electric-pair-mode 1) ;; Emacs automatically inserts closing pair
 
