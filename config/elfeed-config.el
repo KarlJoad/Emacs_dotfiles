@@ -28,6 +28,7 @@
                   ("https://fasterthanli.me/index.xml" systems blog)
                   ("https://ferd.ca/feed.rss" systems erlang languages blog)
                   ("https://tymoon.eu/api/reader/atom" languages lisp blog)
+                  ("https://lisp-journey.gitlab.io/blog/index.xml" lisp blog)
                   ("https://www.masteringemacs.org/feed" emacs)
                   ("https://bernsteinbear.com/feed.xml" compilers languages blog)
                   ("https://www.cs.cmu.edu/~pavlo/blog/feed.xml" databases systems blog)
