@@ -124,24 +124,6 @@ Contact:
 karl@hallsby.com
 +1-630-815-7827")))
         ,(make-mu4e-context
-          :name "iit"
-          :match-func (lambda (msg)
-                        (when msg
-                          (string-prefix-p "/IIT" (mu4e-message-field msg :maildir))))
-          :vars '(;; (user-full-name "Karl G. Hallsby") ;; My full name is set in personal-info
-                  (user-mail-address . "khallsby@hawk.iit.edu")
-                  (mu4e-trash-folder . "/IIT/Trash")
-                  (mu4e-refile-folder . "/IIT/Refile")
-                  (mu4e-sent-folder . "/IIT/Sent")
-                  (mu4e-drafts-folder . "/IIT/Drafts")
-                  (mu4e-compose-signature . "Karl Hallsby
-BS Computer Engineering 2022
-MS Computer Engineering 2022
-Illinois Institute of Technology
-
-Contact:
-khallsby@hawk.iit.edu")))
-        ,(make-mu4e-context
           :name "nu"
           :match-func (lambda (msg)
                         (when msg
