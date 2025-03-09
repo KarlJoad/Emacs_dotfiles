@@ -36,6 +36,7 @@
                   ("https://gnuplotting/feed/index.xml" research reproducible blog)
                   ("https://unixism.net/feed/" linux systems blog)
                   ("https://aartaka.me/rss.xml" systems lisp blog)
+                  ("https://fzakaria.com/feed.xml" systems nix build-system blog)
                   ("https://atillahallsby.com/feed/" blog rhetoric research)))
   ;; NOTE: Make elfeed use Emacs' built-in url-retrieve function rather than cURL.
   ;; This is significantly faster, but only works on Emacsen running on Linux
