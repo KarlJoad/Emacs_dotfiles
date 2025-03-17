@@ -46,7 +46,9 @@
           (verilog-mode . verilog-ts-mode)
           (vhdl-mode . vhdl-ts-mode)
           (rust-mode . rust-ts-mode)
-          (scala-mode . scala-ts-mode))))
+          (scala-mode . scala-ts-mode)
+          (ada-mode . ada-ts-mode)
+          (gpr-mode . gpr-ts-mode))))
 
 ;; I use Guix Home to install tree-sitter grammars for programming which, by the
 ;; nature of its functional package-management system, will install these shared

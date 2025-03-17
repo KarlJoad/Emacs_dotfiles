@@ -147,6 +147,7 @@
 (require 'verilog-config)
 (require 'rust-config)
 (require 'python-config)
+(require 'ada-config)
 
 (when (equal system-type 'gnu/linux)
   (require 'nix-config)
