@@ -14,5 +14,16 @@
   :ensure t
   :defer t)
 
+;; Modify the Hyperspec root directory to the local version that my Guix home
+;; provides.
+(require 'os-detection)
+(use-package clhs
+  :ensure nil ; "Built-in" by Guix Home providing it
+  :defer t
+  :config
+  ;; Point to my LOCAL copy of the Hyperspec.
+  (cond
+   ((karljoad/is-guix-system) (setq common-lisp-hyperspec-root "~/.guix-home/profile/share/HyperSpec-7-0/"))))
+
 (provide 'common-lisp-config)
 ;;; common-lisp-config.el ends here
