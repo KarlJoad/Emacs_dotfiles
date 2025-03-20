@@ -148,6 +148,7 @@
 (require 'rust-config)
 (require 'python-config)
 (require 'ada-config)
+(require 'config-lang-config)
 
 (when (equal system-type 'gnu/linux)
   (require 'nix-config)
