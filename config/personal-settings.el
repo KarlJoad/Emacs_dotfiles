@@ -328,7 +328,7 @@ currently running on.")
 ;;;
 
 (use-package editorconfig
-  :ensure t
+  :ensure t ; Editorconfig is built into Emacs >= 30.1, but we pull from Git
   :defer t
   :config
   (editorconfig-mode 1))
