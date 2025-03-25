@@ -7,11 +7,9 @@
   :bind ("C-c T" . modus-themes-toggle)
   :hook ((elpaca-after-init . (lambda () (load-theme 'modus-vivendi t))))
   ;; NOTE: Because elpaca does all its work async, the initial frame would be
-  ;; put onto the monitor before the theme loaded. So we use the elpaca-after-init-hook
-  ;; hook to load the theme once all the async work is done.
+  ;; put onto the monitor before the theme loaded. So we use the
+  ;; elpaca-after-init-hook to load the theme once all the async work is done.
   ;; We could also have gotten away with an (elpaca-wait) call.
-  :config
-  (load-theme 'modus-vivendi t)
 
   :custom
   (modus-vivendi-theme-section-headings t)
