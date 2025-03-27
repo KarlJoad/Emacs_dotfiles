@@ -136,7 +136,11 @@
   (add-to-list 'TeX-command-list
                '("Buffer View" "emacsclient -n -c ./TeX_Output/%o"
                  TeX-run-discard-or-function t t
-                 :help "View PDF in an Emacs Buffer")))
+                 :help "View PDF in an Emacs Buffer"))
+  (add-to-list 'TeX-command-list
+               '("TeXCount" "texcount %T"
+                 TeX-run-command :user-modify-command (plain-tex-mode latex-mode ams-tex-mode)
+                 :help "Run texcount on the document")))
 
 (with-eval-after-load "latex"
     (setq TeX-view-program-list '(("Zathura" "zathura ./TeX_Output/%o")
