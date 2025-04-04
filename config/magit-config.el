@@ -46,6 +46,10 @@
   :config
   (magit-todos-mode))
 
+(use-package forge
+  :ensure t
+  :after magit)
+
 ;; Add major-modes for .gitconfig, .gitattributes, and .gitignore, along with
 ;; their other named variants.
 (use-package git-modes
