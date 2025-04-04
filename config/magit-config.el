@@ -7,15 +7,9 @@
 
 (require 'pcase)
 
-;; Use more up-to-date packages for magit
-(use-package seq
-  :ensure t)
-
-;; To make magit work, we need the compat package too
-(use-package compat
-  :ensure t
-  :defer t)
-
+;; We need to :ensure t transient because transient and magit are often
+;; developed side-by-side, which means that if we want the newest magit, we ALSO
+;; need the newest transient.
 (use-package transient
   :ensure t
   :defer nil)
