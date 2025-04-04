@@ -64,14 +64,6 @@
   :ensure t
   :defer t)
 
-;; emacsql-sqlite-builtin is a faster alternative than the separately-compiled
-;; sqlite binary that org-roam used to use. This also means that we do not need
-;; to compile emacsqlite, so no compiler, and thus, no need to have Guix build
-;; it for us.
-(use-package emacsql-sqlite-builtin
-  :ensure t
-  :defer t)
-
 (use-package org-roam
   :ensure t
   :defer t
