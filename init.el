@@ -70,6 +70,11 @@
 ;; on org-mode.
 (require 'org-mode-config)
 
+;; This elpaca-wait MUST appear here so that magit is loaded before anything
+;; else that could depend on it.
+;; elpaca-wait calls are the point where elpaca does dependency resolution. This
+;; is important for the many packages that magit, forge, org-mode, and org-roam
+;; rely on to function.
 (elpaca-wait)
 
 ;;;; Load config to make navigating through Emacs and files easier.
