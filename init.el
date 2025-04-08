@@ -61,6 +61,8 @@
 ;; Project commands and mannagement
 (require 'project-config)
 
+(require 'markdown-config)
+
 ;; Load in Magit options
 (require 'magit-config)
 (elpaca-wait)
@@ -135,7 +137,6 @@
 (require 'guile-config)
 (require 'common-lisp-config)
 (require 'racket-config)
-(require 'markdown-config)
 (require 'rust-config)
 (require 'web-mode-config)
 (require 'scala-config)
