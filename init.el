@@ -120,13 +120,7 @@
 (require 'lsp-config)
 
 ;;;; Treesit for semantic highlighting & editing of source code
-;;;; I choose to only use the version of tree-sitter support built INTO Emacs,
-;;;; which requires Emacs to be >29 AND be configured with:
-;;;; ./configure --with-tree-sitter.
-;;;; We first check the version of Emacs before going on and potentially loading
-;;;; treesit & its changing the major-mode-remap-alist.
-(when (>= emacs-major-version 29)
-  (require 'treesit-config))
+(require 'treesit-config)
 
 ;;;; Major mode configuration and loading
 (require 'prog-mode-config)

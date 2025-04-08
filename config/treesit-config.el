@@ -26,10 +26,16 @@
 
 (require 'personal-functions)
 
-;; Fetch and use the treesit package when Emacs is built with treesitter support
+;; Fetch and use the treesit package (which is built INTO Emacs) when Emacs is
+;; built with tree-sitter support, which requires Emacs to be >29 AND be
+;; configured with:
+;; ./configure --with-tree-sitter.
+;; We first check the version of Emacs before going on and potentially loading
+;; treesit & its changing the major-mode-remap-alist.
 (use-package treesit
   :ensure nil ;; built-in
-  :when (and (treesit-available-p)
+  :when (and (>= emacs-major-version 29)
+             (treesit-available-p)
              (getenv "TREE_SITTER_GRAMMAR_PATH"))
   :init
   (setq major-mode-remap-alist
