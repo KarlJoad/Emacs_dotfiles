@@ -5,7 +5,7 @@
 (use-package undo-tree
   :ensure t
   :defer t
-  :bind (("C-c u v" . #'undo-tree-visualize))
+  :bind (("C-c u v" . undo-tree-visualize))
   :config
   (global-undo-tree-mode)
   (setq undo-tree-visualizer-diff t)
