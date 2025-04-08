@@ -2,9 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
+(require 'personal-functions)
+
 (use-package vterm
   :ensure nil ;; built-in
-  :defer t)
+  :defer t
+  :when (karljoad/is-guix-system))
 
 (provide 'vterm-config)
 ;;; vterm-config.el ends here

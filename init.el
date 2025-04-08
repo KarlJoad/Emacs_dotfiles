@@ -81,8 +81,7 @@
 
 ;;;; Set up a proper terminal emulator in Emacs.
 ;;; term-mode and ansi-term are alright, but vterm is better.
-(when (karljoad/is-guix-system)
-  (require 'vterm-config))
+(require 'vterm-config)
 
 ;; Org-mode MUST be loaded before my email config, because mu4e has a dependency
 ;; on org-mode.
