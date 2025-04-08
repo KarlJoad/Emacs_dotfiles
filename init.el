@@ -84,9 +84,9 @@
 (when (karljoad/is-guix-system)
   (require 'vterm-config))
 
-(require 'org-mode-config) ;; org-mode configuration
 ;; Org-mode MUST be loaded before my email config, because mu4e has a dependency
 ;; on org-mode.
+(require 'org-mode-config)
 
 ;;;; Load in my email settings
 (require 'email-config)
