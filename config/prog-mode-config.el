@@ -20,10 +20,11 @@ forward ARG times if negative."
 ;; then forward-word would move the point right after "variable", but before the
 ;; "_". Instead, I would prefer to move forward by the whole symbol, placing point
 ;; at the end of the symbol instead.
-(add-hook 'prog-mode-hook
-          (lambda ()
-            (local-set-key (kbd "M-f") #'forward-symbol)
-            (local-set-key (kbd "M-b") #'backward-symbol)))
+(use-package emacs
+  :ensure nil ; Emacs pseudo-package cannot be :ensure-d
+  :bind (:map prog-mode-map
+         ("M-f" . forward-symbol)
+         ("M-b" . backward-symbol)))
 
 ;;;
 ;;; Code formatting
