@@ -2,6 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
+(use-package asm-mode
+  :ensure nil ; built-in
+  :defer t
+  :custom
+  (comment-start "//"))
+
 ;; x86 and amd64 assembly major-mode
 (use-package masm-mode
   :ensure t
