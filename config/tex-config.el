@@ -157,7 +157,8 @@
 ;;; Bring latexmk support to auctex
 (use-package auctex-latexmk
   :ensure t
-  :defer t)
+  :defer t
+  :after auctex)
 
 (provide 'tex-config)
 ;;; tex-config.el ends here
