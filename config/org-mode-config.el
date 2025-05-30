@@ -71,7 +71,7 @@
   :custom (org-roam-directory (file-truename "~/OrgRoamNotes/"))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
-         ("C-c n t" . karljoad/org-roam-node-find-by-tag)
+         ("C-c n t" . org-roam-node-tag-read)
          ("C-c n g" . org-roam-graph)
          ("C-c n i" . org-roam-node-insert)
          ("C-c n c" . org-roam-capture)
@@ -79,41 +79,40 @@
          ("C-c n j" . org-roam-dailies-capture-today)
          :map org-mode-map
          ("M-," . org-mark-ring-goto))
-  :init
-  (require 'cl-lib)
-  (defvar karljoad/org-roam--node-tag-string-distance 5
-    "The Levenshtein distance to use when matching against `#:filetag's.")
-  (defun karljoad/org-roam-node-has-tag (node tag)
-    "Filter function to check if the given NODE has the specified TAG."
-    ;; Set operations are required because even though we can enter tags with
-    ;; spaces through the minibuffer, org-roam v2 only uses org-mode's notion of
-    ;; tags, which is controlled by the org-tag-re regexp. Notably, this means
-    ;; that spaces are not allowed in tags. So if I want to filter by tags, and I
-    ;; enter a space into the tag filter function, we should split it up so that
-    ;; it can kind of match what org-tag-re expectes, and therefore what org-roam
-    ;; actually uses and stores.
-    (consp
-     (cl-intersection
-      (string-split tag)
-      (org-roam-node-tags node)
-      :test (lambda (s1 s2) (or (string-equal-ignore-case s1 s2)
-                                (< (string-distance s1 s2)
-                                   karljoad/org-roam--node-tag-string-distance))))))
-  ;; TODO: Get list of possible completions from org-roam database, so the user
-  ;; has an easier time selecting tags.
-  (defun karljoad/org-roam-node-find-by-tag (tag)
-    "Find and open an org-roam node based on the specified TAG."
-    (interactive "sEnter Tag: ")
-    (org-roam-node-find nil nil
-                        (lambda (node) (karljoad/org-roam-node-has-tag node tag))
-                        ;; PRED below gets used as a sorting function in the
-                        ;; completion.
-                        nil))
   :config
-  (progn
-    (org-roam-db-autosync-mode)
-    (org-roam-setup)
-    (setq-local completion-ignore-case t))
+  (defun org-roam-tags-list ()
+    "Return all tags (#+FILETAGs) stored in the database."
+    (let ((rows (org-roam-db-query "SELECT DISTINCT tag FROM tags;")))
+      (flatten-list rows)))
+
+  (defun org-roam-node-tag-read (&optional initial-input filter-fn sort-fn
+                                           require-match prompt)
+    "Return a list of `org-roam-node' that have a matching #+FILETAG entry.
+PROMPT is a string to "
+    (interactive current-prefix-arg)
+    (let* ((prompt (or prompt "File Tag: "))
+           (tag (completing-read prompt (org-roam-tags-list)))
+           ;; NOTE: We construct an alist because we want the user's title
+           ;; selection to be used as a key to get the node's UUID.
+           (nodes (mapcar (pcase-lambda (`(,title ,uuid))
+                            `(,title . ,uuid))
+                          (org-roam-db-query
+                           [:select [title id]
+                                    :from [:select [id file title properties]
+                                                   :from nodes] :as nodes
+                                    :join tags
+                                    :on (= nodes:id tags:node_id)
+                                    :where (= tags:tag $s1)]
+                           tag)))
+           (selected-node (completing-read "Node: " nodes))
+           (selected-node-id (alist-get selected-node nodes 'nil 'nil #'string=)))
+      (org-roam-node-open
+       (org-roam-node-from-id selected-node-id))))
+
+  (org-roam-db-autosync-mode)
+  (org-roam-setup)
+  (setq-local completion-ignore-case t)
+
   :custom
   (org-roam-v2-ack t))
 
