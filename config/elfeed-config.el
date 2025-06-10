@@ -39,6 +39,7 @@
                   ("https://fzakaria.com/feed.xml" systems nix build-system blog)
                   ("https://zipcpu.com/feed.xml" hardware systems verification blog)
                   ("https://tansanrao.com/rss.xml" systems blog)
+                  ("https://ziglang.org/devlog/index.xml" systems languages blog)
                   ("https://atillahallsby.com/feed/" blog rhetoric research)))
   ;; NOTE: Make elfeed use Emacs' built-in url-retrieve function rather than cURL.
   ;; This is significantly faster, but only works on Emacsen running on Linux
