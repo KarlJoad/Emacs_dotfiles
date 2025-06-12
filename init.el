@@ -145,6 +145,7 @@
 (require 'typescript-config)
 (require 'vhdl-config)
 (require 'verilog-config)
+(require 'go-config)
 (require 'rust-config)
 (require 'python-config)
 (require 'ada-config)
