@@ -154,6 +154,7 @@
 (require 'config-lang-config)
 (require 'agda-config)
 (require 'graph-config)
+(require 'salt-config)
 
 (when (equal system-type 'gnu/linux)
   (require 'nix-config)
