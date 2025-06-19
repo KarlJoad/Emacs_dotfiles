@@ -11,6 +11,15 @@
   :ensure t
   :defer t)
 
+
+;;;
+;;; Now configure YAML using tree-sitter tools
+;;;
+
+(use-package yaml-ts-mode
+  :ensure nil ; built-in
+  :defer t)
+
 
 (provide 'config-lang-config)
 ;;; config-lang-config.el ends here
