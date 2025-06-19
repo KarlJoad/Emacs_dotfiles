@@ -32,5 +32,18 @@
   :ensure t
   :defer t)
 
+
+;;;
+;;; Configure TOML
+;;;
+
+;; XXX: Emacs has a normal TOML mode built into it as a conf-mode derived
+;; major-mode since 2017. I will probably not use any Emacsen older than this,
+;; So I will not do any configuration here.
+
+(use-package toml-ts-mode
+  :ensure nil ; built-in
+  :defer t)
+
 (provide 'config-lang-config)
 ;;; config-lang-config.el ends here
