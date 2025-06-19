@@ -11,7 +11,7 @@
   :ensure t
   :defer t)
 
-(use-package outline-yaml
+(use-package outline-indent
   :ensure t
   :defer t)
 
