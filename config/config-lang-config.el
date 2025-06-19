@@ -2,7 +2,15 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package yaml-mode)
+
+;;;
+;;; Configure YAML for non-Tree-Sitter enabled systems
+;;;
+
+(use-package yaml-mode
+  :ensure t
+  :defer t)
+
 
 (provide 'config-lang-config)
 ;;; config-lang-config.el ends here
