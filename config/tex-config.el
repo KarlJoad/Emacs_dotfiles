@@ -60,7 +60,10 @@
 (use-package auctex
   ;; NOTE: You need autoconf, automake, make, and some of TeXLive to build
   ;; auctex!
-  :ensure (auctex :pre-build (("./autogen.sh")
+  :ensure (auctex :host github
+                  :fetcher github
+                  :repo ("https://github.com/emacsmirror/auctex.git" . "auctex")
+                  :pre-build (("./autogen.sh")
                               ("./configure"
                                "--without-texmf-dir"
                                "--with-packagelispdir=./"
