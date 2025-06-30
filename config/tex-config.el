@@ -70,7 +70,8 @@
                                "--with-packagedatadir=./")
                               ("make"))
                   :build (:not elpaca--compile-info) ;; Make will take care of this step
-                  :files ("*.el" "doc/*.info*" "etc" "images" "latex" "style"))
+                  :files ("*.el" "doc/*.info*" "etc" "images" "latex" "style")
+                  :version (lambda (_) (require 'auctex) AUCTeX-version))
   :defer t
   :init
   ;; Force auctex (the strictly superior (La)TeX major-mode) to be used by setting
