@@ -106,6 +106,7 @@
   (mu4e-headers-include-related nil)
   ;; Show the email address of the person I am emailing, along with their name.
   (mu4e-view-show-addresses t)
+  (mu4e-view-show-images t)
   ;; Use a sendmail program rather than sending directly from Emacs
   (message-send-mail-function 'message-send-mail-with-sendmail)
   ;; Make msmtp infer the correct account to send from by the From: email address
