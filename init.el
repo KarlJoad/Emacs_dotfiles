@@ -93,8 +93,10 @@
 ;;; term-mode and ansi-term are alright, but vterm is better.
 (require 'vterm-config)
 
-;;;; Load in my email settings
-(require 'email-config)
+;;;; Load in my email settings only when my has been installed, since that is
+;;;; the basis for my entire email configuration.
+(when (executable-find "mu")
+  (require 'email-config))
 
 ;;;; Load Elfeed config, to read RSS feeds
 (require 'elfeed-config)
