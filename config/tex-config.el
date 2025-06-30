@@ -63,6 +63,7 @@
   :ensure (auctex :host github
                   :fetcher github
                   :repo ("https://github.com/emacsmirror/auctex.git" . "auctex")
+                  :branch "master"
                   :pre-build (("./autogen.sh")
                               ("./configure"
                                "--without-texmf-dir"
