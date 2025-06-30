@@ -112,6 +112,9 @@
   (message-sendmail-extra-arguments '("--read-envelope-from"))
   ;; Don't add "-f username" to the msmtp command.
   (message-sendmail-f-is-evil 't)
+  ;; Don't let me easily reply to myself
+  (mu4e-compose-dont-reply-to-self t)
+  (mu4e-compose-keep-self-cc nil)
 
   :config
   ;; Set the contexts for the accounts I use.
