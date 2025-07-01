@@ -11,6 +11,10 @@
   :ensure t
   :defer t)
 
+(use-package outline-yaml
+  :ensure t
+  :defer t)
+
 
 ;;;
 ;;; Now configure YAML using tree-sitter tools
