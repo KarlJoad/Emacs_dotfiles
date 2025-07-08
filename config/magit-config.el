@@ -28,7 +28,8 @@
   :custom
   (magit-no-confirm '(stage-all-changes unstage-all-changes))
   (magit-clone-default-directory "~/Repos/")
-  (magit-auto-revert-mode t))
+  (magit-auto-revert-mode t)
+  (magit-tramp-pipe-stty-settings 'pty))
 
 ;; Display TODO/FIXME/other tagged items in the repository in the magit-status
 ;; buffer.

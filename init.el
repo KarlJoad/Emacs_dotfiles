@@ -61,6 +61,9 @@
 ;; Project commands and mannagement
 (require 'project-config)
 
+;; Configure TRAMP, even though I don't use it.
+(require 'tramp-config)
+
 (require 'markdown-config)
 
 ;; Load in Magit options
