@@ -29,6 +29,8 @@
 
 (use-package emacs
   :ensure nil ;; built-in
+  :config
+  (repeat-mode 1)
   :custom
   ;; Make Emacs treat manual and programmatic buffer switches the same. This
   ;; works by making `switch-to-buffer' actually use `pop-to-buffer-same-window'
