@@ -47,7 +47,11 @@
   ;; Improve paren highlighting
   (show-paren-highlight-openparen t)
   (show-paren-when-point-in-periphery t)
-  (show-paren-when-point-inside-paren t))
+  (show-paren-when-point-inside-paren t)
+  ;; Do not fontify a window when the user is actively inputting data. This
+  ;; should reduce input latency in large buffers. This should also help with
+  ;; scroll performance.
+  (redisplay-skip-fontification-on-input t))
 
 ;; Unbind C-z from suspending the current Emacs frame.
 ;; This stops me from accidentally minimizing Emacs when running graphically.
