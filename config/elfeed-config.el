@@ -42,6 +42,7 @@
                   ("https://ziglang.org/devlog/index.xml" systems languages blog)
                   ("https://blog.maximeheckel.com/rss.xml" systems graphics blog)
                   ("https://gautiersblog.blogspot.com/feeds/posts/default/-/Ada" languages ada blog)
+                  ("https://bsdly.blogspot.com/feeds/posts/default" systems bsd blog)
                   ("https://atillahallsby.com/feed/" blog rhetoric research)))
   ;; NOTE: Make elfeed use Emacs' built-in url-retrieve function rather than cURL.
   ;; This is significantly faster, but only works on Emacsen running on Linux
