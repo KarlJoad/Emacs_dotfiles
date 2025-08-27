@@ -76,7 +76,11 @@ This buries the buffer to the bottom of the buffer list and deletes the window."
      ;; Emacs' built-in regexp-based major modes for font-locking.
      :colorProvider
      :documentHighlightProvider
-     :foldingRangeProvider))
+     :foldingRangeProvider
+     ;; Disable inline/inlay hints (for function parameters for example).
+     ;; The way Emacs handles them makes lines very long and a bit annoying to
+     ;; read. I also don't find them that helpful.
+     :inlayHintProvider))
   (eglot-stay-out-of '(yasnippet))
   (eglot-workspace-configuration
    '((:pylsp . (:configurationSources ["flake8"]
