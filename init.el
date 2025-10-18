@@ -158,6 +158,7 @@
 (require 'agda-config)
 (require 'graph-config)
 (require 'salt-config)
+(require 'quickshell-config)
 
 (when (equal system-type 'gnu/linux)
   (require 'nix-config)
