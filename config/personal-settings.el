@@ -51,7 +51,10 @@
   ;; Do not fontify a window when the user is actively inputting data. This
   ;; should reduce input latency in large buffers. This should also help with
   ;; scroll performance.
-  (redisplay-skip-fontification-on-input t))
+  (redisplay-skip-fontification-on-input t)
+  ;; Do not delay the delete-pair. That just makes things feel slow.
+  ;; I almost never use `delete-pair', but let's make it behave like `kill-sexp'.
+  (delete-pair-blink-delay 0))
 
 ;; Unbind C-z from suspending the current Emacs frame.
 ;; This stops me from accidentally minimizing Emacs when running graphically.
