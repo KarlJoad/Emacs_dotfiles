@@ -29,6 +29,9 @@
 
 (use-package emacs
   :ensure nil ;; built-in
+  ;; This is usually bound by default, but sometimes it does not take effect.
+  ;; We manually bind it here, just so we always get keybindings that we want.
+  :bind (("M-<delete>" . #'backwards-kill-word))
   :config
   (repeat-mode 1)
   :custom
