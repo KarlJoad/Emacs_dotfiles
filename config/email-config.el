@@ -116,6 +116,11 @@
   ;; Don't let me easily reply to myself
   (mu4e-compose-dont-reply-to-self t)
   (mu4e-compose-keep-self-cc nil)
+  ;; Make mu4e use Emacs' built-in completion system rather than mu4e's custom
+  ;; one. This means that the rest of my completion configuration kicks in for
+  ;; mu4e too.
+  (mu4e-read-option-use-builtin 'nil)
+  (mu4e-completing-read-function #'completing-read)
 
   :config
   ;; Set the contexts for the accounts I use.
