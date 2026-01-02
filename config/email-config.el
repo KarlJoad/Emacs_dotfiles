@@ -50,7 +50,6 @@
              (locate-library "mu4e")
              (executable-find "msmtp"))
   :load-path mu4e-load-path
-  :defer t
   ;; Give myself a nice easy keybinding to open mu4e
   :bind (("C-c m" . mu4e)
          :map mu4e-view-mode-map
