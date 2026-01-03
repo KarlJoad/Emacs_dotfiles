@@ -24,7 +24,7 @@
 
 ;;; Code:
 
-(require 'personal-functions)
+(require 'os-detection)
 
 ;; Fetch and use the treesit package (which is built INTO Emacs) when Emacs is
 ;; built with tree-sitter support, which requires Emacs to be >29 AND be
