@@ -27,6 +27,7 @@
          :map c++-mode-map
          ("C-c C-c" . compile)))
 
+;; 
 ;; Configure GDB
 (use-package gdb-mi
   :ensure nil ; built-in
