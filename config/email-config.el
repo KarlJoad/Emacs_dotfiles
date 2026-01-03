@@ -186,9 +186,8 @@ kgh@u.northwestern.edu")))))
 ;; HTML email is rife in the world. It is used by Gmail, for instance.
 ;; There are accessibility reasons why not to use it, but I still want to be able
 ;;  to read emails sent through Gmail. So, we configure that here.
-;; (require 'mu4e-contrib)
 (use-package mu4e-contrib
-  :ensure nil
+  :ensure nil ; Provided by mu package
   :load-path mu4e-load-path
   :after mu4e
   :config
