@@ -70,15 +70,19 @@
 (global-hl-line-mode 1) ;; Have line with my cursor highlighted
 
 ;; Use special line-highlighting for line-oriented or text-oriented buffers.
-;; In line-oriented buffers (mu4e, elfeed), highlights the point's current line
-;; more heavily.
 (use-package lin
   :ensure t
-  :defer t
+  :defer nil
   :config
-  (lin-global-mode)
+  (lin-global-mode 1)
   :custom
-  (lin-face 'lin-mac))
+  (lin-face 'lin-mac)
+  ;; Line-oriented buffers (mu4e, elfeed), more heavily highlight point's
+  ;; current line.
+  (lin-mode-hooks '(elfeed-search-mode-hook
+                    ibuffer-mode-hook
+                    magit-log-mode-hook
+                    mu4e-headers-mode-hook)))
 
 ;; Pulse the current line when performing certain actions in Emacs.
 ;; The functions that cause the pulse are in the `pulsar-pulse-functions' list.
