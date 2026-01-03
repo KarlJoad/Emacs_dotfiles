@@ -46,5 +46,10 @@ forward ARG times if negative."
   ;; (apheleia-global-mode 1)
   )
 
+;; 
+(use-package llvm-ts-mode
+  :ensure t
+  :defer t)
+
 (provide 'prog-mode-config)
 ;;; prog-mode-config.el ends here
