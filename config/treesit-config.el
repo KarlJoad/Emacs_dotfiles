@@ -38,6 +38,17 @@
              (treesit-available-p)
              (getenv "TREE_SITTER_GRAMMAR_PATH"))
   :init
+  ;; I use Guix Home to install tree-sitter grammars for programming which, by the
+  ;; nature of its functional package-management system, will install these shared
+  ;; objects into a particular location within the Guix store, which is then
+  ;; exposed with an environment variable.
+  ;; When I am on a Guix-based system, assume I am using Guix Home and add the
+  ;; store path to Emacs' understanding of the tree-sitter module load path.
+  (when (karljoad/is-guix-system)
+    (setq treesit-extra-load-path
+          (append (split-string (getenv "TREE_SITTER_GRAMMAR_PATH") ":")
+                  treesit-extra-load-path)))
+
   (setq major-mode-remap-alist
         '((yaml-mode . yaml-ts-mode)
           (conf-toml-mode . toml-ts-mode)
@@ -59,15 +70,6 @@
           (scala-mode . scala-ts-mode)
           (ada-mode . ada-ts-mode)
           (gpr-mode . gpr-ts-mode))))
-
-;; I use Guix Home to install tree-sitter grammars for programming which, by the
-;; nature of its functional package-management system, will install these shared
-;; objects into a particular location within the Guix store, which is then
-;; exposed with an environment variable.
-;; When I am on a Guix-based system, assume I am using Guix Home and add the
-;; store path to Emacs' understanding of the tree-sitter module load path.
-(when (karljoad/is-guix-system)
-  (add-to-list 'treesit-extra-load-path (getenv "TREE_SITTER_GRAMMAR_PATH")))
 
 ;; Bring paredit-like functionality to every programming language!
 (use-package tree-edit
