@@ -183,37 +183,6 @@ kgh@u.northwestern.edu")))))
       ;; This query works because the * is expanded by the shell before being passed to the mu binary.
       :query "maildir:/Personal/* OR maildir:/IIT/* OR maildir:/Northwestern OR/* maildir:/ServerAdmin/*")))
 
-;; Allow for the viewing of HTML emails using an XWidgets window/renderer
-(use-package ivy
-  :ensure t
-  :defer t)
-
-(use-package mu4e-views
-  :ensure nil
-  :load-path mu4e-load-path
-  :after mu4e
-  :bind (:map mu4e-headers-mode-map
-         ;; select viewing method
-         ("v" . mu4e-views-mu4e-select-view-msg-method)
-         ;; from headers window scroll the email view
-         ("M-n" . mu4e-views-cursor-msg-view-window-down)
-         ;; from headers window scroll the email view
-         ("M-p" . mu4e-views-cursor-msg-view-window-up)
-         ;; toggle opening messages automatically when moving in the headers view
-         ("f" . mu4e-views-toggle-auto-view-selected-message))
-  :custom
-  ;; use ivy for completion
-  (mu4e-views-completion-method 'ivy)
-  ;; Show plaintext first
-  (mu4e-views-default-view-method "text")
-  ;; when pressing n and p stay in the current window
-  (mu4e-views-next-previous-message-behaviour 'stick-to-current-window)
-  ;; automatically open messages when moving in the headers view)
-  (mu4e-views-auto-view-selected-message t)
-  :config
-  ;; select the default
-  (mu4e-views-mu4e-use-view-msg-method "html"))
-
 ;; HTML email is rife in the world. It is used by Gmail, for instance.
 ;; There are accessibility reasons why not to use it, but I still want to be able
 ;;  to read emails sent through Gmail. So, we configure that here.
