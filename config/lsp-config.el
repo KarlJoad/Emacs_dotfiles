@@ -44,7 +44,7 @@ This buries the buffer to the bottom of the buffer list and deletes the window."
          ("C-c h ?" . #'eldoc)
          ("C-h >" . #'karljoad/close-eldoc-doc-buffer))
   :hook (((c-mode c++-mode c-ts-mode c++-ts-mode rust-mode rust-ts-mode
-           scala-mode scala-ts-mode python-mode python-ts-mode) . eglot-ensure))
+           scala-mode scala-ts-mode python-mode python-ts-mode qml-ts-mode) . eglot-ensure))
   :config
   (add-to-list
    'eglot-server-programs

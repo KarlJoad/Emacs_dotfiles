@@ -6,7 +6,11 @@
   :ensure (:host github :repo "xhcoding/qml-ts-mode"
            :branch "main"
            :depth nil)
-  :defer t)
+  :defer t
+  :requires (eglot)
+  :init
+  (add-to-list 'eglot-server-programs
+               `((qml-ts-mode) . ("qmlls"))))
 
 (provide 'quickshell-config)
 ;;; quickshell-config.el ends here
