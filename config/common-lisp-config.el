@@ -5,7 +5,7 @@
 ;;; Code:
 
 (require 'magit-config)
-(require 'yasnippet-config)
+(require 'snippets-config)
 (require 'lispy-config)
 
 (setq inferior-lisp-program "sbcl")

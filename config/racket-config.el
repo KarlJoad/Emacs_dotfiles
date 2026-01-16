@@ -4,7 +4,7 @@
 
 (require 'magit)
 (require 'lispy-config)
-(require 'yasnippet-config)
+(require 'snippets-config)
 
 (use-package racket-mode
   :ensure t

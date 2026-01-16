@@ -1,11 +1,17 @@
-;;; yasnippet-config.el --- Provides and configure yasnippet -*- lexical-binding: t -*-
+;;; snippets-config.el --- Provides and configure snippets -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
-;; This provides the yasnippet package, which allows me to auto-generate a certain control flow.
-;; It can be a loop, a conditional, whatever.  It allows me to quickly and easily insert snippets of text
-;; Snippets are expanded by typing enough of it in, and them pressing "<tab>" to enter it.
-;; It is important to note that this IS NOT the little dropdown that I get while typing.
-;; That's provided by company.  Snippets are predefined in their respective file(s).
+;; Programming snippets are templates that provide a way for a short
+;; abbreviation to expand into a whole body of code while leaving blank spots
+;; for your cursor/point to jump to.
+;;
+;; This provides the yasnippet package, which allows me to auto-generate a
+;; certain control flow. It can be a loop, a conditional, whatever. It allows me
+;; to quickly and easily insert snippets of text Snippets are expanded by typing
+;; enough of it in, and them pressing <TAB> to enter it. It is important to note
+;; that this IS NOT the little dropdown that I get while typing. That's provided
+;; by your chosen completion framework. Yasnippet's snippets are predefined in
+;; their respective file(s).
 ;;
 ;;; Code:
 
@@ -38,5 +44,5 @@
   :ensure t
   :config (yasnippet-snippets-initialize))
 
-(provide 'yasnippet-config)
-;;; yasnippet-config.el ends here
+(provide 'snippets-config)
+;;; snippet-config.el ends here

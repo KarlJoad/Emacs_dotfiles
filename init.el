@@ -118,8 +118,9 @@
 ;;;; flycheck for spell/syntax checking
 (require 'flycheck-config)
 
-;;;; Snippets are provided by Yasnippet
-(require 'yasnippet-config)
+;;; Snippets provide convenient way to make template the stuff we put in a
+;;; file.
+(require 'snippets-config)
 
 ;;;; Configuration for TeX and all of TeX's variations/extensions
 (require 'tex-config)
