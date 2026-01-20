@@ -42,14 +42,14 @@
     ;;                   completion-at-point-functions))
     )
 
-  ;; (add-hook 'conf-mode-hook #'tempel-setup-capf)
-  (add-hook 'prog-mode-hook #'tempel-setup-capf)
-  ;; (add-hook 'text-mode-hook #'tempel-setup-capf)
-
   ;; Optionally make the Tempel templates available to Abbrev,
   ;; either locally or globally. `expand-abbrev' is bound to C-x '.
   ;; (add-hook 'prog-mode-hook #'tempel-abbrev-mode)
   ;; (global-tempel-abbrev-mode)
+  :hook ((prog-mode . tempel-setup-capf))
+  ;; :hook ((conf-mode . tempel-setup-capf)
+  ;;        (prog-mode . tempel-setup-capf)
+  ;;        (text-mode . tempel-setup-capf))
   )
 
 ;;; 
