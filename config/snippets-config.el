@@ -19,7 +19,10 @@
   :ensure t
   :defer t
   :bind (("M-+" . tempel-complete) ;; Alternative tempel-expand
-         ("M-*" . tempel-insert))
+         ("M-*" . tempel-insert)
+         :map tempel-map
+         ("<tab>" . tempel-next)
+         ("<backtab>" . tempel-previous))
 
   :init
   ;; Setup completion at point
