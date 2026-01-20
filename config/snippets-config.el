@@ -50,6 +50,14 @@
   ;; :hook ((conf-mode . tempel-setup-capf)
   ;;        (prog-mode . tempel-setup-capf)
   ;;        (text-mode . tempel-setup-capf))
+  :custom
+  ;; If on the last field in the template, then using #'tempel-next will
+  ;; "done" (exit) the template. Some fields are special and always marked as
+  ;; being the "done" fields. These special "done" fields will ALWAYS cause a
+  ;; "tempel done" event to occur, regardless of the state of the template,
+  ;; ending the template's interactive fill-in session. ELisp's "fn" (for defun)
+  ;; template's body field is one of those.
+  (tempel-done-on-next 't)
   )
 
 ;;; 
