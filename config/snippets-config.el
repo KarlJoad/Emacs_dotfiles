@@ -47,9 +47,6 @@
   ;; (add-hook 'prog-mode-hook #'tempel-abbrev-mode)
   ;; (global-tempel-abbrev-mode)
   :hook ((prog-mode . tempel-setup-capf))
-  ;; :hook ((conf-mode . tempel-setup-capf)
-  ;;        (prog-mode . tempel-setup-capf)
-  ;;        (text-mode . tempel-setup-capf))
   :custom
   ;; If on the last field in the template, then using #'tempel-next will
   ;; "done" (exit) the template. Some fields are special and always marked as
