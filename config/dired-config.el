@@ -20,5 +20,18 @@
   (delete-by-moving-to-trace t)
   (dired-dwim-target t))
 
+;; Enable dired-x so that we get the "extra goodies" we want to use in dired.
+;; For example, `dired-do-find-marked-files', which does `find-file' on every
+;; marked file comes from this library.
+(use-package dired-x
+  :ensure nil ; built-in
+  :hook ((dired-mode . dired-omit-mode))
+  :custom
+  ;; Don't let dired-x override the default keybindings for existing Emacs
+  ;; functions/commands.
+  (dired-x-hands-off-my-keys 't)
+  ;; Don't show .git in dired.
+  (dired-omit-files (concat dired-omit-files "\\|^\\.git$")))
+
 (provide 'dired-config)
 ;;; dired-config.el ends here
