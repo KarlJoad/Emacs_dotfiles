@@ -26,12 +26,14 @@
 (use-package dired-x
   :ensure nil ; built-in
   :hook ((dired-mode . dired-omit-mode))
+  :config
+  ;; Don't show .git in dired.
+  (setq-default dired-omit-files
+                (concat dired-omit-files "\\|^\\.git$"))
   :custom
   ;; Don't let dired-x override the default keybindings for existing Emacs
   ;; functions/commands.
-  (dired-x-hands-off-my-keys 't)
-  ;; Don't show .git in dired.
-  (dired-omit-files (concat dired-omit-files "\\|^\\.git$")))
+  (dired-x-hands-off-my-keys 't))
 
 (provide 'dired-config)
 ;;; dired-config.el ends here
