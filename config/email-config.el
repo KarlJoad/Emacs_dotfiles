@@ -141,10 +141,6 @@
 PhD Computer Engineering 2027
 Northwestern University
 
-BS Computer Engineering 2022
-MS Computer Engineering 2022
-Illinois Institute of Technology
-
 Contact:
 karl@hallsby.com
 +1-630-815-7827")))
