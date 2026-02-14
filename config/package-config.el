@@ -51,7 +51,7 @@
 (when (< emacs-major-version 29)
   (unless (package-installed-p 'use-package)
     (unless package-archive-contents
-      (pakcage-refresh-contents))
+      (package-refresh-contents))
     (package-install 'use-package)))
 
 ;; Install use-package support
