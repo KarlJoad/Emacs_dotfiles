@@ -11,7 +11,10 @@
 ;; Use geiser to make Scheme development nicer
 (use-package geiser
   :defer t
-  :ensure t)
+  :ensure t
+  :custom
+  ;; Always insert "lambda" instead of "λ"
+  (geiser-insert-actual-lambda nil))
 
 (provide 'scheme-config)
 ;;; scheme-config.el ends here
