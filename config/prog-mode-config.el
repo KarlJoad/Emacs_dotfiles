@@ -27,6 +27,16 @@ forward ARG times if negative."
          ("M-b" . backward-symbol)))
 
 ;;;
+;;; Selection
+
+(use-package expreg
+  :ensure t
+  :defer t
+  :bind (("C-=" . expreg-expand)
+         ;; NOTE: This overrides the default binding to #'negative-argument.
+         ("C--" . expreg-contract)))
+
+;;;
 ;;; Code formatting
 
 ;; apheleia uses a neat method to ensure that the current buffer visiting a file
