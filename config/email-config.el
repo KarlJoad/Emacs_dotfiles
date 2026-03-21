@@ -140,6 +140,7 @@
                     (mu4e-compose-signature . "Karl Hallsby
 PhD Computer Engineering 2027
 Northwestern University
+https://raven.hallsby.com
 
 Contact:
 karl@hallsby.com
@@ -161,6 +162,7 @@ karl@hallsby.com
 PhD Computer Engineering 2027
 Northwestern University
 Mudd Library, Room 3301
+https://raven.hallsby.com
 
 Contact:
 kgh@u.northwestern.edu")))))
