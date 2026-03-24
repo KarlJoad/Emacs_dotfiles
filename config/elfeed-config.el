@@ -54,6 +54,7 @@
                   ("https://tigerbeetle.com/blog/atom.xml" databases systems zig blog)
                   ("https://planet.guix.gnu.org/atom.xml" guix guile reproducible)
                   ("https://pagedout.institute/atom.xml" systems blog)
+                  ("https://mcmichen.cc/feed.xml" systems compilers languages)
                   ("https://atillahallsby.com/feed/" blog rhetoric research)))
   ;; NOTE: Make elfeed use Emacs' built-in url-retrieve function rather than cURL.
   ;; This is significantly faster, but only works on Emacsen running on Linux
