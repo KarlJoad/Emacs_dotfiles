@@ -12,6 +12,15 @@
 ;; Emacs ships with some default TeX/LaTeX support.
 (require 'tex-mode)
 
+(use-package emacs
+  :ensure nil ; built-in
+  :demand t
+  :config
+  (setq completion-ignored-extensions
+        (append completion-ignored-extensions
+                '(".acn" ".bcf" ".fdb_latexmk" ".fls" ".glslabels" ".ilg" ".ind"
+                  ".log" ".out" ".run.xml" ".synctex.gz" ".xdy"))))
+
 ;;; 
 ;;; RefTeX
 (use-package reftex
