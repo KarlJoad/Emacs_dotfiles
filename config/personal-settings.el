@@ -205,13 +205,17 @@
   (compilation-environment '("TERM=xterm-256color")))
 
 ;; Try to use UTF-8 for everything
-(set-language-environment "UTF-8")
-(setq locale-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8) ;; Catch-all
+(use-package emacs
+  :ensure nil
+  :init
+  (set-language-environment "UTF-8")
+  (set-default-coding-systems 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8) ;; Catch-all
+  :custom
+  (locale-coding-system 'utf-8))
 
 ;; Sentences DO NOT need 2 spaces to end.
 (setq-default sentence-end-double-space nil)
