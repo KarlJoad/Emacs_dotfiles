@@ -10,6 +10,8 @@
   (comint-prompt-read-only t)
   ;; Buffer's max size is 2KiB, default 1KiB is a bit small.
   (comint-buffer-maximum-size (* 2 1024))
+  ;; Increase input history ring size (default is 500)
+  (comint-input-ring-size 10000)
   ;; Make sure that comint (and anything that inherits from comint, I'm looking
   ;; at you shell) ignored duplicated lines.
   (comint-input-ignoredups t)
