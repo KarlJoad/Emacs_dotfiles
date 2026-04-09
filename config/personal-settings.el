@@ -180,7 +180,9 @@
   ((compilation-filter . ansi-color-compilation-filter))
   :custom
   ;; Have Emacs always follow compilation outputs in the Compile buffers.
-  (compilation-scroll-output t))
+  (compilation-scroll-output t)
+  ;; Tell subprocesses they can emit color/escape codes
+  (compilation-environment '("TERM=xterm-256color")))
 
 ;; Show keystrokes in progress more quickly than default
 (setq echo-keystrokes 0.75)
