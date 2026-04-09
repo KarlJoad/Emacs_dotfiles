@@ -24,5 +24,12 @@
   ;; Auto-scroll to bottom when you type input
   (comint-scroll-to-bottom-on-input t))
 
+(use-package comint
+  :ensure nil
+  :when (>= emacs-major-version 30)
+  :custom
+  ;; Use cat as $PAGER so that output remains in the comint buffer.
+  (comint-pager "cat"))
+
 (provide 'comint-config)
 ;;; comint-config.el ends here
