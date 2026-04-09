@@ -172,8 +172,12 @@
 (setq auto-revert-verbose nil) ;; But not right now.
 (auto-compression-mode t) ;; Transparently open compressed files
 
-;; Have Emacs always follow compilation outputs in the Compile buffers.
-(setq compilation-scroll-output t)
+(use-package compile
+  :ensure nil ;; built-in
+  :defer t
+  :custom
+  ;; Have Emacs always follow compilation outputs in the Compile buffers.
+  (compilation-scroll-output t))
 
 ;; Show keystrokes in progress more quickly than default
 (setq echo-keystrokes 0.75)
