@@ -33,6 +33,9 @@
   ;; We manually bind it here, just so we always get keybindings that we want.
   :bind (("M-<delete>" . #'backwards-kill-word))
   :config
+  ;; Allow some keychords to be repeated without their prefix. For example,
+  ;; using C-x o to switch multiple windows can be have the "o" repeated
+  ;; without C-x to continue switching to other windows.
   (repeat-mode 1)
   ;; Unbind C-z from suspending the current Emacs frame.
   ;; This stops me from accidentally minimizing Emacs when running graphically.
