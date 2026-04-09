@@ -29,9 +29,17 @@
 
 (use-package emacs
   :ensure nil ;; built-in
-  ;; This is usually bound by default, but sometimes it does not take effect.
-  ;; We manually bind it here, just so we always get keybindings that we want.
-  :bind (("M-<delete>" . #'backwards-kill-word))
+  :bind (
+         ;; This is usually bound by default, but sometimes it does not take
+         ;; effect. We manually bind it here, just so we always get keybindings
+         ;; that we want.
+         ("M-<delete>" . #'backwards-kill-word)
+         ;; I want a keybinding to quickly revert buffers, since sometimes Magit
+         ;; doesn't do it.
+         ("C-c g" . revert-buffer)
+         ("C-c w" . whitespace-mode))
+  :hook
+  ((before-save . delete-trailing-whitespace))
   :config
   ;; Allow some keychords to be repeated without their prefix. For example,
   ;; using C-x o to switch multiple windows can be have the "o" repeated
@@ -70,7 +78,49 @@
   ;; I almost never use `delete-pair', but let's make it behave like `kill-sexp'.
   (delete-pair-blink-delay 0)
   ;; Turn on column numbers in ALL major modes
-  (column-number-mode 1))
+  (column-number-mode 1)
+  ;; Disable the visual bell
+  (visible-bell nil)
+  ;; Don't make a ding when failing command
+  (ring-bell-function #'ignore)
+
+  ;; I choose to remove the backup~ files because I don't want to have to add every one of those files
+  ;; to the .gitignore for projects.
+  ;; Besides, auto-saving happens frequently enough for it to not really matter.
+  ;; Allow the #auto-save# files. They are removed upon buffer save anyways
+  (auto-save-default t)
+  ;; Do not auto-disable auto-save after deleting large chunks of
+  ;; text. The purpose of auto-save is to provide a failsafe, and
+  ;; disabling it contradicts this objective.
+  (auto-save-include-big-deletions t)
+  ;; Do not delete auto-save files when I kill a buffer. Just leave them sitting
+  ;; around for later clean-up.
+  (kill-buffer-delete-auto-save-files nil)
+  ;; Disable backup~ files
+  (make-backup-files nil)
+  ;; Disable .#lockfile files
+  (create-lockfiles nil)
+
+  ;; Never ask whether or not to follow symlinks
+  (vc-follow-symlinks t)
+  ;; Transparently open compressed files
+  (auto-compression-mode t)
+
+  ;; NOTE: Emacs calls refreshing a buffer a revert.
+  ;; Unless you have modifications in memory that are not saved to the disk, then you will be fine.
+  ;; Auto refresh buffers
+  (global-auto-revert-mode t)
+  ;; Also refresh dired, but quietly
+  ;; Allow buffers not attached to a file to refresh themselves. Important for
+  ;; making dired useful
+  (global-auto-revert-non-file-buffers t)
+  ;; Usually, a message is generated everytime a buffer is reverted and placed in the *Messages* buffer.
+  ;; But not now.
+  (auto-revert-verbose nil)
+  ;; Show keystrokes in progress more quickly than default
+  (echo-keystrokes 0.75)
+  ;; ALWAYS ask for confirmation before exiting Emacs
+  (confirm-kill-emacs 'y-or-n-p))
 
 ;; Use special line-highlighting for line-oriented or text-oriented buffers.
 (use-package lin
@@ -142,36 +192,6 @@
 ;;         ("GOTCHA" . "#FF4500")
 ;;         ("STUB"   . "#1E90FF")))
 
-;; Automatic file creation/manipulation/backups
-;; I choose to remove the backup~ files because I don't want to have to add every one of those files
-;; to the .gitignore for projects.
-;; Besides, auto-saving happens frequently enough for it to not really matter.
-(setq auto-save-default t) ;; Allow the #auto-save# files. They are removed upon buffer save anyways
-;; Do not auto-disable auto-save after deleting large chunks of
-;; text. The purpose of auto-save is to provide a failsafe, and
-;; disabling it contradicts this objective.
-(setq auto-save-include-big-deletions t)
-;; Do not delete auto-save files when I kill a buffer. Just leave them sitting
-;; around for later clean-up.
-(setq kill-buffer-delete-auto-save-files nil)
-
-(setq make-backup-files nil) ;; Disable backup~ files
-(setq create-lockfiles nil) ;; Disable .#lockfile files
-(setq vc-follow-symlinks t) ;; Never ask whether or not to follow symlinks
-
-;; Disable some minor disturbances that I find quite annoying.
-(setq visible-bell nil) ;; Disable the visual bell
-(setq ring-bell-function #'ignore) ;; Don't make a ding when failing command
-
-;; NOTE: Emacs calls refreshing a buffer a revert.
-;; Unless you have modifications in memory that are not saved to the disk, then you will be fine.
-(setq global-auto-revert-mode t) ;; Auto refresh buffers
-;; Also refresh dired, but quietly
-(setq global-auto-revert-non-file-buffers t) ;; Allow buffers not attached to a file to refresh themselves
-;; Usually, a message is generated everytime a buffer is reverted and placed in the *Messages* buffer.
-(setq auto-revert-verbose nil) ;; But not right now.
-(auto-compression-mode t) ;; Transparently open compressed files
-
 (use-package compile
   :ensure nil ;; built-in
   :defer t
@@ -183,18 +203,6 @@
   (compilation-scroll-output t)
   ;; Tell subprocesses they can emit color/escape codes
   (compilation-environment '("TERM=xterm-256color")))
-
-;; Show keystrokes in progress more quickly than default
-(setq echo-keystrokes 0.75)
-
-;; ALWAYS ask for confirmation before exiting Emacs
-(setq confirm-kill-emacs 'y-or-n-p)
-
-;; ANYTHING that should happen before saving ANY buffers should be put here.
-(add-hook 'before-save-hook #'delete-trailing-whitespace)
-
-;; I want a keybinding to quickly revert buffers, since sometimes Magit doesn't do it.
-(keymap-global-set "C-c g" 'revert-buffer)
 
 ;; Try to use UTF-8 for everything
 (set-language-environment "UTF-8")
@@ -274,8 +282,6 @@ Use with `battery-mode-line-format' variable.")
 (use-package scratch
   :ensure t
   :bind (("C-c s" . #'scratch)))
-
-(keymap-global-set "C-c w" 'whitespace-mode)
 
 
 ;; Set my preferred font style.
