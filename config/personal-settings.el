@@ -353,10 +353,13 @@ currently running on.")
 ;;; For example, C-x o runs the command (other-window) by default.
 ;;; Add keybindings for moving between windows in certain directions.
 ;;; These were originally set to S-direction.
-(keymap-global-set "C-c C-b" #'windmove-left)
-(keymap-global-set "C-c C-n" #'windmove-down)
-(keymap-global-set "C-c C-p" #'windmove-up)
-(keymap-global-set "C-c C-f" #'windmove-right)
+(use-package emacs
+  :ensure nil
+  :bind (
+         ("C-c C-b" . windmove-left)
+         ("C-c C-n" . windmove-down)
+         ("C-c C-p" . windmove-up)
+         ("C-c C-f" . windmove-right)))
 
 
 ;;;
