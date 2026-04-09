@@ -14,7 +14,13 @@
   ;; at you shell) ignored duplicated lines.
   (comint-input-ignoredups t)
   ;; Announce terminal as xterm-256color for proper color support
-  (comint-terminfo-terminal "xterm-256color"))
+  (comint-terminfo-terminal "xterm-256color")
+  ;; Don't force point to follow output (lets you read earlier output while new output arrives)
+  (comint-move-point-for-output nil)
+  ;; Don't force-scroll to bottom on every output
+  (comint-scroll-show-maximum-output nil)
+  ;; Auto-scroll to bottom when you type input
+  (comint-scroll-to-bottom-on-input t))
 
 (provide 'comint-config)
 ;;; comint-config.el ends here
