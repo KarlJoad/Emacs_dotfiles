@@ -12,7 +12,9 @@
   (comint-buffer-maximum-size (* 2 1024))
   ;; Make sure that comint (and anything that inherits from comint, I'm looking
   ;; at you shell) ignored duplicated lines.
-  (comint-input-ignoredups t))
+  (comint-input-ignoredups t)
+  ;; Announce terminal as xterm-256color for proper color support
+  (comint-terminfo-terminal "xterm-256color"))
 
 (provide 'comint-config)
 ;;; comint-config.el ends here
