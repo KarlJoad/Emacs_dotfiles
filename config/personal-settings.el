@@ -175,6 +175,9 @@
 (use-package compile
   :ensure nil ;; built-in
   :defer t
+  :hook
+  ;; Render ANSI color codes in compilation buffers
+  ((compilation-filter . ansi-color-compilation-filter))
   :custom
   ;; Have Emacs always follow compilation outputs in the Compile buffers.
   (compilation-scroll-output t))
