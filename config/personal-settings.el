@@ -38,6 +38,10 @@
   ;; This stops me from accidentally minimizing Emacs when running graphically.
   ;; You can still access this with C-x C-z (which is a default keybinding).
   (keymap-global-unset "C-z")
+  ;; Show line numbers everywhere
+  (global-display-line-numbers-mode)
+  ;; Have line with my cursor highlighted
+  (global-hl-line-mode 1)
   :custom
   ;; Make Emacs treat manual and programmatic buffer switches the same. This
   ;; works by making `switch-to-buffer' actually use `pop-to-buffer-same-window'
@@ -61,12 +65,9 @@
   (redisplay-skip-fontification-on-input t)
   ;; Do not delay the delete-pair. That just makes things feel slow.
   ;; I almost never use `delete-pair', but let's make it behave like `kill-sexp'.
-  (delete-pair-blink-delay 0))
-
-;;;; Turn on Line numbering
-(global-display-line-numbers-mode) ;; Show line numbers everywhere
-(setq column-number-mode 1) ;; Turn on column numbers in ALL major modes
-(global-hl-line-mode 1) ;; Have line with my cursor highlighted
+  (delete-pair-blink-delay 0)
+  ;; Turn on column numbers in ALL major modes
+  (column-number-mode 1))
 
 ;; Use special line-highlighting for line-oriented or text-oriented buffers.
 (use-package lin
