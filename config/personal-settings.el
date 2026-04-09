@@ -34,6 +34,10 @@
   :bind (("M-<delete>" . #'backwards-kill-word))
   :config
   (repeat-mode 1)
+  ;; Unbind C-z from suspending the current Emacs frame.
+  ;; This stops me from accidentally minimizing Emacs when running graphically.
+  ;; You can still access this with C-x C-z (which is a default keybinding).
+  (keymap-global-unset "C-z")
   :custom
   ;; Make Emacs treat manual and programmatic buffer switches the same. This
   ;; works by making `switch-to-buffer' actually use `pop-to-buffer-same-window'
@@ -58,11 +62,6 @@
   ;; Do not delay the delete-pair. That just makes things feel slow.
   ;; I almost never use `delete-pair', but let's make it behave like `kill-sexp'.
   (delete-pair-blink-delay 0))
-
-;; Unbind C-z from suspending the current Emacs frame.
-;; This stops me from accidentally minimizing Emacs when running graphically.
-;; You can still access this with C-x C-z (which is a default keybinding).
-(keymap-global-unset "C-z")
 
 ;;;; Turn on Line numbering
 (global-display-line-numbers-mode) ;; Show line numbers everywhere
