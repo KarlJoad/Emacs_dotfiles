@@ -57,7 +57,9 @@
          :map mu4e-main-mode-map
          ;; ("m" . 'karljoad/set-sendmail-program)
          ("S" . 'karljoad/send-queued-mail)
-         ("f" . 'karljoad/send-queued-mail))
+         ("f" . 'karljoad/send-queued-mail)
+         :map mu4e-compose-mode-map
+         ("M-$" . ispell-message))
   :hook ((mu4e-compose-mode . karljoad/encrypt-responses)
          ;; When writing an email, a file is created in `mu4e-drafts-folder',
          ;; which keeps copies of the message as I write it. However, using the
