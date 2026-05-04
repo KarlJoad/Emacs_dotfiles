@@ -228,7 +228,13 @@
   (set-selection-coding-system 'utf-8)
   (prefer-coding-system 'utf-8) ;; Catch-all
   :custom
-  (locale-coding-system 'utf-8))
+  (locale-coding-system 'utf-8)
+  ;; Assume L->R text. I don't use any languages that are right-to-left, so this
+  ;; will generally make text display faster by skipping the bidirectional
+  ;; parenthesis algorithm.
+  (bidi-display-reordering 'left-to-right)
+  (bidi-paragraph-direction 'left-to-right)
+  (bidi-inhibit-bpa t))
 
 ;; Sentences DO NOT need 2 spaces to end.
 (setq-default sentence-end-double-space nil)
