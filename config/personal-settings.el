@@ -89,6 +89,11 @@
   ;; and M-y behave the same regardless of what was copy-pasted from where.
   (save-interprogram-paste-before-kill t)
 
+  ;; After invoking Emacs' help system, automatically select the buffer & window
+  ;; containing the help information. The default is to leave your cursor alone,
+  ;; which is annoying to remember.
+  (help-window-select t)
+
   ;; I choose to remove the backup~ files because I don't want to have to add every one of those files
   ;; to the .gitignore for projects.
   ;; Besides, auto-saving happens frequently enough for it to not really matter.
