@@ -15,6 +15,12 @@
   ;; Make sure that comint (and anything that inherits from comint, I'm looking
   ;; at you shell) ignored duplicated lines.
   (comint-input-ignoredups t)
+  ;; Use isearch-style history navigation (dwim = up/down + C-r both work)
+  (comint-history-isearch 'dwim)
+  ;; Expand history references (e.g. !!, !$) on input
+  (comint-input-autoexpand t)
+  ;; Yank previous arguments from the end (like bash M-.)
+  (comint-insert-previous-argument-from-end t)
   ;; Announce terminal as xterm-256color for proper color support
   (comint-terminfo-terminal "xterm-256color")
   ;; Don't force point to follow output (lets you read earlier output while new output arrives)
