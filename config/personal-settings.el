@@ -39,7 +39,10 @@
          ("C-c g" . revert-buffer)
          ("C-c w" . whitespace-mode))
   :hook
-  ((before-save . delete-trailing-whitespace))
+  ((before-save . delete-trailing-whitespace)
+   ;; If you create a file in Emacs that starts with a shebang, Emacs will
+   ;; automatically chmod u+x it for you.
+   (after-save . executable-make-buffer-file-executable-if-script-p))
   :config
   ;; Allow some keychords to be repeated without their prefix. For example,
   ;; using C-x o to switch multiple windows can be have the "o" repeated
