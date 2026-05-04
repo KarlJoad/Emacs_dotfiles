@@ -62,8 +62,8 @@
   ;; which respects `display-buffer-alist'.
   (switch-to-buffer-obey-display-actions t)
   ;; Increase how much is read from processes in a single chunk. The default
-  ;; value of 4096 is a bit small; use 512k in this case.
-  (read-process-output-max (* 512 1024))
+  ;; value of 4096 is a bit small; use 4M in this case.
+  (read-process-output-max (* 4 1024 1024))
   ;; According to the POSIX, a line is defined as "a sequence of zero or
   ;; more non-newline characters followed by a terminating newline".
   (require-final-newline t)
