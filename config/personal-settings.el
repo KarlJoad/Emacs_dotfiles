@@ -135,6 +135,15 @@
   ;; ALWAYS ask for confirmation before exiting Emacs
   (confirm-kill-emacs 'y-or-n-p))
 
+(use-package emacs
+  :ensure nil
+  :defer nil
+  :when (>= emacs-major-version 30)
+  :config
+  ;; Highlight the structure of your regexp as you type it in the minibuffer.
+  ;; Capture groups, character classes, and other constructs get color-coded.
+  (minibuffer-regexp-mode 1))
+
 ;; Use special line-highlighting for line-oriented or text-oriented buffers.
 (use-package lin
   :ensure t
